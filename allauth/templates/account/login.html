@@ -1,0 +1,85 @@
+{% extends "logbase.html" %}
+
+{% load i18n %}
+
+
+{% block content %}
+
+{% load static %}
+
+ <div class="lc-block toggled" id="l-register">
+
+  <a href="/" style="font-size:18px">
+        <img src="{% static 'img/login-logo.svg' %}" alt="client" style="width:145px;">
+<!--         <span style="padding-left:5px;"><strong>CLOUD-TCO</strong></span>
+ -->  </a><br><br>
+           
+
+
+
+<form class="login" method="POST" action="{% url 'account_login' %}">
+  {% csrf_token %}
+
+
+<!--    <div> <p style="color:red;">{{form.errors.as_text|slice:"11:"}}</p></div>
+ -->
+
+    <div> <h5 style="color:red;text-decoration: none !important;">{{form.non_field_errors}}</h5></div>
+
+  <div class="input-group m-b-20">
+      <span class="input-group-addon"><i class="zmdi zmdi-account"></i></span>
+        <div class="fg-line">
+
+            {{form.login}}   
+            
+         </div>
+    </div>
+
+ <div> <p style="color:red;">{{ form.login.errors.as_text }}</p></div>
+    <div class="input-group m-b-20">
+      <span class="input-group-addon"><i class="zmdi zmdi-lock-outline"></i></span>
+        <div class="fg-line">
+
+            {{form.password}}   
+            
+         </div>
+    </div>
+    <div> <p style="color:red;">{{ form.password.errors.as_text }}</p></div>
+
+
+<!--   {{ form.as_p }}
+ -->
+
+
+
+  {% if redirect_field_value %}
+  <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+  {% endif %}
+
+
+<a href="/">Back</a> |
+  <a class="button secondaryAction" href="{% url 'account_reset_password' %}">{% trans "Forgot Password?" %}</a>
+
+<!--   <button class="primaryAction" type="submit">{% trans "Sign In" %}</button>
+ -->
+   <!-- <button class="btn btn-login btn-primary btn-float" type="submit"><i class="zmdi zmdi-arrow-forward"></i></button> -->
+
+ <button class="btn btn-login btn-success btn-float" type="submit" ><i class="zmdi zmdi-arrow-forward"></i></button>
+
+ 
+
+</form>
+<!-- 
+<a href="/"><button class="btn btn-login1 btn-primary btn-float" type="submit" ><i class="zmdi zmdi-arrow-left"></i></button></a> 
+ </div> -->
+<!-- <style>
+.lc-block:not(.lcb-alt) .btn-login1 {
+  top: 50%;
+  margin-top: -25px;
+  left: -25px;
+}
+</style>
+ -->
+
+
+{% endblock %}

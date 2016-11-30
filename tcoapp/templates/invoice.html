@@ -1,0 +1,250 @@
+{%load static%}
+{% block content%}
+
+<style>
+
+.bgm-blue1{background-color: #64B5F6;}
+.bgm-blue2{background-color: #42A5F5;}
+.bgm-blue3{background-color: #2196F3;}
+.bgm-blue4{background-color: #1E88E5;}
+
+</style>
+
+           
+<div class="card">
+    <div class="card-header ch-alt text-center">
+         <img class="i-logo" src="{% static 'img/logo.png' %}" alt="" style="width:36px;"><h2>CLOUD-TCO</h2>
+      
+    </div>
+                        
+    <div class="card-body card-padding">
+
+        <div class="row m-b-25">
+            
+                <div class="col-xs-6">
+                    <div class="text-right">
+                        <p class="c-gray">Invoice from</p>
+                        
+                        <h4>Cloud-TCO</h4>
+                        
+                        <span class="text-muted">
+                            <address>
+                                Madhapur 
+                                Hightech City, Hyderabade<br>
+                                Telanagana, India.
+                            </address>
+
+                            0097154686384<br/>
+                            david.atom@ddesign.com
+                        </span>
+                    </div>
+                </div>
+                                
+                <div class="col-xs-6">
+                    <div class="i-to">
+                        <p class="c-gray">Invoice to</p>
+                        
+                        <h4>{{request.user.username}}</h4>
+                        
+                        <span class="text-muted">
+                            <address>
+                                -------------
+                                ----------<br>
+                                -----------.
+                            </address>
+
+                            00971123456789<br/>
+                            {{request.user.email}}
+                        </span>
+                    </div>
+                </div>
+                                
+        </div>
+                            
+        <div class="clearfix"></div>
+                            
+                            
+        <div class="row m-t-25 p-0 m-b-25">
+                               
+            <div class="col-xs-3">
+                <div class="bgm-blue1 brd-2 p-15" style="color:red !important;">
+                    <div class="c-white m-b-5">Invoice</div>
+                    <h2 class="m-0 c-white f-300">{{invoice_num}}</h2>
+                </div>
+            </div>
+                                
+            <div class="col-xs-3">
+                <div class="bgm-blue2 brd-2 p-15">
+                    <div class="c-white m-b-5">Date</div>
+                    <h2 class="m-0 c-white f-300">{{date}}</h2>
+                </div>
+            </div>
+                                
+            <div class="col-xs-3">
+                <div class="bgm-blue3 brd-2 p-15">
+                    <div class="c-white m-b-5">Architecture</div>
+                    <h2 class="m-0 c-white f-300 f-300-arch">{{archname}}</h2>
+                </div>
+            </div>
+                                
+            <div class="col-xs-3">
+                <div class="bgm-blue4 brd-2 p-15">
+                    <div class="c-white m-b-5">Grand Total</div>
+                    <h2 class="m-0 c-white f-300 f-300-grndtotl">${{grand_total}}</h2>
+                </div>
+            </div>
+                            
+        </div>
+            
+
+        <div class="clearfix"></div>
+            
+
+        <table class="table i-table m-t-25" style="max-width:65%;margin:auto;">
+
+            <thead class="text-uppercase">
+                <th class="c-gray">ARCHITECTURE DESCRIPTION</th>
+                
+                <th class="c-gray " style="width:40px;">Price Per Unit</th>
+                <th class="c-gray " style="width:40px;">Qty</th>
+                <th class="c-gray text-center" style="width:40px;">PRICE</th>
+            </thead>
+                                
+            <tbody>
+                <thead>
+                    <tr>
+                        <td width="">
+                            <h5 class="text-uppercase f-400">Amazon EC2 Service</h5>   
+                        </td>
+                        <td></td>
+                        <td></td>
+                        <td class="highlight text-right" ></td>
+                    </tr>
+                    
+                    <tr>
+                        <td>                                             
+                            <h5 class="text-muted">{{ec2_name}}</h5> 
+                        </td>
+                        <td>${{single_unit_ec2_daily}}</td>
+                        <td>{{ec2_qty}}</td>
+                        <td class="highlight text-right">${{total_ec2}}</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>
+                            <h5 class="text-uppercase f-400">Amazon RDS Service</h5>  
+                        </td>
+                        <td></td>
+                        <td></td>
+                        <td class="highlight text-right"></td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            <h5 class="text-muted">{{rds_name}}</h5> 
+                        </td>
+                        <td>${{single_rds}}</td>
+                        <td>{{rds_qty}}</td>
+                        <td class="highlight text-right">${{total_rds}}</td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            <h5 class="text-uppercase f-400">AWS S3 Storage Service</h5>
+                        </td>
+                        <td></td>
+                        <td></td>
+                        <td class="highlight text-right"></td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            <h5 class="text-muted">{{s3_name}}</h5> 
+                        </td>
+                        <td>${{single_s3}}</td>
+                        <td>{{s3_qty}}</td>
+                        <td class="highlight text-right">${{total_s3}}</td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            <h5 class="text-uppercase f-400">AWS Load Balancer Service</h5>                            
+                        </td>
+                        <td></td>
+                        <td></td>
+                        <td class="highlight text-right"></td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            <h5 class="text-muted">{{load_name}}</h5> 
+                        </td>
+                        <td>${{single_load}}</td>
+                        <td>{{load_qty}}</td>
+                        <td class="highlight text-right">${{total_load}}</td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            <h5 class="text-muted" style="font-weight:bold">Total {{type_pay}} Payment:</h5> 
+                        </td>
+                        <td></td>
+                        <td></td>
+                        <td class="highlight text-right" style="font-weight:bold">${{grand_total}}</td>
+                    </tr>
+             
+                </thead> 
+            </tbody>
+                                      
+        </table>
+                            
+        <div class="clearfix"></div>
+                            
+        <div class="p-25">
+
+            <h4 class="c-green f-400">REMARKS</h4>
+                <p class="c-gray">Ornare non tortor. Nam quis ipsum vitae dolor porttitor interdum. Curabitur faucibus erat vel ante fermentum lacinia. Integer porttitor laoreet suscipit. Sed cursus cursus massa ut pellentesque. Phasellus vehicula dictum arcu, eu interdum massa bibendum.</p>
+
+                <br/>
+                
+                <h4 class="c-green f-400">MERCY FOR YOUR BUSINESS</h4>
+                    <p class="c-gray">Proin ac iaculis metus. Etiam nisi nulla, fermentum blandit consectetur sed, ornare non tortor. Nam quis ipsum vitae dolor porttitor interdum. Curabitur faucibus erat vel ante fermentum lacinia. Integer porttitor laoreet suscipit. Sed cursus cursus massa ut pellentesque. Phasellus vehicula dictum arcu, eu interdum massa bibendum sit amet.</p>
+                            
+            </div>
+
+        <div id="paymnts-term-error-msg"><p style="color:red;display:block; margin:auto; max-width: 274px;"></p>
+        </div>
+
+
+        <div class="has-success" style="display:block; margin:auto; max-width: 187px;">
+                                
+            <div class="checkbox" >
+
+                <label>
+                    <input type="checkbox" value="" id="paymnts-term">
+                    <i class="input-helper"></i>
+                    I agree terms & conditions. <br/><br/>
+
+                 </label>
+                
+                <button class="btn btn-success pull-left"  type="button" id="confirm-payment">Confirm Payment&nbsp;<i class="zmdi zmdi-chevron-right"></i><i class="zmdi zmdi-chevron-right"></i></button> 
+
+            </div>
+        </div>
+
+    </div>
+                        
+    <footer class="m-t-15 p-20">
+
+        <ul class="list-inline text-center list-unstyled">
+            <li class="m-l-5 m-r-5"><small>support@infomagnum.com</small></li>
+            <!-- <li class="m-l-5 m-r-5"><small>00971 452 9900</small></li> -->
+            <li class="m-l-5 m-r-5"><small>www.cloud-tco.com</small></li>
+        </ul>
+
+    </footer>
+</div>
+
+               
+    {%endblock%}
+  

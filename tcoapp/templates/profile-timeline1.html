@@ -1,0 +1,552 @@
+{%load static%}
+<!DOCTYPE html>
+    <!--[if IE 9 ]><html class="ie9"><![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Cloud-TCO</title>
+    
+        <!-- Vendor CSS -->
+        <link href="{% static 'vendors/bower_components/animate.css/animate.min.css' %}" rel="stylesheet">
+        <link href="{% static 'vendors/bower_components/bootstrap-sweetalert/lib/sweet-alert.css' %}" rel="stylesheet">
+        <link href="{% static 'vendors/bower_components/material-design-iconic-font/dist/css/material-design-iconic-font.min.css' %}" rel="stylesheet">
+        <link href="{% static 'vendors/bower_components/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.min.css' %}" rel="stylesheet">        
+        <link href="{% static 'vendors/bower_components/lightgallery/light-gallery/css/lightGallery.css' %}" rel="stylesheet">
+            
+        <!-- CSS -->
+        <link href="{% static 'css/app.min.1.css" rel="stylesheet' %}">
+        <link href="{% static 'css/app.min.2.css" rel="stylesheet' %}">
+    </head>
+    
+<body>
+        
+    <header id="header" class="clearfix" data-current-skin="lightblue">
+            
+        <ul class="header-inner">
+               
+            <li class="logo">
+                <a href="/" style="text-decoration:none;">
+                    <img src="{% static 'img/cloud_logo.svg' %}" alt="client" style="width:147px;">
+                </a>
+            </li>
+
+            <li class="pull-right">
+                <ul class="top-menu">
+                       
+                    <li>
+                        <a href="/tco/architecture"> <i class="tm-icon zmdi zmdi-home"></i></a>
+                    </li>
+
+                    <li class="dropdown">
+                        <a data-toggle="dropdown" href=""><i class="tm-icon zmdi zmdi-account-circle"></i> </a>
+
+                        <ul class="dropdown-menu dm-icon pull-right">
+                            <li class="">
+                               <a href="/tco/profile/"><i class="zmdi zmdi-account"></i> View Profile</a>
+                            </li>
+                            
+                            <li>
+                                <a href="/tco/privacy"><i class="zmdi zmdi-face"></i> Privacy Settings</a>
+                            </li>
+
+                            <li>
+                                <a href="/tco/logout"><i class="zmdi zmdi-time-restore"></i> Logout</a>
+                            </li>
+
+                        </ul>
+                    </li>
+
+                </ul>
+            </li>
+        </ul>
+
+
+
+            <!-- Top Search Content -->
+            <div id="top-search-wrap">
+                <div class="tsw-inner">
+                    <i id="top-search-close" class="zmdi zmdi-arrow-left"></i>
+                    <input type="text">
+                </div>
+            </div>
+        </header>
+        
+
+    <section id="main">
+            
+    <section id="content" style="padding-left: 0px !important;">
+
+        <div class="container">
+                    
+          <div class="block-header">
+            <h2>{{request.user.username}} <small>{{request.user.email}}</small></h2> 
+          </div> 
+                    
+            <div class="card c-timeline">
+                        
+                <div class="pm-overview c-overflow">
+
+                   <!--  <div class="pmo-pic">
+                   
+                        <div class="p-relative">
+                            <a>
+                                <img class="img-responsive" 
+                                src="{% static 'img/profile-pics/8.jpg' %}" alt=""> 
+                            </a>
+                            
+                        
+                           <a href="" class="pmop-edit">
+                                <i class="zmdi zmdi-camera"></i> <span class="hidden-xs">Update Profile Picture</span>
+                            </a>
+                        </div>
+                                               
+                    </div> -->
+                            
+                            <!-- <div class="pmo-block pmo-contact hidden-xs">
+                                <h2>Contact</h2>
+                                
+                                <ul>
+                                    <li><i class="zmdi zmdi-phone"></i> 00971 12345678 9</li>
+                                    <li><i class="zmdi zmdi-email"></i> malinda-h@gmail.com</li>
+                                    <li><i class="zmdi zmdi-facebook-box"></i> malinda.hollaway</li>
+                                    <li><i class="zmdi zmdi-twitter"></i> @malinda (twitter.com/malinda)</li>
+                                    <li>
+                                        <i class="zmdi zmdi-pin"></i>
+                                        <address class="m-b-0 ng-binding">
+                                            44-46 Morningside Road,<br>
+                                            Edinburgh,<br>
+                                            Scotland
+                                        </address>
+                                    </li>
+                                </ul>
+                            </div> -->
+                            
+                            
+                        </div>
+                        
+                        <div class="pm-body clearfix">
+                            <ul class="tab-nav tn-justified">
+                                <li class="waves-effect"><a href="/tco/profile">profile</a></li>
+                                <li class="active waves-effect"><a href="/tco/dashboard">Dashboard</a></li>
+                                <li class="waves-effect"><a href="/tco/monitoring">Launch Architectures</a></li>
+                               <!--  <li class="waves-effect"><a href="profile-connections.html">Connections</a></li> -->
+                            </ul>
+                            
+                            
+                            <div class="timeline">
+
+
+
+
+
+                    
+                    <div class="row">
+
+                    <div class="mini-charts">
+<!--                         <div class="row">
+ -->                            <div class="col-sm-3">
+                                <div class="mini-charts-item bgm-cyan">
+                                    <div class="clearfix">
+                                        <div class="chart stats-bar"></div>
+                                        <div class="count">
+                                            <small>Website Traffics</small>
+                                            <h2>987,459</h2>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="col-sm-3">
+                                <div class="mini-charts-item bgm-lightgreen">
+                                    <div class="clearfix">
+                                        <div class="chart stats-bar-2"></div>
+                                        <div class="count">
+                                            <small>Website Impressions</small>
+                                            <h2>356,785K</h2>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="col-sm-3">
+                                <div class="mini-charts-item bgm-orange">
+                                    <div class="clearfix">
+                                        <div class="chart stats-line"></div>
+                                        <div class="count">
+                                            <small>Total Sales</small>
+                                            <h2>$ 458,778</h2>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="col-sm-3">
+                                <div class="mini-charts-item bgm-bluegray">
+                                    <div class="clearfix">
+                                        <div class="chart stats-line-2"></div>
+                                        <div class="count">
+                                            <small>Support Tickets</small>
+                                            <h2>23,856</h2>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            
+                            <div class="col-sm-3">
+                                <div class="mini-charts-item bgm-teal">
+                                    <div class="clearfix">
+                                        <div class="chart chart-pie stats-pie"></div>
+                                        <div class="count">
+                                            <small>Percentage</small>
+                                            <h2>99.87%</h2>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="col-sm-3">
+                                <div class="mini-charts-item bgm-red">
+                                    <div class="clearfix">
+                                        <div class="chart stats-line"></div>
+                                        <div class="count">
+                                            <small>Total Sales</small>
+                                            <h2>$ 458,778</h2>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="col-sm-3">
+                                <div class="mini-charts-item bgm-blue">
+                                    <div class="clearfix">
+                                        <div class="chart chart-pie stats-pie"></div>
+                                        <div class="count">
+                                            <small>Percentage</small>
+                                            <h2>99.87%</h2>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="col-sm-3">
+                                <div class="mini-charts-item bgm-pink">
+                                    <div class="clearfix">
+                                        <div class="chart stats-bar"></div>
+                                        <div class="count">
+                                            <small>Website Traffics</small>
+                                            <h2>987,459</h2>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                      <!--   </div> -->
+                    </div>
+
+
+
+
+
+
+<!--                         <div class="col-md-6">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h2>Line Chart with curved edges <small>Curved edges made possible using curvedLines Flot plugin.</small></h2>
+                            
+                                    <ul class="actions">
+                                        <li class="dropdown action-show">
+                                            <a href="" data-toggle="dropdown">
+                                                <i class="zmdi zmdi-more-vert"></i>
+                                            </a>
+                            
+                                            <div class="dropdown-menu pull-right">
+                                                <p class="p-20">
+                                                    You can put anything here
+                                                </p>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            
+                                <div class="card-body">
+                                    <div class="chart-edge">
+                                        <div id="curved-line-chart" class="flot-chart"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-6">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h2>Lines Chart <small>Same above example without curved edges.</small></h2>
+                                    
+                                    <ul class="actions">
+                                        <li class="dropdown action-show">
+                                            <a href="" data-toggle="dropdown">
+                                                <i class="zmdi zmdi-more-vert"></i>
+                                            </a>
+                            
+                                            <div class="dropdown-menu pull-right">
+                                                <p class="p-20">
+                                                    You can put anything here
+                                                </p>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="card-body">
+                                    <div class="chart-edge">
+                                        <div id="line-chart" class="flot-chart"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div> 
+ -->
+
+
+
+
+                        
+                        <div class="col-md-6">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h2>Bar Chart</h2>
+                                    
+                                    <ul class="actions">
+                                        <li class="dropdown action-show">
+                                            <a href="" data-toggle="dropdown">
+                                                <i class="zmdi zmdi-more-vert"></i>
+                                            </a>
+                            
+                                            <div class="dropdown-menu pull-right">
+                                                <p class="p-20">
+                                                    You can put anything here
+                                                </p>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="card-body card-padding-sm">
+                                    <div id="bar-chart" class="flot-chart"></div>
+                                    <div class="flc-bar"></div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-6">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h2>Dynamic Chart</h2>
+                                    
+                                    <ul class="actions">
+                                        <li class="dropdown action-show">
+                                            <a href="" data-toggle="dropdown">
+                                                <i class="zmdi zmdi-more-vert"></i>
+                                            </a>
+                            
+                                            <div class="dropdown-menu pull-right">
+                                                <p class="p-20">
+                                                    You can put anything here
+                                                </p>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="card-body card-padding-sm">
+                                    <div id="dynamic-chart" class="flot-chart"></div>
+                                    <div class="flc-dynamic"></div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-6">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h2>Pie Chart</h2>
+                                    
+                                    <ul class="actions">
+                                        <li class="dropdown action-show">
+                                            <a href="" data-toggle="dropdown">
+                                                <i class="zmdi zmdi-more-vert"></i>
+                                            </a>
+                            
+                                            <div class="dropdown-menu pull-right">
+                                                <p class="p-20">
+                                                    You can put anything here
+                                                </p>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="card-body card-padding">
+                                    <div id="pie-chart" class="flot-chart-pie"></div>
+                                    <div class="flc-pie hidden-xs"></div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-6">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h2>Donut Chart</h2>
+                                    
+                                    <ul class="actions">
+                                        <li class="dropdown action-show">
+                                            <a href="" data-toggle="dropdown">
+                                                <i class="zmdi zmdi-more-vert"></i>
+                                            </a>
+                            
+                                            <div class="dropdown-menu pull-right">
+                                                <p class="p-20">
+                                                    You can put anything here
+                                                </p>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="card-body card-padding">
+                                    <div id="donut-chart" class="flot-chart-pie"></div>
+                                    <div class="flc-donut hidden-xs"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                                
+
+
+
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </section>
+        
+        <!-- <footer id="footer">
+            Copyright &copy; 2015 Material Admin
+            
+            <ul class="f-menu">
+                <li><a href="">Home</a></li>
+                <li><a href="">Dashboard</a></li>
+                <li><a href="">Reports</a></li>
+                <li><a href="">Support</a></li>
+                <li><a href="">Contact</a></li>
+            </ul>
+        </footer>
+ -->
+        <footer id="footer">
+            Copyright &copy; 2016 Cloud-TCO
+            
+            <ul class="f-menu">
+                <li><a href="/tco/architecture">Home</a></li>
+<!--                 <li><a href="/tco/architecture">Dashboard</a></li>
+ -->                <!-- <li><a href="">Reports</a></li>
+                <li><a href="">Support</a></li>
+                <li><a href="">Contact</a></li> -->
+            </ul>
+        </footer>
+
+
+
+
+        <!-- Page Loader -->
+        <!-- <div class="page-loader">
+            <div class="preloader pls-blue">
+                <svg class="pl-circular" viewBox="25 25 50 50">
+                    <circle class="plc-path" cx="50" cy="50" r="20" />
+                </svg>
+
+                <p>Please wait...</p>
+            </div>
+        </div>
+ -->
+        <!-- Older IE warning message -->
+        <!--[if lt IE 9]>
+            <div class="ie-warning">
+                <h1 class="c-white">Warning!!</h1>
+                <p>You are using an outdated version of Internet Explorer, please upgrade <br/>to any of the following web browsers to access this website.</p>
+                <div class="iew-container">
+                    <ul class="iew-download">
+                        <li>
+                            <a href="http://www.google.com/chrome/">
+                                <img src="img/browsers/chrome.png" alt="">
+                                <div>Chrome</div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.mozilla.org/en-US/firefox/new/">
+                                <img src="img/browsers/firefox.png" alt="">
+                                <div>Firefox</div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="http://www.opera.com">
+                                <img src="img/browsers/opera.png" alt="">
+                                <div>Opera</div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.apple.com/safari/">
+                                <img src="img/browsers/safari.png" alt="">
+                                <div>Safari</div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="http://windows.microsoft.com/en-us/internet-explorer/download-ie">
+                                <img src="img/browsers/ie.png" alt="">
+                                <div>IE (New)</div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <p>Sorry for the inconvenience!</p>
+            </div>   
+        <![endif]-->
+    
+    
+        <!-- Javascript Libraries -->
+
+ <script src="{% static 'vendors/bower_components/jquery/dist/jquery.min.js' %}"></script>
+        <script src="{% static 'vendors/bower_components/bootstrap/dist/js/bootstrap.min.js' %}"></script>
+        
+                <script src="{% static 'vendors/bower_components/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js' %}"></script>
+        <script src="{% static 'vendors/bower_components/Waves/dist/waves.min.js' %}"></script>
+        <script src="{% static 'vendors/bootstrap-growl/bootstrap-growl.min.js' %}"></script>
+        <script src="{% static 'vendors/bower_components/bootstrap-sweetalert/lib/sweet-alert.min.js' %}"></script>
+        
+        <script src="{% static 'vendors/bower_components/flot/jquery.flot.js' %}"></script>
+        <script src="{% static 'vendors/bower_components/flot/jquery.flot.resize.js' %}"></script>
+        <script src="{% static 'vendors/bower_components/flot/jquery.flot.pie.js' %}"></script>
+        <script src="{% static 'vendors/bower_components/flot.tooltip/js/jquery.flot.tooltip.min.js' %}"></script>
+        <script src="{% static 'vendors/bower_components/flot-orderBars/js/jquery.flot.orderBars.js' %}"></script>
+        <script src="{% static 'vendors/bower_components/flot.curvedlines/curvedLines.js' %}"></script>                         
+        <script src="{% static 'vendors/bower_components/flot-orderBars/js/jquery.flot.orderBars.js' %}"></script>
+        
+        <!-- Placeholder for IE9 -->
+        <!--[if IE 9 ]>
+            <script src="vendors/bower_components/jquery-placeholder/jquery.placeholder.min.js"></script>
+        <![endif]-->
+
+        
+        <!-- Charts - Please read the read-me.txt inside the js folder-->
+        <script src="{% static 'js/flot-charts/curved-line-chart.js' %}"></script>
+        <script src="{% static 'js/flot-charts/line-chart.js' %}"></script>
+        <script src="{% static 'js/flot-charts/bar-chart.js' %}"></script>
+        <script src="{% static 'js/flot-charts/dynamic-chart.js' %}"></script>
+        <script src="{% static 'js/flot-charts/pie-chart.js' %}"></script>
+        
+        <script src="{% static 'js/functions.js' %}"></script> 
+       <!--  <script src="js/demo.js"></script> -->
+    
+    
+    </body>
+</html>

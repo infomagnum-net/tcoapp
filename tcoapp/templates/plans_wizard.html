@@ -1,0 +1,207 @@
+{%load static%}
+{% block content%}
+        
+ <div class="pmbb-body">
+    <div role="tabpanel" class="card">
+        
+        <ul class="tab-nav tn-justified">
+          <li class="active waves-effect"><a><h4>PAYMENT PLANS</h4></a></li>
+        </ul>
+              
+      <!-- Payment Plans  -->
+
+      <div class="col-md-12" style="padding:20px;">
+        <div class="card blog-post">
+          
+          <div class="col-md-6" style="padding:20px;">
+            <div class="bp-header text-center" id="jhsagah">
+
+              <img id="" src="{% static 'img/headers/7.png' %}"   style="background-color:#000;width:525px;height:300px;" class="img-responsive"/>
+                  
+              <a class="bp-title" style="background-color:#2196f3;">
+                 
+                  <h2 class="archiname">{{name}}</h2>
+                  <h4 class="text-center"  style="color:#fff;">{{price}}</h4>
+
+              </a>
+            </div>
+          </div>
+              
+          <div class="col-md-6" style="padding:20px;">
+            <div class="p-20">
+               <h4>Description</h4>
+                Pellentesque lacinia sagittis libero. Praesent vitae justo purus. In hendrerit lorem nisl, ac lacinia urna aliquet non. Quisque nisi tellus, rhoncus quis est sit amete in nisl molestie fringilla. Nunc vitae ante id magna feugiat condimentum. Maecenas sit amet urna massa.
+            </div>
+          </div>     
+
+      </div> 
+    </div>   
+                                           
+                                     
+    <div class="container">
+      <div class="pmbb-body">
+        <div id="pay-plans-btn">
+
+          <form method="post" action="/tco/payment/">
+                {% csrf_token %}
+
+            <!--Day Payment Plans  -->
+
+            <div class="col-sm-4">
+                <div class="bs-item z-depth-2">
+                  <div class="card pt-inner">
+                                
+                  <div class="pti-header bgm-amber">
+                      <h2 class="plan-btn daily-prices">${{day_price}} <small>| daily</small></h2>
+                      <div class="ptih-title packtype">Daily Pack</div>
+                  </div>
+  
+                  <div class="pti-body">
+                      <div class="ptib-item">
+                          Financial grid.
+                      </div>
+                      <div class="ptib-item">
+                         Elastic Map Reduce System
+                      </div>
+                     
+                  </div>
+                
+                  <div class="pti-footer">
+
+                    <button class="btn bgm-amber btn-circle btn-lg nextBtn bgm-cyan plan-btn" type="button" id="{{name}}" style="width:50px;height:50px;border-radius: 50px;font-size:16px;" name="daily"><i class="zmdi zmdi-check"></i></button>
+
+                  </div>
+                </div>
+              </div>
+            </div>  
+
+            <!--end Day Payment Plans  -->
+
+
+          </form>
+
+          <!--monthyly Payment Plans  -->
+
+          <div class="col-sm-4">
+            <div class="bs-item z-depth-2">
+              <div class="card pt-inner">
+                 
+                <div class="pti-header bgm-green">
+                  
+                  <h2 class="plan-btn monthly-price">${{month_price}} <small>| Monthly</small></h2>
+                  <div class="ptih-title packtype"> Monthly Pack</div>
+                
+                </div>
+  
+                <div class="pti-body">
+                    <div class="ptib-item">
+                       Web Front-End service 
+                    </div>
+                    <div class="ptib-item">
+                        Checkout Service
+                    </div>    
+                </div>
+  
+                <div class="pti-footer">
+
+                <button class="btn bgm-green btn-circle btn-lg nextBtn bgm-cyan plan-btn" type="button" id="{{name}}" style="width:50px;height:50px;border-radius: 50px;font-size:22px;" name="Mothly"><i class="zmdi zmdi-check"></i></button>
+                      
+                </div>
+
+
+              </div>
+            </div>
+          </div>
+                      <!--end monthly Payment Plans  -->
+
+              <!--yearly Payment Plans  -->
+
+          <div class="col-sm-4">
+            <div class="bs-item z-depth-2">
+              <div class="card pt-inner">
+                  
+                  <div class="pti-header bgm-cyan">
+                      
+                    <h2 class="plan-btn yearly-price">${{year_price}} <small>| Yearly</small></h2>
+                    <div class="ptih-title packtype">Yearly Pack</div>
+
+                  </div>
+  
+                  <div class="pti-body">
+                    <div class="ptib-item">
+                         HRMS system
+                    </div>
+
+                    <div class="ptib-item">
+                         HIS System
+                    </div>
+                      
+                  </div>
+  
+                  <div class="pti-footer">
+                     
+                       <button class="btn bgm-cyan btn-circle btn-lg nextBtn bgm-cyan plan-btn" type="button" id="{{name}}" style="width:50px;height:50px;border-radius: 50px;font-size:16px;" name="Yearly"><i class="zmdi zmdi-check" ></i></button>  
+ 
+                  </div>
+
+              </div>
+            </div>
+          </div>
+
+              <!--end yearly Payment Plans  -->
+
+        </div>            
+      </div>                     
+      </div>
+
+ <!--end Payment Plans  -->
+
+    </div>
+  </div>
+
+{% endblock %}
+
+<script type="text/javascript">
+  $(document).ready(function () {
+  var navListItems = $('div.setup-panel div a'),
+          allWells = $('.setup-content'),
+          allNextBtn = $('.nextBtn');
+
+  allWells.hide();
+
+  navListItems.click(function (e) {
+      e.preventDefault();
+      var $target = $($(this).attr('href')),
+              $item = $(this);
+
+      if (!$item.hasClass('disabled')) {
+          navListItems.removeClass('btn-primary').addClass('btn-default');
+          $item.addClass('btn-primary');
+          allWells.hide();
+          $target.show();
+          $target.find('input:eq(0)').focus();
+      }
+  });
+
+  allNextBtn.click(function(){
+      var curStep = $(this).closest(".setup-content"),
+          curStepBtn = curStep.attr("id"),
+          nextStepWizard = $('div.setup-panel div a[href="#' + curStepBtn + '"]').parent().next().children("a"),
+          curInputs = curStep.find("input[type='text'],input[type='url']"),
+          isValid = true;
+
+      $(".form-group").removeClass("has-error");
+      for(var i=0; i<curInputs.length; i++){
+          if (!curInputs[i].validity.valid){
+              isValid = false;
+              $(curInputs[i]).closest(".form-group").addClass("has-error");
+          }
+      }
+
+      if (isValid)
+          nextStepWizard.removeAttr('disabled').trigger('click');
+  });
+
+  $('div.setup-panel div a.btn-primary').trigger('click');
+});
+</script>

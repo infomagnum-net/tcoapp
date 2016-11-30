@@ -1,0 +1,102 @@
+{%extends "logbase.html"%}
+
+{% load i18n %}
+
+{%block content%}
+
+{% load static %}
+    
+        
+<!-- Register -->
+
+<div class="lc-block toggled" id="l-register">
+
+  <a href="/" style="font-size:18px">
+       <img src="{% static 'img/login-logo.svg' %}" alt="client" style="width:145px;">
+  </a>
+  <br><br>
+           
+<form class="signup" id="signup_form" method="post" action="{% url 'account_signup' %}">
+  {% csrf_token %}
+
+
+    <div class="input-group m-b-20">
+      <span class="input-group-addon"><i class="zmdi zmdi-account"></i></span>
+        <div class="fg-line">
+
+            {{form.username}}   
+            
+         </div>
+    </div>
+
+    <div> <p style="color:red;">{{ form.username.errors.as_text }}</p></div>
+
+
+    <div class="input-group m-b-20">
+      <span class="input-group-addon"><i class="zmdi zmdi-email"></i></span>
+        <div class="fg-line">
+          {{form.email}} 
+            
+        </div>
+    </div>
+
+    <div> <p style="color:red;">{{ form.email.errors.as_text }}</p></div>
+
+
+     <div class="input-group m-b-20">
+        <span class="input-group-addon"><i class="zmdi zmdi-lock-outline"></i></span>
+        <div class="fg-line">
+           
+             {{form.password1}}
+          
+        </div>
+    </div>
+
+    <div> <p style="color:red;">{{ form.password1.errors.as_text }}</p></div>
+
+
+    <div class="input-group m-b-20">
+        <span class="input-group-addon"><i class="zmdi zmdi-lock-outline"></i></span>
+        <div class="fg-line">
+          
+             {{form.password2}}
+          
+        </div>
+    </div>
+           
+    <div> <p style="color:red;">{{ form.password2.errors.as_text }}</p></div>
+
+  
+
+  {% if redirect_field_value %}
+ 
+  <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+  
+  {% endif %}
+  
+  <!--   <button type="submit">{% trans "Sign Up" %} &raquo;</button>
+ -->
+  
+  <button class="btn btn-login btn-success btn-float" type="submit"><i class="zmdi zmdi-arrow-forward"></i></button>
+ 
+
+  <!-- <a href="" class="btn btn-login btn-primary btn-float" type="submit"><i class="zmdi zmdi-arrow-forward"></i></a> -->
+
+</form><br>
+
+  <a href="/">Back</a> |                   
+  <a href="/accounts/login">Login</a> |
+  <a href="/accounts/password/reset/">Forgot Password</a>
+     <!-- 
+<a href="/"><button class="btn btn-login1 btn-primary btn-float" type="submit" ><i class="zmdi zmdi-arrow-left"></i></button></a>  -->
+ </div>     
+</div>
+        
+{% endblock %}
+
+
+
+
+
+
+

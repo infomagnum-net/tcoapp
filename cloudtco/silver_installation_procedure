@@ -1,0 +1,10 @@
+https://www.presslabs.com/silver/   ///installation procedure
+
+
+sudo pip install django-multi-email-field
+pip install pyvat
+pip install -r commom.txt
+python mannage.py makemigrations
+python mannage.py migrate
+
+

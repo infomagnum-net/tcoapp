@@ -1,0 +1,814 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Cloud-TCO</title>
+
+  <!--SEO Meta Tags-->
+  
+  <meta name="keywords" content="multipurpose, technology, business, corporate, hosting, web, startup, app showcase, mobile, blog, portfolio, landing, shortcodes, html5, css3, jquery, js, gallery, slider, touch, creative" />
+  <meta name="author" content="8Guild" />
+
+  <!--Mobile Specific Meta Tag-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+        <link href="{% static 'vendors/bower_components/animate.css/animate.min.css' %}" rel="stylesheet">
+        <link href="{% static 'vendors/bower_components/material-design-iconic-font/dist/css/material-design-iconic-font.min.css' %}" rel="stylesheet">
+        <link href="{% static 'vendors/bower_components/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.min.css' %}" rel="stylesheet">        
+            
+        <!-- CSS -->
+        <link href="{% static 'css/app.min.1.css' %}" rel="stylesheet">
+        <link href="{% static 'css/app.min.2.css' %}" rel="stylesheet">
+    
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+  <link rel="shortcut icon" href="{% static 'img/favlogo.png' %}" type="image/x-icon" alt="cloudtco">
+  
+
+  <!-- All Theme Styles including Bootstrap, FontAwesome, etc. compiled from styles.scss-->
+  
+<link href="{% static 'css/material-design-iconic-font.min.css' %}" rel="stylesheet">
+<link href="{% static 'vendors/bower_components/material-design-iconic-font/dist/css/material-design-iconic-font.min.css' %}" rel="stylesheet">
+ 
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css">   
+  
+  
+  
+  <style>
+   
+</style>
+
+
+
+</head>
+
+<body class="">
+ 
+
+
+<!-- Page Wrapper -->
+  <div class="page-wrapper" id="home">
+<div>
+    <!-- Social Bar -->
+    <!-- Change modifier class to ".bar-fixed-left" to position social bar on the left side of the page. -->
+    
+
+ <div class="container menu-continer"><!-- navbar container -->
+    <div class="navbar navbar-sticky" style="margin-left: -15px;">
+<div class="topbar" id="top"></div>
+
+<!-- mobile logo  -->
+
+<a class="mobilogo" style="background:none;">
+
+  <img src="{% static 'img/favlogo.png' %}" alt="Cloud-TCO" style="width:42px;" alt="cloudtco"/>
+
+ <h5 style="padding-left:45px; margin-top:-34px;">CLOUD-TCO</h5>
+</a>  
+
+<!--end mobile logo  -->
+
+
+    <div class="nav-toggle"><span></span></div>
+        <nav class="main-navigation">  <!--  start nav -->
+          <ul class="menu" style="width:100%;">
+             
+              <li class="menu-item-has-children" id="weblogo">
+                <a href="#home" class="" style="background:none;padding-top:11px;padding-bottom:0px;">
+      <img src="{% static 'img/favlogo.png' %}" alt="cloudtco">
+  
+                   <h5 style="padding-left: 45px;
+    margin-top: -38px;
+    font-size: 28px;">CLOUD-TCO</h5></a>             
+              </li>
+    
+               <li class="menu-item-has-children ">
+              <a href="#home">Home</a>            
+               </li>
+      
+            <li class="menu-item-has-children">
+              <a href="#verticals"></i>Verticals</a>            
+            </li>
+
+              <li class="menu-item-has-children">
+              <a href="#about">About us</a>          
+               </li>
+            <li class="menu-item-has-children">
+              <a href="#feature" class="text-sm">Features</a>
+            </li>
+
+      <li class="menu-item-has-children">
+              <a href="#withus" class="text-sm">With us</a>
+           </li>
+
+            
+           {% if user.is_authenticated %}
+            <li class="menu-item-has-children">
+              <a href="/tco/architecture" class="text-sm">Architectures</a>
+           </li> 
+
+           <li class="menu-item-has-children">
+              <a href="/tco/logout" class="text-sm">Logout</a>
+           </li> 
+
+{% else %}
+           <li class="menu-item-has-children">
+              <a href="/accounts/login" class="text-sm">Login</a>
+           </li> 
+
+           <li class="menu-item-has-children">
+              <a href="/accounts/signup" class="text-sm">Register</a>
+           </li>  
+           {% endif %}                          
+         
+          </ul><!-- .menu -->
+        
+        </nav><!-- end main-navigation -->
+         </div>
+     
+      </div><!-- end navbar container -->
+
+  
+<header>
+  
+      
+   
+
+
+     <!-- card carousel -->
+  <div class="carousel" id="mobilecard">
+          <div class="card-body card-padding  mobicard" style="padding:0px;">
+                            <div id="carousel-example-generic" class="carousel slide" data-ride="carousel" style="padding:0px;">
+                                <!-- Indicators -->
+                                <!-- <ol class="carousel-indicators">
+                                  <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+                                  <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+                                  <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+                                  
+                                </ol> -->
+                              
+                                <!-- Wrapper for slides -->
+                                <div class="carousel-inner" role="listbox">
+                                                                                                                                                          
+                               <div class="item active">
+
+                                    <img src="{% static 'img/headers/revisedcloudtco6sliders_svg/RETAIL-c.svg' %}" style="" alt="cloudtco">
+                                        
+                                </div>
+
+                                <div class="item">
+                                  <img src="{% static 'img/headers/revisedcloudtco6sliders_svg/GOVERNMENT-c.svg' %}" style="" alt="cloudtco">
+                                   
+                                </div>
+
+                                <div class="item">
+                                  
+                                  <img src="{% static 'img/headers/revisedcloudtco6sliders_svg/Logistics-c.svg' %}" style="" alt="cloudtco">
+                                   
+
+                                 </div>
+
+                                 <div class="item">
+                                  
+                                  <img src="{% static 'img/headers/revisedcloudtco6sliders_svg/Legal-c.svg' %}" style="" alt="cloudtco">
+                                   
+
+                                 </div>
+                                 <div class="item">
+                                  
+                                 <img src="{% static 'img/headers/revisedcloudtco6sliders_svg/Finance-compressor.svg' %}" style="" alt="cloudtco">
+
+                                 </div>  
+                                 <div class="item">
+                                  
+                                 <img src="{% static 'img/headers/revisedcloudtco6sliders_svg/Medical-c.svg' %}" style="" alt="cloudtco">
+
+                                 </div>                                 
+                              
+                                <!-- Controls -->
+                                <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+                                    <span class="zmdi zmdi-chevron-left" aria-hidden="true"></span>
+                                    <span class="sr-only">Previous</span>
+                                </a>
+                                <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+                                    <span class="zmdi zmdi-chevron-right" aria-hidden="true"></span>
+                                    <span class="sr-only">Next</span>
+                                </a>
+                            </div>
+              
+                        </div>
+
+
+          </div>     <!-- end card carousel -->
+     
+        </div>  
+      <!-- Main Navigation -->
+    </header>
+
+</div>
+</div>
+                       
+
+   <!-- logos -->
+<div class="container" style="width:100%">
+  <div class="row" style="padding-top: 0px">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center" style="background-color:#e7f3fd;">
+            <div class="list-group list-group-horizontal newic" style=" margin-bottom:0px;">
+                <a href="#" class="list-group-item"><img src="{% static 'img/logo-icons/1.png' %}" class="img-responsive" alt="cloudtco"></a>
+                <a href="#" class="list-group-item"><img src="{% static 'img/logo-icons/4.png' %}" class="img-responsive" alt="cloudtco"></a>
+                <a href="#" class="list-group-item"><img src="{% static 'img/logo-icons/3.png' %}" class="img-responsive" alt="cloudtco"></a>
+                <a href="#" class="list-group-item"><img src="{% static 'img/logo-icons/2.png' %}" class="img-responsive" alt="cloudtco"></a>
+                <a href="#" class="list-group-item"><img src="{% static 'img/logo-icons/5.png' %}" class="img-responsive" alt="cloudtco"></a>
+                <a href="#" class="list-group-item"><img src="{% static 'img/logo-icons/6.png' %}" class="img-responsive" alt="cloudtco"></a>
+            </div>
+        </div>
+  </div>
+</div>   
+    
+  
+
+ <section id="verticals">
+                <div class="container c-alt">
+
+                    <div class="text-center scrollReveal sr-bottom">
+                        <h2 class="f-400" style="font-size:40px;padding-top:15px;
+    margin-bottom: 5px;">CLOUD MADE SIMPLE</h2>
+                       <h4>We Build Bussiness Infrastructures</h4>
+                    </div>
+                    
+                    
+                
+                    <div class="row m-t-25">
+                       
+                        <div class="col-sm-4 verticle scrollReveal sr-left">
+                           <div class="bs-item z-depth-2">
+                            <div class="card pt-inner">
+                                <div class="pti-header bgm-amber">
+                                   <!-- <img src="img/verticals/retail.svg" alt="Retail" style="height:100px; width:155px;"> -->
+                                 <object data="{% static 'img/verticals/Rup.svg' %}" type="image/svg+xml" style="height:100px; width:155px;"></object>
+
+
+
+                                    <div class="ptih-title">Financial Services</div>
+                                </div>
+                
+                                <div class="pti-body">
+                                    <div class="ptib-item">
+                                        Financial grid
+                                    </div>
+                                    <div class="ptib-item">
+                                       Elastic Map Reduce System
+                                    </div>
+                                    <div class="ptib-item">
+                                        DR Service 
+                                    </div>
+                                    <div class="ptib-item">
+                                        Credit Services Infra
+                                    </div>
+                                     <div class="ptib-item">
+                                        SALESFORCE
+                                    </div>
+                                    
+                                </div>
+                
+                                <div class="pti-footer">
+                                    <a class="bgm-amber"><i class="zmdi zmdi-check"></i></a>
+                                </div>
+                            </div>
+                            </div>
+                        </div>
+                
+                        <div class="col-sm-4 verticle scrollReveal sr-bottom">
+                          <div class="bs-item z-depth-2">
+                            <div class="card pt-inner">
+                                <div class="pti-header bgm-blue">
+                                    <!-- <h2>$25 <small>| mo</small></h2> -->
+                                    <object data="{% static 'img/verticals/Shopping.svg' %}" type="image/svg+xml" style="height:100px; width:155px;"></object>
+                                    <div class="ptih-title">Retail Services</div>
+                                </div>
+                
+                                <div class="pti-body">
+                                    <div class="ptib-item">
+                                          Web Front-End Service
+                                    </div>
+                                    <div class="ptib-item">
+                                        Check Out Service 
+                                    </div>
+                                    <div class="ptib-item">
+                                        Marketing & Recommendation Service
+                                    </div>
+                                    <div class="ptib-item">
+                                        Above all 3 in one go
+
+                                    </div>
+                                    <div class="ptib-item">
+                                        SALESFORCE
+                                    </div>
+                                </div>
+                
+                                <div class="pti-footer">
+                                    <a class="bgm-blue"><i class="zmdi zmdi-check"></i></a>
+                                </div>
+                            </div>
+                            </div>
+                        </div>
+                
+
+
+
+                        <div class="col-sm-4 verticle scrollReveal sr-right">
+                           <div class="bs-item z-depth-2">
+                            <div class="card pt-inner">
+                                <div class="pti-header bgm-cyan">
+                                  <object data="{% static 'img/verticals/Medi.svg' %}" type="image/svg+xml" style="height:100px; width:155px;"></object>
+                                    <div class="ptih-title">Health Care</div>
+                                </div>
+                
+                                <div class="pti-body">
+                                    <div class="ptib-item">
+                                       HRMS System
+                                    </div>
+                                    <div class="ptib-item">
+                                       HIS System
+                                    </div>
+                                    <div class="ptib-item">
+                                       EMR System
+                                    </div>
+                                    <div class="ptib-item">
+                                        APP PORTAL'S
+                                    </div>
+                                    <div class="ptib-item">
+                                        SALESFORCE
+                                    </div>
+                                </div>
+                
+                                <div class="pti-footer">
+                                    <a class="bgm-cyan"><i class="zmdi zmdi-check"></i></a>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                   </div>
+                  </div>
+
+
+
+         <div class="container c-alt">
+          <div class="row m-t-25">
+                       
+                        <div class="col-sm-4 verticle scrollReveal sr-left">
+                          <div class="bs-item z-depth-2">
+                            <div class="card pt-inner">
+                                <div class="pti-header bgm-lime">
+                                   <!-- <img src="img/verticals/retail.svg" alt="Retail" style="height:100px; width:155px;"> -->
+                                 <object data="{% static 'img/verticals/Logist.svg' %}" type="image/svg+xml" style="height:100px; width:155px;"></object>
+
+
+
+                                    <div class="ptih-title">Logistics</div>
+                                </div>
+                
+                                <div class="pti-body">
+                                    
+                                    
+                                    <div class="ptib-item">
+                                        GPS Tracking
+                                    </div>
+                                    <div class="ptib-item">
+                                       Logistic Portal
+                                    </div>
+                                    <div class="ptib-item">
+                                        BCP service
+                                    </div>
+                                </div>
+                
+                                <div class="pti-footer">
+                                    <a class="bgm-lime"><i class="zmdi zmdi-check"></i></a>
+                                </div>
+                            </div>
+                             </div>
+                        </div>
+                                      
+                
+                        <div class="col-sm-4 verticle">
+                          <div class="bs-item z-depth-2">
+                            <div class="card pt-inner">
+                                <div class="pti-header bgm-orange">
+                                    <!-- <h2>$25 <small>| mo</small></h2> -->
+                                    <object data="{% static 'img/verticals/Law.svg' %}" type="image/svg+xml" style="height:100px; width:155px;"></object>
+                                    <div class="ptih-title">Legal</div>
+                                </div>
+                
+                                <div class="pti-body">
+                                    <div class="ptib-item">
+                                        ERP System
+                                    </div>
+                                    <div class="ptib-item">
+                                       ARCHIVE System
+                                    </div>
+                                    <div class="ptib-item">
+                                        DR Service
+                                    </div>
+                                   
+                                </div>
+                
+                                <div class="pti-footer">
+                                    <a class="bgm-orange"><i class="zmdi zmdi-check"></i></a>
+                                </div>
+                            </div>
+                            </div>
+                        </div>
+
+
+                         <div class="col-sm-4 verticle scrollReveal sr-right">
+                           <div class="bs-item z-depth-2">
+                            <div class="card pt-inner">
+                                <div class="pti-header bgm-green">
+                                    <!-- <h2>$25 <small>| mo</small></h2> -->
+                                    <object data="{% static 'img/verticals/Govt.svg' %}" type="image/svg+xml" style="height:100px; width:155px;"></object>
+                                    <div class="ptih-title">Government</div>
+                                </div>
+                
+                                <div class="pti-body">
+                                    
+                                    
+                                    <div class="ptib-item">
+                                       GST Services
+                                    </div>
+                                    <div class="ptib-item">
+                                        SAP Services
+                                    </div>
+                                    <div class="ptib-item">
+                                       GRC Services
+                                    </div>
+
+                                </div>
+                
+                                <div class="pti-footer">
+                                    <a class="bgm-green"><i class="zmdi zmdi-check"></i></a>
+                                </div>
+                            </div>
+                            </div>
+                        </div>
+                    </div>
+             </div>         
+             
+            </section>
+
+    <!-- Features -->
+    <!-- Fullwidth section has bunch of modifier classes to alter its appearance: ".border-top, .border-bottom, .arrow-top, .arrow-bottom, .bg-gray, .bg-default, .bg-primary, .bg-parallax". They can be used separately or alltogether. -->
+    <section class="fw-section bg-default border-top padding-top-3x padding-bottom-3x" id="about">
+      <div class="container" style="padding-top:40px;">
+        <div class="row">
+          <div class="col-lg-6 col-md-7 mobile-center padding-bottom scrollReveal sr-left">
+            <h2 class="block-title">Re-imagine your business with us</h2>
+            <p class="text-gray text-lg">Cloud based integrated digital systems and processes have become central to an organization’s
+
+digital business strategy and key to digital transformation across industries. A new wave of cloud-
+
+based services is now rapidly emerging to provide higher value business services.</p>
+           
+          </div>
+          <div class="col-lg-6 col-md-5 scrollReveal sr-right">
+            <img src="{% static 'img/cloud.png' %}" alt="cloudtco">
+          </div>
+        </div><!-- .row -->
+      </div><!-- .container -->
+    </section><!-- .fw-section.bg-default.border-top -->
+
+    <!-- Features -->
+    <!-- Fullwidth section has bunch of modifier classes to alter its appearance: ".border-top, .border-bottom, .arrow-top, .arrow-bottom, .bg-gray, .bg-default, .bg-primary, .bg-parallax". They can be used separately or alltogether. -->
+    <section class="fw-section arrow-top border-bottom padding-top-3x padding-bottom-3x" style="
+    background: #fff;" id="feature">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-4">
+            <!-- Remove class ".bwi-expandable" to expand block and make it static. -->
+            <div class="box-with-icon bwi-expandable text-center">
+              <div class="bwi-inner">
+                <div class="bwi-icon">
+                  <object data="{% static 'img/features/cloud_Managment.svg' %}" type="image/svg+xml"></object>
+                </div>
+                <h3 class="bwi-title">CLOUD MANAGEMENT</h3>
+                <p class="bwi-text">Flexible Maintenance Plans</p>
+                <p class="bwi-text">Cost &amp; Resource Optimization</p>
+                <p class="bwi-text">Automation</p>
+                
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-4">
+            <!-- Remove class ".bwi-expandable" to expand block and make it static. -->
+            <div class="box-with-icon bwi-expandable text-center">
+              <div class="bwi-inner">
+                <div class="bwi-icon">
+                    <object data="{% static 'img/features/Cloud_governance.svg' %}" type="image/svg+xml"></object>
+                </div>
+                <h3 class="bwi-title">CLOUD GOVERNANCE</h3>
+                <p class="bwi-text">Risk &amp; Security Assessment</p>
+                <p class="bwi-text">Management of Regulatory compliances</p>
+                 <p class="bwi-text">Designing matrix to match</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-4">
+            <!-- Remove class ".bwi-expandable" to expand block and make it static. -->
+            <div class="box-with-icon bwi-expandable text-center">
+              <div class="bwi-inner">
+                <div class="bwi-icon">
+                    <object data="{% static 'img/features/Inno.svg' %}" type="image/svg+xml" style="height:58px;"></object>
+                </div>
+                <h3 class="bwi-title">CLOUD INNOVATION</h3>
+                <p class="bwi-text">Big Data</p>
+                 <p class="bwi-text">Analytics</p>
+                  <p class="bwi-text">Mobility</p>
+              </div>
+            </div>
+          </div>
+        </div><!-- .row -->
+
+
+        <div class="row">
+          <div class="col-sm-4">
+            <!-- Remove class ".bwi-expandable" to expand block and make it static. -->
+            <div class="box-with-icon bwi-expandable text-center">
+              <div class="bwi-inner">
+                <div class="bwi-icon">
+                   <object data="{% static 'img/features/cloud_consulting.svg' %}" type="image/svg+xml"></object>
+                </div>
+                <h3 class="bwi-title">CLOUD CONSULTING</h3>
+                <p class="bwi-text">Assessment</p>
+                 <p class="bwi-text">Discovery workshop</p>
+                  <p class="bwi-text">Design, Implementation, Migration</p>
+                   <p class="bwi-text">Disaster Recovery Solutions</p>
+                   <p class="bwi-text">Backup Solutions</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-4">
+            <!-- Remove class ".bwi-expandable" to expand block and make it static. -->
+            <div class="box-with-icon bwi-expandable text-center">
+              <div class="bwi-inner">
+                <div class="bwi-icon">
+                    <object data="{% static 'img/features/Cloud_Integration.svg' %}" type="image/svg+xml"></object>
+                </div>
+                <h3 class="bwi-title">CLOUD INTEGRATION</h3>
+                <p class="bwi-text">Application Integration</p>
+                <p class="bwi-text">Platforms Integration</p>
+                <p class="bwi-text">SharePoint Online</p>
+                <p class="bwi-text">Google Apps</p>
+                <p class="bwi-text">Office365</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-4">
+            <!-- Remove class ".bwi-expandable" to expand block and make it static. -->
+            <div class="box-with-icon bwi-expandable text-center">
+              <div class="bwi-inner">
+                <div class="bwi-icon">
+                   <object data="{% static 'img/features/Service_desk.svg' %}" type="image/svg+xml"></object>
+                </div>
+                <h3 class="bwi-title">Service desk</h3>
+                <p class="bwi-text">Center of Excellence</p>
+                <p class="bwi-text">Receiving Tickets</p>
+                <p class="bwi-text">Ticket Assignment</p>
+                <p class="bwi-text">Escalation Management</p>
+                 <p class="bwi-text">Account Management</p>
+
+              </div>
+            </div>
+          </div>
+        </div><!-- .row -->
+
+
+
+<div class="row">
+          <div class="col-sm-4">
+            <!-- Remove class ".bwi-expandable" to expand block and make it static. -->
+            <div class="box-with-icon bwi-expandable text-center">
+              <div class="bwi-inner">
+                <div class="bwi-icon">
+                    <object data="{% static 'img/features/Service_suprt.svg' %}" type="image/svg+xml" style="height:58px;"></object>
+                </div>
+                <h3 class="bwi-title">SUPPORT SERVICES</h3>
+                <p class="bwi-text">Incident Management</p>
+                 <p class="bwi-text">Problem Management</p>
+                  <p class="bwi-text">Backup</p>
+                   <p class="bwi-text">Service Request Management</p>
+                   <p class="bwi-text">Proactive Maintenance</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-4">
+            <!-- Remove class ".bwi-expandable" to expand block and make it static. -->
+            <div class="box-with-icon bwi-expandable text-center">
+              <div class="bwi-inner">
+                <div class="bwi-icon">
+                    <object data="{% static 'img/features/Maintanance.svg' %}" type="image/svg+xml"></object>
+                </div>
+                <h3 class="bwi-title">MAINTENANCE SERVICES</h3>
+                <p class="bwi-text">Change Request Management</p>
+                <p class="bwi-text">Feature Enhancements</p>
+                <p class="bwi-text">Asset and Configuration Management</p>
+                <p class="bwi-text">Release Management</p>
+               
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-4">
+            <!-- Remove class ".bwi-expandable" to expand block and make it static. -->
+            <div class="box-with-icon bwi-expandable text-center">
+              <div class="bwi-inner">
+                <div class="bwi-icon">
+                    <object data="{% static 'img/features/Migration.svg' %}" type="image/svg+xml" style="height:56px;"></object>
+                </div>
+                <h3 class="bwi-title">MIGRATION SERVICES</h3>
+                <p class="bwi-text">Feasibility Assessment To Migrate Data And Software</p>
+                <p class="bwi-text">Determine the Storage Type and Required Effort</p>
+                <p class="bwi-text">Migration Service</p>
+
+                <h3 class="bwi-title">Hybrid Cloud Solutions</h3>
+                <p class="bwi-text">Managed Cloud Integration Services</p>
+                 <p class="bwi-text">Managed Cloud Security</p>
+
+              </div>
+            </div>
+          </div>
+        </div><!-- .row -->
+
+
+
+
+      </div><!-- .container -->
+    </section><!-- .fw-section.arrow-top.border-bottom -->
+
+    <!-- Testimonials -->
+   <section id="withus" class="fw-section next-to-footer padding-top-3x padding-bottom-3x" style="background-image:url({% static 'img/data1.png' %});" >
+      <div class="container" style="padding-top: 30px;">
+        <h2 class="block-title text-center">What's New With Us</h2>
+        <div class="row padding-top">
+          <div class="col-sm-4 scrollReveal sr-scaleDown sr-ease-in-out-back">
+            <div class="testimonial">
+              <div class="">
+                <img src="{% static 'img/client/serverless.png' %}" alt="cloudtco">
+              </div>
+              <h3 class="author-name">Unhosted Applications</h3>
+              <p class="text-gray">Serverless Architecture</p>
+              
+              <a href="#" class="text-sm"></a>
+            </div>
+          </div>
+          <div class="col-sm-4 scrollReveal sr-scaleDown sr-delay-1 sr-ease-in-out-back">
+            <div class="testimonial">
+              <div class="">
+                <img src="{% static 'img/client/autoscale.png' %}" alt="cloudtco">
+              </div>
+              <h3 class="author-name">Auto Scaling With Integrity</h3>
+              <p class="text-gray"> On Many Cloud</p>
+              
+              <a href="#" class="text-sm"></a>
+            </div>
+          </div>
+          <div class="col-sm-4 scrollReveal sr-scaleDown sr-delay-2 sr-ease-in-out-back">
+            <div class="testimonial">
+              <div class="">
+                <img src="{% static 'img/client/monit.png' %}" alt="cloudtco">
+              </div>
+              <h3 class="author-name">Monitoring</h3>
+              <p class="text-gray">This Time the Right Monitoring</p>
+              
+              <a href="#" class="text-sm"></a>
+            </div>
+          </div>
+        </div><!-- .row -->
+      </div><!-- .container -->
+    </section><!-- .fw-section.next-to-footer -->
+
+    <!-- Scroll To Top Button -->
+   <!-- .scroll-to-top-btn -->
+<section class="fw-section next-to-footer">
+    <!-- Footer -->
+    <footer class="footer" style="background-color:#fff;border-top:1px solid rgba(128, 128, 128, 0.16)">
+       
+     
+    
+      <div class="bottom-footer" style="background-color:#fff;">
+        <div class="container"  style="background-color:#fff;">
+          <div class="row"  style="background-color:#fff;">
+            <!--<div class="col-md-3 col-sm-6" style="background-color:#fff;">-->
+              
+            <!--  <section class="widget widget_text">
+                <a href="/" class="" style="background:none;">
+
+               <img src="{% static 'img/favlogo.png' %}" style="width:42px;"/>
+                   <h5 style="padding-left:45px; margin-top:-33px;">CLOUD-TCO</h5></a>   <!-- .site-logo 
+               <div class="search-btn">
+              
+              <form method="post" class="search-box">
+                <input type="text" class="form-control input-sm" placeholder="Search" style="border:1px solid gray;">
+                <button type="submit">search<i class="zmdi zmdi-search"></i></button>
+              </form>
+            </div>
+              </section>-->
+
+
+
+
+              <!-- .widget.widget_text -->
+            <!--</div>-->
+            <!-- .col-md-3 -->
+            <div class="col-md-3 col-sm-6" style="background-color:#fff;">
+              <section class="widget widget_pages">
+                <h3 class="widget-title">
+                  <i class="zmdi zmdi-caret-up-circle"></i>
+                 &nbspQUICK LINKS 
+                </h3>
+                <ul>
+                  <li><a href="#home">Home</a></li>
+                  <li><a href="#verticals">Verticals</a></li>
+                  <li><a href="#"></a></li>
+                </ul>
+              </section><!-- .widget.widget_pages -->
+            </div><!-- .col-md-3 -->
+            <div class="clearfix visible-sm"></div>
+            <div class="col-md-3 col-sm-6" style="background-color:#fff;">
+              <section class="widget widget_pages">
+                <h3 class="widget-title">
+                  <i class="zmdi zmdi-globe"></i>
+                  &nbspVERTICALS 
+                </h3>
+                <ul>
+                  <li><a href="http://www.infomagnum.com" target="_blank">InfoMagnum </a></li>
+                  <li><a href="http://ysec.io" target="_blank">YSEC </a></li>
+                  
+                </ul>
+              </section><!-- .widget.widget_pages -->
+            </div><!-- .col-md-3 -->
+            <div class="col-md-3 col-sm-6" style="background-color:#fff;">
+              <section class="widget widget_pages">
+                <h3 class="widget-title">
+                  <i class="zmdi zmdi-globe"></i>
+                  &nbspSOLUTIONS
+                </h3>
+                <ul>
+                  <li><a href="#">Consulting</a></li>
+                  <li><a href="#">Migrations</a></li>
+                  <li><a href="#">Fresh Cloud</a></li>
+                </ul>
+              </section><!-- .widget.widget_pages -->
+            </div><!-- .col-md-3 -->
+          </div><!-- .row -->
+          <div class="copyright">
+            <div class="column">
+              <p>Copyright © 2016 <a href="#" target="_blank">InfoMagnum</a>/ All rights reserved.</p>
+            </div><!-- .column -->
+            <!-- .column -->
+          </div><!-- .copyright -->
+        </div><!-- .container -->
+      </div><!-- .bottom-footer -->
+    
+   
+    </footer><!-- .footer -->
+ </section>
+
+ </div>
+  </div><!-- .page-wrapper -->
+
+  <!-- JavaScript (jQuery) libraries, plugins and custom scripts -->
+ <script src="{% static 'vendors/bower_components/jquery/dist/jquery.min.js' %}"></script>
+<script src="{% static 'vendors/bower_components/bootstrap/dist/js/bootstrap.min.js' %}"></script>
+        
+   
+  <!--  template js  -->
+  <script src="{% static 'js/js/vendor/waypoints.min.js' %}"></script>
+  <script src="{% static 'js/js/scripts.js' %}"></script>
+  <script src="{% static 'js/js/vendor/velocity.min.js' %}"></script>
+  <script src="{% static 'js/js/vendor/waves.min.js' %}"></script>
+  <script src="{% static 'js/js/vendor/jquery-2.1.4.min.js' %}"></script>
+  <script src="{% static 'js/js/vendor/waves.min.js' %}"></script>
+  <script src="{% static 'js/js/vendor/smoothscroll.js' %}"> </script>
+  <script src="{% static 'js/js/vendor/scrollreveal.min.js' %}"></script>
+  <!--  end template js  -->
+    
+    
+   <!--  <script src="{% static 'vendors/bower_components/jquery.nicescroll/dist/jquery.nicescroll.min.js' %}"></script>
+     <script src="{% static 'vendors/bower_components/jquery.nicescroll/jquery.nicescroll.min.js' %}"></script>
+     <script src="{% static 'vendors/bower_components/jquery.nicescroll/jquery.nicescroll.js' %}"></script>
+    -->     
+        <script src="{% static 'vendors/bower_components/flot/jquery.flot.js' %}"></script>
+      
+        
+        <script src="{% static 'vendors/bower_components/moment/min/moment.min.js' %}"></script>
+       
+      
+        <script src="{% static 'vendors/bower_components/Waves/dist/waves.min.js' %}"></script>
+    
+        
+    
+     
+
+</body><!-- <body> -->
+
+</html>

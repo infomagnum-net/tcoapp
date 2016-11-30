@@ -1,0 +1,48 @@
+{{%extends "logbase.html"%}
+{%block content%}
+{%load static%}
+        
+        
+        <!-- Forgot Password -->
+        <div class="lc-block toggled" id="l-forget-password">
+
+<a href="/">
+                <img src="{% static 'img/logo.png' %}" alt="client" style="width:36px;">
+                <span style="padding-left:5px;"><strong>CLOUD-TCO</strong></span></a><br>
+           <br>
+            
+ <form action="#" method="post" id="forgot-form">
+ {% csrf_token %}
+            <p class="text"style="color:red" id="forgot-pwd-error-msg"></p>
+            <p class="text"style="color:Green" id="forgot-pwd-success-msg"></p>
+            
+            <div class="input-group m-b-20">
+                <span class="input-group-addon"><i class="zmdi zmdi-email"></i></span>
+                <div class="fg-line">
+                       
+                        <input type="email" class="form-control" name="email" placeholder="email address" id="forget-email">
+
+                </div>
+            </div>
+             <div id="forgot-pwd-valdtn-msg" style="color:red"></div>
+
+            <br/>
+            <div style="margin-top:18px;">
+               <!--  <a href="" class="btn btn-login btn-primary btn-float"><i class="zmdi zmdi-arrow-forward"></i></a> -->
+                <button class="btn btn-login btn-primary btn-float" type="submit" ><i class="zmdi zmdi-arrow-forward"></i></button>
+            </div>
+            
+
+             <!-- <input type="submit" value="Submit"><br/><br/> -->
+</form>
+
+ <a href="/tco/login">Login</a> |
+
+             <a href="/tco/register/">Register</a>
+
+            <!-- <a href="" class="btn btn-login btn-primary btn-float"><i class="zmdi zmdi-arrow-forward"></i></a>
+             -->
+          
+        </div>
+        
+     {% endblock %}

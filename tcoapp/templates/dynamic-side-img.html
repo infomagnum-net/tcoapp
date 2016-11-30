@@ -1,0 +1,98 @@
+{%if price_dict %}
+    {%for k,v in price_dict.items%}
+    
+
+    <div class="pv-header featured-img" style="background-color:#03a9f4;" id="main-arch-image" >
+    
+    <img id="{{k}}" src="/../static/media/{{ v.2 }}" class="pv-main thumbnail im img-responsive" alt="" style="background-color:#303030;">
+    
+    </div>
+
+
+   <!--  <div class="pv-header featured-img" id="main-arch-image" >
+
+        <img id={{k}} src="/../static/media/{{ v.2 }}" height=""  width="250px;" style="background-color:black;" alt="no image found"/>
+    </div> -->
+
+    <!-- <div class="bgm-lightblue m-b-20">
+        <h2 class="archname">{{v.0}}</h2>
+                                                                   
+    </div> -->
+
+    <div class="pv-body">
+            <h2 class="archname">{{v.0}}</h2>
+        <small> Description</small>
+
+        <ul class="pv-follow">
+
+                             <!-- <li><i class="zmdi zmdi-cloud"></i>:&nbsp; 3</li> -->
+
+        <li>$:&nbsp;&nbsp;{{v.1}}</li>
+                              
+        </ul> 
+
+       
+    </div>
+
+
+   <!--  <div class="">
+        <ul>
+            <li style="font-weight:bold; font-size:16px;" class="ftrdprice">Price :$ {{v.1}}</li><br/>
+        </ul>
+    </div> -->
+
+{%endfor%}
+
+{%else%}
+
+
+{%for img in image_data%}
+
+
+
+ <div class="pv-header featured-img" id="main-arch-image" style="background-color:#03a9f4;">
+    
+    <img id="{{ img.id }}" src="/../static/media/{{ img.architecture_img }}" class="pv-main thumbnail im img-responsive" alt="" style="background-color:#303030;">
+    
+    </div>
+
+
+    <!-- <div class="bp-header featured-img" id="main-arch-image" >
+ 
+        <img id="{{ img.id }}" src="/../static/media/{{ img.architecture_img }}" height=""  width="" style="background-color:black;" alt="no image found"/>
+  
+    </div> -->
+
+    <!-- <div class="card-header bgm-lightblue m-b-20">
+        <h2 class="archname">{{img.architecture_name}} </h2>
+    </div>
+
+    <div class="card-body card-padding">
+        Cras leo sem, egestas a accumsan eget
+    </div>
+
+    <div class="">
+        <ul>
+            <li style="font-weight:bold; font-size:16px;" class="ftrdprice">Price :$ {{main_arch_price}}</li><br/>
+        </ul>
+    </div> -->
+
+
+     <div class="pv-body">
+            <h2 class="archname">{{img.architecture_name}}</h2>
+        <small> Description</small>
+
+        <ul class="pv-follow">
+
+                             <!-- <li><i class="zmdi zmdi-cloud"></i>:&nbsp; 3</li> -->
+
+        <li>$:&nbsp;&nbsp;{{main_arch_price}}</li>
+                              
+        </ul> 
+
+      
+
+    </div>
+ 
+    {%endfor%}
+{%endif%}

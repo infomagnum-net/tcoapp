@@ -1,0 +1,785 @@
+{%extends "base.html"%}
+{%load static%}
+{% block content%}
+<style>
+/* carousel */
+#quote-carousel 
+{
+  padding: 0 10px 30px 10px;
+  margin-top: 30px 0px 0px;
+}
+
+/* Control buttons  */
+#quote-carousel .carousel-control
+{
+  background: none;
+  color: rgba(113, 94, 94, 0.41);
+  font-size: 2.3em;
+  text-shadow: none;
+  margin-top: 76px;
+}
+/* Previous button  */
+#quote-carousel .carousel-control.left 
+{
+ 
+}
+/* Next button  */
+#quote-carousel .carousel-control.right 
+{
+}
+/* Changes the position of the indicators */
+#quote-carousel .carousel-indicators 
+{
+ /* right: 50%;
+  top: auto;
+  bottom: 0px;
+  margin-right: -19px;*/
+}
+/* Changes the color of the indicators */
+#quote-carousel .carousel-indicators li 
+{
+  background: #c0c0c0;
+}
+#quote-carousel .carousel-indicators .active 
+{
+  background: #333333;
+}
+#quote-carousel img
+{
+ 
+}
+/* End carousel */
+
+.item blockquote {
+    border-left: none; 
+    margin: 0;
+}
+
+.item blockquote img {
+    margin-bottom: 10px;
+}
+
+.item blockquote p:before {
+    content: "\f10d";
+    font-family: 'Fontawesome';
+    float: left;
+    margin-right: 10px;
+}
+.carousel-inner{
+    
+  }
+
+
+/**
+  MEDIA QUERIES
+*/
+
+/* Small devices (tablets, 768px and up) */
+@media (min-width: 768px) { 
+    #quote-carousel 
+    {
+      margin-bottom: 0;
+      padding: 0 40px 30px 40px;
+      margin-top: 30px;
+    }
+    
+}
+
+/* Small devices (tablets, up to 768px) */
+@media (max-width: 768px) { 
+    
+    /* Make the indicators larger for easier clicking with fingers/thumb on mobile */
+    
+    #quote-carousel .carousel-indicators {
+        bottom: -20px !important;  
+    }
+    #quote-carousel .carousel-indicators li {
+        display: inline-block;
+        margin: 0px 5px;
+        width: 15px;
+        height: 15px;
+    }
+    #quote-carousel .carousel-indicators li.active {
+        margin: 0px 5px;
+        width: 20px;
+        height: 20px;
+    }
+}
+</style>
+<script>
+$(document).ready(function() {
+  //Set the carousel options
+  $('#quote-carousel').carousel({
+    pauseOnHover: true,
+    interval: 1000,
+  });
+    });
+</script>
+
+<head>
+  <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+</head>
+
+
+<div class="" id="main-container">  
+  <div class="" id="profile-main" style="background-color:#f8f8f8;">
+    
+    <div class="pmb-block">
+      <div class="pmbb-body clearfix">
+
+        <div role="tabpanel">
+          <ul class="tab-nav tab-nav-left" role="tablist">
+
+            <li class="active" role="presentation"><a href="#profile1" aria-controls="profile1" role="tab" data-toggle="tab">Architectures</a></li>
+          </ul>
+                     
+
+
+        <div class="tab-content">
+                  
+            <!--start verticals  -->
+
+            <!--end verticals  -->
+
+        <!-- cloud Architectures  -->
+
+      <div role="tabpanel" class="arch_img tab-pane  active" id="profile1">
+
+        <div role="tabpanel" class="tab-pane">
+
+              <div class="row" id="main-arch">  
+              <div class="col-md-12">
+
+                                  <div class="card">
+                        <div class="card-header">
+                            <h2>Carousel <small>A slideshow component for cycling through elements, like a carousel.</small></h2>
+                        </div>
+                        
+                        <div class="card-body card-padding">
+                            <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+                                <!-- Indicators -->
+                                <!-- <ol class="carousel-indicators">
+                                  <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+                                  <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+                                  <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+                                </ol> -->
+                              
+                                <!-- Wrapper for slides -->
+                                <div class="carousel-inner" role="listbox">
+                                    <div class="item active">
+                                        <img src="{% static 'img/cal-header.jpg'%}" alt="">
+                                        <!-- <div class="carousel-caption">
+                                            <h3>First Slide Label</h3>
+                                            <p>Some sample text goes here...</p>
+                                        </div> -->
+                                    </div>
+                                    <div class="item">
+                                        <img src="{% static 'img/cal-header.jpg'%}" alt="">
+                                    </div>
+                                    <!-- <div class="item">
+                                        <img src="{% static 'img/featured-arch/coins.png'%}" alt="">
+                                    </div> -->
+                                </div>
+                              
+                                <!-- Controls -->
+                                <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+                                    <span class="zmdi zmdi-chevron-left" aria-hidden="true"></span>
+                                    <span class="sr-only">Previous</span>
+                                </a>
+                                <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+                                    <span class="zmdi zmdi-chevron-right" aria-hidden="true"></span>
+                                    <span class="sr-only">Next</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+
+              <div class="col-md-9">
+
+
+               {% for i in image %}
+                  
+
+
+                  <div class="col-md-3" style="">
+                        
+
+<!--                       <div class="card blog-post z-depth-1" style="height:420px;"> 
+
+                        <div class="bp-header featured-img" id="">
+                          <img  class="featrd-img-cls" src="/../static/media/{{ i.architecture_img }}" width="232px;" height="232px;" style="background-color:#303030;" / >
+                        </div>
+
+
+                        <div class="card-header bgm-lightblue">
+                            <h2>{{i.architecture_name}} </h2><br>
+                            
+                            
+                            <h2 class="archname">   Price : $ {{v.1}} </h2>
+                           
+                            
+                            <button class="btn bgm-green btn-float waves-effect" id={{k}} type="button" data-type="inverse"  data-from="top" data-align="right" data-icon="fa fa-comments"><i class="zmdi zmdi-mail-send"></i></button>
+
+                        </div>
+
+
+
+                        <div class="card-body card-padding">
+                            Cras leo sem, egestas a accumsan eget, euismod at nunc. 
+                        </div>
+
+                       </div> -->
+
+
+<!--                         <div class="card blog-post">
+                            <div class="bp-header">
+                                <img src="/../static/media/{{ i.architecture_img }}" alt="" style="background-color:#303030;">
+                                    
+
+                                <a href="" class="bp-title" style="background-color:#03a9f4;">
+                                    <h2>{{i.architecture_name}}</h2>
+                                   <small>Vivamus sagittis lacus vel augue laoreet rutrum</small> 
+                                </a>
+                            </div>
+                            
+                            <div class="p-20">
+                                Pellentesque lacinia sagittis libero.
+                            </div>
+                        </div> -->
+                        
+
+                   <!-- Profile view -->
+                   
+
+                <!--   <div class="card profile-view z-depth-1">
+                            
+                            <div class="pv-header" style="background-color:#03a9f4;">
+                            <a href="#galleryImg1" class="link-gallery" data-toggle="modal" data-target="#modalGallery">
+
+                                <img src="/../static/media/{{ i.architecture_img }}" class="pv-main img-responsive" alt="" style="background-color:#303030;">
+
+                                </a>
+                            </div>
+                            
+                            <div class="pv-body">
+                                <h2>{{i.architecture_name}}</h2>
+                                 <small>{{i.architecture_name}} Description</small> 
+                            
+                                <ul class="pv-contact">
+                                    
+                                    <li><i class="zmdi zmdi-phone"></i> +11 55694785</li>
+                                </ul>
+                                
+                              <ul class="pv-follow">
+
+                             <li><i class="zmdi zmdi-cloud"></i>:&nbsp; 3</li>
+
+                              <li>$:</li>
+                              
+                              </ul>
+                                
+                                
+                                <a class="pv-follow-btn" id="{{ i.id }}">Select</a>
+                            </div>
+                        </div> 
+ -->
+                                <!-- <div id="best-selling" class="dash-widget-item">
+                                    <div class="dash-widget-header">
+                                        <div class="dash-widget-title">{{i.architecture_name}}</div>
+                                        <img src="/../static/media/{{ i.architecture_img }}" alt="" style="background-color:#303030;">
+                                        <div class="main-item">
+                                            <small>Samsung Galaxy Alpha</small>
+                                            <h2>$799.99</h2>
+                                        </div>
+                                    </div>
+                                
+                                    <div class="listview p-t-5">
+                                        <a class="lv-item" href="">
+                                            <div class="media">
+                                                <div class="pull-left">
+                                                    <img class="lv-img-sm" src="img/widgets/note4.jpg" alt="">
+                                                </div>
+                                                <div class="media-body">
+                                                    <div class="lv-title">Samsung Galaxy Note 4</div>
+                                                    <small class="lv-small">$850.00 - $1199.99</small>
+                                                </div>
+                                            </div>
+                                        </a>
+                                        <a class="lv-item" href="">
+                                            <div class="media">
+                                                <div class="pull-left">
+                                                    <img class="lv-img-sm" src="img/widgets/mate7.jpg" alt="">
+                                                </div>
+                                                <div class="media-body">
+                                                    <div class="lv-title">Huawei Ascend Mate</div>
+                                                    <small class="lv-small">$649.59 - $749.99</small>
+                                                </div>
+                                            </div>
+                                        </a>
+                                        <a class="lv-item" href="">
+                                            <div class="media">
+                                                <div class="pull-left">
+                                                    <img class="lv-img-sm" src="img/widgets/535.jpg" alt="">
+                                                </div>
+                                                <div class="media-body">
+                                                    <div class="lv-title">Nokia Lumia 535</div>
+                                                    <small class="lv-small">$189.99 - $250.00</small>
+                                                </div>
+                                            </div>
+                                        </a>
+                                        
+                                        <a class="lv-footer" href="">
+                                            View All
+                                        </a>
+                                    </div>
+                                </div> -->
+
+
+<!--                    <div class="card profile-view z-depth-1" style="height:360px;">
+
+                            <div class="pv-header" style="background-color:#03a9f4;">
+                               
+                                <img src="/../static/media/{{ i.architecture_img }}"  class="pv-main thumbnail img-responsive" alt="" style="background-color:#303030;">
+
+                            </div>
+                            
+                            <div class="pv-body">
+                             
+                               <div class="pv-body" style="height:40px;">
+                                <h4>{{i.architecture_name}}</h4>
+                                
+                            </div>
+                                 
+                            
+                               
+                                
+                              <ul class="pv-follow">
+
+                             <li><i class="zmdi zmdi-cloud"></i>:&nbsp; 3</li>
+
+                              <li>$:</li>
+                              
+                              </ul>
+                                
+                                
+                                <a class="pv-follow-btn" id="{{ i.id }}">Select</a>
+                            </div>
+
+                        </div>   -->
+
+
+                        
+                                 <div class="card blog-post profile-view z-depth-1" >
+                            <div class="bp-header">
+                                <img src="/../static/media/{{ i.architecture_img }}"  alt="" style="background-color: #303030;">
+
+                                <div class="pv-header">
+                                <img src="{% static 'img/logo_With_Shadow.svg' %}"  class="pv-main" alt="" >
+                                </div>
+
+                                <div class="bp-title" style="height:200px;">
+                                    <h2 style="font-color:white;font-size:16px;">{{i.architecture_name}}</h2>
+                                    <small>Vivamus sagittis lacus vel augue laoreet rutrum</small>
+                                    <br/><br/>
+
+                                  <div class="row dialog">
+                                    <div class="col-sm-3">
+                                      <button class="btn btn-inverse" id="sa-warning">Click me</button>
+                                    </div>   
+                                  </div><br/>
+<button class="pv-follow-btn btn-inverse" id="{{ i.id }}">Select</button>
+
+                                </div>
+                                
+
+
+                            </div>
+                            
+                           <!--  <div class="p-20">
+                                Pellentesque lacinia sagittis libero. Praesent vitae justo purus. In hendrerit lorem nisl, ac lacinia urna aliquet non. Quisque nisi tellus, rhoncus quis est sit amete in nisl molestie fringilla. Nunc vitae ante id magna feugiat condimentum. Maecenas sit amet urna massa.
+                            </div> -->
+
+                           
+
+                        </div>
+
+                     
+                  
+
+                  
+                </div> 
+
+                         
+
+              {% endfor %}
+
+
+              
+           <!--    <div class="bs-item">
+                                    <h2>Popular :<small>Click on the buttons below to start the animation</small></h2>
+                </div> -->
+                   
+</div>
+
+
+
+
+
+                      <div class="col-md-3">
+                       
+                        <div class="card">
+                                <div class="card-header">
+                                    <h2>Recent Launch<small>Click on the buttons below to start the animation</small></h2>
+                                </div>
+                                
+                         <div class="card-body card-padding">
+                                   <!--  <img src="{% static 'media/architectures/features/FT4.png' %}" alt="" style="height:150px;width:200px;"> -->
+
+
+       <!--  <div class="container"> -->
+  <!-- <div class="row">
+    <div class='col-md-offset-2 col-md-3 text-center'>
+    <h2>Responsive Quote Carousel BS3</h2>
+    </div>
+  </div> -->
+  <!-- <div class='row'> -->
+ <div class='col-md-offset-2'> 
+      <div class="carousel slide" data-ride="carousel" id="quote-carousel">
+        <!-- Bottom Carousel Indicators -->
+        <!-- <ol class="carousel-indicators">
+          <li data-target="#quote-carousel" data-slide-to="0" class="active"></li>
+          <li data-target="#quote-carousel" data-slide-to="1"></li>
+          <li data-target="#quote-carousel" data-slide-to="2"></li>
+        </ol>
+         -->
+        <!-- Carousel Slides / Quotes -->
+        <div class="carousel-inner">
+        
+          <!-- Quote 1 -->
+          <div class="item active">
+            <blockquote>
+               <!-- <div class="row"> -->
+               <!--  <div class="col-sm-3 text-center"> -->
+                  <img class="img-responsive" src="{% static 'media/architectures/features/FT4.png' %}" style="height:200px; width:200px;">
+               <!--  </div> -->
+               <!--  <div class="col-sm-9">
+                  <p>Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit!</p>
+                  <small>Someone famous</small>
+                </div> -->
+            <!--    </div> -->
+            </blockquote>
+          </div>
+
+          <!-- Quote 2 -->
+          <div class="item">
+            <blockquote>
+              <!-- <div class="row"> -->
+                <!-- <div class="col-sm-3 text-center"> -->
+                  <img class="img-responsive" src="{% static 'media/architectures/features/FT4.png' %}" style="height:200px; width:200px;">
+                <!-- </div> -->
+                <!-- <div class="col-sm-9">
+                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam auctor nec lacus ut tempor. Mauris.</p>
+                  <small>Someone famous</small>
+                </div> -->
+              <!-- </div> -->
+            </blockquote>
+          </div>
+          <!-- Quote 3 -->
+          <div class="item">
+            <blockquote>
+             <!--  <div class="row"> -->
+                <!-- <div class="col-sm-3 text-center"> -->
+                  <img class="img-responsive" src="{% static 'media/architectures/features/FT4.png' %}" style="height:200px; width:200px;">
+               <!--  </div> -->
+                <!-- <div class="col-sm-9">
+                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut rutrum elit in arcu blandit, eget pretium nisl accumsan. Sed ultricies commodo tortor, eu pretium mauris.</p>
+                  <small>Someone famous</small>
+                </div> -->
+              <!-- </div> -->
+            </blockquote>
+          </div>
+        </div>
+        
+        <!-- Carousel Buttons Next/Prev -->
+        <a data-slide="prev" href="#quote-carousel" class="left carousel-control"><i class="fa fa-chevron-left"></i></a>
+        <a data-slide="next" href="#quote-carousel" class="right carousel-control"><i class="fa fa-chevron-right"></i></a>
+      </div> 
+ </div> 
+  <!-- </div> -->
+<!-- </div> -->
+                              
+
+
+
+
+
+
+
+                                </div>
+                        </div>
+
+                         
+
+                      
+                        <!-- <div class="card">
+
+                          <ul class="">
+
+
+
+                            <li class="active waves-effect">1. Abousefsds sddt sgtg srt srtsr tsgs sd sg t</li>
+
+
+                            <li class="active waves-effect">2. Abousefsds sddt sgtg srt srtsr tsgs sd sg dfgdf dfh dfgt</li>
+
+                            <li class="active waves-effect">3. Abouse ff fd fdgdfgfg f sds sddt sgtg srt srtsr tsgs sd sg t</li>
+                            <li class="active waves-effect">4. Abousef fdg dg ghdfhd dfsds sddt sgtg srt srtsr tsgs sd sg t</li>
+                            <li class="active waves-effect">Abousef dfg d gf fgfdg sds sddt sgtg srt srtsr tsgs sd sg t</li>
+                          </ul>
+                        </div> -->
+
+                      </div>
+
+
+
+
+
+
+
+
+             </div>
+
+<div class="col-md-12">
+
+  <div class="col-md-9">
+
+  <div class="card">
+
+    <div class="card-header">
+    <h2>Popular :<small>Popular Architectures</small></h2>
+    </div>
+    <div class="card-body">
+    <ul>
+    
+    <li class="active waves-effect">3. Abouse ff fd fdgdfgfg f sds sddt sgtg srt srtsr tsgs sd sg t</li>
+    <li class="active waves-effect">4. Abousef fdg dg ghdfhd dfsds sddt sgtg srt srtsr tsgs sd sg t</li>
+    <li class="active waves-effect">Abousef dfg d gf fgfdg sds sddt sgtg srt srtsr tsgs sd sg t</li>
+  </ul>
+  </div>
+
+  </div>
+
+  </div>
+
+<div class="col-md-3">
+  
+   <div class="card">
+   <div class="card-header">
+    <h2>Help Box :<small>Click on the buttons below to start the animation</small></h2>
+    </div>
+
+    <div class="card-body"> <ul>
+    
+    <li class="active waves-effect">3. Abouse ff fd fdgdfgfg f sds sddt sgtg srt srtsr tsgs sd sg t</li>
+    <li class="active waves-effect">4. Abousef fdg dg ghdfhd dfsds sddt sgtg srt srtsr tsgs sd sg t</li>
+    <li class="active waves-effect">Abousef dfg d gf fgfdg sds sddt sgtg srt srtsr tsgs sd sg t</li>
+  </ul></div>
+
+  </div>
+
+</div>
+
+
+</div>
+
+
+            </div>
+          </div>
+        </div>
+                        
+      <!--end cloud Architectures  -->
+
+
+          <!-- application Architectures  -->
+
+        
+
+              <!--end  Application Architectures  -->
+
+
+                                    
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+
+    </div>
+</div>
+
+ <div tabindex="-1" class="modal fade" id="myModal" role="dialog">
+  <div class="modal-dialog">
+  <div class="modal-content">
+    <div class="modal-header">
+    <button class="close" type="button" data-dismiss="modal">×</button>
+    <h3 class="modal-title">Architecture</h3>
+  </div>
+  <div class="modal-body">
+    
+  </div>
+  <div class="modal-footer">
+    <button class="btn btn-default" data-dismiss="modal">Close</button>
+  </div>
+   </div>
+  </div>
+</div>
+
+
+       <script src="{% static 'vendors/bower_components/jquery/dist/jquery.min.js'%}"></script>
+               
+       
+        
+       
+
+
+     <script type="text/javascript">
+            /*
+             * Notifications
+             */
+            function notify(from, align, icon, type, animIn, animOut){
+                $.growl({
+                    icon: icon,
+                    title: ' Bootstrap Growl ',
+                    message: 'Turning standard Bootstrap alerts into awesome notifications',
+                    url: ''
+                },{
+                        element: 'body',
+                        type: type,
+                        allow_dismiss: true,
+                        placement: {
+                                from: from,
+                                align: align
+                        },
+                        offset: {
+                            x: 20,
+                            y: 85
+                        },
+                        spacing: 10,
+                        z_index: 1031,
+                        delay: 2500,
+                        timer: 1000,
+                        url_target: '_blank',
+                        mouse_over: false,
+                        animate: {
+                                enter: animIn,
+                                exit: animOut
+                        },
+                        icon_type: 'class',
+                        template: '<div data-growl="container" class="alert" role="alert">' +
+                                        '<button type="button" class="close" data-growl="dismiss">' +
+                                            '<span aria-hidden="true">&times;</span>' +
+                                            '<span class="sr-only">Close</span>' +
+                                        '</button>' +
+                                        '<span data-growl="icon"></span>' +
+                                        '<span data-growl="title"></span>' +
+                                        '<span data-growl="message"></span>' +
+                                        '<a href="#" data-growl="url"></a>' +
+                                    '</div>'
+                });
+            };
+            
+            $('.notifications > div > .btn').click(function(e){
+                e.preventDefault();
+                var nFrom = $(this).attr('data-from');
+                var nAlign = $(this).attr('data-align');
+                var nIcons = $(this).attr('data-icon');
+                var nType = $(this).attr('data-type');
+                var nAnimIn = $(this).attr('data-animation-in');
+                var nAnimOut = $(this).attr('data-animation-out');
+                
+                notify(nFrom, nAlign, nIcons, nType, nAnimIn, nAnimOut);
+            });
+
+
+            /*
+             * Dialogs
+             */
+
+            //Basic
+            $('#sa-basic').click(function(){
+                swal("Here's a message!");
+            });
+
+            //A title with a text under
+            $('#sa-title').click(function(){
+                swal("Here's a message!", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed lorem erat, tincidunt vitae ipsum et, pellentesque maximus enim. Mauris eleifend ex semper, lobortis purus sed, pharetra felis")
+            });
+
+            //Success Message
+            $('#sa-success').click(function(){
+                swal("Good job!", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed lorem erat, tincidunt vitae ipsum et, pellentesque maximus enim. Mauris eleifend ex semper, lobortis purus sed, pharetra felis", "success")
+            });
+
+            //Warning Message
+            $('#sa-warning').click(function(){
+                swal({   
+                    title: "Architecture",   
+                    text: "Description!",   
+                    type: "info",   
+                    showCancelButton: true,   
+                    confirmButtonColor: "#DD6B55",   
+                    confirmButtonText: "Yes, delete it!",   
+                    closeOnConfirm: false 
+                }, function(){   
+                    swal("Deleted!", "Your imaginary file has been deleted.", "success"); 
+                });
+            });
+            
+            //Parameter
+            $('#sa-params').click(function(){
+                swal({   
+                    title: "Arch Title",   
+                    text: "Description",   
+                    type: "info",   
+                    showCancelButton: true,   
+                    confirmButtonColor: "#DD6B55",   
+                    confirmButtonText: "Yes, delete it!",   
+                    cancelButtonText: "No, cancel plx!",   
+                    closeOnConfirm: false,   
+                    closeOnCancel: false 
+                }, function(isConfirm){   
+                    if (isConfirm) {     
+                        swal("Deleted!", "Your imaginary file has been deleted.", "success");   
+                    } else {     
+                        swal("Cancelled", "Your imaginary file is safe :)", "error");   
+                    } 
+                });
+            });
+
+            //Custom Image
+            $('#sa-image').click(function(){
+                swal({   
+                    title: "Sweet!",   
+                    text: "Here's a custom image.",   
+                    imageUrl: "img/thumbs-up.png" 
+                });
+            });
+
+            //Auto Close Timer
+            $('#sa-close').click(function(){
+                 swal({   
+                    title: "Auto close alert!",   
+                    text: "I will close in 2 seconds.",   
+                    timer: 2000,   
+                    showConfirmButton: false 
+                });
+            });
+
+        </script>
+
+
+       {%endblock%}
+
+

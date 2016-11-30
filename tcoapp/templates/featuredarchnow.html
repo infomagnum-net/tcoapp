@@ -1,0 +1,262 @@
+{%load static%}
+{% block content%}  
+ 
+ <!-- wizard  -->
+  <div class="stepwizard col-md-offset-3">
+    <div class="stepwizard-row setup-panel">
+      <div class="stepwizard-step">
+        <a href="#step-1" type="button" class="btn btn-primary btn-circle" id="stp1">1</a>
+        <p>Featured<br/>Architetctures</p>
+      </div>
+      <div class="stepwizard-step">
+        <a href="#step-2" type="button" class="btn btn-default btn-circle" disabled="disabled" id="stp2">2</a>
+        <p>Payment Plans</p>
+      </div>
+      <div class="stepwizard-step">
+        <a href="#step-3" type="button" class="btn btn-default btn-circle" disabled="disabled" id="stp3">3</a>
+        <p>Invoice Page</p>
+      </div>
+
+    </div>
+  </div>
+
+<!--end wizard  -->
+
+
+
+  <form role="form" action="" method="post">
+
+    <div id="wizard_step1" class="">
+      <div class="row setup-content" id="step-1">
+        <div class="card" id="profile-main">
+          
+
+
+
+          <!--selected Architecture-->
+
+        <div id="get-img-src">
+
+            <div class="pm-overview c-overflow" > 
+              <div class="pmo-block pmo-contact"  id="id111">
+                         
+                <h2 class="text-center">ARCHITECTURES</h2>
+
+
+                  <div class="card blog-post z-depth-1" id="main-arch-image">
+                    
+                    <div class="bp-header featured-img" id="">                                  
+                       <img id="{{name}}" src="/../static/media/{{ arch_image }}"  style="background-color:black;" />
+
+                    </div>
+
+
+                    <div class="card-header bgm-lightblue m-b-20">
+                      <h2 class="archname">{{name}}</h2>  
+                    </div>
+
+                        <div class="card-body card-padding">
+                           Architecture Description sample Architecture
+                        </div>
+
+                        <div class="">
+                            <ul>
+                               <li style="font-weight:bold; font-size:16px;" class="ftrdprice">Price : $ {{main_arch_price}}</li><br/>
+                            </ul>
+                        </div>
+
+ 
+                    </div>
+                             
+              <h2>Relevant Tags:</h2><br>
+
+                   <a href="/tco/architecture/" class="btn bgm-blue btn-lg pull-left" type="button" id="launch-btn" data-type="inverse"  data-from="top" data-align="right" data-icon="fa fa-comments">&nbsp;&nbsp;Back &nbsp;&nbsp;</a> 
+
+                       
+                    <button class="btn bgm-green nextBtn btn-lg pull-right" type="button" id="launch-btn" data-type="inverse"  data-from="top" data-align="right" data-icon="fa fa-comments">Launch</button> <br/><br/>
+ 
+                         
+                </div>          
+            </div>
+          </div>
+
+        <!--end selected Architecture  -->
+
+
+
+        <!--featured Architecture  -->
+
+          <div class="pm-body clearfix photos">
+
+          <ul class="tab-nav tn-justified">
+            <li class="active waves-effect"><a><h4>FEATURED ARCHITECTURES</h4></a></li>
+          </ul>
+
+            <div class="pmb-block clearfix photos">
+
+                <div class="pmbb-body">
+
+                  {%for k,v in price_dict.items %}
+
+                 
+                    <div class="lightbox">
+                                    <div data-src="/../static/media/{{ v.2 }}" class="col-md-6 col-sm-3 col-xs-6" >
+                                    
+                                        <div class="lightbox-item p-item">
+                                            <img src="/../static/media/{{ v.2 }}" alt=""  style=" border:1px solid #edecec;"/>
+                                        </div>
+                                    </div>
+                      </div>
+
+
+                    
+                    
+
+                        
+                    {%endfor%}
+
+
+              <!--deafault selected main arch  -->
+
+                  <div class="col-sm-4"  id="{{i.id}}">
+                    <div class="card blog-post z-depth-1"  id="arch-img2"> 
+                              
+                      <div class="bp-header featured-img" id="">   
+                                
+                        <img  id="{{name}}" src="/../static/media/{{ arch_image }}" alt="Featured Architecture"  style="background-color:black;" width="232px;" height="232px;">
+
+                      </div>
+
+
+                    <div class="card-header bgm-lightblue">
+                        <h2 class="archname">{{name}}</h2><br>
+
+                        <h2> Price : $ {{ main_arch_price }} </h2>
+                       
+                        
+                        <button class="btn bgm-green btn-float waves-effect" id="{{name}}" type="button" data-type="inverse"  data-from="top" data-align="right" data-icon="fa fa-comments"><i class="zmdi zmdi-mail-send"></i></button>
+
+                    </div>
+
+                    <div class="card-body card-padding">
+                        Cras leo sem, egestas a accumsan eget, euismod at nunc. 
+                    </div>
+
+                  </div>
+                  </div>
+                          
+                  <!--end deafault selected main arch  -->
+
+                </div>                   
+              </div>                   
+              
+          </div>   
+
+        <!-- end featured Architecture  -->
+
+
+
+        </div>
+   </div>
+ </div>
+<!-- Javascript Libraries -->
+                
+      
+        
+       
+        
+        <!-- Placeholder for IE9 -->
+        <!--[if IE 9 ]>
+            <script src="vendors/bower_components/jquery-placeholder/jquery.placeholder.min.js"></script>
+        <![endif]-->
+         
+         <script src="{% static 'js/functions.js' %}"></script>
+
+       {%endblock%}
+
+        <!--Pay plans  -->
+
+      <div class="row setup-content" id="step-2">
+          <h1></h1>
+
+          <div class="" id="pymtns-page1">
+     
+          </div>
+      </div>
+
+      <!-- end Pay plans  -->
+
+
+      <!--invoice plans  -->
+
+        <div class="row setup-content" id="step-3">
+          
+            <div class="col-md-12" id="invoice-page">
+            </div>
+           
+        </div>
+
+      <!-- end invoice plans  -->
+
+  
+</form>
+
+
+
+<script type="text/javascript">
+  $(document).ready(function () {
+  var navListItems = $('div.setup-panel div a'),
+          allWells = $('.setup-content'),
+          allNextBtn = $('.nextBtn');
+
+  allWells.hide();
+
+  if ($(".btn").attr("disabled")=="disabled"){
+   $(".btn").css("pointer-events","none");} 
+  
+  //$(".btn").removeAttr("href");
+  
+  navListItems.click(function (e) {
+      e.preventDefault();
+      var $target = $($(this).attr('href')),
+              $item = $(this);
+
+      if (!$item.hasClass('disabled')) {
+
+          navListItems.removeClass('btn-primary wz-btn').addClass('btn-default');
+
+         
+          //$item.removeClass('remveclcik')
+          $item.addClass('btn-primary wz-btn');
+          allWells.hide();
+          $target.show();
+          $target.find('input:eq(0)').focus();
+      }
+ 
+      
+
+  });
+
+  allNextBtn.click(function(){
+      var curStep = $(this).closest(".setup-content"),
+          curStepBtn = curStep.attr("id"),
+          nextStepWizard = $('div.setup-panel div a[href="#' + curStepBtn + '"]').parent().next().children("a"),
+          curInputs = curStep.find("input[type='text'],input[type='url']"),
+          isValid = true;
+
+      $(".form-group").removeClass("has-error");
+      for(var i=0; i<curInputs.length; i++){
+          if (!curInputs[i].validity.valid){
+              isValid = false;
+              $(curInputs[i]).closest(".form-group").addClass("has-error");
+          }
+      }
+
+      if (isValid)
+          nextStepWizard.removeAttr('disabled').trigger('click');
+  });
+
+  $('div.setup-panel div a.btn-primary').trigger('click');
+});
+</script>
+
