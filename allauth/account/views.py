@@ -39,6 +39,8 @@ sensitive_post_parameters_m = method_decorator(
 
 import urllib2
 import json
+from rest_framework.authtoken.models import Token
+from django.contrib.auth.models import User
 
 # Automatically geolocate the connecting IP
 f = urllib2.urlopen('http://freegeoip.net/json/')
@@ -207,7 +209,9 @@ class SignupView(RedirectAuthenticatedUserMixin, CloseableSignupMixin,
         # By assigning the User to a property on the view, we allow subclasses
         # of SignupView to access the newly created User instance
         self.user = form.save(self.request)
-        
+        #user=User.objects.filter(username=self.user)
+        Token.objects.get_or_create(user=self.user)
+
         Customer(name=self.user,address_1=location_city,state=location_state,country=location_country).save()
 
         print "**"*20

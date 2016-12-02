@@ -29,9 +29,10 @@ import json
 
 from django.core.files.storage import FileSystemStorage
 
+from django.core.files.storage import FileSystemStorage
+
 from django.core.urlresolvers import reverse
 from rest_framework.authtoken.models import Token
-
 
 # Automatically geolocate the connecting IP
 f = urllib2.urlopen('http://freegeoip.net/json/')
@@ -125,6 +126,7 @@ def price_calculator(archname):
         
         for prc in price.LoadBalencer_metered.all():
             load_unit_price=prc.price_per_unit
+
 
         price_product=((ec2_unit_price*ec2_qty)+(rds_unit_price*rds_qty)+(s3_unit_price*s3_qty)+(load_unit_price*load_qty))*24*30
         total_price_product=float("{0:.2f}".format(price_product))
@@ -1127,76 +1129,45 @@ def application(request):
 def verticals(request):
     return render(request,"verticals.html")
 
-
-''' 26/11/16 starting'''
-
-
-
-# def rest_architecture(request):
-#     token=Token.objects.get(user_id=request.user.id)
-#     mytoken=token.key
-#     arch_url="http://"+request.get_host()+reverse("architectures-list")
-#     prdct_url="http://"+request.get_host()+reverse("productcode-list")
-#     architectures=requests.get(arch_url, headers={'Authorization': 'Token {}'.format(mytoken)})
-#     arch_json = architectures.json()
-#     prdct_name=requests.get(prdct_url, headers={'Authorization': 'Token {}'.format(mytoken)})
-#     prdct_json=prdct_name.json()
-    
-#     for prdct in prdct_json:
-#         for arch in arch_json:
-#             if prdct['id']==arch['architecture_name']:
-#                 arch['architecture_name']=prdct['value']
-#             else:
-#                 pass
-#     print arch_json
-#     return HttpResponse(request.get_host())
+''' 29/11/16 Rest Api'''
 
 def rest_main_architectures(request):
     token=Token.objects.get(user_id=request.user.id)
     mytoken=token.key
     arch_url="http://"+request.get_host()+reverse("my-own-view")
-    print '*** main architecture url'
-    print arch_url
-
     architectures=requests.get(arch_url, headers={'Authorization': 'Token {}'.format(mytoken)})
     arch_json = architectures.json()
-    return HttpResponse("arch comple te info")
+    return render_to_response('rest_api/architecture.html', {"arch_json" : arch_json})
+    #return HttpResponse("arch comple te info")
 
 def rest_arch_complete_info(request,pk):
     token=Token.objects.get(user_id=request.user.id)
     mytoken=token.key
-    
     arch_url="http://"+request.get_host()+reverse('ArchCompleInfo', kwargs={'pk':pk})
-    
-    print '*** architecture complete info url'
-    print arch_url
-
     architectures=requests.get(arch_url, headers={'Authorization': 'Token {}'.format(mytoken)}) 
     arch_json = architectures.json()
     print arch_json
-    return HttpResponse("this is testing")
-
+    return render_to_response('rest_api/arch_comple_info.html', {"arch_json" : arch_json})
+    
 
 def FtrdArchForArch(request,pk):
     token=Token.objects.get(user_id=request.user.id)
     mytoken=token.key
     ftrd_arch_url="http://"+request.get_host()+reverse('FtrdArchByArchID', kwargs={'pk':pk})
-    print '*** Featured architecture for a architecture by id url'
-    print ftrd_arch_url
-
-
-
     ftrd_architectures=requests.get(ftrd_arch_url, headers={'Authorization': 'Token {}'.format(mytoken)}) 
-    arch_json = ftrd_architectures.json()
-    print arch_json
-    return HttpResponse("this is testing")
+    ftrd_arch_json = ftrd_architectures.json()
+    main_arch_url="http://"+request.get_host()+reverse('ArchCompleInfo', kwargs={'pk':pk})
+    architectures=requests.get(main_arch_url, headers={'Authorization': 'Token {}'.format(mytoken)}) 
+    main_arch_json = architectures.json()
+    return render_to_response('rest_api/featured_wizard.html',{'ftrd_arch_json': ftrd_arch_json,'main_arch_json':main_arch_json})
+
+
+
 
 def CompleteFtrdArchInfo(request,pk):
     token=Token.objects.get(user_id=request.user.id)
     mytoken=token.key
     url="http://"+request.get_host()+reverse('FtrdArchCompleInfo', kwargs={'pk':pk})
-    print '*** Featured architecture complete info url'
-    print url
     info=requests.get(url, headers={'Authorization': 'Token {}'.format(mytoken)}) 
     arch_json = info.json()
     print arch_json
@@ -1210,7 +1181,6 @@ def planspage(request,name):
     url="http://"+request.get_host()+reverse('PayPlansInfo', kwargs={'name':name})
     print "payment plans for a particular architectures url"
     print url
-
     info=requests.get(url, headers={'Authorization': 'Token {}'.format(mytoken)}) 
     print '**'*20
     print info
@@ -1220,41 +1190,132 @@ def planspage(request,name):
     print '***'*20
     return HttpResponse("this is testing")
 
+def Launch_img(request,name):
+    token=Token.objects.get(user_id=request.user.id)
+    mytoken=token.key
+    url="http://"+request.get_host()+reverse('PlanByArchName', kwargs={'name':name})
+    plans=requests.get(url, headers={'Authorization': 'Token {}'.format(mytoken)}) 
+    plan_info=plans.json()
+    arch_url="http://"+request.get_host()+reverse('Architectures_by_name', kwargs={'name':name})
+    archs=requests.get(arch_url, headers={'Authorization': 'Token {}'.format(mytoken)}) 
+    arch_info=archs.json()
+    return render(request,"rest_api/dynamic-side-img.html",{"plan_info":plan_info[0],
+        'arch_info':arch_info[0]})
+
+def PayementPlans(request,name):
+    token=Token.objects.get(user_id=request.user.id)
+    mytoken=token.key
+    url="http://"+request.get_host()+reverse('PlanByArchName', kwargs={'name':name})
+    plans=requests.get(url, headers={'Authorization': 'Token {}'.format(mytoken)}) 
+    plan_info=plans.json()
+    arch_url="http://"+request.get_host()+reverse('Architectures_by_name', kwargs={'name':name})
+    archs=requests.get(arch_url, headers={'Authorization': 'Token {}'.format(mytoken)}) 
+    arch_info=archs.json()
+    daily_plan_price=plan_info[0]['total_plan_price']/30
+    Yearly_price=plan_info[0]['total_plan_price']*12
+   # return HttpResponse("this is payment plans page")
+    return render(request,"rest_api/plans_wizard.html",{"arch_info":arch_info[0],
+        "plan_info":plan_info[0],"daily_plan_price":daily_plan_price,"Yearly_price":Yearly_price})
+
 
 def invoicepage(request,name):
-    return HttpResponse("this is invoice page demo")
+    plan_type=request.GET.get("plantype")
+    token=Token.objects.get(user_id=request.user.id)
+    mytoken=token.key
+    url="http://"+request.get_host()+reverse('PlanByArchName', kwargs={'name':name})
+    plans=requests.get(url, headers={'Authorization': 'Token {}'.format(mytoken)}) 
+    plan_info=plans.json()
+    arch_url="http://"+request.get_host()+reverse('Architectures_by_name', kwargs={'name':name})
+    archs=requests.get(arch_url, headers={'Authorization': 'Token {}'.format(mytoken)}) 
+    arch_info=archs.json()
+    date=time.strftime("%d/%m/%Y")
+    instance_unit_price=0
+    rds_unit_price=0
+    s3_unit_price=0
+    balancer_unit_price=0
+    instance_total_price=0
+    rds_total_price=0
+    s3_total_price=0
+    balancer_total_price=0
+    total_price=0
+
+    if plan_type=="daily":
+        instance_unit_price=plan_info[0]['instance_cost']/30
+        instance_total_price=(plan_info[0]['instance_cost']/30)*plan_info[0]['instance_count']
+    
+        rds_unit_price=plan_info[0]['rds_cost']/30
+        rds_total_price=(plan_info[0]['rds_cost']/30)*plan_info[0]['rds_count']
+
+        s3_unit_price=plan_info[0]['s3_cost']/30
+        s3_total_price=(plan_info[0]['s3_cost']/30)*plan_info[0]['s3_count']
+
+        balancer_unit_price=plan_info[0]['loadbalancer_cost']/30
+        balancer_total_price=(plan_info[0]['loadbalancer_cost']/30)*plan_info[0]['balancer_count']
+
+        total_price=plan_info[0]["total_plan_price"]/30
+
+    if plan_type=="Yearly":
+        instance_unit_price=plan_info[0]['instance_cost']*12
+        instance_total_price=(plan_info[0]['instance_cost']*12)*plan_info[0]['instance_count']
+    
+        rds_unit_price=plan_info[0]['rds_cost']*12
+        rds_total_price=(plan_info[0]['rds_cost']*12)*plan_info[0]['rds_count']
+
+        s3_unit_price=plan_info[0]['s3_cost']*12
+        s3_total_price=(plan_info[0]['s3_cost']*12)*plan_info[0]['s3_count']
+
+        balancer_unit_price=plan_info[0]['loadbalancer_cost']*12
+        balancer_total_price=(plan_info[0]['loadbalancer_cost']*12)*plan_info[0]['balancer_count']
+
+        total_price=plan_info[0]["total_plan_price"]*12
+
+    if plan_type=="Mothly":
+        instance_unit_price=plan_info[0]['instance_cost']
+        instance_total_price=(plan_info[0]['instance_cost'])*plan_info[0]['instance_count']
+    
+        rds_unit_price=plan_info[0]['rds_cost']
+        rds_total_price=(plan_info[0]['rds_cost'])*plan_info[0]['rds_count']
+
+        s3_unit_price=plan_info[0]['s3_cost']
+        s3_total_price=(plan_info[0]['s3_cost'])*plan_info[0]['s3_count']
+
+        balancer_unit_price=plan_info[0]['loadbalancer_cost']
+        balancer_total_price=(plan_info[0]['loadbalancer_cost'])*plan_info[0]['balancer_count']
+        total_price=plan_info[0]["total_plan_price"]
 
 
-# def complete_arch_info(request):
-#     token=Token.objects.get(user_id=request.user.id)
-#     mytoken=token.key
-#     arch_url="http://"+request.get_host()+reverse('ArhitectureByID', kwargs={'pk':1})
-#     architectures=requests.get(arch_url, headers={'Authorization': 'Token {}'.format(mytoken)}) 
-#     arch_json = architectures.json()
-#     prdct_url="http://"+request.get_host()+reverse('ProductCodeByID', kwargs={'pk':arch_json[0]['architecture_name']})
-#     prdct_name=requests.get(prdct_url, headers={'Authorization': 'Token {}'.format(mytoken)})
-#     prdct_json=prdct_name.json()
-#     arch_json[0]['architecture_name']=prdct_json['value']
-#     plan_url="http://"+request.get_host()+reverse('PlanByArchName', kwargs={'name':prdct_json['value']})
-#     planinfo=requests.get(plan_url, headers={'Authorization': 'Token {}'.format(mytoken)})
-#     data1 = arch_json[0]
-#     data2 = planinfo.json()[0]
-#     data1.update(data2)
-#     print data1
-#     return HttpResponse("dshjdsjdh")
+    print arch_info[0]
+    print plan_info[0]
 
 
+    return render(request, 'rest_api/invoice.html',{"arch_info":arch_info[0],
+        "plan_info":plan_info[0],
+        "instance_unit_price":instance_unit_price,
+        "rds_unit_price":rds_unit_price,
+        "s3_unit_price":s3_unit_price,
+        "balancer_unit_price":balancer_unit_price,
+        "instance_total_price":instance_total_price,
+        "rds_total_price":rds_total_price,
+        "s3_total_price":s3_total_price,
+        "balancer_total_price":balancer_total_price,
+        "total_price":total_price,
+        'date':date,
+        "payment_type":plan_type
+        })
+
+def day_invoice(request):
+
+    return HttpResponse("this is day invoice")
 
 
-
-
-
-
-# import requests
-# mytoken = "4652400bd6c3df8eaa360d26560ab59c81e0a164"
-# myurl = "http://localhost:8000/api/user_list"
-
-# # A get request (json example):
-# response = requests.get(myurl, headers={'Authorization': 'Token {}'.format(mytoken)})
-# data = response.json()
-
+def Featured_model_popup(request,name):
+    token=Token.objects.get(user_id=request.user.id)
+    mytoken=token.key
+    url="http://"+request.get_host()+reverse('PlanByArchName', kwargs={'name':name})
+    plans=requests.get(url, headers={'Authorization': 'Token {}'.format(mytoken)}) 
+    plan_info=plans.json()
+    arch_url="http://"+request.get_host()+reverse('Architectures_by_name', kwargs={'name':name})
+    archs=requests.get(arch_url, headers={'Authorization': 'Token {}'.format(mytoken)}) 
+    arch_info=archs.json()
+    return render(request,"rest_api/ftrd_popup.html",{"plan_info":plan_info[0],
+        'arch_info':arch_info[0]})

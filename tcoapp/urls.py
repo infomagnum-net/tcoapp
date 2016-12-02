@@ -15,13 +15,11 @@ urlpatterns = [
     url(r'^profile/$', views.Profile, name="Profile"),
     url(r'^editprofile/$', views.edit, name="edit"),
     url(r'^help/$', views.help, name="help"),
-
     url(r'^simple/$', views.simple_upload, name='simple_upload'),
     url(r'^test/$', views.test, name="test"),
-    url(r'^architecture/$', views.architecture_view, name='architectures'),
+    
     url(r'^application/$', views.application, name='application'),
     url(r'^verticals/$', views.verticals, name='verticals'),
-
     url(r'^architecture/(?P<img_id>[A-Za-z0-9\w @%&._-]+)/$', views.feature_architecture_view, name='feartures'),
     url(r'^privacy/$', views.resetpwd, name="resetpwd"),
     url(r'^resetpwd-ajax/$', views.resetpwd_ajax, name="resetpwd_ajax"),
@@ -47,10 +45,13 @@ urlpatterns = [
     url(r'^testwizard/$', views.testwizard, name='testwizard'),
     url(r'^conformation/$', views.payment_conformation, name='payment_conformation'),
     url(r'^404/$',views.handler404,name="handler404" ),
-    url(r'^arch_info/$', views.rest_main_architectures, name='rest_main_architectures'),
+    url(r'^architecture/$', views.rest_main_architectures, name='rest_main_architectures'),
     url(r'^complete-arch-info/(?P<pk>[0-9]+)/$', views.rest_arch_complete_info, name='rest_arch_complete_info'),
     url(r'^ftrd-for-arch/(?P<pk>[0-9]+)/$', views.FtrdArchForArch, name='FtrdArchForArch'),
     url(r'^ftrd-cmplt-info/(?P<pk>[0-9]+)/$', views.CompleteFtrdArchInfo, name='CompleteFtrdArchInfo'),
     url(r'^planspage/(?P<name>[A-Za-z0-9\w@%._ -]+)/$', views.planspage, name='planspage'),
     url(r'^invoice/(?P<name>[A-Za-z0-9\w@%._ -]+)/$', views.invoicepage, name='invoicepage'),
+    url(r'^launch-img/(?P<name>[A-Za-z0-9\w@%._ -]+)/$', views.Launch_img, name='arch_with_plansinfo'),
+    url(r'^payment/(?P<name>[A-Za-z0-9\w@%._ -]+)/$', views.PayementPlans, name='PayementPlans'),
+    url(r'^ftrd_popup/(?P<name>[A-Za-z0-9\w@%._ -]+)/$', views.Featured_model_popup, name='Featured_model_popup'),
 ]

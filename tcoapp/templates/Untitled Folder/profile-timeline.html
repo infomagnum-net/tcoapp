@@ -1,0 +1,1600 @@
+{%load static%}
+<!DOCTYPE html>
+    <!--[if IE 9 ]><html class="ie9"><![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Cloud-TCO</title>
+    
+        <!-- Vendor CSS -->
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+        <link href="{% static 'vendors/bower_components/animate.css/animate.min.css' %}" rel="stylesheet">
+        <link href="{% static 'vendors/bower_components/bootstrap-sweetalert/lib/sweet-alert.css' %}" rel="stylesheet">
+        <link href="{% static 'vendors/bower_components/material-design-iconic-font/dist/css/material-design-iconic-font.min.css' %}" rel="stylesheet">
+        <link href="{% static 'vendors/bower_components/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.min.css' %}" rel="stylesheet">        
+        <link href="{% static 'vendors/bower_components/lightgallery/light-gallery/css/lightGallery.css' %}" rel="stylesheet">
+            
+        <!-- CSS -->
+        <link href="{% static 'css/app.min.1.css" rel="stylesheet' %}">
+        <link href="{% static 'css/app.min.2.css" rel="stylesheet' %}">
+    </head>
+    
+<body>
+        
+    <header id="header" class="clearfix" data-current-skin="lightblue">
+            
+        <ul class="header-inner">
+               
+            <li class="logo">
+                <a href="/" style="text-decoration:none;">
+                    <img src="{% static 'img/cloud_logo.svg' %}" alt="client" style="width:147px;">
+                </a>
+            </li>
+
+            <li class="pull-right">
+                <ul class="top-menu">
+
+                   <li class="dropdown hidden-xs">
+                        <a href="/tco/architecture">
+                            <span class="tm-label">Architectural</span>
+                        </a>
+                    </li>
+                    <li class="dropdown hidden-xs">
+                        <a href="/tco/application">
+                            <span class="tm-label">Application</span>
+                        </a>
+                    </li>
+                    <li class="dropdown hidden-xs">
+                        <a href="/tco/verticals">
+                            <span class="tm-label">Vertical</span>
+                        </a>
+                    </li>
+                       
+                    <li>
+                        <a href="/tco/architecture"> <i class="tm-icon zmdi zmdi-home"></i></a>
+                    </li>
+
+                    <li class="dropdown">
+                        <a data-toggle="dropdown" href=""><i class="tm-icon zmdi zmdi-account-circle"></i> </a>
+
+                        <ul class="dropdown-menu dm-icon pull-right">
+                            <li class="">
+                               <a href="/tco/profile/"><i class="zmdi zmdi-account"></i> View Profile</a>
+                            </li>
+                            
+                            <li>
+                                <a href="/accounts/password/change/"><i class="zmdi zmdi-face"></i> Privacy Settings</a>
+                            </li>
+
+                            <li>
+                                <a href="/tco/logout"><i class="zmdi zmdi-time-restore"></i> Logout</a>
+                            </li>
+
+                        </ul>
+                    </li>
+
+                </ul>
+            </li>
+        </ul>
+
+
+
+            <!-- Top Search Content -->
+            <div id="top-search-wrap">
+                <div class="tsw-inner">
+                    <i id="top-search-close" class="zmdi zmdi-arrow-left"></i>
+                    <input type="text">
+                </div>
+            </div>
+        </header>
+        
+
+    <section id="main">
+            
+    <section id="content" style="padding-left: 0px !important;">
+
+        <div class="container">
+                    
+          <div class="block-header">
+            <h2>{{request.user.username}} <small>{{request.user.email}}</small></h2> 
+          </div> 
+                    
+            <div class="card c-timeline">
+                        
+                <div class="pm-overview c-overflow">
+
+                   <!--  <div class="pmo-pic">
+                   
+                        <div class="p-relative">
+                            <a>
+                                <img class="img-responsive" 
+                                src="{% static 'img/profile-pics/8.jpg' %}" alt=""> 
+                            </a>
+                            
+                        
+                           <a href="" class="pmop-edit">
+                                <i class="zmdi zmdi-camera"></i> <span class="hidden-xs">Update Profile Picture</span>
+                            </a>
+                        </div>
+                                               
+                    </div> -->
+                            
+                            <!-- <div class="pmo-block pmo-contact hidden-xs">
+                                <h2>Contact</h2>
+                                
+                                <ul>
+                                    <li><i class="zmdi zmdi-phone"></i> 00971 12345678 9</li>
+                                    <li><i class="zmdi zmdi-email"></i> malinda-h@gmail.com</li>
+                                    <li><i class="zmdi zmdi-facebook-box"></i> malinda.hollaway</li>
+                                    <li><i class="zmdi zmdi-twitter"></i> @malinda (twitter.com/malinda)</li>
+                                    <li>
+                                        <i class="zmdi zmdi-pin"></i>
+                                        <address class="m-b-0 ng-binding">
+                                            44-46 Morningside Road,<br>
+                                            Edinburgh,<br>
+                                            Scotland
+                                        </address>
+                                    </li>
+                                </ul>
+                            </div> -->
+                            
+                            
+                        </div>
+                        
+                        <div class="pm-body clearfix">
+                            <ul class="tab-nav tn-justified">
+                                <li class="waves-effect"><a href="/tco/profile">profile</a></li>
+                                <li class="active waves-effect"><a href="/tco/dashboard">Dashboard</a></li>
+                                <li class="waves-effect"><a href="/tco/monitoring">Launch Architectures</a></li>
+                               <!--  <li class="waves-effect"><a href="profile-connections.html">Connections</a></li> -->
+                            </ul>
+                            
+                            
+                            <div class="timeline" style="padding-left: 50px !important;">
+
+
+
+
+
+                    
+                    <div class="row">
+
+                    <div class="mini-charts">
+<!--                         <div class="row">
+ -->                            <div class="col-sm-3">
+                                <div class="mini-charts-item bgm-cyan">
+                                    <div class="clearfix">
+                                        <div class="chart stats-bar"></div>
+                                        <div class="count">
+                                            <small>Website Traffics</small>
+                                            <h2>987,459</h2>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="col-sm-3">
+                                <div class="mini-charts-item bgm-lightgreen">
+                                    <div class="clearfix">
+                                        <div class="chart stats-bar-2"></div>
+                                        <div class="count">
+                                            <small>Website Impressions</small>
+                                            <h2>356,785K</h2>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="col-sm-3">
+                                <div class="mini-charts-item bgm-orange">
+                                    <div class="clearfix">
+                                        <div class="chart stats-line"></div>
+                                        <div class="count">
+                                            <small>Total Sales</small>
+                                            <h2>$ 458,778</h2>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="col-sm-3">
+                                <div class="mini-charts-item bgm-bluegray">
+                                    <div class="clearfix">
+                                        <div class="chart stats-line-2"></div>
+                                        <div class="count">
+                                            <small>Support Tickets</small>
+                                            <h2>23,856</h2>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            
+                            <div class="col-sm-3">
+                                <div class="mini-charts-item bgm-teal">
+                                    <div class="clearfix">
+                                        <div class="chart chart-pie stats-pie"></div>
+                                        <div class="count">
+                                            <small>Percentage</small>
+                                            <h2>99.87%</h2>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="col-sm-3">
+                                <div class="mini-charts-item bgm-red">
+                                    <div class="clearfix">
+                                        <div class="chart stats-line"></div>
+                                        <div class="count">
+                                            <small>Total Sales</small>
+                                            <h2>$ 458,778</h2>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="col-sm-3">
+                                <div class="mini-charts-item bgm-blue">
+                                    <div class="clearfix">
+                                        <div class="chart chart-pie stats-pie"></div>
+                                        <div class="count">
+                                            <small>Percentage</small>
+                                            <h2>99.87%</h2>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="col-sm-3">
+                                <div class="mini-charts-item bgm-pink">
+                                    <div class="clearfix">
+                                        <div class="chart stats-bar"></div>
+                                        <div class="count">
+                                            <small>Website Traffics</small>
+                                            <h2>987,459</h2>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                      <!--   </div> -->
+                    </div>
+                    <br/>
+                    <br/>
+                    <br/>
+
+
+
+
+
+
+<!--                         <div class="col-md-6">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h2>Line Chart with curved edges <small>Curved edges made possible using curvedLines Flot plugin.</small></h2>
+                            
+                                    <ul class="actions">
+                                        <li class="dropdown action-show">
+                                            <a href="" data-toggle="dropdown">
+                                                <i class="zmdi zmdi-more-vert"></i>
+                                            </a>
+                            
+                                            <div class="dropdown-menu pull-right">
+                                                <p class="p-20">
+                                                    You can put anything here
+                                                </p>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            
+                                <div class="card-body">
+                                    <div class="chart-edge">
+                                        <div id="curved-line-chart" class="flot-chart"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-6">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h2>Lines Chart <small>Same above example without curved edges.</small></h2>
+                                    
+                                    <ul class="actions">
+                                        <li class="dropdown action-show">
+                                            <a href="" data-toggle="dropdown">
+                                                <i class="zmdi zmdi-more-vert"></i>
+                                            </a>
+                            
+                                            <div class="dropdown-menu pull-right">
+                                                <p class="p-20">
+                                                    You can put anything here
+                                                </p>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="card-body">
+                                    <div class="chart-edge">
+                                        <div id="line-chart" class="flot-chart"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div> 
+ -->
+
+
+
+
+                        
+<!--                         <div class="col-md-4">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h2>Bar Chart</h2>
+                                    
+                                    <ul class="actions">
+                                        <li class="dropdown action-show">
+                                            <a href="" data-toggle="dropdown">
+                                                <i class="zmdi zmdi-more-vert"></i>
+                                            </a>
+                            
+                                            <div class="dropdown-menu pull-right">
+                                                <p class="p-20">
+                                                    You can put anything here
+                                                </p>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="card-body card-padding-sm">
+                                    <div id="bar-chart" class="flot-chart"></div>
+                                    <div class="flc-bar"></div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-4">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h2>Dynamic Chart</h2>
+                                    
+                                    <ul class="actions">
+                                        <li class="dropdown action-show">
+                                            <a href="" data-toggle="dropdown">
+                                                <i class="zmdi zmdi-more-vert"></i>
+                                            </a>
+                            
+                                            <div class="dropdown-menu pull-right">
+                                                <p class="p-20">
+                                                    You can put anything here
+                                                </p>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="card-body card-padding-sm">
+                                    <div id="dynamic-chart" class="flot-chart"></div>
+                                    <div class="flc-dynamic"></div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        
+                        
+                        <div class="col-md-4">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h2>Donut Chart</h2>
+                                    
+                                    <ul class="actions">
+                                        <li class="dropdown action-show">
+                                            <a href="" data-toggle="dropdown">
+                                                <i class="zmdi zmdi-more-vert"></i>
+                                            </a>
+                            
+                                            <div class="dropdown-menu pull-right">
+                                                <p class="p-20">
+                                                    You can put anything here
+                                                </p>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="card-body card-padding">
+                                    <div id="donut-chart" class="flot-chart-pie"></div>
+                                    <div class="flc-donut hidden-xs"></div>
+                                </div>
+                            </div>
+                        </div>
+
+ -->
+
+
+                        <div class="col-md-4">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h2>CPU Utilization</h2><small>(percent)</small>
+                                    
+                                    <ul class="actions">
+                                        <li class="dropdown action-show">
+                                            <a href="" data-toggle="dropdown">
+                                                <i class="zmdi zmdi-more-vert"></i>
+                                            </a>
+                            
+                                            <div class="dropdown-menu pull-right">
+                                                <p class="p-20">
+                                                    You can put anything here
+                                                </p>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="card-body card-padding">
+                                    <div id="chartContainer2" class="flot-chart-pie"></div>
+                                   <!--  <div id="chartContainer" ></div> -->
+                                    <!-- <div class="flc-donut hidden-xs"></div> -->
+                                </div>
+                            </div>
+                        </div>
+
+
+
+                        
+                        <div class="col-md-4">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h2>Disk Reades</h2><small>(Bytes)</small>
+                                    
+                                    <ul class="actions">
+                                        <li class="dropdown action-show">
+                                            <a href="" data-toggle="dropdown">
+                                                <i class="zmdi zmdi-more-vert"></i>
+                                            </a>
+                            
+                                            <div class="dropdown-menu pull-right">
+                                                <p class="p-20">
+                                                    You can put anything here
+                                                </p>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="card-body card-padding">
+                                    <div id="chartContainer1" class="flot-chart-pie"></div>
+                                   <!--  <div id="chartContainer" ></div> -->
+                                    <!-- <div class="flc-donut hidden-xs"></div> -->
+                                </div>
+                            </div>
+                        </div>
+
+                         <div class="col-md-4">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h2>Disk Reads Operations</h2><small>(Operations)</small>
+                                    
+                                    <ul class="actions">
+                                        <li class="dropdown action-show">
+                                            <a href="" data-toggle="dropdown">
+                                                <i class="zmdi zmdi-more-vert"></i>
+                                            </a>
+                            
+                                            <div class="dropdown-menu pull-right">
+                                                <p class="p-20">
+                                                    You can put anything here
+                                                </p>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="card-body card-padding">
+                                    <div id="chartContainer3" class="flot-chart-pie"></div>
+                                   <!--  <div id="chartContainer" ></div> -->
+                                    <!-- <div class="flc-donut hidden-xs"></div> -->
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            <div class="card">
+                                <div class="card-header">
+                                     <h2>Disk Writes</h2><small>(Bytes)</small>
+                                    
+                                    <ul class="actions">
+                                        <li class="dropdown action-show">
+                                            <a href="" data-toggle="dropdown">
+                                                <i class="zmdi zmdi-more-vert"></i>
+                                            </a>
+                            
+                                            <div class="dropdown-menu pull-right">
+                                                <p class="p-20">
+                                                    You can put anything here
+                                                </p>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="card-body card-padding">
+                                    <div id="chartContainer4" class="flot-chart-pie"></div>
+                                   <!--  <div id="chartContainer" ></div> -->
+                                    <!-- <div class="flc-donut hidden-xs"></div> -->
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            <div class="card">
+                                <div class="card-header">
+                                     <h2>Disk Writes Operations</h2><small>(Operations)</small>
+                                    <ul class="actions">
+                                        <li class="dropdown action-show">
+                                            <a href="" data-toggle="dropdown">
+                                                <i class="zmdi zmdi-more-vert"></i>
+                                            </a>
+                            
+                                            <div class="dropdown-menu pull-right">
+                                                <p class="p-20">
+                                                    You can put anything here
+                                                </p>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="card-body card-padding">
+                                    <div id="chartContainer5" class="flot-chart-pie"></div>
+                                   <!--  <div id="chartContainer" ></div> -->
+                                    <!-- <div class="flc-donut hidden-xs"></div> -->
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h2>Network In</h2><small>(Bytes)</small>
+                                    
+                                    <ul class="actions">
+                                        <li class="dropdown action-show">
+                                            <a href="" data-toggle="dropdown">
+                                                <i class="zmdi zmdi-more-vert"></i>
+                                            </a>
+                            
+                                            <div class="dropdown-menu pull-right">
+                                                <p class="p-20">
+                                                    You can put anything here
+                                                </p>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="card-body card-padding">
+                                    <div id="chartContainer6" class="flot-chart-pie"></div>
+                                   <!--  <div id="chartContainer" ></div> -->
+                                    <!-- <div class="flc-donut hidden-xs"></div> -->
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="col-md-4">
+                            <div class="card">
+                                <div class="card-header">
+                                   <h2>Network Out</h2><small>(Bytes)</small>
+                                    
+                                    <ul class="actions">
+                                        <li class="dropdown action-show">
+                                            <a href="" data-toggle="dropdown">
+                                                <i class="zmdi zmdi-more-vert"></i>
+                                            </a>
+                            
+                                            <div class="dropdown-menu pull-right">
+                                                <p class="p-20">
+                                                    You can put anything here
+                                                </p>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="card-body card-padding">
+                                    <div id="chartContainer7" class="flot-chart-pie"></div>
+                                   <!--  <div id="chartContainer" ></div> -->
+                                    <!-- <div class="flc-donut hidden-xs"></div> -->
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h2>Network Packets In</h2><small>(Count)</small>
+                                    <ul class="actions">
+                                        <li class="dropdown action-show">
+                                            <a href="" data-toggle="dropdown">
+                                                <i class="zmdi zmdi-more-vert"></i>
+                                            </a>
+                            
+                                            <div class="dropdown-menu pull-right">
+                                                <p class="p-20">
+                                                    You can put anything here
+                                                </p>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="card-body card-padding">
+                                    <div id="chartContainer8" class="flot-chart-pie"></div>
+                                   <!--  <div id="chartContainer" ></div> -->
+                                    <!-- <div class="flc-donut hidden-xs"></div> -->
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            <div class="card">
+                                <div class="card-header">
+                                    
+                                    <h2>Network Packets Out</h2><small>(Count)</small>
+                                    
+                                    <ul class="actions">
+                                        <li class="dropdown action-show">
+                                            <a href="" data-toggle="dropdown">
+                                                <i class="zmdi zmdi-more-vert"></i>
+                                            </a>
+                            
+                                            <div class="dropdown-menu pull-right">
+                                                <p class="p-20">
+                                                    You can put anything here
+                                                </p>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="card-body card-padding">
+                                    <div id="chartContainer9" class="flot-chart-pie"></div>
+                                   <!--  <div id="chartContainer" ></div> -->
+                                    <!-- <div class="flc-donut hidden-xs"></div> -->
+                                </div>
+                            </div>
+                        </div>
+
+
+
+                         <div class="col-md-4">
+                            <div class="card">
+                                <div class="card-header">
+                                    
+                                    <h2>Status Check Failed(Any)</h2><small>(Count)</small>
+                                    
+                                    <ul class="actions">
+                                        <li class="dropdown action-show">
+                                            <a href="" data-toggle="dropdown">
+                                                <i class="zmdi zmdi-more-vert"></i>
+                                            </a>
+                            
+                                            <div class="dropdown-menu pull-right">
+                                                <p class="p-20">
+                                                    You can put anything here
+                                                </p>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="card-body card-padding">
+                                    <div id="chartContainer10" class="flot-chart-pie"></div>
+                                   <!--  <div id="chartContainer" ></div> -->
+                                    <!-- <div class="flc-donut hidden-xs"></div> -->
+                                </div>
+                            </div>
+                        </div>
+
+
+
+                         <div class="col-md-4">
+                            <div class="card">
+                                <div class="card-header">
+                                    
+                                    <h2>Status Check Failed(Instance)</h2><small>(Count)</small>
+                                    
+                                    <ul class="actions">
+                                        <li class="dropdown action-show">
+                                            <a href="" data-toggle="dropdown">
+                                                <i class="zmdi zmdi-more-vert"></i>
+                                            </a>
+                            
+                                            <div class="dropdown-menu pull-right">
+                                                <p class="p-20">
+                                                    You can put anything here
+                                                </p>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="card-body card-padding">
+                                    <div id="chartContainer11" class="flot-chart-pie"></div>
+                                   <!--  <div id="chartContainer" ></div> -->
+                                    <!-- <div class="flc-donut hidden-xs"></div> -->
+                                </div>
+                            </div>
+                        </div>
+
+
+                         <div class="col-md-4">
+                            <div class="card">
+                                <div class="card-header">
+                                   
+                                    <h2>Status Check Failed(System)</h2><small>(Count)</small>
+                                    
+                                    <ul class="actions">
+                                        <li class="dropdown action-show">
+                                            <a href="" data-toggle="dropdown">
+                                                <i class="zmdi zmdi-more-vert"></i>
+                                            </a>
+                            
+                                            <div class="dropdown-menu pull-right">
+                                                <p class="p-20">
+                                                    You can put anything here
+                                                </p>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="card-body card-padding">
+                                    <div id="chartContainer12" class="flot-chart-pie"></div>
+                                   <!--  <div id="chartContainer" ></div> -->
+                                    <!-- <div class="flc-donut hidden-xs"></div> -->
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="col-md-4">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h2>CPU Credit Usage</h2><small>(Count)</small>
+                                    
+                                    <ul class="actions">
+                                        <li class="dropdown action-show">
+                                            <a href="" data-toggle="dropdown">
+                                                <i class="zmdi zmdi-more-vert"></i>
+                                            </a>
+                            
+                                            <div class="dropdown-menu pull-right">
+                                                <p class="p-20">
+                                                    You can put anything here
+                                                </p>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="card-body card-padding">
+                                    <div id="chartContainer13" class="flot-chart-pie"></div>
+                                   <!--  <div id="chartContainer" ></div> -->
+                                    <!-- <div class="flc-donut hidden-xs"></div> -->
+                                </div>
+                            </div>
+                        </div>
+
+                        
+                        <div class="col-md-4">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h2>CPU Credit Balance</h2><small>(Count)</small>
+                                    
+                                    <ul class="actions">
+                                        <li class="dropdown action-show">
+                                            <a href="" data-toggle="dropdown">
+                                                <i class="zmdi zmdi-more-vert"></i>
+                                            </a>
+                            
+                                            <div class="dropdown-menu pull-right">
+                                                <p class="p-20">
+                                                    You can put anything here
+                                                </p>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="card-body card-padding">
+                                    <div id="chartContainer14" class="flot-chart-pie"></div>
+                                   <!--  <div id="chartContainer" ></div> -->
+                                    <!-- <div class="flc-donut hidden-xs"></div> -->
+                                </div>
+                            </div>
+                        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+                        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                    </div>
+
+
+
+
+
+
+
+ <!--charts script -->
+
+ <script type="text/javascript">
+    window.onload = function() {
+        var chart = new CanvasJS.Chart("chartContainer2", {
+            title: {
+                text: ""
+            },
+            axisX: {
+                interval: 10
+            },
+            data: [{
+                type: "line",
+                dataPoints: [
+                  { x: 10, y: 45 },
+                  { x: 20, y: 14 },
+                  { x: 30, y: 20 },
+                  { x: 40, y: 60 },
+                  { x: 50, y: 50 },
+                  { x: 60, y: 80 },
+                  { x: 70, y: 40 },
+                  { x: 80, y: 60 },
+                
+                ]
+            }]
+        });
+        chart.render();
+
+        var chart = new CanvasJS.Chart("chartContainer1", {
+            title: {
+                text: ""
+            },
+            axisX: {
+                interval: 10
+            },
+            data: [{
+                type: "line",
+                dataPoints: [
+                  { x: 10, y: 45 },
+                  { x: 20, y: 14 },
+                  { x: 30, y: 20 },
+                  { x: 40, y: 60 },
+                  { x: 50, y: 50 },
+                  { x: 60, y: 80 },
+                  { x: 70, y: 40 },
+                  { x: 80, y: 60 },
+                
+                ]
+            }]
+        });
+        chart.render();
+
+    
+        var chart = new CanvasJS.Chart("chartContainer3", {
+            theme: "theme2",
+            title: {
+                text: ""
+            },
+            animationEnabled: true,
+            axisX: {
+                valueFormatString: "MMM",
+                interval: 1,
+                intervalType: "month"
+
+            },
+            axisY: {
+                includeZero: false
+
+            },
+            data: [{
+                type: "line",
+                //lineThickness: 3,
+                dataPoints: [
+               
+                { x: new Date(2012, 01, 1), y: 414 },
+                { x: new Date(2012, 02, 1), y: 520, indexLabel: "highest", markerColor: "red", markerType: "triangle" },
+                { x: new Date(2012, 03, 1), y: 460 },               
+                
+                { x: new Date(2012, 08, 1), y: 410, indexLabel: "lowest", markerColor: "DarkSlateGrey", markerType: "cross" },
+                { x: new Date(2012, 09, 1), y: 500 },
+                
+              
+                ]
+            }
+            ]
+        });
+
+        chart.render();
+
+        var chart = new CanvasJS.Chart("chartContainer4", {
+                title: {
+                    text: "",
+                    fontSize: 30
+                },
+                animationEnabled: true,
+                axisX: {
+
+                    gridColor: "Silver",
+                    tickColor: "silver",
+                    valueFormatString: "DD/MMM"
+
+                },
+                toolTip: {
+                    shared: true
+                },
+                theme: "theme2",
+                axisY: {
+                    gridColor: "Silver",
+                    tickColor: "silver"
+                },
+                legend: {
+                    verticalAlign: "bottom",
+                    horizontalAlign: "center"
+                },
+                data: [{
+                    type: "line",
+                    showInLegend: true,
+                    lineThickness: 2,
+                    name: "Visits",
+                    markerType: "square",
+                    color: "#F08080",
+                    dataPoints: [
+                    { x: new Date(2010, 0, 3), y: 650 },
+                    { x: new Date(2010, 0, 5), y: 700 },
+                    { x: new Date(2010, 0, 7), y: 710 },
+                    { x: new Date(2010, 0, 9), y: 658 },
+                    { x: new Date(2010, 0, 11), y: 734 },
+                    { x: new Date(2010, 0, 13), y: 963 },
+                    { x: new Date(2010, 0, 15), y: 847 },
+                    { x: new Date(2010, 0, 17), y: 853 },
+                    { x: new Date(2010, 0, 19), y: 869 },
+                    { x: new Date(2010, 0, 21), y: 943 },
+                    { x: new Date(2010, 0, 23), y: 970 }
+                    ]
+                },
+                {
+                    type: "line",
+                    showInLegend: true,
+                    name: "Unique Visits",
+                    color: "#20B2AA",
+                    lineThickness: 2,
+
+                    dataPoints: [
+                    { x: new Date(2010, 0, 3), y: 510 },
+                    { x: new Date(2010, 0, 5), y: 560 },
+                    { x: new Date(2010, 0, 7), y: 540 },
+                    { x: new Date(2010, 0, 9), y: 558 },
+                    { x: new Date(2010, 0, 11), y: 544 },
+                    { x: new Date(2010, 0, 13), y: 693 },
+                    { x: new Date(2010, 0, 15), y: 657 },
+                    { x: new Date(2010, 0, 17), y: 663 },
+                    { x: new Date(2010, 0, 19), y: 639 },
+                    { x: new Date(2010, 0, 21), y: 673 },
+                    { x: new Date(2010, 0, 23), y: 660 }
+                    ]
+                }
+                ],
+            });
+
+            chart.render();
+
+            var chart = new CanvasJS.Chart("chartContainer5",
+                {
+
+                  title:{
+                  text: ""
+                  },
+                   data: [
+                  {
+                    type: "line",
+
+                    dataPoints: [
+                    { x: new Date(2012, 00, 1), y: 450 },
+                    { x: new Date(2012, 01, 1), y: 414 },
+                    { x: new Date(2012, 02, 1), y: 520 },
+                    { x: new Date(2012, 03, 1), y: 460 },
+                    { x: new Date(2012, 04, 1), y: 450 },
+                    { x: new Date(2012, 05, 1), y: 500 },
+                    { x: new Date(2012, 06, 1), y: 480 },
+                    { x: new Date(2012, 07, 1), y: 480 },
+                    { x: new Date(2012, 08, 1), y: 410 },
+                    { x: new Date(2012, 09, 1), y: 500 },
+                    { x: new Date(2012, 10, 1), y: 480 },
+                    { x: new Date(2012, 11, 1), y: 510 }
+                    ]
+                  }
+                  ]
+                });
+
+                chart.render();
+
+                var chart = new CanvasJS.Chart("chartContainer6", {
+                    title: {
+                        text: ""
+                    },
+                    axisX: {
+                        interval: 10
+                    },
+                    data: [{
+                        type: "line",
+                        dataPoints: [
+                          { x: 10, y: 45 },
+                          { x: 20, y: 14 },
+                          { x: 30, y: 20 },
+                          { x: 40, y: 60 },
+                          { x: 50, y: 50 },
+                          { x: 60, y: 80 },
+                          { x: 70, y: 40 },
+                          { x: 80, y: 60 },
+                        
+                        ]
+                    }]
+                });
+                chart.render();
+
+
+                var chart = new CanvasJS.Chart("chartContainer7", {
+                    title: {
+                        text: ""
+                    },
+                    axisX: {
+                        interval: 10
+                    },
+                    data: [{
+                        type: "line",
+                        dataPoints: [
+                          { x: 10, y: 45 },
+                          { x: 20, y: 14 },
+                          { x: 30, y: 20 },
+                          { x: 40, y: 60 },
+                          { x: 50, y: 50 },
+                          { x: 60, y: 80 },
+                          { x: 70, y: 40 },
+                          { x: 80, y: 60 },
+                        
+                        ]
+                    }]
+                });
+                chart.render();
+
+
+                var chart = new CanvasJS.Chart("chartContainer8", {
+                    title: {
+                        text: ""
+                    },
+                    axisX: {
+                        interval: 10
+                    },
+                    data: [{
+                        type: "line",
+                        dataPoints: [
+                          { x: 10, y: 45 },
+                          { x: 20, y: 14 },
+                          { x: 30, y: 20 },
+                          { x: 40, y: 60 },
+                          { x: 50, y: 50 },
+                          { x: 60, y: 80 },
+                          { x: 70, y: 40 },
+                          { x: 80, y: 60 },
+                        
+                        ]
+                    }]
+                });
+                chart.render();
+
+
+                var chart = new CanvasJS.Chart("chartContainer9", {
+                    title: {
+                        text: ""
+                    },
+                    axisX: {
+                        interval: 10
+                    },
+                    data: [{
+                        type: "line",
+                        dataPoints: [
+                          { x: 10, y: 45 },
+                          { x: 20, y: 14 },
+                          { x: 30, y: 20 },
+                          { x: 40, y: 60 },
+                          { x: 50, y: 50 },
+                          { x: 60, y: 80 },
+                          { x: 70, y: 40 },
+                          { x: 80, y: 60 },
+                        
+                        ]
+                    }]
+                });
+                chart.render();
+
+                var chart = new CanvasJS.Chart("chartContainer10", {
+                    theme: "theme2",
+                    title: {
+                        text: ""
+                    },
+                    animationEnabled: true,
+                    axisX: {
+                        valueFormatString: "MMM",
+                        interval: 1,
+                        intervalType: "month"
+
+                    },
+                    axisY: {
+                        includeZero: false
+
+                    },
+                    data: [{
+                        type: "line",
+                        //lineThickness: 3,
+                        dataPoints: [
+                        { x: new Date(2012, 00, 1), y: 450 },
+                        { x: new Date(2012, 01, 1), y: 414 },
+                        { x: new Date(2012, 02, 1), y: 520, indexLabel: "highest", markerColor: "red", markerType: "triangle" },
+                        { x: new Date(2012, 03, 1), y: 460 },
+                        { x: new Date(2012, 04, 1), y: 450 },
+                        { x: new Date(2012, 05, 1), y: 500 },
+                        { x: new Date(2012, 06, 1), y: 480 },
+                        { x: new Date(2012, 07, 1), y: 480 },
+                        { x: new Date(2012, 08, 1), y: 410, indexLabel: "lowest", markerColor: "DarkSlateGrey", markerType: "cross" },
+                        { x: new Date(2012, 09, 1), y: 500 },
+                        { x: new Date(2012, 10, 1), y: 480 },
+                        { x: new Date(2012, 11, 1), y: 510 }
+                        ]
+                    }
+                    ]
+                });
+
+                chart.render();
+
+                var chart = new CanvasJS.Chart("chartContainer11", {
+                    theme: "theme2",
+                    title: {
+                        text: ""
+                    },
+                    animationEnabled: true,
+                    axisX: {
+                        valueFormatString: "MMM",
+                        interval: 1,
+                        intervalType: "month"
+
+                    },
+                    axisY: {
+                        includeZero: false
+
+                    },
+                    data: [{
+                        type: "line",
+                        //lineThickness: 3,
+                        dataPoints: [
+                        { x: new Date(2012, 00, 1), y: 450 },
+                        { x: new Date(2012, 01, 1), y: 414 },
+                        { x: new Date(2012, 02, 1), y: 520, indexLabel: "highest", markerColor: "red", markerType: "triangle" },
+                        { x: new Date(2012, 03, 1), y: 460 },
+                        { x: new Date(2012, 04, 1), y: 450 },
+                        { x: new Date(2012, 05, 1), y: 500 },
+                        { x: new Date(2012, 06, 1), y: 480 },
+                        { x: new Date(2012, 07, 1), y: 480 },
+                        { x: new Date(2012, 08, 1), y: 410, indexLabel: "lowest", markerColor: "DarkSlateGrey", markerType: "cross" },
+                        { x: new Date(2012, 09, 1), y: 500 },
+                        { x: new Date(2012, 10, 1), y: 480 },
+                        { x: new Date(2012, 11, 1), y: 510 }
+                        ]
+                    }
+                    ]
+                });
+
+                chart.render();
+
+                var chart = new CanvasJS.Chart("chartContainer12", {
+                    theme: "theme2",
+                    title: {
+                        text: ""
+                    },
+                    animationEnabled: true,
+                    axisX: {
+                        valueFormatString: "MMM",
+                        interval: 1,
+                        intervalType: "month"
+
+                    },
+                    axisY: {
+                        includeZero: false
+
+                    },
+                    data: [{
+                        type: "line",
+                        //lineThickness: 3,
+                        dataPoints: [
+                        { x: new Date(2012, 00, 1), y: 450 },
+                        { x: new Date(2012, 01, 1), y: 414 },
+                        { x: new Date(2012, 02, 1), y: 520, indexLabel: "highest", markerColor: "red", markerType: "triangle" },
+                        { x: new Date(2012, 03, 1), y: 460 },
+                        { x: new Date(2012, 04, 1), y: 450 },
+                        { x: new Date(2012, 05, 1), y: 500 },
+                        { x: new Date(2012, 06, 1), y: 480 },
+                        { x: new Date(2012, 07, 1), y: 480 },
+                        { x: new Date(2012, 08, 1), y: 410, indexLabel: "lowest", markerColor: "DarkSlateGrey", markerType: "cross" },
+                        { x: new Date(2012, 09, 1), y: 500 },
+                        { x: new Date(2012, 10, 1), y: 480 },
+                        { x: new Date(2012, 11, 1), y: 510 }
+                        ]
+                    }
+                    ]
+                });
+
+                chart.render();
+                 var chart = new CanvasJS.Chart("chartContainer13", {
+                    title: {
+                        text: ""
+                    },
+                    axisX: {
+                        interval: 10
+                    },
+                    data: [{
+                        type: "line",
+                        dataPoints: [
+                          { x: 10, y: 45 },
+                          { x: 20, y: 14 },
+                          { x: 30, y: 20 },
+                          { x: 40, y: 60 },
+                          { x: 50, y: 50 },
+                          { x: 60, y: 80 },
+                          { x: 70, y: 40 },
+                          { x: 80, y: 60 },
+                        
+                        ]
+                    }]
+                });
+                chart.render();
+
+                var chart = new CanvasJS.Chart("chartContainer14", {
+                    title: {
+                        text: ""
+                    },
+                    axisX: {
+                        interval: 10
+                    },
+                    data: [{
+                        type: "line",
+                        dataPoints: [
+                          { x: 10, y: 45 },
+                          { x: 20, y: 14 },
+                          { x: 30, y: 20 },
+                          { x: 40, y: 60 },
+                          { x: 50, y: 50 },
+                          { x: 60, y: 80 },
+                          { x: 70, y: 40 },
+                          { x: 80, y: 60 },
+                        
+                        ]
+                    }]
+                });
+                chart.render();
+
+
+
+
+
+    }
+
+
+
+   
+    </script>
+
+
+    
+
+
+
+
+  
+<!-- <script class="code" type="text/javascript">
+$(document).ready(function(){
+  var plot1 = $.jqplot ('chart1', [[3,7,9,1,5,3,8,2,5]]);
+});
+</script>
+ -->
+
+
+
+<!-- <body>
+    <div id="chartContainer" style="height: 400px; width: 100%;"></div>
+</body> -->
+
+
+
+
+
+
+
+
+
+
+                                
+
+
+
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </section>
+        
+        <!-- <footer id="footer">
+            Copyright &copy; 2015 Material Admin
+            
+            <ul class="f-menu">
+                <li><a href="">Home</a></li>
+                <li><a href="">Dashboard</a></li>
+                <li><a href="">Reports</a></li>
+                <li><a href="">Support</a></li>
+                <li><a href="">Contact</a></li>
+            </ul>
+        </footer>
+ -->
+       <footer id="footer"">
+
+ <!--       <div class="card"> -->
+                       
+                    
+                        <div class="card-body card-padding">
+                            <div class="row">
+                                <div class="col-sm-3 m-b-25">
+                                   <p style="border-bottom:1px solid #fff;padding-bottom:10px;color:black;"> <i class="zmdi zmdi-caret-up-circle"></i>
+                                 &nbsp;QUICK LINKS </p>
+                    
+                                      <ul  class="f-menu clist clist-angle">
+                                         
+                                         <li><a href="/tco/architecture">Architectural</a></li>
+                                          <li><a href="">Applications</a></li>
+                                          <li><a href="">Vertiacals</a></li>
+                                                               
+                                      </ul>
+                                </div>
+                    
+                                <div class="col-sm-3 m-b-25">
+                                    <p style="border-bottom:1px solid #fff;padding-bottom:10px;color:black;"><i class="zmdi zmdi-globe"></i>
+                                      &nbsp;VERTICALS  </p>
+
+                                      <ul  class="f-menu clist clist-angle">
+                                         
+                                         <li><a href="http://www.infomagnum.com" target="_blank">InfoMagnum </a></li>
+                                          <li><a href="http://ysec.io" target="_blank">YSEC </a></li>
+                                        <!--   <li><a href="">Vertiacals</a></li> -->
+                                                               
+                                      </ul>
+                                         
+                                        
+                                    </ul>
+                                </div>
+                    
+                                <div class="col-sm-3 m-b-25">
+                                    <!-- <p class="c-black">Ordered - Roman</p> -->
+                                    <p style="border-bottom:1px solid #fff;padding-bottom:10px;color:black;"> <i class="zmdi zmdi-globe"></i>
+                                      &nbsp;SOLUTIONS </p>
+                                     <ul  class="f-menu clist clist-angle">
+                                         
+                                         <li><a href="/tco/architecture">Consulting</a></li>
+                                          <li><a href="">Migrations</a></li>
+                                          <li><a href="">Fresh Cloud</a></li>
+                                                               
+                                      </ul>
+                                      
+                                </div>
+
+
+                               <!--  <div class="col-sm-3 m-b-25">
+                                    <p class="c-black">Ordered - Roman</p>
+                    
+                                   <ul class="clist clis  t-angle">
+                                        <li>Lorem ipsum dolor sit amet</li>
+                                        <li>Consectetur adipiscing elit</li>
+                                        <li>Integer molestie lorem at massa</li>
+                                        <li>Facilisis in pretium nisl aliquet</li>
+                                        
+                                    </ul>
+                                </div> -->
+                                
+                   
+                            </div>
+                        </div>
+                  <!--   </div> -->
+            <div class="copyright">
+            <div class="column">
+              <p style="text-align:right; ">Copyright © 2016 <a href="#" target="_blank">InfoMagnum</a>/ All rights reserved.</p>
+            </div>
+            </div>
+           
+            
+      </footer>
+
+
+
+
+        <!-- Page Loader -->
+        <!-- <div class="page-loader">
+            <div class="preloader pls-blue">
+                <svg class="pl-circular" viewBox="25 25 50 50">
+                    <circle class="plc-path" cx="50" cy="50" r="20" />
+                </svg>
+
+                <p>Please wait...</p>
+            </div>
+        </div>
+ -->
+        <!-- Older IE warning message -->
+        <!--[if lt IE 9]>
+            <div class="ie-warning">
+                <h1 class="c-white">Warning!!</h1>
+                <p>You are using an outdated version of Internet Explorer, please upgrade <br/>to any of the following web browsers to access this website.</p>
+                <div class="iew-container">
+                    <ul class="iew-download">
+                        <li>
+                            <a href="http://www.google.com/chrome/">
+                                <img src="img/browsers/chrome.png" alt="">
+                                <div>Chrome</div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.mozilla.org/en-US/firefox/new/">
+                                <img src="img/browsers/firefox.png" alt="">
+                                <div>Firefox</div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="http://www.opera.com">
+                                <img src="img/browsers/opera.png" alt="">
+                                <div>Opera</div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.apple.com/safari/">
+                                <img src="img/browsers/safari.png" alt="">
+                                <div>Safari</div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="http://windows.microsoft.com/en-us/internet-explorer/download-ie">
+                                <img src="img/browsers/ie.png" alt="">
+                                <div>IE (New)</div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <p>Sorry for the inconvenience!</p>
+            </div>   
+        <![endif]-->
+    
+    
+        <!-- Javascript Libraries -->
+           <!--  <script  type="text/javascript" src="../jquery.jqplot.min.js"></script> -->
+        <script src="{% static 'js/canvasjs.min.js' %}"></script>
+        <script src="{% static 'js/jquery.jqplot.min.js' %}"></script>
+
+ <script src="{% static 'vendors/bower_components/jquery/dist/jquery.min.js' %}"></script>
+        <script src="{% static 'vendors/bower_components/bootstrap/dist/js/bootstrap.min.js' %}"></script>
+        
+                <script src="{% static 'vendors/bower_components/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js' %}"></script>
+        <script src="{% static 'vendors/bower_components/Waves/dist/waves.min.js' %}"></script>
+        <script src="{% static 'vendors/bootstrap-growl/bootstrap-growl.min.js' %}"></script>
+        <script src="{% static 'vendors/bower_components/bootstrap-sweetalert/lib/sweet-alert.min.js' %}"></script>
+        
+        <script src="{% static 'vendors/bower_components/flot/jquery.flot.js' %}"></script>
+        <script src="{% static 'vendors/bower_components/flot/jquery.flot.resize.js' %}"></script>
+        <script src="{% static 'vendors/bower_components/flot/jquery.flot.pie.js' %}"></script>
+        <script src="{% static 'vendors/bower_components/flot.tooltip/js/jquery.flot.tooltip.min.js' %}"></script>
+        <script src="{% static 'vendors/bower_components/flot-orderBars/js/jquery.flot.orderBars.js' %}"></script>
+        <script src="{% static 'vendors/bower_components/flot.curvedlines/curvedLines.js' %}"></script>                         
+        <script src="{% static 'vendors/bower_components/flot-orderBars/js/jquery.flot.orderBars.js' %}"></script>
+        
+        <!-- Placeholder for IE9 -->
+        <!--[if IE 9 ]>
+            <script src="vendors/bower_components/jquery-placeholder/jquery.placeholder.min.js"></script>
+        <![endif]-->
+
+        
+        <!-- Charts - Please read the read-me.txt inside the js folder-->
+        <script src="{% static 'js/flot-charts/curved-line-chart.js' %}"></script>
+        <script src="{% static 'js/flot-charts/line-chart.js' %}"></script>
+        <script src="{% static 'js/flot-charts/bar-chart.js' %}"></script>
+        <script src="{% static 'js/flot-charts/dynamic-chart.js' %}"></script>
+        <script src="{% static 'js/flot-charts/pie-chart.js' %}"></script>
+        
+        <script src="{% static 'js/functions.js' %}"></script> 
+       <!--  <script src="js/demo.js"></script> -->
+    
+  
+<script class="code" type="text/javascript">
+$(document).ready(function(){
+  var plot2 = $.jqplot ('chart2', [[3,7,9,1,5,3,8,2,5]], {
+      // Give the plot a title.
+      title: 'Plot With Options',
+      // You can specify options for all axes on the plot at once with
+      // the axesDefaults object.  Here, we're using a canvas renderer
+      // to draw the axis label which allows rotated text.
+      axesDefaults: {
+        labelRenderer: $.jqplot.CanvasAxisLabelRenderer
+      },
+      // Likewise, seriesDefaults specifies default options for all
+      // series in a plot.  Options specified in seriesDefaults or
+      // axesDefaults can be overridden by individual series or
+      // axes options.
+      // Here we turn on smoothing for the line.
+      seriesDefaults: {
+          rendererOptions: {
+              smooth: true
+          }
+      },
+      // An axes object holds options for all axes.
+      // Allowable axes are xaxis, x2axis, yaxis, y2axis, y3axis, ...
+      // Up to 9 y axes are supported.
+      axes: {
+        // options for each axis are specified in seperate option objects.
+        xaxis: {
+          label: "X Axis",
+          // Turn off "padding".  This will allow data point to lie on the
+          // edges of the grid.  Default padding is 1.2 and will keep all
+          // points inside the bounds of the grid.
+          pad: 0
+        },
+        yaxis: {
+          label: "Y Axis"
+        }
+      }
+    });
+});
+</script>
+
+
+
+    
+    </body>
+</html>

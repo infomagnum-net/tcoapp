@@ -115,7 +115,7 @@ class PlanAdmin(ModelAdmin):
 
     list_display = ['id','name', 'description', 'interval_display',
                     'trial_period_days', 'enabled', 'private', 'total_plan_price','instance_cost','rds_cost','loadbalancer_cost','s3_cost','instance_price','rds_price','s3_price','balancer_price','amount','instance_name',
-                    'rds_name','balancer_name']
+                    'rds_name','balancer_name','s3_name']
 
     search_fields = ['name']
     list_filter = ['provider']

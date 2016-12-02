@@ -161,6 +161,7 @@ class Plan(models.Model):
         instance_price=self.metered_features.aggregate(total=models.Sum('price_per_unit'))['total']
         if instance_price==None:
             instance_price=0
+
         return ((self.instance_count*instance_price)*24*30)
 
     def _get_rds_cost(self):
@@ -183,7 +184,8 @@ class Plan(models.Model):
         s3price=self.s3_metered_features.aggregate(total=models.Sum('price_per_unit'))['total']
         if s3price==None:
             s3price=0
-        return ((self.s3_count*s3price)*24*30)
+        '''S3 Cost given to Monthly'''
+        return ((self.s3_count*s3price))
 
     def _get_loadbalancer_cost(self):
         balacer_price=None

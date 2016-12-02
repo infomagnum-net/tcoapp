@@ -1,0 +1,58 @@
+{%load static %}
+<!-- <b>Architectuire name:</b>{{arch_info.architecture_name}}<br>
+ -->
+<div class="bp-header featured-img" id="id111">
+
+{%if arch_info.feature_img %}
+   
+     <img src="/../static/media/{{arch_info.feature_img}}" alt="" style="background-color: #303030;">
+    
+{%else%}
+   
+     <img src="/../static/media/{{arch_info.architecture_img}}" alt="" style="background-color: #303030;">
+        
+    
+{%endif%}
+
+
+    <div class="bp-title bgm-lightblue" style="height:220px;">
+        <h4 class="archname" style="color:#fff;">{{arch_info.architecture_name}}</h4>
+        <br/>
+        <p><b>$</b> {{plan_info.total_plan_price}}</p>
+
+
+        <p class="pull-left" style="width:60px;" data-toggle="popover" data-placement="top" data-content="instance" title="instance" data-original-title="Instance">
+        
+        <img  src="{% static 'img/featured-arch/Instance.png'%}" 
+        style="width:20px"  alt="instance"/> :
+          <b> &nbsp;{{plan_info.instance_count}}</b>
+        </p>
+
+        <p class="pull-left" style="width:60px;" data-toggle="popover" data-placement="top" data-content="Database" title="Database" data-original-title="Database">
+            <img src="{% static 'img/featured-arch/Database.png'%}"  alt="" style="width:20px"> :
+            <b>&nbsp;{{plan_info.rds_count}}</b>
+        </p>
+
+        <p class="pull-left" style="width:60px;" data-toggle="popover" data-placement="top" data-content="Storage" title="Storage" data-original-title="Storage">
+            <img src="{% static 'img/featured-arch/Storage.png'%}"  alt="" style="width:20px"> :
+                <b>&nbsp;{{plan_info.s3_count}}</b>
+        </p>
+
+         <p class="pull-left" style="width:60px;"
+            data-toggle="popover" data-placement="top" data-content="Load Balancer" title="Load Balancer" data-original-title="Load Balancer">
+
+            <img src="{% static 'img/featured-arch/Load_Balancer.png'%}"  alt="" style="width:20px">: 
+            <b>&nbsp;{{plan_info.balancer_count}} </b>
+        </p>
+
+    </div>
+</div>
+
+
+
+
+
+
+
+
+

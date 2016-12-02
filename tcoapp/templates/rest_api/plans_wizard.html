@@ -1,0 +1,236 @@
+{%load static%}
+{% block content%}
+        
+ <div class="pmbb-body">
+    <div role="tabpanel" class="card">
+        
+        <ul class="tab-nav tn-justified">
+        </ul><br/>
+        <h4 class="text-center">PAYMENT PLANS</h4>
+              
+      <!-- Payment Plans  -->
+
+      <div class="col-md-12" style="padding:20px;">
+        <div class="card blog-post">
+          
+          <div class="col-md-6" style="padding:20px;">
+            <div class="bp-header text-center" id="jhsagah">
+              {%if arch_info.architecture_img%}
+                
+                  <img src="/../static/media/{{arch_info.architecture_img}}" alt="" style="background-color: #303030;">
+                 {%else%}
+                  <img src="/../static/media/{{arch_info.feature_img}}" alt="" style="background-color: #303030;">
+
+                  {%endif%}
+
+              <a class="bp-title" style="background-color:#2196f3;padding:1px;">
+                 
+                  <h4 class="archiname" style="color:#fff;">{{arch_info.architecture_name}}</h4>
+                  <h5 class="text-center"  style="color:#fff;">{{plan_info.total_plan_price}}</h5>
+
+              </a>
+            </div>
+          </div>
+              
+          <div class="col-md-6" style="padding:20px;">
+            <div class="p-20">
+               <h4>Description</h4>
+               <p> Pellentesque lacinia sagittis libero. Praesent vitae justo purus. In hendrerit lorem nisl, ac lacinia urna aliquet non. Quisque nisi tellus, rhoncus quis est sit amete in nisl molestie fringilla. Nunc vitae ante id magna feugiat condimentum. Maecenas sit amet urna massa.</p>
+
+
+<p><b><img src="{% static 'img/featured-arch/Instance_color.png'%}" 
+                style="width:20px"  alt=""></b> &nbsp;&nbsp;Sample Instance</p>
+
+<p><b><img src="{% static 'img/featured-arch/Database_color.png'%}" 
+                                        style="width:20px"  alt=""></b>&nbsp;&nbsp;Sample Database</p>
+   
+
+   
+
+   <p><b><img src="{% static 'img/featured-arch/Storage_color.png'%}" 
+                                        style="width:20px"  alt=""></b>&nbsp;&nbsp;sample storage</p>
+   
+   
+
+
+                <!-- <p class="pull-left" title="Database" data-original-title="Database"><img src="{% static 'img/featured-arch/Database_color.png'%}"  alt="" style="width:20px"> : <b> Sample Database </b></p>
+
+                <p class="pull-left" title="Database" data-original-title="Database"><img src="{% static 'img/featured-arch/Instance_color.png'%}"  alt="" style="width:20px"> : <b> Sample Instance </b></p>
+
+                <p class="pull-left" title="Database" data-original-title="Database"><img src="{% static 'img/featured-arch/storage_color.png'%}"  alt="" style="width:20px"> : <b> sample storage </b></p> -->
+
+
+            </div>
+          </div>     
+
+      </div> 
+    </div>   
+                                           
+                                     
+    <div class="container">
+      <div class="pmbb-body">
+        <div id="pay-plans-btn">
+
+          <form method="post" action="/tco/payment/">
+                {% csrf_token %}
+
+            <!--Day Payment Plans  -->
+
+            <div class="col-sm-4">
+                <div class="bs-item z-depth-2">
+                  <div class="card pt-inner">
+                                
+                  <div class="pti-header bgm-amber">
+                      <h2 class="plan-btn daily-prices">${{daily_plan_price}} <small>| daily</small></h2>
+                      <div class="ptih-title packtype">Daily Pack</div>
+                  </div>
+  
+                  <div class="pti-body">
+                      <div class="ptib-item">
+                          Financial grid.
+                      </div>
+                      <div class="ptib-item">
+                         Elastic Map Reduce System
+                      </div>
+                     
+                  </div>
+                
+                  <div class="pti-footer">
+
+                    <button class="btn bgm-amber btn-circle btn-lg nextBtn bgm-cyan plan-btn" type="button" id="{{arch_info.architecture_name}}"  style="width:50px;height:50px;border-radius: 50px;font-size:16px;" name="daily"><i class="zmdi zmdi-check"></i></button>
+
+                  </div>
+                </div>
+              </div>
+            </div>  
+
+            <!--end Day Payment Plans  -->
+
+
+          </form>
+
+          <!--monthyly Payment Plans  -->
+
+          <div class="col-sm-4">
+            <div class="bs-item z-depth-2">
+              <div class="card pt-inner">
+                 
+                <div class="pti-header bgm-green">
+                  
+                  <h2 class="plan-btn monthly-price">${{plan_info.total_plan_price}} <small>| Monthly</small></h2>
+                  <div class="ptih-title packtype"> Monthly Pack</div>
+                
+                </div>
+  
+                <div class="pti-body">
+                    <div class="ptib-item">
+                       Web Front-End service 
+                    </div>
+                    <div class="ptib-item">
+                        Checkout Service
+                    </div>    
+                </div>
+  
+                <div class="pti-footer">
+
+                <button class="btn bgm-green btn-circle btn-lg nextBtn bgm-cyan plan-btn" type="button" id="{{arch_info.architecture_name}}" style="width:50px;height:50px;border-radius: 50px;font-size:22px;" name="Mothly"><i class="zmdi zmdi-check"></i></button>
+                      
+                </div>
+
+
+              </div>
+            </div>
+          </div>
+                      <!--end monthly Payment Plans  -->
+
+              <!--yearly Payment Plans  -->
+
+          <div class="col-sm-4">
+            <div class="bs-item z-depth-2">
+              <div class="card pt-inner">
+                  
+                  <div class="pti-header bgm-cyan">
+                      
+                    <h2 class="plan-btn yearly-price">${{Yearly_price}} <small>| Yearly</small></h2>
+                    <div class="ptih-title packtype">Yearly Pack</div>
+
+                  </div>
+  
+                  <div class="pti-body">
+                    <div class="ptib-item">
+                         HRMS system
+                    </div>
+
+                    <div class="ptib-item">
+                         HIS System
+                    </div>
+                      
+                  </div>
+  
+                  <div class="pti-footer">
+                     
+                       <button class="btn bgm-cyan btn-circle btn-lg nextBtn bgm-cyan plan-btn" type="button" id="{{arch_info.architecture_name}}"  style="width:50px;height:50px;border-radius: 50px;font-size:16px;" name="Yearly"><i class="zmdi zmdi-check" ></i></button>  
+ 
+                  </div>
+
+              </div>
+            </div>
+          </div>
+
+              <!--end yearly Payment Plans  -->
+
+        </div>            
+      </div>                     
+      </div>
+
+ <!--end Payment Plans  -->
+
+    </div>
+  </div>
+
+{% endblock %}
+
+<script type="text/javascript">
+  $(document).ready(function () {
+  var navListItems = $('div.setup-panel div a'),
+          allWells = $('.setup-content'),
+          allNextBtn = $('.nextBtn');
+
+  allWells.hide();
+
+  navListItems.click(function (e) {
+      e.preventDefault();
+      var $target = $($(this).attr('href')),
+              $item = $(this);
+
+      if (!$item.hasClass('disabled')) {
+          navListItems.removeClass('btn-primary').addClass('btn-default');
+          $item.addClass('btn-primary');
+          allWells.hide();
+          $target.show();
+          $target.find('input:eq(0)').focus();
+      }
+  });
+
+  allNextBtn.click(function(){
+      var curStep = $(this).closest(".setup-content"),
+          curStepBtn = curStep.attr("id"),
+          nextStepWizard = $('div.setup-panel div a[href="#' + curStepBtn + '"]').parent().next().children("a"),
+          curInputs = curStep.find("input[type='text'],input[type='url']"),
+          isValid = true;
+
+      $(".form-group").removeClass("has-error");
+      for(var i=0; i<curInputs.length; i++){
+          if (!curInputs[i].validity.valid){
+              isValid = false;
+              $(curInputs[i]).closest(".form-group").addClass("has-error");
+          }
+      }
+
+      if (isValid)
+          nextStepWizard.removeAttr('disabled').trigger('click');
+  });
+
+  $('div.setup-panel div a.btn-primary').trigger('click');
+});
+</script>

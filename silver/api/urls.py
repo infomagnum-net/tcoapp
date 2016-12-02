@@ -136,8 +136,9 @@ urlpatterns = [
         views.FtrdArchByArchID.as_view(), name='FtrdArchByArchID'),
     url(r'^featured-arch-complete-info/(?P<pk>[0-9]+)/$',
         views.FtrdArchCompleInfo.as_view(), name='FtrdArchCompleInfo'),
-    url(r'^payplans/(?P<name>[A-Za-z0-9\w@%._ -]+)/$',
-        views.PayPlansInfo.as_view(), name='PayPlansInfo'),
+    
+    url(r'^arch/(?P<name>[A-Za-z0-9\w@%._ -]+)/$',
+        views.Architectures_by_name.as_view(), name='Architectures_by_name'),
     
 
     # url(r'^invoice/(?P<name>[A-Za-z0-9\w@%._ -]+)/$',

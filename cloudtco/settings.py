@@ -37,17 +37,15 @@ SECRET_KEY = '0xiqodf*7e7bpnm0=w1lr7w1jfmzz71vd-wtx+7vov!)$#v&th'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 
-DEBUG = True
-# TEMPLATE_DEBUG = DEBUG
+#TEMPLATE_DEBUG = DEBUG
 
 # TEMPLATE_DIRS = (
 #     'C:/Users/Desktop/haareesh/08-11/cloudtco_updated/cloudtco/tcoapp/templates', 
 # )
 
-#ALLOWED_HOSTS = ['*']
+DEBUG = False
 
-
-# Application definition
+ALLOWED_HOSTS = ['*']
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -226,24 +224,14 @@ STATICFILES_DIRS = (
 
 
 
-# REST_FRAMEWORK = {
-#     'DEFAULT_AUTHENTICATION_CLASSES': (
-#         'rest_framework.authentication.BasicAuthentication',
-#         'rest_framework.authentication.SessionAuthentication',
-#     )
-# }
-
-
-
-# REST_FRAMEWORK = {
-#     'DEFAULT_PERMISSION_CLASSES': (
-#         'rest_framework.permissions.IsAuthenticated',
-#     ),
-#     'DEFAULT_AUTHENTICATION_CLASSES': (
-#         'rest_framework.authentication.TokenAuthentication',
-#     )
-# }
-
+REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES': (
+        'rest_framework.permissions.IsAuthenticated',
+    ),
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework.authentication.TokenAuthentication',
+    )
+}
 
 
 #STRIPE TEST KEYS
@@ -269,9 +257,9 @@ STRIPE_SECRET = 'sk_test_dEqr2qk4EqZQnjOI1njj7GWD'
 
 #email settings
 EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER = 'vinodsesetti@gmail.com'
+EMAIL_HOST_USER = 'vinod1244vinod@gmail.com'
 
-EMAIL_HOST_PASSWORD = '8019166677'
+EMAIL_HOST_PASSWORD = '9247748434'
 
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True

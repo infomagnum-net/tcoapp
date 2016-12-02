@@ -444,6 +444,7 @@ class CustomerDetail(generics.RetrieveUpdateDestroyAPIView):
 
 
 class ProductCodeListCreate(generics.ListCreateAPIView):
+    #authentication_classes = (TokenAuthentication,)
     permission_classes = (permissions.IsAuthenticated,)
     serializer_class = ProductCodeSerializer
     queryset = ProductCode.objects.all()
@@ -964,12 +965,17 @@ class PlanLoadbalancer(generics.ListAPIView):
 class ArhitectureByID(generics.ListAPIView):
     authentication_classes = (TokenAuthentication,)
     permission_classes = (IsAuthenticated,)
-    serializer_class = ArchitectureSerializer
-    model = Billing_Architecture
-    def get_queryset(self):
-        dsds=Billing_Architecture.objects.filter(id=self.kwargs['pk'])
-        return dsds
- 
+    def get(self, request,pk):
+        arch=Billing_Architecture.objects.filter(id=pk).values('architecture_name','architecture_img','id')
+        product=ProductCode.objects.all().values("id","value")
+        product_name=""
+        for prdct in product:
+            if prdct['id']==arch[0]['architecture_name']:
+                product_name=prdct['value']
+        for a in arch:
+            a['architecture_name'] = product_name
+        return Response(arch)
+
 
 class ProductCodeByID(generics.ListCreateAPIView):
     authentication_classes = (TokenAuthentication,)
@@ -988,23 +994,24 @@ class PlanByArchName(generics.ListCreateAPIView):
     model = Plan
     def get_queryset(self):
         print self.kwargs['name']
-
         prdct=ProductCode.objects.filter(value=self.kwargs['name'])
         dsds=Plan.objects.filter(product_code=prdct)
         return dsds
 
-class FtrdArchByArchID(generics.ListCreateAPIView):
-    authentication_classes = (TokenAuthentication,)
-    permission_classes = (IsAuthenticated,)
-    serializer_class = FeatureArchitectureSerializer
-    model = Billing_FeatureArchitecture
-    def get_queryset(self):
-        print self.kwargs['pk']
-        ftrd_arch=Billing_FeatureArchitecture.objects.filter(architecture_id=self.kwargs['pk']).values("id","architecture_id",
-            "feature_img","architecture_name")
+# class FtrdArchByArchID(generics.ListCreateAPIView):
+#     authentication_classes = (TokenAuthentication,)
+#     permission_classes = (IsAuthenticated,)
+#     serializer_class = FeatureArchitectureSerializer
+#     model = Billing_FeatureArchitecture
+#     def get_queryset(self):
+#         print self.kwargs['pk']
+#         ftrd_arch=Billing_FeatureArchitecture.objects.filter(architecture_id=self.kwargs['pk']).values("id","architecture_id",
+#             "feature_img","architecture_name")
 
-        return ftrd_arch
+#         return ftrd_arch
 
+
+from itertools import chain
 class FtrdArchByArchID(APIView):
     authentication_classes = (TokenAuthentication,)
     permission_classes = (IsAuthenticated,)
@@ -1019,7 +1026,25 @@ class FtrdArchByArchID(APIView):
                     ftrd['architecture_name']=prdct['value']
                 else:
                     pass
+
+        # archname=""
+        # main_arch=Billing_Architecture.objects.filter(id=pk).values('architecture_name','architecture_img','id')
+        # for prdct in product:
+        #     if prdct['id'] == main_arch[0]['architecture_name'] :
+        #         archname=prdct['value']
+        #     else:
+        #         pass
+
+        # for arch in main_arch:
+        #     arch['architecture_name']=archname
+        #     arch['main_arch_name']=arch.pop("architecture_name")
+        #     arch['main_arch_img']=arch.pop("architecture_img")
+        #     arch['main_arch_id']=arch.pop("id")
+           
+        # result_list = list(chain(ftrd_arch, main_arch))
         return Response(ftrd_arch)
+
+
 
 
 class MyOwnView(APIView):
@@ -1061,7 +1086,7 @@ class ArchCompleInfo(APIView):
 
 
 class FtrdArchCompleInfo(APIView):
-    #authentication_classes = (TokenAuthentication,)
+    authentication_classes = (TokenAuthentication,)
     permission_classes = (IsAuthenticated,)
     def get(self, request,pk):
         token=Token.objects.get(user_id=request.user.id)
@@ -1081,39 +1106,24 @@ class FtrdArchCompleInfo(APIView):
         return Response(data1)
 
 
-class PayPlansInfo(APIView):
+
+
+
+class Architectures_by_name(APIView):
     authentication_classes = (TokenAuthentication,)
     permission_classes = (IsAuthenticated,)
     def get(self, request,name):
-        token=Token.objects.get(user_id=request.user.id)
-        mytoken=token.key
-        dataset=arch_info_with_name_byname(name)
-        plan_url="http://"+request.get_host()+reverse('PlanByArchName', kwargs={'name':dataset['architecture_name']})
-        planinfo=requests.get(plan_url, headers={'Authorization': 'Token {}'.format(mytoken)})
-        data2 = planinfo.json()
-        dataset.update(data2[0])
-        daily=dataset['total_plan_price']/30
-        monthly=dataset['total_plan_price']
-        yearly=dataset['total_plan_price']*12
-        daily_price=float("{0:.2f}".format(daily))
-        monthly_price=float("{0:.2f}".format(monthly))
-        yearly_price=float("{0:.2f}".format(yearly))
-        price_dict={"daily_price":daily_price,"monthly_price":monthly_price,
-        "yearly_price":yearly_price}
-        dataset.update(price_dict)
-        return Response(dataset)
+        product=ProductCode.objects.filter(value=name)
+        architecture_info={}
+        architecture=Billing_Architecture.objects.filter(architecture_name=product).values('architecture_name','architecture_img','id')
+        if architecture:
+            architecture_info=architecture
+        else:
+            architecture_info=Billing_FeatureArchitecture.objects.filter(architecture_name=product).values("id","architecture_id",
+            "feature_img","architecture_name")
+        prdct=ProductCode.objects.filter(value=name).values("id",'value')
+        for arch in architecture_info:
+            arch['architecture_name']=prdct[0]['value']
+        return Response(architecture_info)
 
 
-
-class SnippetList(APIView):
-    def get(self, request, format=None):
-        snippets = Billing_Architecture.objects.all()
-        serializer = SnippetSerializer(snippets, many=True)
-        return Response(serializer.data)
-
-    def post(self, request, format=None):
-        serializer = SnippetSerializer(data=request.DATA)
-        if serializer.is_valid():
-            serializer.save()
-            return Response(serializer.data, status=status.HTTP_201_CREATED)
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)

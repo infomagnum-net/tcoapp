@@ -1,0 +1,839 @@
+{%load static%}
+{% block content%}  
+
+<script type="text/javascript">
+  $('.md-trigger').on('click',function(){
+  var modal = $(this).data('modal');
+  $("#" + modal).niftyModal();
+});
+</script>
+
+<style type="text/css">
+.actbtn{background-color: #2196f3;}
+</style>
+
+
+ 
+ <!-- wizard  -->
+  <div class="stepwizard col-md-offset-3">
+    <div class="stepwizard-row setup-panel">
+    
+      <div class="stepwizard-step">
+        <a href="#step-1" type="button" class="btn btn-primary btn-circle actbtn" id="stp1">1</a>
+        <p>Featured<br/>Architetctures</p>
+      </div>
+
+      <div class="stepwizard-step">
+        <a href="#step-2" type="button" class="btn btn-default btn-circle actbtn" disabled="disabled" id="stp2">2</a>
+        <p>Payment Plans</p>
+      </div>
+
+      <div class="stepwizard-step">
+        <a href="#step-3" type="button" class="btn btn-default btn-circle actbtn" disabled="disabled" id="stp3">3</a>
+        <p>Invoice Page</p>
+      </div>
+
+    </div>
+  </div>
+
+
+<!--end wizard  -->
+
+<div class="container">
+
+  <form role="form" action="" method="post">
+    <div id="wizard_step1" class="">
+      <div class="row setup-content" id="step-1">
+        <div class="card" id="profile-main">
+          
+          
+
+
+          <!--selected Architecture-->
+
+          <div id="get-img-src">
+
+            <div class="pm-overview c-overflow" > 
+              <div class="pmo-block"  id="id111">
+                         
+                <h2 class="text-center">SELECTED ARCHITECTURE</h2>
+                 <br/><br/>
+
+                <div class="card blog-post profile-view z-depth-1" id="main-arch-image">
+                        
+                    <div class="bp-header featured-img">
+                       
+                        <img src="/../static/media/{{ arch_image }}" alt="" style="background-color: #303030;">
+
+                            <div class="pv-header">
+                              
+                              <img src="{% static 'img/profile-pics/8.jpg' %}" class="pv-main" alt="">
+                            
+                            </div>
+
+                        <div class="bp-title bgm-lightblue" style="height:220px;">
+                            <h4 class="archname" style="color:#fff;">{{name}}</h4>
+                            <br/>
+                                   
+                            <p><b>$</b> {{main_arch_price}}</p>
+
+                            <p><img src="{% static 'img/featured-arch/Database.png'%}"  alt="" style="width:20px"/>{{v.4.1}}
+                            </p>
+
+                          <div class="p-20 text-center">
+                               
+                            <a class="nextBtn" id="" style="color:#fff;" data-type="inverse"  data-from="top" data-align="right" data-icon="fa fa-comments"><b>LAUNCH</b>
+                            </a>
+                
+                          </div>
+                        </div>
+                  </div>
+
+
+                </div>
+
+              </div>          
+            </div>
+          </div>
+
+        <!--end selected Architecture  -->
+
+
+
+        <!--featured Architecture  -->
+
+        <div class="pm-body clearfix">
+          <ul class="">
+          </ul><br>
+
+          <h4 class="text-center">FEATURED ARCHITECTURES</h4>
+
+            <div class="pmb-block">
+              <div class="pmbb-body" id="ftrd_img_clk_chng">
+
+             
+
+              {%for k,v in price_dict.items %}
+
+                <div class="col-sm-4" >
+                  
+                  <div class="card blog-post profile-view z-depth-1">
+                    
+                    <div class="bp-header">
+                        <img src="/../static/media/{{ v.2 }}" alt="" style="background-color: #303030;"" alt="">
+
+                          <div class="pv-header">
+                              
+                              <img src="{% static 'img/profile-pics/8.jpg' %}" class="pv-main" alt="">
+
+                          </div> 
+                                    
+                        <a class="bp-title bgm-lightblue" style="height:160px;">
+                            <h2 style="font-color:white;font-size:16px;">{{v.0}}</h2><br/>
+                             {% for ec2 in v.3.0 %}
+
+                                <p class="pull-left" style="width:60px;" data-toggle="popover" data-placement="top" data-content="instance" title="instance" data-original-title="Instance">
+                                <img src="{% static 'img/featured-arch/Instance.png'%}"
+                                style="width:20px"  alt="" > : <b> &nbsp;{{v.3.1}}</b>
+                                </p>
+
+                                {%endfor%}
+                                
+                                {%for rds in v.4.0 %}
+
+                                <p class="pull-left" style="width:60px;" data-toggle="popover" data-placement="top" data-content="Database" title="Database" data-original-title="Database"><img src="{% static 'img/featured-arch/Database.png'%}"  alt="" style="width:20px"> : <b> &nbsp;{{v.4.1}} </b></p>
+
+                                {%endfor%}
+
+                                {%for s3 in v.5.0 %}
+
+                                <p class="pull-left" style="width:60px;" data-toggle="popover" data-placement="top" data-content="Storage" title="Storage" data-original-title="Storage">
+                                <img src="{% static 'img/featured-arch/Storage.png'%}"  alt="" style="width:20px"> :
+                                 <b>&nbsp;{{v.5.1}}</b>
+                                </p>
+
+                                {%endfor%}
+
+
+                                {%for load in v.6.0 %}
+
+                                <p class="pull-left" style="width:60px;"
+                                  data-toggle="popover" data-placement="top" data-content="Load Balancer" title="Load Balancer" data-original-title="Load Balancer"
+                                >
+
+                                <img src="{% static 'img/featured-arch/Load_Balancer.png'%}"  alt="" style="width:20px">
+
+                                : <b>&nbsp;{{v.6.1}} </b>
+                                </p>
+
+                                {%endfor%}
+                              
+                          </a>
+
+                    </div>
+                            
+                    <div class="p-20 bgm-lightblue">
+                        
+                    <!-- <a class="" id="sa-params" style="color:#fff;">
+                    <b>INFO</b>
+                    </a> |  -->
+
+                    <a class="md-trigger" data-modal="modal-15" id="info-popup" style="color:#fff;"><b>INFO |</b></a>
+
+
+                       <a class="" id="{{k}}" data-type="inverse"  data-from="top" data-align="right" data-icon="fa fa-comments" style="color:#fff;">
+                       <b>SELECT</b>
+                    </a>
+
+                    </div>
+
+                </div>
+
+              
+
+   
+
+                     <!--  <div class="card z-depth-1 card-border dash-widget-item" style="height:480px;" id="how">
+                     
+
+                      <div class="card-header ">
+
+                                <div class="dash-widget-title"><h4>{{v.0}}</h4></div>
+                               
+<img src="/../static/media/{{ v.2 }}" alt="" class="img-responsive thumbnail im" style="background-color:#303030;">
+                           
+
+
+                             
+                            </div>
+                            
+                            <div class="card-body">
+
+                                <ul class="tab-nav tn-justified tn-icon" role="tablist">
+                                    <li role="presentation" class="active">
+                                        <a class="col-sx-4" href="#tab-1{{k}}" aria-controls="tab-1" role="tab" data-toggle="tab" style="width:100%;">
+                                            <i class="zmdi zmdi-cloud-outline-alt zmdi-hc-fw"></i>
+                                        </a>
+                                    </li>
+                                    <li role="presentation">
+                                        <a class="col-xs-4" href="#tab-2{{k}}" aria-controls="tab-2" role="tab" data-toggle="tab">
+                                            <i class="zmdi zmdi-star icon-tab"></i>
+                                        </a>
+                                    </li>
+                                    <li role="presentation">
+                                        <a class="col-xs-4" href="#tab-3{{k}}" aria-controls="tab-3" role="tab" data-toggle="tab">
+                                            <i class="zmdi zmdi-money zmdi-hc-fw"></i>
+                                        </a>
+                                    </li>
+
+                                </ul>
+                                
+                                <div class="tab-content p-20">
+                                    
+                                    <div role="tabpanel" class="tab-pane animated fadeIn in active" id="tab-1{{k}}">
+                               <div>         
+                                 
+                </div>
+                                        <a>Please Click on Image to View Architecture</a><br/><br/>
+
+                                       <button class="btn bgm-lightblue" id="{{k}}" type="button" data-type="inverse"  data-from="top" data-align="right" data-icon="fa fa-comments" style="display: block;margin: auto;">select</button>
+                                    </div>
+                                    
+                                    <div role="tabpanel" class="tab-pane animated fadeIn" id="tab-2{{k}}" style="overflow-y:scroll;    height: 200px;>
+">
+                                      
+                                        {% for ec2 in v.3.0 %}
+
+                                        <p><b><img src="{% static 'img/featured-arch/Instance.png'%}" 
+                                        style="width:20px"  alt=""></b>&nbsp;&nbsp;{{ec2}} &nbsp;&nbsp; {{v.3.1}}</p>
+
+                                        {%endfor%}
+                                        
+                                        {%for rds in v.4.0 %}
+                                        <p><b><img src="{% static 'img/featured-arch/Database.png'%}"  alt="" style="width:20px"></b>&nbsp;&nbsp;{{rds}}&nbsp;&nbsp; {{v.4.1}} </p>
+                                        {%endfor%}
+
+
+
+                                        {%for s3 in v.5.0 %}
+
+                                        
+                                        
+                                        <p><b><img src="{% static 'img/featured-arch/Storage.png'%}"  alt="" style="width:20px"></b>&nbsp;&nbsp;{{s3}} &nbsp;&nbsp;{{v.5.1}}</p>
+                                        {%endfor%}
+
+                                        {%for load in v.6.0 %}
+
+                                        <p><b><img src="{% static 'img/featured-arch/Load_Balancer.png'%}"  alt="" style="width:20px"></b>&nbsp;&nbsp;{{load}}&nbsp;&nbsp;{{v.6.1}} </p>
+                                           {%endfor%}
+
+                                    </div>
+
+                                      <div role="tabpanel" class="tab-pane animated fadeIn" id="tab-3{{k}}">
+                                        <h4 style="color:#2196f3;">Price: </h4>
+
+                                        <h5>{{v.1}}&nbsp;USD/Month</h5>
+                                          
+                                        <img src="{% static 'img/featured-arch/coins.png'%}" style="width:85px;display:block;margin:auto;" alt="">
+
+                                  </div>
+                                </div>
+                            </div>
+
+                        </div>  -->
+ 
+
+</div>
+
+                    {%endfor%}
+
+        <!--end featured Architecture  -->
+
+
+
+
+              <!--deafault selected main arch  -->
+
+                  <div class="col-sm-4"  id="{{i.id}}" style="">
+
+                  <div class="card blog-post profile-view z-depth-1">
+                    
+                    <div class="bp-header">
+                        <img src="/../static/media/{{ arch_image }}" alt="" style="background-color: #303030;"" alt="">
+
+                          <div class="pv-header">
+                              
+                              <img src="{% static 'img/profile-pics/8.jpg' %}" class="pv-main" alt="">
+
+                          </div> 
+                                    
+                        <a class="bp-title" style="height:160px;">
+                            <h2 style="font-color:white;font-size:16px;">{{name}}</h2><br/>
+
+                             <p><b>$</b> {{main_arch_price}}</p>
+
+                             {% for ec2 in v.3.0 %}
+
+                                <p class="pull-left" style="width:70px;" data-toggle="popover" data-placement="top" data-content="instance" title="instance" data-original-title="Instance">
+                                <img src="{% static 'img/featured-arch/Instance.png'%}"
+                                style="width:20px"  alt="" > : <b> {{v.3.1}}</b>
+                                </p>
+
+                                {%endfor%}
+                                
+                                {%for rds in v.4.0 %}
+
+                                <p class="pull-left" style="width:70px;" data-toggle="popover" data-placement="top" data-content="Database" title="Database" data-original-title="Database"><img src="{% static 'img/featured-arch/Database.png'%}"  alt="" style="width:20px"> : <b> {{v.4.1}} </b></p>
+
+                                {%endfor%}
+
+                                {%for s3 in v.5.0 %}
+
+                                <p class="pull-left" style="width:70px;" data-toggle="popover" data-placement="top" data-content="Storage" title="Storage" data-original-title="Storage">
+                                <img src="{% static 'img/featured-arch/Storage.png'%}"  alt="" style="width:20px"> :
+                                 <b>{{v.5.1}}</b>
+                                </p>
+
+                                {%endfor%}
+
+
+                                {%for load in v.6.0 %}
+
+                                <p class="pull-left" style="width:70px;"
+                                  data-toggle="popover" data-placement="top" data-content="Load Balancer" title="Load Balancer" data-original-title="Load Balancer"
+                                >
+
+                                <img src="{% static 'img/featured-arch/Load_Balancer.png'%}"  alt="" style="width:20px">
+
+                                : <b>{{v.6.1}} </b>
+                                </p>
+
+                                {%endfor%}
+                              
+                          </a>
+
+                    </div>
+                            
+                    <div class="p-20 bgm-lightblue">
+                        
+                    <a class="md-trigger" data-modal="modal-15" id="info-popup" style="color:#fff;"><b>INFO</b></a> | 
+
+                       <a class="" id="{{k}}" data-type="inverse"  data-from="top" data-align="right" data-icon="fa fa-comments" style="color:#fff;">
+                       <b>SELECT</b>
+                    </a>
+
+                    </div>
+
+                </div>
+
+
+
+
+
+
+
+<!--    <div class="card z-depth-1 card-border dash-widget-item" style="height:480px;" id="how">
+                     
+
+                      <div class="card-header ">
+
+                  
+                                
+                                   
+                                <div class="dash-widget-title"><h4>{{name}}</h4></div>
+                               
+<img src="/../static/media/{{ arch_image }}" alt="" class="img-responsive thumbnail im" style="background-color:#303030;">
+                           
+
+
+                           
+                            </div>
+                            
+                            <div class="card-body">
+
+                                <ul class="tab-nav tn-justified tn-icon" role="tablist">
+                                    <li role="presentation" class="active">
+                                        <a class="col-sx-4" href="#tab-1{{k}}" aria-controls="tab-1" role="tab" data-toggle="tab" style="width:100%;">
+                                            <i class="zmdi zmdi-cloud-outline-alt zmdi-hc-fw"></i>
+                                        </a>
+                                    </li>
+                                    <li role="presentation">
+                                        <a class="col-xs-4" href="#tab-2{{k}}" aria-controls="tab-2" role="tab" data-toggle="tab">
+                                            <i class="zmdi zmdi-star icon-tab"></i>
+                                        </a>
+                                    </li>
+                                    <li role="presentation">
+                                        <a class="col-xs-4" href="#tab-3{{k}}" aria-controls="tab-3" role="tab" data-toggle="tab">
+                                            <i class="zmdi zmdi-money zmdi-hc-fw"></i>
+                                        </a>
+                                    </li>
+
+                                </ul>
+                                
+                                <div class="tab-content p-20">
+                                    
+                                    <div role="tabpanel" class="tab-pane animated fadeIn in active" id="tab-1{{k}}">
+                               <div>         
+                                  
+                </div>
+                                        <a>Please Click on Image to View Architecture</a><br/><br/>
+
+                                       <button class="btn bgm-lightblue" id="{{name}}" type="button" data-type="inverse"  data-from="top" data-align="right" data-icon="fa fa-comments" style="display: block;margin: auto;">select</button>
+                                    </div>
+                                    
+              <div role="tabpanel" class="tab-pane animated fadeIn" id="tab-2{{k}}" style="overflow-y:scroll;    height: 200px;">
+                                       
+                                        {% for ec2 in v.3.0 %}
+
+                                        <p><b><img src="{% static 'img/coins.png'%}" style="width:25px;" alt=""></b>&nbsp;&nbsp;{{ec2}} &nbsp;&nbsp; {{v.3.1}}</p>
+
+                                        {%endfor%}
+                                        
+                                        {%for rds in v.4.0 %}
+                                        <p><b>Database:</b>&nbsp;&nbsp;{{rds}}&nbsp;&nbsp; {{v.4.1}} </p>
+                                        {%endfor%}
+
+                                        {%for s3 in v.5.0 %}
+                                        <p><b>Storage:</b>&nbsp;&nbsp;{{s3}} &nbsp;&nbsp;{{v.5.1}}</p>
+                                        {%endfor%}
+
+                                        {%for load in v.6.0 %}
+
+                                        <p><b>Load Balencer:</b>&nbsp;&nbsp;{{load}}&nbsp;&nbsp;{{v.6.1}} </p>
+                                           {%endfor%}
+
+                                    </div>
+
+                                      <div role="tabpanel" class="tab-pane animated fadeIn" id="tab-3{{k}}">
+                                        <h4 style="color:#2196f3;">Price of {{v.0}} </h4>
+
+                                        <h5>{{v.1}}&nbsp;USD/Month</h5>
+                                          
+                                        <img src="{% static 'img/coins.png'%}" style="width:85px;display:block;margin:auto;" alt="">
+
+                                  </div>
+                                </div>
+                            </div>
+
+                        </div>  -->
+
+
+
+
+
+                    <!-- <div class="card blog-post z-depth-1"  id="arch-img2"> 
+                              
+                      <div class="bp-header featured-img" id="">   
+                                
+                        <img  id="{{name}}" src="/../static/media/{{ arch_image }}" alt="Featured Architecture"  style="background-color:black;" width="232px;" height="232px;">
+
+                      </div>
+
+
+                    <div class="card-header bgm-lightblue">
+                        <h2 class="archname">{{name}}</h2><br>
+
+                        <h2> Price : $ {{ main_arch_price }} </h2>
+                       
+                        
+                        <button class="btn bgm-green btn-float waves-effect" id="{{name}}" type="button" data-type="inverse"  data-from="top" data-align="right" data-icon="fa fa-comments"><i class="zmdi zmdi-mail-send"></i></button>
+
+                    </div>
+
+                    <div class="card-body card-padding">
+                        Cras leo sem, egestas a accumsan eget, euismod at nunc. 
+                    </div>
+
+                  </div> -->
+                  </div>
+                          
+                  <!--end deafault selected main arch  -->
+
+                </div>                   
+              </div>                   
+              
+          </div>   
+
+        <!-- end featured Architecture  -->
+
+
+
+        </div>
+   </div>
+ </div>
+
+
+       {%endblock%}
+
+        <!--Pay plans  -->
+
+      <div class="row setup-content" id="step-2">
+          <h1></h1>
+
+          <div class="" id="pymtns-page1">
+     
+          </div>
+      </div>
+
+      <!-- end Pay plans  -->
+
+
+      <!--invoice plans  -->
+
+        <div class="row setup-content" id="step-3">
+          
+            <div class="col-md-12" id="invoice-page">
+            </div>
+           
+        </div>
+
+      <!-- end invoice plans  -->
+
+  
+</form>
+
+
+
+<!--   <div class="stepwizard col-md-offset-3">
+    <div class="stepwizard-row setup-panel">
+      <div class="stepwizard-step">
+        <a href="#step-1" type="button" class="btn btn-primary btn-circle actbtn" id="stp1">1</a>
+        <p>Featured<br/>Architetctures</p>
+      </div>
+      <div class="stepwizard-step">
+        <a href="#step-2" type="button" class="btn btn-default btn-circle actbtn" disabled="disabled" id="stp2">2</a>
+        <p>Payment Plans</p>
+      </div>
+      <div class="stepwizard-step">
+        <a href="#step-3" type="button" class="btn btn-default btn-circle actbtn" disabled="disabled" id="stp3">3</a>
+        <p>Invoice Page</p>
+      </div>
+
+    </div>
+  </div> -->
+
+
+  <!-- <div tabindex="-1" class="modal fade" id="myModal" role="dialog">
+   <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button class="close" type="button" data-dismiss="modal">×</button>
+            <h3 class="modal-title">Architecture</h3>
+        </div>
+  
+        <div class="modal-body">
+          
+        </div>
+  
+        <div class="modal-footer">
+          <button class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>  
+      </div>
+  </div>
+</div> -->
+
+
+
+
+
+
+</div>
+
+
+
+
+<!-- Model -->
+
+
+<div class="md-container md-effect-15" id="modal-15">
+      <div class="md-content">
+        <h3>SAMPLE MODEL</h3>
+        <div>
+        <img src="{% static '/media/architectures/Arch2.png' %}" style="height:300px;width:485px; display:block; margin:auto;">
+
+
+          <ul>
+            <li style="list-style:none;"><strong><img src="{% static 'img/featured-arch/Instance.png' %}" style="height:20px;width:20px;">&nbsp;(Instance) :</strong> modal windows will probabl.</li>
+
+
+            <li style="list-style:none;"><strong><img src="{% static 'img/featured-arch/Database.png' %}" style="height:20px;width:20px;">&nbsp;(Database) :</strong> a modal window enjoys a certain kind.</li>
+
+
+            <li style="list-style:none;"><img src="{% static 'img/featured-arch/Storage.png' %}" style="height:20px;width:20px;"><strong>&nbsp;(Storage) :</strong> click on the button below.</li>
+
+            <li style="list-style:none;"><img src="{% static 'img/featured-arch/Load_Balancer.png' %}" style="height:20px;width:20px;"><strong>&nbsp;(Load_Balancer)&nbsp; :</strong> click on the button below modal.</li>
+
+
+            <li style="list-style:none;"><img src="{% static 'img/featured-arch/Description.png' %}" style="height:20px;width:20px;"><strong>&nbsp;(Description)&nbsp; :</strong> click on the button below modal.</li>
+
+
+          </ul>
+
+          <div class="button-ck">
+            <button id="{{ i.id }}" class="pv-follow-btn">&nbsp;&nbsp;Ok&nbsp;&nbsp;</button>
+            <button class="md-close">Close</button>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+<!-- End model -->
+
+ 
+
+
+<script type="text/javascript">
+  $(document).ready(function () {
+  var navListItems = $('div.setup-panel div a'),
+          allWells = $('.setup-content'),
+          allNextBtn = $('.nextBtn');
+
+  allWells.hide();
+
+  if ($(".btn").attr("disabled")=="disabled"){
+   $(".btn").css("pointer-events","none");} 
+  
+  //$(".btn").removeAttr("href");
+  
+  navListItems.click(function (e) {
+      e.preventDefault();
+      var $target = $($(this).attr('href')),
+              $item = $(this);
+
+      if (!$item.hasClass('disabled')) {
+
+          navListItems.removeClass('btn-primary wz-btn').addClass('btn-default actbtn');
+
+         
+          //$item.removeClass('remveclcik')
+          $item.addClass('btn-primary wz-btn');
+          allWells.hide();
+          $target.show();
+          $target.find('input:eq(0)').focus();
+      }
+ 
+      
+
+  });
+
+  allNextBtn.click(function(){
+      var curStep = $(this).closest(".setup-content"),
+          curStepBtn = curStep.attr("id"),
+          nextStepWizard = $('div.setup-panel div a[href="#' + curStepBtn + '"]').parent().next().children("a"),
+          curInputs = curStep.find("input[type='text'],input[type='url']"),
+          isValid = true;
+
+      $(".form-group").removeClass("has-error");
+      for(var i=0; i<curInputs.length; i++){
+          if (!curInputs[i].validity.valid){
+              isValid = false;
+              $(curInputs[i]).closest(".form-group").addClass("has-error");
+          }
+      }
+
+      if (isValid)
+          nextStepWizard.removeAttr('disabled').trigger('click');
+  });
+
+  $('div.setup-panel div a.btn-primary').trigger('click');
+});
+
+
+
+$(document).ready(function() {
+$('.thumbnail').click(function(){
+      $('.modal-body').empty();
+    var title = $(this).parent('a').attr("title");
+    $('.modal-title').html(title);
+    $($(this).parents('div').html()).appendTo('.modal-body');
+    $('#myModal').modal({show:true});
+});
+});
+
+
+
+
+
+</script>
+
+
+
+
+     <script type="text/javascript">
+            /*
+             * Notifications
+             */
+            function notify(from, align, icon, type, animIn, animOut){
+                $.growl({
+                    icon: icon,
+                    title: ' Bootstrap Growl ',
+                    message: 'Turning standard Bootstrap alerts into awesome notifications',
+                    url: ''
+                },{
+                        element: 'body',
+                        type: type,
+                        allow_dismiss: true,
+                        placement: {
+                                from: from,
+                                align: align
+                        },
+                        offset: {
+                            x: 20,
+                            y: 85
+                        },
+                        spacing: 10,
+                        z_index: 1031,
+                        delay: 2500,
+                        timer: 1000,
+                        url_target: '_blank',
+                        mouse_over: false,
+                        animate: {
+                                enter: animIn,
+                                exit: animOut
+                        },
+                        icon_type: 'class',
+                        template: '<div data-growl="container" class="alert" role="alert">' +
+                                        '<button type="button" class="close" data-growl="dismiss">' +
+                                            '<span aria-hidden="true">&times;</span>' +
+                                            '<span class="sr-only">Close</span>' +
+                                        '</button>' +
+                                        '<span data-growl="icon"></span>' +
+                                        '<span data-growl="title"></span>' +
+                                        '<span data-growl="message"></span>' +
+                                        '<a href="#" data-growl="url"></a>' +
+                                    '</div>'
+                });
+            };
+            
+            $('.notifications > div > .btn').click(function(e){
+                e.preventDefault();
+                var nFrom = $(this).attr('data-from');
+                var nAlign = $(this).attr('data-align');
+                var nIcons = $(this).attr('data-icon');
+                var nType = $(this).attr('data-type');
+                var nAnimIn = $(this).attr('data-animation-in');
+                var nAnimOut = $(this).attr('data-animation-out');
+                
+                notify(nFrom, nAlign, nIcons, nType, nAnimIn, nAnimOut);
+            });
+
+
+            /*
+             * Dialogs
+             */
+
+            //Basic
+            $('#sa-basic').click(function(){
+                swal("Here's a message!");
+            });
+
+            //A title with a text under
+            $('#sa-title').click(function(){
+                swal("Here's a message!", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed lorem erat, tincidunt vitae ipsum et, pellentesque maximus enim. Mauris eleifend ex semper, lobortis purus sed, pharetra felis")
+            });
+
+            //Success Message
+            $('#sa-success').click(function(){
+                swal("Good job!", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed lorem erat, tincidunt vitae ipsum et, pellentesque maximus enim. Mauris eleifend ex semper, lobortis purus sed, pharetra felis", "success")
+            });
+
+            //Warning Message
+            $('#sa-warning').click(function(){
+                swal({   
+                    title: "Are you sure?",   
+                    text: "You will not be able to recover this imaginary file!",   
+                    type: "warning",   
+                    showCancelButton: true,   
+                    confirmButtonColor: "#DD6B55",   
+                    confirmButtonText: "Yes, delete it!",   
+                    closeOnConfirm: false 
+                }, function(){   
+                    swal("Deleted!", "Your imaginary file has been deleted.", "success"); 
+                });
+            });
+            
+            //Parameter
+            $('#sa-params').click(function(){
+                swal({   
+                    title: "Are you sure?",   
+                    text: "You will not be able to recover this imaginary file!", 
+                    text: "You will not be  to recover this imaginary file!", 
+                    text: "You will this imaginary file!",   
+                    type: "warning",   
+                    showCancelButton: true,   
+                    confirmButtonColor: "#DD6B55",   
+                    confirmButtonText: "Yes, delete it!",   
+                    cancelButtonText: "No, cancel plx!",   
+                    closeOnConfirm: false,   
+                    closeOnCancel: false 
+                }, function(isConfirm){   
+                    if (isConfirm) {     
+                        swal("Deleted!", "Your imaginary file has been deleted.", "success");   
+                    } else {     
+                        swal("Cancelled", "Your imaginary file is safe :)", "error");   
+                    } 
+                });
+            });
+
+            //Custom Image
+            $('#sa-image').click(function(){
+                swal({   
+                    title: "Sweet!",   
+                    text: "Here's a custom image.",   
+                    imageUrl: "img/thumbs-up.png" 
+                });
+            });
+
+            //Auto Close Timer
+            $('#sa-close').click(function(){
+                 swal({   
+                    title: "Auto close alert!",   
+                    text: "I will close in 2 seconds.",   
+                    timer: 2000,   
+                    showConfirmButton: false 
+                });
+            });
+
+        </script>
+

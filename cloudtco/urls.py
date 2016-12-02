@@ -20,7 +20,9 @@ from django.conf import settings
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from django.conf.urls.i18n import i18n_patterns
 from django.conf.urls import *  # NOQA
-  
+
+
+   
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^tco/', include('tcoapp.urls'),name="tcoapp"),
@@ -30,25 +32,25 @@ urlpatterns = [
     url(r'^silver/', include('silver.api.urls')),
     url(r'^accounts/', include('allauth.urls')),
     #url(r'^tco/', include('tcoapp.urls'),name="tcoapp"),
- ]
-
-#+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
-# handler404 = 'tcoapp.views.custom_404'
-
-# # This is only needed when using runserver.
-
-# if settings.DEBUG and not urlpatterns:
-#     urlpatterns += staticfiles_urlpatterns()
 
 
-# if settings.DEBUG:
-#     urlpatterns = patterns('',
-#         url(r'^media/(?P<path>.*)$', 'django.views.static.serve',  # NOQA
-#             {'document_root': settings.MEDIA_ROOT, 'show_indexes': True}),
-#         ) + staticfiles_urlpatterns() + urlpatterns  # NOQA
+]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+handler404 = 'tcoapp.views.custom_404'
+
+#This is only needed when using runserver.
+
+if settings.DEBUG and not urlpatterns:
+    urlpatterns += staticfiles_urlpatterns()
 
 
-# if settings.DEBUG is False:   #if DEBUG is True it will be served automatically
-#     urlpatterns += patterns('',
-#             url(r'^static/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.STATIC_ROOT}),
-#     )
+if settings.DEBUG:
+    urlpatterns = patterns('',
+        url(r'^media/(?P<path>.*)$', 'django.views.static.serve',  # NOQA
+            {'document_root': settings.MEDIA_ROOT, 'show_indexes': True}),
+        ) + staticfiles_urlpatterns() + urlpatterns  # NOQA
+
+
+if settings.DEBUG is False:   #if DEBUG is True it will be served automatically
+    urlpatterns += patterns('',
+            url(r'^static/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.STATIC_ROOT}),
+    )

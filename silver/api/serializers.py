@@ -548,5 +548,5 @@ class ArchPlanSerializer(serializers.HyperlinkedModelSerializer):
         fields = ('product_code','total_plan_price',
                   'instance_count','rds_count','s3_count','balancer_count','instance_name',
                     'rds_name','balancer_name','instance_cost','rds_cost',
-                    'loadbalancer_cost','s3_cost')
+                    'loadbalancer_cost','s3_cost','s3_name')
 

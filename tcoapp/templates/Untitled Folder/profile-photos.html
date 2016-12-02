@@ -1,0 +1,454 @@
+{%load static%}
+<!DOCTYPE html>
+    <!--[if IE 9 ]><html class="ie9"><![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+         <link rel="shortcut icon" href="{% static 'img/favlogo.png' %}" type="image/x-icon">
+        <title>Cloud TCO</title>
+    
+        <!-- Vendor CSS -->
+       <link href="{% static 'vendors/bower_components/animate.css/animate.min.css' %}" rel="stylesheet">
+        <link href="{% static 'vendors/bower_components/bootstrap-sweetalert/lib/sweet-alert.css' %}" rel="stylesheet">
+        <link href="{% static 'vendors/bower_components/material-design-iconic-font/dist/css/material-design-iconic-font.min.css' %}" rel="stylesheet">
+        <link href="{% static 'vendors/bower_components/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.min.css' %}" rel="stylesheet">        
+        <link href="{% static 'vendors/bower_components/lightgallery/light-gallery/css/lightGallery.css' %}" rel="stylesheet">
+            
+        <!-- CSS -->
+        <link href="{% static 'css/app.min.1.css' %}" rel="stylesheet">
+        <link href="{% static 'css/app.min.2.css' %}" rel="stylesheet">
+    </head>
+    
+    <body>
+        
+    <header id="header" class="clearfix" data-current-skin="lightblue">
+             
+        <ul class="header-inner">
+               
+            <li class="logo">
+                <a href="/" style="text-decoration:none;">
+            <img src="{% static 'img/cloud_logo.svg' %}" alt="client" style="width:147px;">
+            </a>
+            </li>
+
+            <li class="pull-right">
+                <ul class="top-menu">
+
+                   <li class="dropdown hidden-xs">
+                        <a href="/tco/architecture">
+                            <span class="tm-label">Architectural</span>
+                        </a>
+                    </li>
+                    <li class="dropdown hidden-xs">
+                        <a href="/tco/application">
+                            <span class="tm-label">Application</span>
+                        </a>
+                    </li>
+                    <li class="dropdown hidden-xs">
+                        <a href="/tco/verticals">
+                            <span class="tm-label">Vertical</span>
+                        </a>
+                    </li>
+                    <li>
+                       <a href="/tco/architecture"> <i class="tm-icon zmdi zmdi-home"></i></a>
+                   </li>
+                    <li class="dropdown">
+                        <a data-toggle="dropdown" href=""><i class="tm-icon zmdi zmdi-account-circle"></i> </a>
+                        <ul class="dropdown-menu dm-icon pull-right">
+                            <li class="">
+                               <a href="/tco/profile/"><i class="zmdi zmdi-account"></i> View Profile</a>
+                            </li>
+                            
+                            
+                            
+                            <li>
+                                <a href="/accounts/password/change/"><i class="zmdi zmdi-face"></i> Privacy Settings</a>
+                            </li>
+                            <li>
+                                <a href="/tco/logout"><i class="zmdi zmdi-time-restore"></i> Logout</a>
+                            </li>
+                        </ul>
+                    </li>
+
+                </ul>
+            </li>
+
+            </ul>
+
+            <!-- Top Search Content -->
+            <div id="top-search-wrap">
+                <div class="tsw-inner">
+                    <i id="top-search-close" class="zmdi zmdi-arrow-left"></i>
+                    <input type="text">
+                </div>
+            </div>
+        </header>
+        
+        <section id="main">
+            
+        
+            <section id="content" style="padding-left: 0px !important;">
+                <div class="container">
+                    
+                    <div class="block-header">
+                        <h2>{{request.user.username}} <small>{{request.user.email}}</small></h2>
+                        
+                        
+                    </div> 
+                    
+
+                    <div class="card c-timeline">
+                        <div class="pm-overview c-overflow">
+                          
+                            
+                           
+                            
+                        </div>
+                        
+                        <div class="pm-body clearfix">
+                            <ul class="tab-nav tn-justified">
+                                <li class="waves-effect"><a href="/tco/profile">Profile</a></li>
+                                <li class="waves-effect"><a href="/tco/dashboard">Dashboard</a></li>
+                                <li class="waves-effect active"><a href="/tco/monitoring">Launchd Architectures</a></li>
+                                <!-- <li class="waves-effect"><a href="profile-connections.html">Connections</a></li> -->
+                            </ul>
+                
+                    <div class="timeline pmb-block clearfix photos">
+
+                         <div class="card">
+
+                                <div class="card-header">
+                                    <h2>Architecture Info </h2>
+                                    <ul class="actions">
+                                        <li class="dropdown">
+                                            <a href="" data-toggle="dropdown">
+                                                <i class="zmdi zmdi-more-vert"></i>
+                                            </a>
+                                            
+                                            <ul class="dropdown-menu dropdown-menu-right">
+                                                <li>
+                                                    <a href="">Refresh</a>
+                                                </li>
+                                                <li>
+                                                    <a href="">Settings</a>
+                                                </li>
+                                                <li>
+                                                    <a href="">Other Settings</a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="card-body m-t-0">
+                                    <table class="table table-inner table-vmiddle">
+                                        <thead>
+                                            <tr>
+                                                <th>Date</th>
+                                                <th>Name</th>
+                                                <th>Price</th>
+                                                 <th>Get Info</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+
+                                            {%for arch in userArch%}
+                                            <tr>
+                                                <td class="f-500">{{arch.created_at|date:"d-m-Y"}}</td>
+                                                <td>{{arch.arch_name}}</td>
+                                                <td class="f-500 ">${{arch.price}}</td>
+                                                <td class="f-500 c-cyan"><a href="/tco/dashboard/">Get Info</a></td>
+                                            </tr>
+                                            {%endfor%}
+                                            
+                                        </tbody>
+                                    </table><br/>
+                                </div> 
+
+                            </div>
+                                
+                                 <!-- <img src="{% static 'img/monitoring/7_WEB-LOG-ANALYSIS_xDXdAHo.png' %}" class="img-responsive m-b-15"  style="display:block; margin:auto; max-width:30%; background-color: black;"alt=""> <br/><br/> -->
+
+                            
+                                <div class="lightbox">
+
+                                 {%for imgarc in imgArch%}
+                                 <!-- <h3>{{arch.arch_name}}</h3> -->
+
+                                    <div data-src="/../static/media/{{ imgarc.architecture_img }}" class="col-md-3 col-sm-4 col-xs-6">
+                                        <div class="lightbox-item p-item">
+                                            <img src="/../static/media/{{ imgarc.architecture_img }}" style=" border:1px solid #021a40;" alt="" />
+                                        </div>
+                                    </div>
+                            
+                                 {%endfor%}
+                                   <!-- <div data-src="{% static 'media/gallery/2.png' %}" class="col-md-3 col-sm-4 col-xs-6">
+                                        <div class="lightbox-item p-item">
+                                            <img src="{% static 'media/gallery/thumbs/2.png' %}" style=" border:1px solid #021a40;" alt="" />
+                                        </div>
+                                    </div>
+                            
+                                    <div data-src="{% static 'media/gallery/3.png' %}" class="col-md-3 col-sm-4 col-xs-6">
+                                        <div class="lightbox-item p-item">
+                                            <img src="{% static 'media/gallery/thumbs/3.png' %}"  style=" border:1px solid #021a40;" alt="" />
+                                        </div>
+                                    </div>
+                            
+                                    <div data-src="{% static 'media/gallery/4.png' %}" class="col-md-3 col-sm-4 col-xs-6">
+                                        <div class="lightbox-item p-item">
+                                            <img src="{% static 'media/gallery/thumbs/4.png' %}" style=" border:1px solid #021a40;" alt="" />
+                                        </div>
+                                    </div>
+                            
+                                    <div data-src="{% static 'media/gallery/5.png' %}" class="col-md-3 col-sm-4 col-xs-6">
+                                        <div class="lightbox-item p-item">
+                                            <img src="{% static 'media/gallery/thumbs/5.png' %}" style=" border:1px solid #021a40;" alt="" />
+                                        </div>
+                                    </div>
+                                    <div data-src="{% static 'media/gallery/6.png' %}" class="col-md-3 col-sm-4 col-xs-6">
+                                        <div class="lightbox-item p-item">
+                                            <img src="{% static 'media/gallery/thumbs/6.png' %}" style=" border:1px solid #021a40;" alt="" />
+                                        </div>
+                                    </div>
+                                    <div data-src="{% static 'media/gallery/7.png' %}" class="col-md-3 col-sm-4 col-xs-6">
+                                        <div class="lightbox-item p-item">
+                                            <img src="{% static 'media/gallery/thumbs/7.png' %}" style=" border:1px solid #021a40;" alt="" />
+                                        </div>
+                                    </div>
+                                    <div data-src="{% static 'media/gallery/8.png' %}" class="col-md-3 col-sm-4 col-xs-6">
+                                        <div class="lightbox-item p-item">
+                                            <img src="{% static 'media/gallery/thumbs/8.png' %}"
+                                            style=" border:1px solid #021a40;" alt="" />
+                                        </div>
+                                    </div>
+                                     <div data-src="media/gallery/9.jpg" class="col-md-3 col-sm-4 col-xs-6">
+                                        <div class="lightbox-item p-item">
+                                            <img src="media/gallery/thumbs/9.jpg" alt="" />
+                                        </div>
+                                    </div>
+                                    <div data-src="media/gallery/10.jpg" class="col-md-3 col-sm-4 col-xs-6">
+                                        <div class="lightbox-item p-item">
+                                            <img src="media/gallery/thumbs/10.jpg" alt="" />
+                                        </div>
+                                    </div>
+                                    <div data-src="media/gallery/11.jpg" class="col-md-3 col-sm-4 col-xs-6">
+                                        <div class="lightbox-item p-item">
+                                            <img src="media/gallery/thumbs/11.jpg" alt="" />
+                                        </div>
+                                    </div>
+                                    <div data-src="media/gallery/12.jpg" class="col-md-3 col-sm-4 col-xs-6">
+                                        <div class="lightbox-item p-item">
+                                            <img src="media/gallery/thumbs/12.jpg" alt="" />
+                                        </div>
+                                    </div>
+                                    <div data-src="media/gallery/13.jpg" class="col-md-3 col-sm-4 col-xs-6">
+                                        <div class="lightbox-item p-item">
+                                            <img src="media/gallery/thumbs/13.jpg" alt="" />
+                                        </div>
+                                    </div>
+                                    <div data-src="media/gallery/14.jpg" class="col-md-3 col-sm-4 col-xs-6">
+                                        <div class="lightbox-item p-item">
+                                            <img src="media/gallery/thumbs/14.jpg" alt="" />
+                                        </div>
+                                    </div>
+                                    <div data-src="media/gallery/15.jpg" class="col-md-3 col-sm-4 col-xs-6">
+                                        <div class="lightbox-item p-item">
+                                            <img src="media/gallery/thumbs/15.jpg" alt="" />
+                                        </div>
+                                    </div>
+                                    <div data-src="media/gallery/16.jpg" class="col-md-3 col-sm-4 col-xs-6">
+                                        <div class="lightbox-item p-item">
+                                            <img src="media/gallery/thumbs/16.jpg" alt="" />
+                                        </div>
+                                    </div> -->
+                                
+                                </div>
+
+
+
+
+
+                            </div>
+
+                        </div>
+                   
+                   
+                    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                 
+                            
+
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </section>
+      <footer id="footer"">
+
+ <!--       <div class="card"> -->
+                       
+                    
+                        <div class="card-body card-padding">
+                            <div class="row">
+                                <div class="col-sm-3 m-b-25">
+                                   <p style="border-bottom:1px solid #fff;padding-bottom:10px;color:black;"> <i class="zmdi zmdi-caret-up-circle"></i>
+                                 &nbsp;QUICK LINKS </p>
+                    
+                                      <ul  class="f-menu clist clist-angle">
+                                         
+                                         <li><a href="/tco/architecture">Architectural</a></li>
+                                          <li><a href="">Applications</a></li>
+                                          <li><a href="">Vertiacals</a></li>
+                                                               
+                                      </ul>
+                                </div>
+                    
+                                <div class="col-sm-3 m-b-25">
+                                    <p style="border-bottom:1px solid #fff;padding-bottom:10px;color:black;"><i class="zmdi zmdi-globe"></i>
+                                      &nbsp;VERTICALS  </p>
+
+                                     <ul  class="f-menu clist clist-angle">
+                                         
+                                         <li><a href="http://www.infomagnum.com" target="_blank">InfoMagnum </a></li>
+                                          <li><a href="http://ysec.io" target="_blank">YSEC </a></li>
+                                        <!--   <li><a href="">Vertiacals</a></li> -->
+                                                               
+                                      </ul>
+                                         
+                                        
+                                    </ul>
+                                </div>
+                    
+                                <div class="col-sm-3 m-b-25">
+                                    <!-- <p class="c-black">Ordered - Roman</p> -->
+                                    <p style="border-bottom:1px solid #fff;padding-bottom:10px;color:black;"> <i class="zmdi zmdi-globe"></i>
+                                      &nbsp;SOLUTIONS </p>
+                                     <ul  class="f-menu clist clist-angle">
+                                         
+                                         <li><a href="/tco/architecture">Consulting</a></li>
+                                          <li><a href="">Migrations</a></li>
+                                          <li><a href="">Fresh Cloud</a></li>
+                                                               
+                                      </ul>
+                                      
+                                </div>
+
+
+                               <!--  <div class="col-sm-3 m-b-25">
+                                    <p class="c-black">Ordered - Roman</p>
+                    
+                                   <ul class="clist clis  t-angle">
+                                        <li>Lorem ipsum dolor sit amet</li>
+                                        <li>Consectetur adipiscing elit</li>
+                                        <li>Integer molestie lorem at massa</li>
+                                        <li>Facilisis in pretium nisl aliquet</li>
+                                        
+                                    </ul>
+                                </div> -->
+                                
+                   
+                            </div>
+                        </div>
+                  <!--   </div> -->
+            <div class="copyright">
+            <div class="column">
+              <p style="text-align:right; ">Copyright © 2016 <a href="#" target="_blank">InfoMagnum</a>/ All rights reserved.</p>
+            </div>
+            </div>
+           
+            
+      </footer>
+
+
+
+        <!-- Page Loader -->
+        <!-- <div class="page-loader">
+            <div class="preloader pls-blue">
+                <svg class="pl-circular" viewBox="25 25 50 50">
+                    <circle class="plc-path" cx="50" cy="50" r="20" />
+                </svg>
+
+                <p>Please wait...</p>
+            </div>
+        </div> -->
+
+        <!-- Older IE warning message -->
+        <!--[if lt IE 9]>
+            <div class="ie-warning">
+                <h1 class="c-white">Warning!!</h1>
+                <p>You are using an outdated version of Internet Explorer, please upgrade <br/>to any of the following web browsers to access this website.</p>
+                <div class="iew-container">
+                    <ul class="iew-download">
+                        <li>
+                            <a href="http://www.google.com/chrome/">
+                                <img src="img/browsers/chrome.png" alt="">
+                                <div>Chrome</div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.mozilla.org/en-US/firefox/new/">
+                                <img src="img/browsers/firefox.png" alt="">
+                                <div>Firefox</div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="http://www.opera.com">
+                                <img src="img/browsers/opera.png" alt="">
+                                <div>Opera</div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.apple.com/safari/">
+                                <img src="img/browsers/safari.png" alt="">
+                                <div>Safari</div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="http://windows.microsoft.com/en-us/internet-explorer/download-ie">
+                                <img src="img/browsers/ie.png" alt="">
+                                <div>IE (New)</div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <p>Sorry for the inconvenience!</p>
+            </div>   
+        <![endif]-->
+    
+    
+        <!-- Javascript Libraries -->
+                <script src="{% static 'vendors/bower_components/jquery/dist/jquery.min.js' %}"></script>
+        <script src="{% static 'vendors/bower_components/bootstrap/dist/js/bootstrap.min.js' %}"></script>
+        
+                <script src="{% static 'vendors/bower_components/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js' %}"></script>
+        <script src="{% static 'vendors/bower_components/Waves/dist/waves.min.js' %}"></script>
+        <script src="{% static 'vendors/bower_components/Waves/dist/waves.min.js' %}"></script>
+        <script src="{% static 'vendors/bootstrap-growl/bootstrap-growl.min.js' %}"></script>
+        <script src="{% static 'vendors/bower_components/bootstrap-sweetalert/lib/sweet-alert.min.js' %}"></script>
+        <script src="{% static 'vendors/bower_components/lightgallery/light-gallery/js/lightGallery.min.js' %}"></script>
+        
+        <!-- Placeholder for IE9 -->
+        <!--[if IE 9 ]>
+            <script src="vendors/bower_components/jquery-placeholder/jquery.placeholder.min.js"></script>
+        <![endif]-->
+         
+         <script src="{% static 'js/functions.js' %}"></script>
+       <!--<script src="js/demo.js"></script> 
+     -->
+    
+    </body>
+</html>
