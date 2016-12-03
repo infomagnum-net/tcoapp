@@ -120,16 +120,25 @@
                         <td></td>
                         <td class="highlight text-right" ></td>
                     </tr>
-                    
+                    {%if plan_info.instance_name%}
                     <tr>
                         <td>                                             
-                            <h5 class="text-muted"><img src="{% static 'img/featured-arch/Instance_color.png' %}" />&nbsp;{{plan_info.instance_name}}</h5>  
+                            
+                            <h5 class="text-muted"><img src="{% static 'img/featured-arch/Instance_color.png' %}" />
+                                <ul>
+                                    {%for name in plan_info.instance_name%}
+                                    <li>
+                                        &nbsp;{{name.0}}
+                                    </li>
+                                    {%endfor%}
+                                </ul>
+                            </h5>  
                         </td>
                         <td>${{instance_unit_price}}</td>
                         <td>{{plan_info.instance_count}}</td>
                         <td class="highlight text-right">${{instance_total_price}}</td>
                     </tr>
-                    
+                    {%endif%}
                     <tr>
                         <td>
                             <h5 class="text-uppercase f-400">Amazon RDS Service</h5>  
@@ -139,14 +148,24 @@
                         <td class="highlight text-right"></td>
                     </tr>
 
+                    {%if plan_info.rds_name%}
                     <tr>
                         <td>
-                            <h5 class="text-muted"><img src="{% static 'img/featured-arch/Database_color.png' %}" />&nbsp;({{plan_info.rds_name}})</h5> 
+                            <h5 class="text-muted"><img src="{% static 'img/featured-arch/Database_color.png' %}" />
+                                <ul>
+                                    {%for name in plan_info.rds_name%}
+                                    <li>
+                                        &nbsp;{{name.0}}
+                                    </li>
+                                    {%endfor%}
+                                </ul>
+                            </h5> 
                         </td>
                         <td>${{rds_unit_price}}</td>
                         <td>{{ plan_info.rds_count }}</td>
                         <td class="highlight text-right">${{rds_total_price}}</td>
                     </tr>
+                    {%endif%}
 
                     <tr>
                         <td>
@@ -156,15 +175,25 @@
                         <td></td>
                         <td class="highlight text-right"></td>
                     </tr>
-
+                    {%if plan_info.s3_name%}
                     <tr>
                         <td>
-                            <h5 class="text-muted"><img src="{% static 'img/featured-arch/Storage_color.png' %}" />&nbsp;({{plan_info.s3_name}})</h5> 
+                            <h5 class="text-muted"><img src="{% static 'img/featured-arch/Storage_color.png' %}" />
+                                <ul>
+                                    {%for name in plan_info.s3_name%}
+                                    <li>
+                                        &nbsp;{{name.0}}
+                                    </li>
+                                    {%endfor%}
+                                </ul>
+
+                               </h5> 
                         </td>
                         <td>${{s3_unit_price}}</td>
                         <td>{{plan_info.s3_count}}</td>
                         <td class="highlight text-right">${{s3_total_price}}</td>
                     </tr>
+                    {%endif%}
 
                     <tr>
                         <td>
@@ -175,16 +204,32 @@
                         <td class="highlight text-right"></td>
                     </tr>
 
+                    {%if plan_info.balancer_name%}
                     <tr>
+
                         <td>
-                            <h5 class="text-muted"><img src="{% static 'img/featured-arch/LoadBalancer_color.png' %}" />&nbsp;({{plan_info.balancer_name}})</h5>
+                            <h5 class="text-muted"><img src="{% static 'img/featured-arch/LoadBalancer_color.png' %}" />
+                                
+                                <ul>
+                                    {%for name in plan_info.balancer_name%}
+                                    <li>
+                                        &nbsp;{{name.0}}
+                                    </li>
+                                    {%endfor%}
+                                </ul>
+                                
+                            </h5>
                         </td>
                         <td>${{balancer_unit_price}}</td>
                         <td>{{plan_info.balancer_count}}</td>
-                        <td class="highlight text-right">${{balancer_total_price}}</td>
+                        <td class="highlight text-right">
+
+                        ${{balancer_total_price}}
+                    </td>
                     </tr>
 
                     <tr>
+                        {%endif%}
                         <td>
                             <h5 class="text-muted" style="font-weight:bold">Total {{payment_type}} Payment:</h5> 
                         </td>

@@ -167,12 +167,6 @@ class Plan(models.Model):
     def _get_rds_cost(self):
         rdsprice=None
         rdsprice=self.rds_metered_feature.aggregate(total=models.Sum('price_per_unit'))['total']
-        # print '**'*20
-        # print self.name
-        # print rdsprice
-        # print self.rds_count
-        # print 'hourly',(self.rds_count*rdsprice)
-        # print '**'*20
 
         if rdsprice==None:
             rdsprice=0
@@ -217,8 +211,6 @@ class Plan(models.Model):
         instance_price=self.metered_features.aggregate(total=models.Sum('price_per_unit'))['total']
         if instance_price==None:
             instance_price=0
-        
-
         return (
             ((self.instance_count*instance_price)*24*30)+
             ((self.rds_count*rdsprice)*24*30)+
