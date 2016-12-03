@@ -5,7 +5,7 @@
 /* carousel */
 #quote-carousel 
 {
-  padding: 0 10px 30px 10px;
+  padding: 0 2px 5px 2px;
   margin-top: 30px 0px 0px;
 }
 
@@ -79,8 +79,8 @@
     #quote-carousel 
     {
       margin-bottom: 0;
-      padding: 0 40px 30px 40px;
-      margin-top: 30px;
+      padding: 0 5px 3px 5px;
+      margin-top: 5px;
     }
     
 }
@@ -121,6 +121,10 @@ $(document).ready(function() {
 </head>
 
 
+
+
+
+
 <div class="" id="main-container">  
   <div class="" id="profile-main" style="background-color:#f8f8f8;">
     
@@ -130,297 +134,93 @@ $(document).ready(function() {
         <div role="tabpanel">
           <ul class="tab-nav tab-nav-left" role="tablist">
 
-            <li class="active" role="presentation"><a href="#profile1" aria-controls="profile1" role="tab" data-toggle="tab">Architectures</a></li>
           </ul>
+           <h4 class="text-center text-uppercase">ARCHITECTURES</h4>
                      
-
-
         <div class="tab-content">
                   
-            <!--start verticals  -->
-
-            <!--end verticals  -->
-
         <!-- cloud Architectures  -->
 
       <div role="tabpanel" class="arch_img tab-pane  active" id="profile1">
 
         <div role="tabpanel" class="tab-pane">
 
-              <div class="row" id="main-arch">  
-              <div class="col-md-12">
+          <div class="row" id="main-arch">  
+            <div class="col-md-12">
 
-                                  <div class="card">
-                        <div class="card-header">
-                            <h2>Carousel <small>A slideshow component for cycling through elements, like a carousel.</small></h2>
+              <div class="card">
+
+                       
+                <div class="card-body card-padding">
+                  
+                  <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+                   
+                            
+                    <!-- Wrapper for slides -->
+                    <div class="carousel-inner" role="listbox">
+                        <div class="item active">
+                            <img src="{% static 'img/slide1.jpg'%}" alt="">
                         </div>
-                        
-                        <div class="card-body card-padding">
-                            <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
-                                <!-- Indicators -->
-                                <!-- <ol class="carousel-indicators">
-                                  <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-                                  <li data-target="#carousel-example-generic" data-slide-to="1"></li>
-                                  <li data-target="#carousel-example-generic" data-slide-to="2"></li>
-                                </ol> -->
-                              
-                                <!-- Wrapper for slides -->
-                                <div class="carousel-inner" role="listbox">
-                                    <div class="item active">
-                                        <img src="{% static 'img/cal-header.jpg'%}" alt="">
-                                        <!-- <div class="carousel-caption">
-                                            <h3>First Slide Label</h3>
-                                            <p>Some sample text goes here...</p>
-                                        </div> -->
-                                    </div>
-                                    <div class="item">
-                                        <img src="{% static 'img/cal-header.jpg'%}" alt="">
-                                    </div>
-                                    <!-- <div class="item">
-                                        <img src="{% static 'img/featured-arch/coins.png'%}" alt="">
-                                    </div> -->
-                                </div>
-                              
-                                <!-- Controls -->
-                                <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
-                                    <span class="zmdi zmdi-chevron-left" aria-hidden="true"></span>
-                                    <span class="sr-only">Previous</span>
-                                </a>
-                                <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
-                                    <span class="zmdi zmdi-chevron-right" aria-hidden="true"></span>
-                                    <span class="sr-only">Next</span>
-                                </a>
-                            </div>
+                        <div class="item">
+                            <img src="{% static 'img/cal-header.jpg'%}" alt="">
                         </div>
                     </div>
-
-
-              <div class="col-md-9">
-
-
-               {% for i in image %}
-                  
-
-
-                  <div class="col-md-3" style="">
-                        
-
-<!--                       <div class="card blog-post z-depth-1" style="height:420px;"> 
-
-                        <div class="bp-header featured-img" id="">
-                          <img  class="featrd-img-cls" src="/../static/media/{{ i.architecture_img }}" width="232px;" height="232px;" style="background-color:#303030;" / >
-                        </div>
-
-
-                        <div class="card-header bgm-lightblue">
-                            <h2>{{i.architecture_name}} </h2><br>
-                            
-                            
-                            <h2 class="archname">   Price : $ {{v.1}} </h2>
-                           
-                            
-                            <button class="btn bgm-green btn-float waves-effect" id={{k}} type="button" data-type="inverse"  data-from="top" data-align="right" data-icon="fa fa-comments"><i class="zmdi zmdi-mail-send"></i></button>
-
-                        </div>
-
-
-
-                        <div class="card-body card-padding">
-                            Cras leo sem, egestas a accumsan eget, euismod at nunc. 
-                        </div>
-
-                       </div> -->
-
-
-<!--                         <div class="card blog-post">
-                            <div class="bp-header">
-                                <img src="/../static/media/{{ i.architecture_img }}" alt="" style="background-color:#303030;">
-                                    
-
-                                <a href="" class="bp-title" style="background-color:#03a9f4;">
-                                    <h2>{{i.architecture_name}}</h2>
-                                   <small>Vivamus sagittis lacus vel augue laoreet rutrum</small> 
-                                </a>
-                            </div>
-                            
-                            <div class="p-20">
-                                Pellentesque lacinia sagittis libero.
-                            </div>
-                        </div> -->
-                        
-
-                   <!-- Profile view -->
-                   
-
-                <!--   <div class="card profile-view z-depth-1">
-                            
-                            <div class="pv-header" style="background-color:#03a9f4;">
-                            <a href="#galleryImg1" class="link-gallery" data-toggle="modal" data-target="#modalGallery">
-
-                                <img src="/../static/media/{{ i.architecture_img }}" class="pv-main img-responsive" alt="" style="background-color:#303030;">
-
-                                </a>
-                            </div>
-                            
-                            <div class="pv-body">
-                                <h2>{{i.architecture_name}}</h2>
-                                 <small>{{i.architecture_name}} Description</small> 
-                            
-                                <ul class="pv-contact">
-                                    
-                                    <li><i class="zmdi zmdi-phone"></i> +11 55694785</li>
-                                </ul>
-                                
-                              <ul class="pv-follow">
-
-                             <li><i class="zmdi zmdi-cloud"></i>:&nbsp; 3</li>
-
-                              <li>$:</li>
                               
-                              </ul>
-                                
-                                
-                                <a class="pv-follow-btn" id="{{ i.id }}">Select</a>
-                            </div>
-                        </div> 
- -->
-                                <!-- <div id="best-selling" class="dash-widget-item">
-                                    <div class="dash-widget-header">
-                                        <div class="dash-widget-title">{{i.architecture_name}}</div>
-                                        <img src="/../static/media/{{ i.architecture_img }}" alt="" style="background-color:#303030;">
-                                        <div class="main-item">
-                                            <small>Samsung Galaxy Alpha</small>
-                                            <h2>$799.99</h2>
-                                        </div>
-                                    </div>
-                                
-                                    <div class="listview p-t-5">
-                                        <a class="lv-item" href="">
-                                            <div class="media">
-                                                <div class="pull-left">
-                                                    <img class="lv-img-sm" src="img/widgets/note4.jpg" alt="">
-                                                </div>
-                                                <div class="media-body">
-                                                    <div class="lv-title">Samsung Galaxy Note 4</div>
-                                                    <small class="lv-small">$850.00 - $1199.99</small>
-                                                </div>
-                                            </div>
-                                        </a>
-                                        <a class="lv-item" href="">
-                                            <div class="media">
-                                                <div class="pull-left">
-                                                    <img class="lv-img-sm" src="img/widgets/mate7.jpg" alt="">
-                                                </div>
-                                                <div class="media-body">
-                                                    <div class="lv-title">Huawei Ascend Mate</div>
-                                                    <small class="lv-small">$649.59 - $749.99</small>
-                                                </div>
-                                            </div>
-                                        </a>
-                                        <a class="lv-item" href="">
-                                            <div class="media">
-                                                <div class="pull-left">
-                                                    <img class="lv-img-sm" src="img/widgets/535.jpg" alt="">
-                                                </div>
-                                                <div class="media-body">
-                                                    <div class="lv-title">Nokia Lumia 535</div>
-                                                    <small class="lv-small">$189.99 - $250.00</small>
-                                                </div>
-                                            </div>
-                                        </a>
-                                        
-                                        <a class="lv-footer" href="">
-                                            View All
-                                        </a>
-                                    </div>
-                                </div> -->
+                    <!-- Controls -->
+                    <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+                        <span class="zmdi zmdi-chevron-left" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+                        <span class="zmdi zmdi-chevron-right" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                    </a>
+                  </div>
+                </div>
+              </div>
 
 
-<!--                    <div class="card profile-view z-depth-1" style="height:360px;">
-
-                            <div class="pv-header" style="background-color:#03a9f4;">
-                               
-                                <img src="/../static/media/{{ i.architecture_img }}"  class="pv-main thumbnail img-responsive" alt="" style="background-color:#303030;">
-
-                            </div>
-                            
-                            <div class="pv-body">
-                             
-                               <div class="pv-body" style="height:40px;">
-                                <h4>{{i.architecture_name}}</h4>
-                                
-                            </div>
-                                 
-                            
-                               
-                                
-                              <ul class="pv-follow">
-
-                             <li><i class="zmdi zmdi-cloud"></i>:&nbsp; 3</li>
-
-                              <li>$:</li>
-                              
-                              </ul>
-                                
-                                
-                                <a class="pv-follow-btn" id="{{ i.id }}">Select</a>
-                            </div>
-
-                        </div>   -->
-
-
-                        
-                                 <div class="card blog-post profile-view z-depth-1" >
-                            <div class="bp-header">
-                                <img src="/../static/media/{{ i.architecture_img }}"  alt="" style="background-color: #303030;">
-
-                                <div class="pv-header">
-                                <img src="{% static 'img/logo_With_Shadow.svg' %}"  class="pv-main" alt="" >
-                                </div>
-
-                                <div class="bp-title" style="height:200px;">
-                                    <h2 style="font-color:white;font-size:16px;">{{i.architecture_name}}</h2>
-                                    <small>Vivamus sagittis lacus vel augue laoreet rutrum</small>
-                                    <br/><br/>
-
-                                  <div class="row dialog">
-                                    <div class="col-sm-3">
-                                      <button class="btn btn-inverse" id="sa-warning">Click me</button>
-                                    </div>   
-                                  </div><br/>
-<button class="pv-follow-btn btn-inverse" id="{{ i.id }}">Select</button>
-
-                                </div>
-                                
-
-
-                            </div>
-                            
-                           <!--  <div class="p-20">
-                                Pellentesque lacinia sagittis libero. Praesent vitae justo purus. In hendrerit lorem nisl, ac lacinia urna aliquet non. Quisque nisi tellus, rhoncus quis est sit amete in nisl molestie fringilla. Nunc vitae ante id magna feugiat condimentum. Maecenas sit amet urna massa.
-                            </div> -->
-
-                           
-
-                        </div>
-
-                     
+            <div class="col-md-9">
+             
+              {% for i in arch_json %}
                   
+              <div class="col-md-3" style="">
+                      
 
-                  
-                </div> 
+                <div class="card blog-post profile-view z-depth-1" >
 
-                         
+                  <div class="bp-header">
+                    
+                    <img src="/../static/media/{{ i.architecture_img }}"  alt="" style="background-color: #303030;width:188px;height:125px;" id="info-popup">
+
+                      <div class="pv-header">
+                        <img src="{% static 'img/profile-pics/8.jpg' %}"  class="pv-main" alt="" >
+                      </div>
+
+                       
+
+                      <div class="bp-title bgm-lightblue" style="height:100px;">
+                          <h2 style="font-color:white;font-size:16px;">{{i.architecture_name}}</h2><br/>
+                         <br/>
+                      </div>
+                  </div>
+
+                  <div class="p-20 bgm-lightblue">
+
+                    <a class="md-trigger" data-modal="modal-15" id="{{i.architecture_name}}" style="color:#fff;">
+                    <b>SELECT</b>
+                    </a>
+
+                    <a class="pv-follow-btn" id="{{ i.id }}" style="color:#fff;float:right;"><b>NEXT</b></a>
+
+                  </div>
+                </div>
+
+              </div> 
 
               {% endfor %}
 
-
-              
-           <!--    <div class="bs-item">
-                                    <h2>Popular :<small>Click on the buttons below to start the animation</small></h2>
-                </div> -->
-                   
-</div>
+            </div>
 
 
 
@@ -428,23 +228,14 @@ $(document).ready(function() {
 
                       <div class="col-md-3">
                        
-                        <div class="card">
-                                <div class="card-header">
-                                    <h2>Recent Launch<small>Click on the buttons below to start the animation</small></h2>
+                        <div class="card z-depth-1">
+                                <div class="card-header bgm-lightblue">
+                                    <h2>Recently Launched<small>Previous launched Architectures</small></h2>
                                 </div>
                                 
-                         <div class="card-body card-padding">
-                                   <!--  <img src="{% static 'media/architectures/features/FT4.png' %}" alt="" style="height:150px;width:200px;"> -->
+                         <div class="card-body">
 
-
-       <!--  <div class="container"> -->
-  <!-- <div class="row">
-    <div class='col-md-offset-2 col-md-3 text-center'>
-    <h2>Responsive Quote Carousel BS3</h2>
-    </div>
-  </div> -->
-  <!-- <div class='row'> -->
- <div class='col-md-offset-2'> 
+ <div class='col-md-offset-1'> 
       <div class="carousel slide" data-ride="carousel" id="quote-carousel">
         <!-- Bottom Carousel Indicators -->
         <!-- <ol class="carousel-indicators">
@@ -487,7 +278,7 @@ $(document).ready(function() {
           </div>
           <!-- Quote 3 -->
           <div class="item">
-            <blockquote>
+            <blockquote style="padding: 1px 1px;">
              <!--  <div class="row"> -->
                 <!-- <div class="col-sm-3 text-center"> -->
                   <img class="img-responsive" src="{% static 'media/architectures/features/FT4.png' %}" style="height:200px; width:200px;">
@@ -502,8 +293,9 @@ $(document).ready(function() {
         </div>
         
         <!-- Carousel Buttons Next/Prev -->
-        <a data-slide="prev" href="#quote-carousel" class="left carousel-control"><i class="fa fa-chevron-left"></i></a>
-        <a data-slide="next" href="#quote-carousel" class="right carousel-control"><i class="fa fa-chevron-right"></i></a>
+
+        <!-- <a data-slide="prev" href="#quote-carousel" class="left carousel-control"><i class="fa fa-chevron-left"></i></a>
+        <a data-slide="next" href="#quote-carousel" class="right carousel-control"><i class="fa fa-chevron-right"></i></a> -->
       </div> 
  </div> 
   <!-- </div> -->
@@ -553,8 +345,8 @@ $(document).ready(function() {
 <div class="col-md-12">
 
   <div class="col-md-9">
-
-  <div class="card">
+<!-- 
+  <div class="card z-depth-1">
 
     <div class="card-header">
     <h2>Popular :<small>Popular Architectures</small></h2>
@@ -568,25 +360,118 @@ $(document).ready(function() {
   </ul>
   </div>
 
-  </div>
+  </div> -->
+
+
+
+  
+
+
+          <div role="tabpanel" class="active arch_img tab-pane" id="messages1">
+            <div class="card">                        
+              <div class="card-body card-padding">
+               <div class="card-header">
+                                <h2>Popular Architectures <!-- <small>Cras congue nec lorem eget posuere</small> --></h2>
+                               
+                            </div>                           
+                <div class="contacts clearfix row">
+
+                  <div class="col-md-3 col-sm-4 col-xs-6 notifications">
+                    <div class="c-item ci-avatar">
+
+                      <a class="ci-avatar">
+                      <img  src="{% static 'media/architectures/1_Web-Application.png' %}" width="176px;" height="164px;"   class="bgm-black nextBtn btn-lg bgm-black" data-type="inverse"  data-from="top" data-align="right" data-icon="fa fa-comments"/>
+                      </a>
+
+                      <!-- <div class="c-info">
+                        <strong>sample</strong>
+                      </div> -->
+
+                       <p style="text-align:center;">Sample</p>
+                    </div>
+                  </div>
+
+                <div class="col-md-3 col-sm-4 col-xs-6 notifications">
+                    <div class="c-item ci-avatar">
+                      <a class="ci-avatar">
+                      <img  src="{% static 'media/architectures/1_Web-Application.png' %}" width="176px;" height="164px;"   class="nextBtn btn-lg bgm-black" data-type="inverse"  data-from="top" data-align="right" data-icon="fa fa-comments"/>
+                      </a>
+                        <!-- <div class="c-info">
+                        <strong>sample</strong>
+                        </div> -->
+                         <p style="text-align:center;">Sample</p>
+                    </div>                      
+                </div>
+
+
+                <div class="col-md-3 col-sm-4 col-xs-6 notifications">
+                    <div class="c-item ci-avatar">
+                      <a class="ci-avatar">
+                      <img  src="{% static 'media/architectures/1_Web-Application.png' %}" width="176px;" height="164px;"   class="nextBtn btn-lg bgm-black" data-type="inverse"  data-from="top" data-align="right" data-icon="fa fa-comments"/>
+                      </a>
+                       <!--  <div class="c-info">
+                        <strong>sample</strong>
+                        </div> -->
+                         <p style="text-align:center;">Sample</p>
+                    </div>                      
+                </div>
+
+
+                <div class="col-md-3 col-sm-4 col-xs-6 notifications">
+                    <div class="c-item ci-avatar">
+                      <a class="ci-avatar">
+                      <img  src="{% static 'media/architectures/1_Web-Application.png' %}" width="176px;" height="164px;"   class="nextBtn btn-lg bgm-black" data-type="inverse"  data-from="top" data-align="right" data-icon="fa fa-comments"/>
+                      </a>
+                       <!--  <div class="c-info">
+                        <strong>sample</strong>
+                        </div> -->
+                         <p style="text-align:center;">Sample</p>
+                    </div>                      
+                </div>
+
+
+
+
+
+                </div>
+              </div>
+            </div>
+          </div>
 
   </div>
 
 <div class="col-md-3">
-  
-   <div class="card">
-   <div class="card-header">
-    <h2>Help Box :<small>Click on the buttons below to start the animation</small></h2>
+
+  <div class="card z-depth-1">
+    <div class="card-header ch-alt bgm-lightblue">
+        <h2>Help Center <small>You can check here for help</small></h2>
     </div>
 
-    <div class="card-body"> <ul>
-    
-    <li class="active waves-effect">3. Abouse ff fd fdgdfgfg f sds sddt sgtg srt srtsr tsgs sd sg t</li>
-    <li class="active waves-effect">4. Abousef fdg dg ghdfhd dfsds sddt sgtg srt srtsr tsgs sd sg t</li>
-    <li class="active waves-effect">Abousef dfg d gf fgfdg sds sddt sgtg srt srtsr tsgs sd sg t</li>
-  </ul></div>
+    <div class="card-body">
+      <ul class="p-t-10 p-b-10">
+        <li class="waves-effect"><a href="/tco/help/"><i class="zmdi zmdi-help zmdi-hc-fw"></i> Architecture Selection</a></li>
+        <li class="waves-effect"><i class="zmdi zmdi-help zmdi-hc-fw"></i> Payment Procedure</li>
+        <li class="waves-effect"><i class="zmdi zmdi-help zmdi-hc-fw"></i> Account Management</li>
+      </ul>
+    </div>
+</div>
 
+  <!-- <div class="card z-depth-1">
+    <div class="card-header">
+      <h2>Help Box :
+        <small>Click on the buttons below to start the animation</small>
+      </h2>
+    </div>
+
+    <div class="card-body card-padding"> 
+      <ul>
+        <li class="active waves-effect">3. Abouse ff fd fdgdfgfg f sds sddt sgtg srt srtsr tsgs sd sg t</li>
+        <li class="active waves-effect">4. Abousef fdg dg ghdfhd dfsds sddt sgtg srt srtsr tsgs sd sg t</li>
+        <li class="active waves-effect">Abousef dfg d gf fgfdg sds sddt sgtg srt srtsr tsgs sd sg t</li>
+      </ul>
+    </div>
   </div>
+ -->
 
 </div>
 
@@ -619,6 +504,58 @@ $(document).ready(function() {
     </div>
 </div>
 
+
+
+
+<!-- Model -->
+
+
+<div class="md-container md-effect-15" id="modal-15">
+      <div class="md-content">
+        <h3>SAMPLE MODEL</h3>
+        <div>
+        <img src="{% static 'media/architectures/1_Web-Application.png' %}" style="height:300px;width:485px; display:block; margin:auto;">
+
+
+          <ul>
+            <li style="list-style:none;"><strong><img src="{% static 'img/featured-arch/Instance.png' %}" style="height:20px;width:20px;">&nbsp;&nbsp;(Instance) &nbsp;:</strong> &nbsp;modal windows will probabl.</li>
+
+
+            <li style="list-style:none;"><strong><img src="{% static 'img/featured-arch/Database.png' %}" style="height:20px;width:20px;">&nbsp;&nbsp;(Database) &nbsp;:</strong> &nbsp;a modal window enjoys a certain kind.</li>
+
+
+            <li style="list-style:none;"><img src="{% static 'img/featured-arch/Storage.png' %}" style="height:20px;width:20px;"><strong>&nbsp;&nbsp;(Storage) &nbsp;:</strong>&nbsp; click on the button below.</li>
+
+            <li style="list-style:none;"><img src="{% static 'img/featured-arch/Load_Balancer.png' %}" style="height:20px;width:20px;"><strong>&nbsp;&nbsp;(Load_Balancer)&nbsp; :</strong> click on the button below modal.</li>
+
+
+            <li style="list-style:none;"><img src="{% static 'img/featured-arch/Description.png' %}" style="height:20px;width:20px;"><strong>&nbsp;(Description)&nbsp; :</strong> click on the button below modal.</li>
+
+
+          </ul>
+
+          <div class="button-ck">
+            <button id="{{ i.id }}" class="pv-follow-btn">&nbsp;&nbsp;Ok&nbsp;&nbsp;</button>
+            <button class="md-close">Close</button>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+<!-- End model -->
+
+
+
+
+
+
+
+
+
+
+
+
  <div tabindex="-1" class="modal fade" id="myModal" role="dialog">
   <div class="modal-dialog">
   <div class="modal-content">
@@ -635,12 +572,6 @@ $(document).ready(function() {
    </div>
   </div>
 </div>
-
-
-       <script src="{% static 'vendors/bower_components/jquery/dist/jquery.min.js'%}"></script>
-               
-       
-        
        
 
 

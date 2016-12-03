@@ -31,8 +31,6 @@ urlpatterns = [
                                namespace='rest_framework')),
     url(r'^silver/', include('silver.api.urls')),
     url(r'^accounts/', include('allauth.urls')),
-    #url(r'^tco/', include('tcoapp.urls'),name="tcoapp"),
-
 
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 handler404 = 'tcoapp.views.custom_404'

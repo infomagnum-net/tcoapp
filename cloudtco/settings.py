@@ -46,7 +46,6 @@ SECRET_KEY = '0xiqodf*7e7bpnm0=w1lr7w1jfmzz71vd-wtx+7vov!)$#v&th'
 DEBUG = False
 
 ALLOWED_HOSTS = ['*']
-
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -200,30 +199,6 @@ STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'tcoapp', 'static'),
 )
 
-
-# STATICFILES_DIRS = [
-#     os.path.join(BASE_DIR, "static"),    
-# ]
-
-
-# REST_FRAMEWORK = {
-# 'DEFAULT_PERMISSION_CLASSES': ('rest_framework.permissions.AllowAny',),
-
-# }
-
-# REST_SESSION_LOGIN = False
-
-# REST_FRAMEWORK = {
-#     'DEFAULT_AUTHENTICATION_CLASSES': (
-#         'rest_framework.authentication.TokenAuthentication',
-#     ),
-#    'DEFAULT_PERMISSION_CLASSES': (
-#         'rest_framework.permissions.AllowAny',
-#     ),
-# }
-
-
-
 REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': (
         'rest_framework.permissions.IsAuthenticated',
@@ -233,27 +208,6 @@ REST_FRAMEWORK = {
     )
 }
 
-
-#STRIPE TEST KEYS
-STRIPE_SECRET_KEY = os.environ.get("STRIPE_SECRET_KEY", "sk_test_dEqr2qk4EqZQnjOI1njj7GWD")
-STRIPE_PUBLIC_KEY = os.environ.get("STRIPE_PUBLIC_KEY", "pk_test_n1Ak7Xljmf1QFk3NPr8kloSF")
-
-STRIPE_API_KEY = "pk_test_n1Ak7Xljmf1QFk3NPr8kloSF"
-stripe.api_key = "sk_test_dEqr2qk4EqZQnjOI1njj7GWD"
-
-# Stripe keys
-STRIPE_PUBLISHABLE = 'pk_test_n1Ak7Xljmf1QFk3NPr8kloSF'
-STRIPE_SECRET = 'sk_test_dEqr2qk4EqZQnjOI1njj7GWD'
-
-# # STRIPE LIVE KEYS
-# STRIPE_SECRET_KEY = os.environ.get("STRIPE_SECRET_KEY", "sk_live_h9QrrTZkCkOST9Jh8fpAphw5")
-# STRIPE_PUBLIC_KEY = os.environ.get("STRIPE_PUBLIC_KEY", " pk_live_TvdYV9mckJAtAfoRTbVDhdWx")
-
-# STRIPE_API_KEY = "pk_live_TvdYV9mckJAtAfoRTbVDhdWx"
-# stripe.api_key = "sk_live_h9QrrTZkCkOST9Jh8fpAphw5"
-
-# STRIPE_PUBLISHABLE = 'pk_live_TvdYV9mckJAtAfoRTbVDhdWx'
-# STRIPE_SECRET = 'sk_live_h9QrrTZkCkOST9Jh8fpAphw5'
 
 #email settings
 EMAIL_HOST = 'smtp.gmail.com'

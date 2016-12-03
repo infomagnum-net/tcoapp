@@ -9,6 +9,8 @@
         <title>Cloud-TCO</title>
 
         <!-- Vendor CSS -->
+
+
         
              <link href="{% static 'vendors/bower_components/lightgallery/light-gallery/css/lightGallery.css'%}" rel="stylesheet">
          
@@ -21,6 +23,10 @@
         <link href="{% static 'vendors/bower_components/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.min.css'%}" rel="stylesheet">        
             
         <!-- CSS -->
+
+         <link rel="stylesheet" type="text/css" href="{% static 'css/jquery.niftymodals.css '%}" />  
+
+
         <link href="{% static 'css/app.min.1.css'%}" rel="stylesheet">
        
         <link href="{% static 'css/app.min.2.css'%}" rel="stylesheet">
@@ -164,7 +170,7 @@
 
                     <li class="dropdown hidden-xs">
                         <a href="/tco/architecture">
-                            <span class="tm-label">Architectural</span>
+                            <span class="tm-label">Architectures</span>
                         </a>
                     </li>
                     <li class="dropdown hidden-xs">
@@ -211,28 +217,7 @@
                     
                 </div>
             </div>
-       <!--  <nav class="ha-menu">
-                <ul>
-                    <li class="waves-effect"><a href="/tco/architecture">Architectures</a></li>
-
-                    <li class="waves-effect"><a href="/tco/application">Applications</a></li>
-
-                    <li class="waves-effect"><a href="/tco/verticals">Verticals</a></li>
-
-                    <li class="active dropdown">
-                        <div class="waves-effect" data-toggle="dropdown">Headers</div>
-
-                        <ul class="dropdown-menu">
-                            <li><a href="textual-menu.html">Textual menu</a></li>
-                            <li><a href="image-logo.html">Image logo</a></li>
-                            <li><a class="active" href="top-mainmenu.html">Mainmenu on top</a></li>
-                        </ul>
-                    </li>
-                
-                    
-                </ul>
-            </nav>
-        -->     <!-- Top Search Content -->
+      <!-- Top Search Content -->
             <div id="top-search-wrap">
                 <div class="tsw-inner">
                     <i id="top-search-close" class="zmdi zmdi-arrow-left"></i>
@@ -253,32 +238,15 @@
         </section>
      
 
-<!-- 
-        <footer id="footer">
-            Copyright &copy; 2016 Cloud-TCO
-            
-            <ul class="f-menu">
-                <li><a href="/tco/architecture">Home</a></li>
 
-            </ul>
-        </footer> -->
+<footer id="footer" style="background-color: #f8f8f8;">
 
-
-        <footer id="footer" style="background-color: #CFD8DC
-
-
-;">
-
-    <div class="card" style="background-color: #CFD8DC
-
-
-;">
+  <div class="card" style="background-color: #f8f8f8;">
                        
-                    
-                        <div class="card-body card-padding">
-                            <div class="row">
-                                <div class="col-sm-3 m-b-25">
-                                   <p style="border-bottom:1px solid #fff;padding-bottom:10px;color:black;"> <i class="zmdi zmdi-caret-up-circle"></i>
+    <div class="card-body card-padding">
+      <div class="row">
+        <div class="col-sm-3 m-b-25">
+            <p style="border-bottom:1px solid #fff;padding-bottom:10px;color:black;"> <i class="zmdi zmdi-caret-up-circle"></i>
                                  &nbsp;QUICK LINKS </p>
                     
                                       <ul  class="f-menu clist clist-angle" style="color:rgba(0, 0, 0, 0.64);">
@@ -323,18 +291,7 @@
                                 </div>
 
 
-                               <!--  <div class="col-sm-3 m-b-25">
-                                    <p class="c-black">Ordered - Roman</p>
-                    
-                                   <ul class="clist clis  t-angle">
-                                        <li>Lorem ipsum dolor sit amet</li>
-                                        <li>Consectetur adipiscing elit</li>
-                                        <li>Integer molestie lorem at massa</li>
-                                        <li>Facilisis in pretium nisl aliquet</li>
-                                        
-                                    </ul>
-                                </div> -->
-                                
+
                    
                             </div>
                         </div>
@@ -372,6 +329,7 @@
         <![endif]-->
          
          <script src="{% static 'js/functions.js' %}"></script>
+         <script src="{% static 'js/jquery.niftymodals.js' %}"></script>
        <!--<script src="js/demo.js"></script> 
      -->
 
@@ -466,7 +424,7 @@ $.ajax({
 
 
 
-         $('#ftrd_img_clk_chng button').click(function(e){
+         $('#ftrd_img_clk_chng a').click(function(e){
                 e.preventDefault();
                 var nFrom = $(this).attr('data-from');
                 var nAlign = $(this).attr('data-align');
@@ -501,7 +459,7 @@ $.ajax({
          });
 
          
-         $("#id111 button").click(function(e){
+         $("#id111 a").click(function(e){
                     //crcle_id=$(".stepwizard-step .btn-primary").attr("href")
 
 
@@ -525,7 +483,7 @@ $.ajax({
                         notify(nFrom, nAlign, nIcons, nType, nAnimIn, nAnimOut);
 
 
-                     name_arch=$("#main-arch-image h2.archname").text()
+                     name_arch=$("#main-arch-image h4.archname").text()
                     //alert(name_arch)
                   $.ajax({
 
@@ -735,6 +693,10 @@ $("#pay-plans-btn button.plan-btn").click(function(){
 
 
 });
+
+
+
+
 
 </script>
 
