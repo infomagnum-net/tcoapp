@@ -9,8 +9,6 @@
         <title>Cloud-TCO</title>
 
         <!-- Vendor CSS -->
-
-
         
              <link href="{% static 'vendors/bower_components/lightgallery/light-gallery/css/lightGallery.css'%}" rel="stylesheet">
          
@@ -217,7 +215,28 @@
                     
                 </div>
             </div>
-      <!-- Top Search Content -->
+       <!--  <nav class="ha-menu">
+                <ul>
+                    <li class="waves-effect"><a href="/tco/architecture">Architectures</a></li>
+
+                    <li class="waves-effect"><a href="/tco/application">Applications</a></li>
+
+                    <li class="waves-effect"><a href="/tco/verticals">Verticals</a></li>
+
+                    <li class="active dropdown">
+                        <div class="waves-effect" data-toggle="dropdown">Headers</div>
+
+                        <ul class="dropdown-menu">
+                            <li><a href="textual-menu.html">Textual menu</a></li>
+                            <li><a href="image-logo.html">Image logo</a></li>
+                            <li><a class="active" href="top-mainmenu.html">Mainmenu on top</a></li>
+                        </ul>
+                    </li>
+                
+                    
+                </ul>
+            </nav>
+        -->     <!-- Top Search Content -->
             <div id="top-search-wrap">
                 <div class="tsw-inner">
                     <i id="top-search-close" class="zmdi zmdi-arrow-left"></i>
@@ -238,6 +257,15 @@
         </section>
      
 
+<!-- 
+        <footer id="footer">
+            Copyright &copy; 2016 Cloud-TCO
+            
+            <ul class="f-menu">
+                <li><a href="/tco/architecture">Home</a></li>
+
+            </ul>
+        </footer> -->
 
 <footer id="footer" style="background-color: #f8f8f8;">
 
@@ -291,7 +319,18 @@
                                 </div>
 
 
-
+                               <!--  <div class="col-sm-3 m-b-25">
+                                    <p class="c-black">Ordered - Roman</p>
+                    
+                                   <ul class="clist clis  t-angle">
+                                        <li>Lorem ipsum dolor sit amet</li>
+                                        <li>Consectetur adipiscing elit</li>
+                                        <li>Integer molestie lorem at massa</li>
+                                        <li>Facilisis in pretium nisl aliquet</li>
+                                        
+                                    </ul>
+                                </div> -->
+                                
                    
                             </div>
                         </div>
@@ -372,15 +411,19 @@ notify(nFrom, nAlign, nIcons, nType, nAnimIn, nAnimOut);
   
 */
 var img_id = $(this).attr('id');
-console.log(img_id)
-//alert(img_id)
+
+
+//console.log(img_id)
+//alert(img_id);
 //var launch_img=
+dataurl1="/tco/ftrd-for-arch/"+img_id+"/"
+//alert(dataurl1)
 
 $.ajax({
-                           
+        
         type: "GET",
         //data: {service:selected_grandchld_value},
-        url: "/tco/featured_img_wzrd/",
+        url: dataurl1,
         data:{"img_id":img_id,},
         success: function(msg){
 
@@ -436,15 +479,16 @@ $.ajax({
     message="You have selected Featured Architecture"
     notify(nFrom, nAlign, nIcons, nType, nAnimIn, nAnimOut);
             var img_id = $(this).attr('id');
-            
+            sideurl="/tco/launch-img/"+img_id+"/"
             $.ajax({
                  type: "GET",
-                 url: "/tco/dynamic-change/",
+                 url: sideurl,
                  data:{"img_id":img_id,},
-
                  success: function(msg){
+                 //alert("asdhaj")
+                 //alert($("#main-arch-image").html())
                  $("#main-arch-image").html(msg)
-                 
+
 
                 launch_img=$("#main-arch-image img").attr('src')     
                 
@@ -459,7 +503,9 @@ $.ajax({
          });
 
          
-         $("#id111 a").click(function(e){
+         $("#id111").click(function(e){
+
+
                     //crcle_id=$(".stepwizard-step .btn-primary").attr("href")
 
 
@@ -484,21 +530,23 @@ $.ajax({
 
 
                      name_arch=$("#main-arch-image h4.archname").text()
-                    //alert(name_arch)
+                    paymnt_url="/tco/payment/"+name_arch+"/"
+
                   $.ajax({
 
                 type: "GET",
                 //data: {service:selected_grandchld_value},
-                url: "/tco/pymnts-wzrd/",
+                
+                url: paymnt_url,
                 data:{"name_arch":name_arch,},
                 success: function(msg){
 
 
                 $("#pymtns-page1").html(msg)
 
-                sas=$("#main-container img").attr('src')
+                //sas=$("#main-container img").attr('src')
                 
-                pay=$("#jhsagah img").attr("src",sas)
+                //pay=$("#jhsagah img").attr("src",sas)
 
 /*                name_arch=$("#main-arch-image h2.archname").text()
                 
@@ -523,12 +571,13 @@ $.ajax({
 
                 var plan_button = $(this).attr('id');
                 var name_arch = $(".archiname").text();
-                packtype=$(this).attr("name")
+                plantype=$(this).attr("name")
+                invoice_url="/tco/invoice/"+ name_arch +"/"
                 
                 $.ajax({
                      type: "GET",
-                     url: "/tco/invoice/",
-                     data:{"name_arch":name_arch,"packtype":packtype},
+                     url: invoice_url,
+                     data:{"plantype":plantype},
                      success: function(msg){
                         //alert("asahsjah")
                         //$("#Invoice-to").html
@@ -686,21 +735,10 @@ $("#pay-plans-btn button.plan-btn").click(function(){
             };
 
 
-
-
-
-
-
-
 });
 
 
-
-
-
 </script>
-
-
 
 <!-- wizard setup -->
 
@@ -794,6 +832,7 @@ $(function() {
 
 $(document).ready(function() {
 $('.thumbnail').click(function(){
+  alert("sdsjkhd")
       $('.modal-body').empty();
     var title = $(this).parent('a').attr("title");
     $('.modal-title').html(title);
@@ -886,8 +925,6 @@ $(document).ready(function(){
 
 
 </script>
-
-
 
     </body>
   </html>

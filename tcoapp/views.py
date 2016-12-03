@@ -95,6 +95,9 @@ def edit(request):
 @login_required(login_url='/accounts/login/')
 def simple_upload(request):
     return HttpResponse(simplejson.dumps([True]))
+
+
+
 @login_required(login_url='/accounts/login/')
 def logout_page(request):
     ''' Logout '''
@@ -125,14 +128,7 @@ def monitoring(request):
         arc=ijk.architecture_img
     return render(request,"profile-photos.html",{"userArch":userArch,"imgArch":imgArch})
 
-def handler404(request):
-    response = render_to_response('404.html', {},
-                                 context_instance=RequestContext(request))
-    response.status_code = 404
-    return response 
 
-def sampletestview(request):
-    return HttpResponse("this is sample test view")
 
 def payment_conformation(request):
     archname=request.GET.get("archname")
