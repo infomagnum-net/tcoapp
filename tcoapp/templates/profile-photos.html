@@ -153,9 +153,9 @@
                                         </thead>
                                         <tbody>
 
-                                            {%for arch in userArch%}
+                                            {%for arch in arch_json%}
                                             <tr>
-                                                <td class="f-500">{{arch.created_at|date:"d-m-Y"}}</td>
+                                                <td class="f-500">{{arch.created_at}}</td>
                                                 <td>{{arch.arch_name}}</td>
                                                 <td class="f-500 ">${{arch.price}}</td>
                                                 <td class="f-500 c-cyan"><a href="/tco/dashboard/">Get Info</a></td>

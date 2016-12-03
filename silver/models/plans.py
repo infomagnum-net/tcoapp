@@ -217,10 +217,14 @@ class Plan(models.Model):
         instance_price=self.metered_features.aggregate(total=models.Sum('price_per_unit'))['total']
         if instance_price==None:
             instance_price=0
-        return (((self.instance_count*instance_price)+
-            (self.rds_count*rdsprice)+
-            (self.s3_count*s3price)
-            +(self.balancer_count*balacer_price))*24*30)
+        
+
+        return (
+            ((self.instance_count*instance_price)*24*30)+
+            ((self.rds_count*rdsprice)*24*30)+
+            (self.s3_count*s3price)+
+            ((self.balancer_count*balacer_price))*24*30
+            )
 
 
     def _get_instance_name(self):

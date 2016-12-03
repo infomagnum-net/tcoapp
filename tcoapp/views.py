@@ -97,7 +97,6 @@ def simple_upload(request):
     return HttpResponse(simplejson.dumps([True]))
 
 
-
 @login_required(login_url='/accounts/login/')
 def logout_page(request):
     ''' Logout '''
@@ -116,17 +115,12 @@ def dashboard(request):
 
 
 def monitoring(request):
-    userArch=UserArchitectures.objects.filter(username=request.user.username) 
-    for ch in userArch:
-        arcname=ch.arch_name
-    myArch=ProductCode.objects.filter(value=arcname)
-    for sh in myArch:
-        amd=sh.id
-
-    imgArch=Billing_Architecture.objects.filter(architecture_name_id=37)
-    for ijk in imgArch:
-        arc=ijk.architecture_img
-    return render(request,"profile-photos.html",{"userArch":userArch,"imgArch":imgArch})
+    token=Token.objects.get(user_id=request.user.id)
+    mytoken=token.key
+    arch_url="http://"+request.get_host()+reverse("launched-architectures")
+    architectures=requests.get(arch_url, headers={'Authorization': 'Token {}'.format(mytoken)})
+    arch_json = architectures.json()
+    return render(request,"profile-photos.html",{"arch_json" : arch_json})
 
 
 
@@ -147,10 +141,8 @@ def application(request):
     app_image =  Billing_Architecture.objects.filter(archtype=apptype)   
     return render(request,"applications.html",{"apptype":apptype,"app":app_image})
 
-
 def verticals(request):
     return render(request,"verticals.html")
-
 
 def rest_main_architectures(request):
     token=Token.objects.get(user_id=request.user.id)

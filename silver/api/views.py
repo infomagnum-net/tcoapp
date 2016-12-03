@@ -830,19 +830,6 @@ class PaymentDetail(RetrieveUpdateAPIView):
                                  pk=payment_pk)
 
 
-class UserArchitectureList(generics.ListCreateAPIView):
-    permission_classes = (permissions.IsAuthenticated,)
-    def get(self, request, format=None):
-        print "****"*20
-        print request.method
-        users = UserArchitectures.objects.all()
-        serializer_class = UserArchitectureSerializer(users, many=True)
-        data=json.dumps(serializer_class.data)
-        data1=json.loads(serializer_class.data)
-        print data1
-        return render(request,"test.html",{"data":data})
-
-
 class ArchitectureType(generics.ListCreateAPIView):
     permission_classes = (permissions.IsAuthenticated,)
     serializer_class = Billing_ArchitectureTypeSerializer
@@ -935,6 +922,15 @@ class PlanMeteredFeatures(generics.ListAPIView):
         print '***'*20
         print plan_mtrd_ftrs.values_list("price_per_unit")
         return plan_mtrd_ftrs
+
+
+
+class UserArchitectureList(APIView):
+    authentication_classes = (TokenAuthentication,)
+    permission_classes = (permissions.IsAuthenticated,)
+    def get(self, request):
+        arch=UserArchitectures.objects.filter(username=request.user.username).values('id', 'arch_name', 'price','created_at')
+        return Response(arch)
 
 
 class PlanRDS(generics.ListAPIView):
@@ -1104,9 +1100,6 @@ class FtrdArchCompleInfo(APIView):
         data2 = planinfo.json()[0]
         data1.update(data2)
         return Response(data1)
-
-
-
 
 
 class Architectures_by_name(APIView):
