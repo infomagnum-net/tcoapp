@@ -211,10 +211,12 @@ def PayementPlans(request,name):
     arch_url="http://"+request.get_host()+reverse('Architectures_by_name', kwargs={'name':name})
     archs=requests.get(arch_url, headers={'Authorization': 'Token {}'.format(mytoken)}) 
     arch_info=archs.json()
-    daily_plan_price=plan_info[0]['total_plan_price']/30
-    Yearly_price=plan_info[0]['total_plan_price']*12
+    float("{0:.2f}".format(plan_info[0]['total_plan_price']))
+    daily_plan_price=float("{0:.2f}".format(plan_info[0]['total_plan_price']/30))
+    Yearly_price=float("{0:.2f}".format(plan_info[0]['total_plan_price']*12))
+    monthly_price=float("{0:.2f}".format(plan_info[0]['total_plan_price']))
     return render(request,"plans_wizard.html",{"arch_info":arch_info[0],
-        "plan_info":plan_info[0],"daily_plan_price":daily_plan_price,"Yearly_price":Yearly_price})
+        "plan_info":plan_info[0],"daily_plan_price":daily_plan_price,"Yearly_price":Yearly_price,'monthly_price':monthly_price})
 
 
 def invoicepage(request,name):
@@ -251,7 +253,7 @@ def invoicepage(request,name):
         balancer_unit_price=plan_info[0]['loadbalancer_cost']/30
         balancer_total_price=(plan_info[0]['loadbalancer_cost']/30)*plan_info[0]['balancer_count']
 
-        total_price=plan_info[0]["total_plan_price"]/30
+        total_price=float("{0:.2f}".format(plan_info[0]["total_plan_price"]/30))
 
     if plan_type=="Yearly":
         instance_unit_price=plan_info[0]['instance_cost']*12
@@ -266,7 +268,7 @@ def invoicepage(request,name):
         balancer_unit_price=plan_info[0]['loadbalancer_cost']*12
         balancer_total_price=(plan_info[0]['loadbalancer_cost']*12)*plan_info[0]['balancer_count']
 
-        total_price=plan_info[0]["total_plan_price"]*12
+        total_price= float("{0:.2f}".format(plan_info[0]["total_plan_price"]*12))
 
     if plan_type=="Mothly":
         instance_unit_price=plan_info[0]['instance_cost']
@@ -280,7 +282,8 @@ def invoicepage(request,name):
 
         balancer_unit_price=plan_info[0]['loadbalancer_cost']
         balancer_total_price=(plan_info[0]['loadbalancer_cost'])*plan_info[0]['balancer_count']
-        total_price=plan_info[0]["total_plan_price"]
+         
+        total_price=float("{0:.2f}".format(plan_info[0]["total_plan_price"]))
 
     return render(request, 'invoice.html',{"arch_info":arch_info[0],
         "plan_info":plan_info[0],

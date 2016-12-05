@@ -68,7 +68,7 @@ perspective effects (not including the modals and the overlay).
 }
 /* Content styles */
 .md-content {
-  color: #fff;
+  color: #000;
   background: #0d2b2f;
   position: relative;
   border-radius: 5px;
@@ -83,7 +83,7 @@ perspective effects (not including the modals and the overlay).
   font-size: 2.4em;
   font-weight: 300;
   opacity: 0.8;
-  background: #f8f8f8;
+  background: #2196f3;
   border-radius: 3px 3px 0 0;
 }
 .md-content > div {
@@ -91,6 +91,7 @@ perspective effects (not including the modals and the overlay).
   margin: 0;
   font-weight: 300;
   font-size: 1.15em;
+  background-color: rgba(248, 248, 248, 0.89);
 }
 .md-content > div p {
   margin: 0;

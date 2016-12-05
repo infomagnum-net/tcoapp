@@ -1,4 +1,4 @@
-{%extends "base.html"%}
+{% extends "base.html" %}
 {%load static%}
 {% block content%}
 <style>
@@ -166,12 +166,17 @@ $(document).ready(function() {
                                         
                           <a class="ci-avatar">
 
-                            <img id="{{ i.id }}" src="/../static/media/{{ i.architecture_img }}" width="176px;" height="164px;"   class="nextBtn btn-lg" data-type="inverse"  data-from="top" data-align="right" data-icon="fa fa-comments"/>
+                            <img id="{{ i.id }}" class="md-trigger" data-modal="modal-15" src="/../static/media/{{ i.architecture_img }}" width="176px;" height="164px;"   class="nextBtn btn-lg" data-type="inverse"  data-from="top" data-align="right" data-icon="fa fa-comments"/>
 
                           </a>
                 
                           <div class="c-info">
-                              <strong>{{i.architecture_name}}</strong>
+                              <strong>{{i.architecture_name}}</strong><br>
+                  <a class="md-trigger" data-modal="modal-15" id="{{i.architecture_name}}" style="color:#000;float:left;">
+                    <b>SELECT</b>
+                    </a>
+
+                    <a class="pv-follow-btn" id="{{ i.id }}" style="color:#000;float:right;"><b>NEXT</b></a>
                           </div>
                
                       </div>
@@ -213,6 +218,39 @@ $(document).ready(function() {
   </div>
 </div>
 
+
+<div class="md-container md-effect-15" id="modal-15">
+      <div class="md-content">
+        <h3 style="color:#fff;font-weight:initial;">SAMPLE MODEL</h3>
+        <div>
+        <img src="{% static 'media/architectures/1_Web-Application.png' %}" style="height:300px;width:485px; display:block; margin:auto;">
+
+
+          <ul>
+            <li style="list-style:none;"><strong><img src="{% static 'img/featured-arch/Instance.png' %}" style="height:20px;width:20px;">&nbsp;&nbsp;(Instance) &nbsp;:</strong> &nbsp;modal windows will probabl.</li>
+
+
+            <li style="list-style:none;"><strong><img src="{% static 'img/featured-arch/Database.png' %}" style="height:20px;width:20px;">&nbsp;&nbsp;(Database) &nbsp;:</strong> &nbsp;a modal window enjoys a certain kind.</li>
+
+
+            <li style="list-style:none;"><img src="{% static 'img/featured-arch/Storage.png' %}" style="height:20px;width:20px;"><strong>&nbsp;&nbsp;(Storage) &nbsp;:</strong>&nbsp; click on the button below.</li>
+
+            <li style="list-style:none;"><img src="{% static 'img/featured-arch/Load_Balancer.png' %}" style="height:20px;width:20px;"><strong>&nbsp;&nbsp;(Load_Balancer)&nbsp; :</strong> click on the button below modal.</li>
+
+
+            <li style="list-style:none;"><img src="{% static 'img/featured-arch/Description.png' %}" style="height:20px;width:20px;"><strong>&nbsp;(Description)&nbsp; :</strong> click on the button below modal.</li>
+
+
+          </ul><br/><br/>
+
+          <div class="button-ck">
+            <button id="{{ i.id }}" class="pv-follow-btn">&nbsp;&nbsp;Ok&nbsp;&nbsp;</button>
+            <button class="md-close">Close</button>
+          </div>
+
+        </div>
+      </div>
+    </div>
        {%endblock%}
 
 

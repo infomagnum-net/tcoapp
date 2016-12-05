@@ -32,8 +32,9 @@
     
 <body>
 
+<div id="preloader" data-spinner="spinner2" data-screenbg="#fff"></div>
 
-<header id="header" class="clearfix" data-current-skin="lightblue">
+<header id="header" class="clearfix" data-current-skin="blue">
 
     <ul class="header-inner">
       
@@ -253,6 +254,11 @@
         <script src="{% static 'js/additional-methods.js'%}"></script>
         <script src="{% static 'js/functions.js'%}"></script>
  
+
+
+ <script src="{% static 'js/js/vendor/preloader.min.js' %}"></script>
+ 
+  <script src="{% static 'js/js/vendor/scrollreveal.min.js' %}"></script>
 <script>
 
 $(document).ready(function () {

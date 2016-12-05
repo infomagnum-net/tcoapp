@@ -87,11 +87,11 @@ var modal = $(this).data('modal');
                             
                             </div>
 
-                        <div class="bp-title bgm-lightblue" style="height:180px;">
+                        <div class="bp-title bgm-blue" style="height:200px;">
                             <h4 class="archname" style="color:#fff;">{{main_arch_json.architecture_name}}</h4>
                             <br/>
                                    
-                            <p><b>$</b> {{main_arch_json.total_plan_price}}</p>
+                            <p class="" style="font-size:20px;"><b>$</b> {{main_arch_json.total_plan_price}}</p>
                          
                                 
                               <p class="pull-left" style="width:60px;" data-toggle="popover" data-placement="top" data-content="instance" title="instance" data-original-title="Instance">
@@ -128,15 +128,15 @@ var modal = $(this).data('modal');
      
 
                 </div>
-          <div class="p-10 p-b-30 bgm-lightblue" >
+          <div class="p-10 p-b-30 bghov" >
 
-            <strong><a class="p-l-5" href="/tco/arch_info/" style="float:left;color:#fff;"><b>Back</b>
+            <strong><a class="p-10 bgm-blue" href="/tco/architecture/" style="float:left;color:#fff;border-radius:5px;"><b>&nbsp;&nbsp;&nbsp;<span class="tm-label">BACK</span>&nbsp;&nbsp;&nbsp;</b>
             </a></strong>
                                
-            <a class="nextBtn p-r-5" id="id111" style="float:right;color:#fff;" data-type="inverse"  data-from="top" data-align="right" data-icon="fa fa-comments"><b>LAUNCH</b>
+            <a class="nextBtn p-10 bgm-blue tm-label" id="id111" style="float:right;color:#fff;border-radius:5px;" data-type="inverse"  data-from="top" data-align="right" data-icon="fa fa-comments"><b>LAUNCH</b>
             </a>
                 
-            </div>
+          </div>
 
               </div>          
             </div>
@@ -157,29 +157,23 @@ var modal = $(this).data('modal');
             <div class="pmb-block">
               <div class="pmbb-body" id="ftrd_img_clk_chng">
 
-             
-
              {% for x in ftrd_arch_json %}
 
-                
                 <div class="col-sm-4" >
                   
                   <div class="card blog-post profile-view z-depth-1">
                     
                     <div class="bp-header">
-                        <img src="/../static/media/{{x.feature_img}}" alt="" style="background-color: #303030;" alt="">
+                        <img src="/../static/media/{{x.feature_img}}" alt="" style="background-color: #303030;" id="{{x.architecture_name}}" class ="ftrd-img" alt="">
 
                           <div class="pv-header">
                               
-                              <img src="{% static 'img/profile-pics/8.jpg' %}" class="pv-main" alt="">
+                              <img src="{% static 'img/profile-pics/8.jpg' %}" class="pv-main" alt="" />
 
                           </div> 
-                              <a class="bp-title bgm-lightblue"style="height:60px;"> 
+                              <a class="bp-title bgm-blue" style="height:60px;"> 
                               <h2 style="font-color:white;font-size:16px;">{{x.architecture_name}}</h2><br/>
   
-
-
-
  <!--                        
                             
                              {% for ec2 in v.3.0 %}
@@ -219,23 +213,29 @@ var modal = $(this).data('modal');
                                 </p>
 
                                 {%endfor%}
-                              
+                               --> 
                           </a>
 
- -->                    </div>
+                   </div>
                             
-                    <div class="p-20 bgm-lightblue">
+                    <div class="p-20 bgm-blue bghov">
                         
                     <!-- <a class="" id="sa-params" style="color:#fff;">
                     <b>INFO</b>
                     </a> |  -->
 
-                    <a class="md-trigger" data-modal="modal-15" id="{{x.architecture_name}}" style="color:#fff;"><b>INFO |</b></a>
-
-
-                       <a class="" id="{{x.architecture_name}}" data-type="inverse"  data-from="top" data-align="right" data-icon="fa fa-comments" style="color:#fff;">
-                       <b>SELECT</b>
+                     <a class="md-trigger" data-modal="modal-15" id="{{x.architecture_name}}" style="color:#fff;">
+                    <b>INFO</b>
                     </a>
+
+                    <a class="pv-follow-btn" id="{{x.architecture_name}}" style="color:#fff;float:right;" data-type="inverse"  data-from="top" data-align="right" data-icon="fa fa-comments"><b>SELECT</b></a>
+
+                  <!--   <a class="md-trigger p-b-10" data-modal="modal-15" id="{{x.architecture_name}}" style="color:#fff;float:left;"><b>INFO </b></a>
+
+
+                       <a class="p-b-10" id="{{x.architecture_name}}" data-type="inverse"  data-from="top" data-align="right" data-icon="fa fa-comments" style="color:#fff;float:right;">
+                       <b>SELECT</b> -->
+                    
 
                     </div>
 
@@ -347,7 +347,7 @@ var modal = $(this).data('modal');
                   <div class="card blog-post profile-view z-depth-1">
                     
                     <div class="bp-header">
-                        <img src="/../static/media/{{ main_arch_json.architecture_img }}" alt="" style="background-color: #303030;" alt="">
+                        <img src="/../static/media/{{ main_arch_json.architecture_img }}" alt="" style="background-color: #303030;" alt="" class ="ftrd-img" id="{{main_arch_json.architecture_name}}">
 
                           <div class="pv-header">
                               
@@ -355,7 +355,7 @@ var modal = $(this).data('modal');
 
                           </div> 
                                     
-                        <a class="bp-title" style="height:60px;">
+                        <a class="bp-title bgm-blue" style="height:60px;">
                             <h2 style="font-color:white;font-size:16px;">{{main_arch_json.architecture_name}}</h2><br/>
 
 <!--                              <p><b>$</b> {{main_arch_price}}</p>
@@ -402,13 +402,18 @@ var modal = $(this).data('modal');
  -->
                     </div>
                             
-                    <div class="p-20 bgm-lightblue">
+                    <div class="p-20 bgm-blue bghov">
                         
-                    <a class="md-trigger" data-modal="modal-15" id="{{main_arch_json.architecture_name}}" style="color:#fff;"><b>INFO</b></a> | 
-
-                       <a class="" id="{{main_arch_json.architecture_name}}" data-type="inverse"  data-from="top" data-align="right" data-icon="fa fa-comments" style="color:#fff;">
-                       <b>SELECT</b>
+                    <a class="md-trigger" data-modal="modal-15" id="{{main_arch_json.architecture_name}}" style="color:#fff;">
+                    <b>INFO</b>
                     </a>
+
+                    <a class="pv-follow-btn" 
+                    id="{{main_arch_json.architecture_name}}" style="color:#fff;float:right;" data-type="inverse"  data-from="top" data-align="right" data-icon="fa fa-comments"><b>SELECT</b></a>
+
+                   
+
+                       
 
                     </div>
 

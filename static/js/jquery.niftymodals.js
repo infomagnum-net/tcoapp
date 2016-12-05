@@ -240,12 +240,16 @@ $('.md-trigger').on('click',function(){
              success: function(msg){
                 //alert("success")
                 sasa=$("#" + modal).html(msg)
+
+                $("#close-btn a").click(function(){
+                  alert("close button");
+                    $(this).dialog("close"); 
+                });
                 //$("#Invoice-to").html(msg)
              }
 
         });
 
   $("#" + modal).niftyModal();
-
-
 });
+

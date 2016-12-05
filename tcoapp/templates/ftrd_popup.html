@@ -1,28 +1,38 @@
 {%load static%}
-{% block content%}  
+{% block content%} 
+
+<style type="text/css">
+
+.list-inst{padding-left: 50px !important;}
+
+</style>> 
       <div class="md-content">
-        <h3>{{arch_info.architecture_name}}</h3>
+        <h3 style="color:#fff;font-weight: initial;">{{arch_info.architecture_name}}</h3>
+
           
         <div>
         {%if arch_info.architecture_img %}
-        <img src="../../static/media/{{arch_info.architecture_img}}" style="height:300px;width:485px; display:block; margin:auto;">
+        <img src="../../static/media/{{arch_info.architecture_img}}" style="height:300px;width:485px; display:block; margin:auto; background-color:#000;">
         {%else%}
-        <img src="../../static/media/{{arch_info.feature_img}}" style="height:300px;width:485px; display:block; margin:auto;">
-        {%endif%}        
+        <img src="../../static/media/{{arch_info.feature_img}}" style="height:300px;width:485px; display:block; margin:auto;background-color:#000;">
+        {%endif%}     
+
+        <br/>   
           <ul>
-            <li style="list-style:none;"><strong><img src="{% static 'img/featured-arch/Instance.png' %}" style="height:20px;width:20px;">&nbsp;&nbsp;(Instance) &nbsp;:</strong> &nbsp;
-              <ul>
+
+            <li style="list-style:none;"><strong><img src="{% static 'img/featured-arch/Instance_color.png' %}" style="height:20px;width:20px;">&nbsp;&nbsp;(Instance) &nbsp;:</strong> &nbsp;
+              <ul class="list-inst">
                 {%for instance in plan_info.instance_name %}
                   <li>
                     {{instance.0}}.
-                 </li>
+                   </li>
                   {%endfor%}
                 </ul>
             </li>
             
 
-            <li style="list-style:none;"><strong><img src="{% static 'img/featured-arch/Database.png' %}" style="height:20px;width:20px;">&nbsp;&nbsp;(Database) &nbsp;:</strong> &nbsp;
-                            <ul>
+            <li style="list-style:none;"><strong><img src="{% static 'img/featured-arch/Database_color.png' %}" style="height:20px;width:20px;">&nbsp;&nbsp;(Database) &nbsp;:</strong> &nbsp;
+                  <ul class="list-inst">
                 {%for instance in plan_info.rds_name %}
                   <li>
                     {{instance.0}}.
@@ -32,11 +42,11 @@
             </li>
 
 
-          </li>
+          
 
 
-            <li style="list-style:none;"><img src="{% static 'img/featured-arch/Storage.png' %}" style="height:20px;width:20px;"><strong>&nbsp;&nbsp;(Storage) &nbsp;:</strong>&nbsp; 
-              <ul>
+            <li style="list-style:none;"><img src="{% static 'img/featured-arch/Storage_color.png' %}" style="height:20px;width:20px;"><strong>&nbsp;&nbsp;(Storage) &nbsp;:</strong>&nbsp; 
+              <ul class="list-inst">
                 {%for instance in plan_info.s3_name %}
                   <li>
                     {{instance.0}}.
@@ -46,8 +56,8 @@
 
               </li>
 
-            <li style="list-style:none;"><img src="{% static 'img/featured-arch/Load_Balancer.png' %}" style="height:20px;width:20px;"><strong>&nbsp;&nbsp;(Load_Balancer)&nbsp; :</strong>
-              <ul>
+            <li style="list-style:none;"><img src="{% static 'img/featured-arch/LoadBalancer_color.png' %}" style="height:20px;width:20px;"><strong>&nbsp;&nbsp;(Load_Balancer)&nbsp; :</strong>
+              <ul class="list-inst">
                 {%for instance in plan_info.balancer_name %}
                   <li>
                     {{instance.0}}.
@@ -58,14 +68,18 @@
               </li>
 
 
-            <li style="list-style:none;"><img src="{% static 'img/featured-arch/Description.png' %}" style="height:20px;width:20px;"><strong>&nbsp;(Description)&nbsp; :</strong> click on the button below modal.</li>
+            <li style="list-style:none;"><img src="{% static 'img/featured-arch/Description_color.png' %}" style="height:20px;width:20px;"><strong>&nbsp;(Description)&nbsp; :</strong> click on the button below modal.</li>
 
-          </ul>
+          </ul><br/>
 
-          <div class="button-ck">
-            <button id="{{ i.id }}" class="pv-follow-btn">&nbsp;&nbsp;Ok&nbsp;&nbsp;</button>
-            <button class="md-close">Close</button>
-          </div>
+          <button class="md-close" ><i class="zmdi zmdi-close zmdi-hc-fw" style="color:#fff;font-size:40px;"></i></button> 
+           
+            
+            <!-- <div class="" style="" id="close-btn"> -->
+
+           <!--  <a class="md-close c-white f-500 text-center" style="display:block; font-size:50px;"><i class="zmdi zmdi-close zmdi-hc-fw" style="color:red;"></i></a> -->
+          <!--   </div> -->
+          
 
         </div>
       </div>
