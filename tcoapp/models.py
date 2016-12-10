@@ -10,6 +10,13 @@ class ArchitectureType(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
     def __unicode__(self): return u"%s" % self.archtype
 
+class Chat(models.Model):
+    user_id = models.IntegerField(null=True)
+    usermsg = models.TextField(blank=True,null=True)
+    botmsg=models.TextField(blank=True,null=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+    
+
 class userinfo(models.Model):
     user_id = models.IntegerField()
     phone = models.CharField(max_length=15)

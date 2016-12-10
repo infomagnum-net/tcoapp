@@ -30,6 +30,9 @@ from django.core.urlresolvers import reverse
 from rest_framework.authtoken.models import Token
 import json as simplejson
 import requests
+from chatterbot import ChatBot
+
+#from tcoapp.models import chat
 
 f = urllib2.urlopen('http://freegeoip.net/json/')
 json_string = f.read()
@@ -41,6 +44,16 @@ location_country = location['country_name']
 
 def help(request):
     return render(request, 'help.html')
+
+def warning(request):
+    return render(request,'warning.html')
+
+def plan(request):
+    return render(request, 'planarch.html')
+
+def warning(request):
+    return render(request,'architecture_plan.html')
+
 
 @login_required(login_url='/accounts/login/')
 def Profile(request):
@@ -171,7 +184,7 @@ def FtrdArchForArch(request,pk):
     main_arch_url="http://"+request.get_host()+reverse('ArchCompleInfo', kwargs={'pk':pk})
     architectures=requests.get(main_arch_url, headers={'Authorization': 'Token {}'.format(mytoken)}) 
     main_arch_json = architectures.json()
-    return render_to_response('featured_wizard.html',{'ftrd_arch_json': ftrd_arch_json,'main_arch_json':main_arch_json})
+    return render_to_response('featurearch.html',{'ftrd_arch_json': ftrd_arch_json,'main_arch_json':main_arch_json})
 
 def CompleteFtrdArchInfo(request,pk):
     token=Token.objects.get(user_id=request.user.id)
@@ -182,12 +195,24 @@ def CompleteFtrdArchInfo(request,pk):
     print arch_json
     return HttpResponse("this is testing")
 
+def testpy(request):
+    name = ['hareesh', 'nithin', 'vinn', 'pruth'];
+    age = [21, 22, 23, 24];
+    qlf = ["b.t", "mc", "mt", "bt"];
+    print "name[0]: ", name[0]
+
+    return HttpResponse("this is testing")
+
+
+
+
 def planspage(request,name):
     token=Token.objects.get(user_id=request.user.id)
     mytoken=token.key
     url="http://"+request.get_host()+reverse('PayPlansInfo', kwargs={'name':name})
     info=requests.get(url, headers={'Authorization': 'Token {}'.format(mytoken)}) 
     payplans = info.json()
+    print payplans
     return HttpResponse("this is testing")
 
 def Launch_img(request,name):
@@ -215,12 +240,12 @@ def PayementPlans(request,name):
     daily_plan_price=float("{0:.2f}".format(plan_info[0]['total_plan_price']/30))
     Yearly_price=float("{0:.2f}".format(plan_info[0]['total_plan_price']*12))
     monthly_price=float("{0:.2f}".format(plan_info[0]['total_plan_price']))
-    return render(request,"plans_wizard.html",{"arch_info":arch_info[0],
+    return render(request,"planarch.html",{"arch_info":arch_info[0],
         "plan_info":plan_info[0],"daily_plan_price":daily_plan_price,"Yearly_price":Yearly_price,'monthly_price':monthly_price})
 
 
-def invoicepage(request,name):
-    plan_type=request.GET.get("plantype")
+def invoicepage(request,name,plan_type):
+    plan_type=plan_type
     token=Token.objects.get(user_id=request.user.id)
     mytoken=token.key
     url="http://"+request.get_host()+reverse('PlanByArchName', kwargs={'name':name})
@@ -285,7 +310,7 @@ def invoicepage(request,name):
          
         total_price=float("{0:.2f}".format(plan_info[0]["total_plan_price"]))
 
-    return render(request, 'invoice.html',{"arch_info":arch_info[0],
+    return render(request, 'architecture_invoice.html',{"arch_info":arch_info[0],
         "plan_info":plan_info[0],
         "instance_unit_price":instance_unit_price,
         "rds_unit_price":rds_unit_price,
@@ -301,7 +326,6 @@ def invoicepage(request,name):
         })
 
 
-
 def Featured_model_popup(request,name):
     token=Token.objects.get(user_id=request.user.id)
     mytoken=token.key
@@ -313,3 +337,25 @@ def Featured_model_popup(request,name):
     arch_info=archs.json()
     return render(request,"ftrd_popup.html",{"plan_info":plan_info[0],
         'arch_info':arch_info[0]})
+
+def bot(request):
+    chating=Chat.objects.all()
+    return render(request, 'chat.html',{"chating":chating})
+
+
+def chat_conversation(request):
+    usr_input=request.GET.get("input")
+    #usr_input="Good morning! How are you doing?"
+    if usr_input:
+        chatbot = ChatBot(
+        'Ron Obvious',
+        trainer='chatterbot.trainers.ChatterBotCorpusTrainer'
+        )
+        chatbot.train("chatterbot.corpus.english")
+        bot_rply=chatbot.get_response(usr_input)
+        chating=Chat(user_id=request.user.id,
+        usermsg=usr_input,botmsg=bot_rply).save()    
+    else:
+        pass
+    chating=Chat.objects.all()
+    return render(request, 'conversation.html',{'chating':chating})

@@ -22,17 +22,31 @@
         <link href="{% static 'css/app.min.1.css'%}" rel="stylesheet">
         <link href="{% static 'css/app.min.2.css'%}" rel="stylesheet">
 
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 
+<script type="text/javascript">
+    $(window).load(function() {
+      $(".loader").fadeOut("slow");
+    })
+    </script>
 
-
+<style>.loader {
+  position: fixed;
+  left: 0px;
+  top: 0px;
+  width: 100%;
+  height: 100%;
+  z-index: 9999;
+  background: url("{% static 'img/Loading_Cloud-Tco_For-Sir.gif' %}") 50% 50% no-repeat rgb(249,249,249);
+}</style>
     </head>
 
 
-
+ <div class="loader"></div>
     
 <body>
 
-<div id="preloader" data-spinner="spinner2" data-screenbg="#fff"></div>
+
 
 <header id="header" class="clearfix" data-current-skin="blue">
 
@@ -47,7 +61,7 @@
         <li class="pull-right">
             <ul class="top-menu">
 
-                 <li class="dropdown hidden-xs">
+                <!--  <li class="dropdown hidden-xs">
                         <a href="/tco/architecture">
                             <span class="tm-label">Architectural</span>
                         </a>
@@ -61,7 +75,7 @@
                         <a href="/tco/verticals">
                             <span class="tm-label">Vertical</span>
                         </a>
-                    </li>
+                    </li> -->
 
                  <li>
                    <a href="/tco/architecture"> <i class="tm-icon zmdi zmdi-home"></i></a>
@@ -90,7 +104,11 @@
         </li>
     </ul>
 
-
+            <div>
+                <div class="fg-line">
+                    
+                </div>
+            </div>
     <!-- Top Search Content -->
     <div id="top-search-wrap">
         <div class="tsw-inner">
@@ -98,6 +116,29 @@
             <input type="text">
         </div>
     </div>
+        <nav class="ha-menu">
+                <ul>
+                    <li class="waves-effect"><a href="/tco/architecture">Architectures</a></li>
+
+                    <li class="waves-effect"><a href="/tco/application">Applications</a></li>
+
+                    <li class="waves-effect"><a href="/tco/verticals">Verticals</a></li>
+
+                   <!--  <li class="dropdown">
+                        <div class="waves-effect" data-toggle="dropdown">Headers</div>
+
+                        <ul class="dropdown-menu">
+                            <li><a href="textual-menu.html">Textual menu</a></li>
+                            <li><a href="image-logo.html">Image logo</a></li>
+                            <li><a class="active" href="top-mainmenu.html">Mainmenu on top</a></li>
+                        </ul>
+                    </li> -->
+                
+                    
+                </ul>
+            </nav>
+
+
 </header>
 
 

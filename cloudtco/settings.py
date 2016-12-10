@@ -115,7 +115,7 @@ WSGI_APPLICATION = 'cloudtco.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql', 
-        'NAME': 'tcodbdec',
+        'NAME': 'updatedtco',
         'USER': 'root',
         'PASSWORD': 'ysec@123',
         'HOST': 'localhost',   # Or an IP Address that your DB is hosted on

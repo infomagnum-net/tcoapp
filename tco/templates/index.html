@@ -32,21 +32,36 @@
 <link href="{% static 'vendors/bower_components/material-design-iconic-font/dist/css/material-design-iconic-font.min.css' %}" rel="stylesheet">
  
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css">   
-  
-  
-  
-  <style>
-   
-</style>
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+<script type="text/javascript">
+$(window).load(function() {
+  $(".loader").fadeOut("slow");
+})
+</script>
+
+ <style type="text/css">
+
+ .loader {
+  position: fixed;
+  left: 0px;
+  top: 0px;
+  width: 100%;
+  height: 100%;
+  z-index: 9999;
+  background: url("{% static 'img/Loading_Cloud-Tco_For-Sir.gif' %}") 50% 50% no-repeat rgb(249,249,249);
+}
+
+</style> 
+
+  </head>
 
 
-
-</head>
+<div class="loader"></div>
 
 <body class="">
  
-<div id="preloader" data-spinner="spinner1" data-screenbg="#fff"></div>
-
 <!-- Page Wrapper -->
   <div class="page-wrapper" id="home">
 <div>
@@ -153,36 +168,36 @@
                                                                                                                                                           
                                <div class="item active">
 
-                                    <img src="{% static 'img/headers/revisedcloudtco6sliders_svg/RETAIL-c.svg' %}" style="" alt="cloudtco">
+                                    <img src="{% static 'img/headers/revisedcloudtco6sliders_svg/RETAIL-c.svg' %}" style="width:100%" alt="cloudtco">
                                         
                                 </div>
 
                                 <div class="item">
-                                  <img src="{% static 'img/headers/revisedcloudtco6sliders_svg/GOVERNMENT-c.svg' %}" style="" alt="cloudtco">
+                                  <img src="{% static 'img/headers/revisedcloudtco6sliders_svg/GOVERNMENT-c.svg' %}" style="width:100%" alt="cloudtco">
                                    
                                 </div>
 
                                 <div class="item">
                                   
-                                  <img src="{% static 'img/headers/revisedcloudtco6sliders_svg/Logistics-c.svg' %}" style="" alt="cloudtco">
+                                  <img src="{% static 'img/headers/revisedcloudtco6sliders_svg/Logistics-c.svg' %}" style="width:100%" alt="cloudtco">
                                    
 
                                  </div>
 
                                  <div class="item">
                                   
-                                  <img src="{% static 'img/headers/revisedcloudtco6sliders_svg/Legal-c.svg' %}" style="" alt="cloudtco">
+                                  <img src="{% static 'img/headers/revisedcloudtco6sliders_svg/Legal-c.svg' %}" style="width:100%" alt="cloudtco">
                                    
 
                                  </div>
                                  <div class="item">
                                   
-                                 <img src="{% static 'img/headers/revisedcloudtco6sliders_svg/Finance-compressor.svg' %}" style="" alt="cloudtco">
+                                 <img src="{% static 'img/headers/revisedcloudtco6sliders_svg/Finance-compressor.svg' %}" style="width:100%" alt="cloudtco">
 
                                  </div>  
                                  <div class="item">
                                   
-                                 <img src="{% static 'img/headers/revisedcloudtco6sliders_svg/Medical-c.svg' %}" style="" alt="cloudtco">
+                                 <img src="{% static 'img/headers/revisedcloudtco6sliders_svg/Medical-c.svg' %}" style="width:100%" alt="cloudtco">
 
                                  </div>                                 
                               
@@ -776,6 +791,11 @@ based services is now rapidly emerging to provide higher value business services
  </div>
   </div><!-- .page-wrapper -->
 
+
+
+
+
+
   <!-- JavaScript (jQuery) libraries, plugins and custom scripts -->
  <script src="{% static 'vendors/bower_components/jquery/dist/jquery.min.js' %}"></script>
 <script src="{% static 'vendors/bower_components/bootstrap/dist/js/bootstrap.min.js' %}"></script>
@@ -806,7 +826,22 @@ based services is now rapidly emerging to provide higher value business services
       
         <script src="{% static 'vendors/bower_components/Waves/dist/waves.min.js' %}"></script>
     
-        
+   <script src="{% static 'js/jquery.browser.js' %}"> 
+</script>
+
+<script>
+$(document).ready(function () {
+if ($.browser.msie) {
+  if ($.browser.version < 9.0){
+    window.location = '/tco/warning/';   
+  }
+  
+}
+
+});
+
+
+</script>     
     
      
 

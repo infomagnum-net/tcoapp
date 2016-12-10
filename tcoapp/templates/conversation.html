@@ -1,0 +1,34 @@
+{%load static%}
+
+                                <div class="lv-body">     
+                                    {%for cht in chating %}
+                                    
+                                    {% if cht.usermsg %}
+                                    <div class="lv-item media">
+                                        <div class="lv-avatar pull-left">
+                                            <img src="{% static 'img/profile-pics/8.jpg' %}" alt="">
+                                        </div>
+                                        <div class="media-body">
+                                            <div class="ms-item"id="user-inpt">
+                                                {{cht.usermsg}}
+                                            </div>
+                                            <small class="ms-date"><i class="zmdi zmdi-time"></i> 20/02/2015 at 09:00</small>
+                                        </div>
+                                    </div>
+                                    {%endif%}
+                                    {%if cht.botmsg %}
+                                    <div class="lv-item media right">
+                                        <div class="lv-avatar pull-right">
+                                            <img src="{% static 'img/bot.png' %}" alt="">
+                                        </div>
+                                        <div class="media-body">
+                                            <div class="ms-item">
+                                               {{cht.botmsg}}
+                                            </div>
+                                            <small class="ms-date"><i class="zmdi zmdi-time"></i> 20/02/2015 at 09:30</small>
+                                        </div>
+                                    </div>
+                                    {%endif%}
+                                    {%endfor%}
+                                   
+                        </div>

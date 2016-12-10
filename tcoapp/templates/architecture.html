@@ -107,6 +107,7 @@
 }
 </style>
 <script>
+
 $(document).ready(function() {
   //Set the carousel options
   $('#quote-carousel').carousel({
@@ -114,9 +115,12 @@ $(document).ready(function() {
     interval: 1000,
   });
     });
+
 </script>
 
 <head>
+
+
   <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
 </head>
 
@@ -135,7 +139,7 @@ $(document).ready(function() {
           <ul class="tab-nav tab-nav-left" role="tablist">
 
           </ul>
-           <h4 class="text-center text-uppercase">ARCHITECTURES</h4>
+           <h4 class="text-center text-uppercase f-20 ital">ARCHITECTURES</h4>
                      
         <div class="tab-content">
                   
@@ -151,13 +155,13 @@ $(document).ready(function() {
               <div class="card">
 
                        
-                <div class="card-body card-padding">
+                <div class="card-body">
                   
                   <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
                    
                             
                     <!-- Wrapper for slides -->
-                    <div class="carousel-inner" role="listbox">
+                    <div class="carousel-inner" role="listbox" >
                         <div class="item active">
                             <img src="{% static 'img/slide1.jpg'%}" alt="" style="width:100%;">
                         </div>
@@ -187,32 +191,37 @@ $(document).ready(function() {
               <div class="col-md-3" style="">
                       
 
-                <div class="card blog-post profile-view z-depth-1 bgm-blue" >
+                <div class="card blog-post profile-view z-depth-1 bgm-blue scrollReveal sr-bottom sr-delay-1" id="sa-image">
 
-                  <div class="bp-header" style="height:188px;">
+                  <div class="bp-header" style="height:198px;">
                     
-                    <img src="/../static/media/{{ i.architecture_img }}"  alt="" style="background-color: #303030;" id="info-popup">
+                    <img src="/../static/media/{{ i.architecture_img }}"  alt="" style="background-color: #fff;" data-toggle="modal" href="#modalDefault" id="data11-123">
 
                       <div class="pv-header ">
-                        <img src="{% static 'img/profile-pics/8.jpg' %}"  class="pv-main" alt="" >
+                        <img src="{% static 'img/applications/wordpress-logo.jpg' %}"  class="pv-main" alt="" >
                       </div>
 
-                       
-
-                      <div class="bp-title bgm-blue" style="height:100px;">
-                          <h2 style="font-color:white;font-size:16px;">{{i.architecture_name}}</h2><br/>
+                      <div class="bp-title bgm-blue" style="height:70px;">
+                          <h2 class="f-16 c-white">{{i.architecture_name}}</h2><br/>
                          <br/>
                       </div>
+
                   </div>
 
-                  <div class="p-20 bgm-blue bghov">
 
+                  <div class="p-20 bgm-blue bghov idtest" id="idtest">
+                  
+                  <a id="{{i.architecture_name}}" data-toggle="modal" href="#modalDefault" class="f-14 brd-2 arinfo" style="color:#fff;" ><b>&nbsp;INFO&nbsp;</b></a>
+                   <!--  <a class="sa-image" id="{{i.architecture_name}}" style="color:#fff;">
+                    <b>INFO</b>
+                    </a> | 
                     <a class="md-trigger" data-modal="modal-15" id="{{i.architecture_name}}" style="color:#fff;">
                     <b>SELECT</b>
-                    </a>
+                    </a> -->
 
-                    <a class="pv-follow-btn" id="{{ i.id }}" style="color:#fff;float:right;"><b>NEXT</b></a>
+                    <a class="pv-follow-btn f-14 brd-2" id="{{ i.id }}" style="color:#fff;float:right;" href="/tco/ftrd-for-arch/{{ i.id }}/"><b>&nbsp;SELECT&nbsp;</b></a>
 
+                    
                   </div>
                 </div>
 
@@ -226,17 +235,18 @@ $(document).ready(function() {
 
 
 
-                      <div class="col-md-3">
-                       
-                        <div class="card z-depth-1">
-                                <div class="card-header bgm-blue">
-                                    <h2>Recently Launched<small>Previous launched Architectures</small></h2>
-                                </div>
-                                
-                         <div class="card-body">
+    <div class="col-md-3">
+             
+          <div class="card z-depth-1 scrollReveal sr-bottom sr-delay-1">
+             
+              <div class="card-header bgm-blue">
+                  <h2>Recently Launched<small>Previous launched Architectures</small></h2>
+              </div>
+                      
+            <div class="card-body">
 
- <div class='col-md-offset-1'> 
-      <div class="carousel slide" data-ride="carousel" id="quote-carousel">
+      <div class=''> 
+          <div class="carousel slide" data-ride="carousel" id="">
         <!-- Bottom Carousel Indicators -->
         <!-- <ol class="carousel-indicators">
           <li data-target="#quote-carousel" data-slide-to="0" class="active"></li>
@@ -252,7 +262,7 @@ $(document).ready(function() {
             <blockquote>
                <!-- <div class="row"> -->
                <!--  <div class="col-sm-3 text-center"> -->
-                  <img class="img-responsive" src="{% static 'media/architectures/features/FT4.png' %}" style="height:200px; width:200px;">
+                  <img class="img-responsive" src="{% static 'media/architectures/features/ar1.png' %}" style="height:200px; width:250px;">
                <!--  </div> -->
                <!--  <div class="col-sm-9">
                   <p>Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit!</p>
@@ -267,7 +277,7 @@ $(document).ready(function() {
             <blockquote>
               <!-- <div class="row"> -->
                 <!-- <div class="col-sm-3 text-center"> -->
-                  <img class="img-responsive" src="{% static 'media/architectures/features/FT4.png' %}" style="height:200px; width:200px;">
+                  <img class="img-responsive" src="{% static 'media/architectures/features/ar2.png' %}" style="height:200px; width:250px;">
                 <!-- </div> -->
                 <!-- <div class="col-sm-9">
                   <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam auctor nec lacus ut tempor. Mauris.</p>
@@ -278,10 +288,10 @@ $(document).ready(function() {
           </div>
           <!-- Quote 3 -->
           <div class="item">
-            <blockquote style="padding: 1px 1px;">
+            <blockquote>
              <!--  <div class="row"> -->
                 <!-- <div class="col-sm-3 text-center"> -->
-                  <img class="img-responsive" src="{% static 'media/architectures/features/FT4.png' %}" style="height:200px; width:200px;">
+                  <img class="img-responsive" src="{% static 'media/architectures/features/ar3.png' %}" style="height:200px; width:250px;">
                <!--  </div> -->
                 <!-- <div class="col-sm-9">
                   <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut rutrum elit in arcu blandit, eget pretium nisl accumsan. Sed ultricies commodo tortor, eu pretium mauris.</p>
@@ -303,33 +313,24 @@ $(document).ready(function() {
                               
 
 
-
-
-
-
-
                                 </div>
                         </div>
 
-                         
+  <div class="card z-depth-1 scrollReveal sr-bottom sr-delay-1">
+    <div class="card-header ch-alt bgm-blue">
+        <h2>Latest News <small>You can check for Latest News</small></h2>
+    </div>
 
-                      
-                        <!-- <div class="card">
+    <div class="card-body">
+      <ul class="p-t-10 p-b-10">
+        <li class="waves-effect"><i class="zmdi zmdi-shield-check zmdi-hc-fw"></i> Architecture Selection</li>
+        <li class="waves-effect"><i class="zmdi zmdi-shield-check zmdi-hc-fw"></i> Payment Procedure</li>
+        <li class="waves-effect"><i class="zmdi zmdi-shield-check zmdi-hc-fw"></i> Account Management</li>
+      </ul>
+      <br/>
+    </div>
+</div>
 
-                          <ul class="">
-
-
-
-                            <li class="active waves-effect">1. Abousefsds sddt sgtg srt srtsr tsgs sd sg t</li>
-
-
-                            <li class="active waves-effect">2. Abousefsds sddt sgtg srt srtsr tsgs sd sg dfgdf dfh dfgt</li>
-
-                            <li class="active waves-effect">3. Abouse ff fd fdgdfgfg f sds sddt sgtg srt srtsr tsgs sd sg t</li>
-                            <li class="active waves-effect">4. Abousef fdg dg ghdfhd dfsds sddt sgtg srt srtsr tsgs sd sg t</li>
-                            <li class="active waves-effect">Abousef dfg d gf fgfdg sds sddt sgtg srt srtsr tsgs sd sg t</li>
-                          </ul>
-                        </div> -->
 
                       </div>
 
@@ -345,23 +346,6 @@ $(document).ready(function() {
 <div class="col-md-12">
 
   <div class="col-md-9">
-<!-- 
-  <div class="card z-depth-1">
-
-    <div class="card-header">
-    <h2>Popular :<small>Popular Architectures</small></h2>
-    </div>
-    <div class="card-body">
-    <ul>
-    
-    <li class="active waves-effect">3. Abouse ff fd fdgdfgfg f sds sddt sgtg srt srtsr tsgs sd sg t</li>
-    <li class="active waves-effect">4. Abousef fdg dg ghdfhd dfsds sddt sgtg srt srtsr tsgs sd sg t</li>
-    <li class="active waves-effect">Abousef dfg d gf fgfdg sds sddt sgtg srt srtsr tsgs sd sg t</li>
-  </ul>
-  </div>
-
-  </div> -->
-
 
 
   
@@ -377,10 +361,10 @@ $(document).ready(function() {
                 <div class="contacts clearfix row">
 
                   <div class="col-md-3 col-sm-4 col-xs-6 notifications">
-                    <div class="c-item ci-avatar">
+                    <div class="c-item ci-avatar scrollReveal sr-left">
 
                       <a class="ci-avatar">
-                      <img  src="{% static 'media/architectures/1_Web-Application.png' %}" width="176px;" height="164px;"   class="bgm-black nextBtn btn-lg bgm-black" data-type="inverse"  data-from="top" data-align="right" data-icon="fa fa-comments"/>
+                      <img  src="{% static 'media/architectures/Arch1.png' %}" width="176px;" height="164px;"   class=" nextBtn btn-lg" data-type="inverse"  data-from="top" data-align="right" data-icon="fa fa-comments"/>
                       </a>
 
                       <!-- <div class="c-info">
@@ -392,9 +376,9 @@ $(document).ready(function() {
                   </div>
 
                 <div class="col-md-3 col-sm-4 col-xs-6 notifications">
-                    <div class="c-item ci-avatar">
+                    <div class="c-item ci-avatar scrollReveal sr-left">
                       <a class="ci-avatar">
-                      <img  src="{% static 'media/architectures/1_Web-Application.png' %}" width="176px;" height="164px;"   class="nextBtn btn-lg bgm-black" data-type="inverse"  data-from="top" data-align="right" data-icon="fa fa-comments"/>
+                      <img  src="{% static 'media/architectures/Arch2.png' %}" width="176px;" height="164px;"   class="nextBtn btn-lg " data-type="inverse"  data-from="top" data-align="right" data-icon="fa fa-comments"/>
                       </a>
                         <!-- <div class="c-info">
                         <strong>sample</strong>
@@ -405,9 +389,9 @@ $(document).ready(function() {
 
 
                 <div class="col-md-3 col-sm-4 col-xs-6 notifications">
-                    <div class="c-item ci-avatar">
+                    <div class="c-item ci-avatar scrollReveal sr-right">
                       <a class="ci-avatar">
-                      <img  src="{% static 'media/architectures/1_Web-Application.png' %}" width="176px;" height="164px;"   class="nextBtn btn-lg bgm-black" data-type="inverse"  data-from="top" data-align="right" data-icon="fa fa-comments"/>
+                      <img  src="{% static 'media/architectures/Arch3.png' %}" width="176px;" height="164px;"   class="nextBtn btn-lg " data-type="inverse"  data-from="top" data-align="right" data-icon="fa fa-comments"/>
                       </a>
                        <!--  <div class="c-info">
                         <strong>sample</strong>
@@ -418,9 +402,9 @@ $(document).ready(function() {
 
 
                 <div class="col-md-3 col-sm-4 col-xs-6 notifications">
-                    <div class="c-item ci-avatar">
+                    <div class="c-item ci-avatar scrollReveal sr-right">
                       <a class="ci-avatar">
-                      <img  src="{% static 'media/architectures/1_Web-Application.png' %}" width="176px;" height="164px;"   class="nextBtn btn-lg bgm-black" data-type="inverse"  data-from="top" data-align="right" data-icon="fa fa-comments"/>
+                      <img  src="{% static 'media/architectures/Arch3.png' %}" width="176px;" height="164px;"   class="nextBtn btn-lg " data-type="inverse"  data-from="top" data-align="right" data-icon="fa fa-comments"/>
                       </a>
                        <!--  <div class="c-info">
                         <strong>sample</strong>
@@ -440,48 +424,31 @@ $(document).ready(function() {
 
   </div>
 
-<div class="col-md-3">
+        <div class="col-md-3">
 
-  <div class="card z-depth-1">
-    <div class="card-header ch-alt bgm-blue">
-        <h2>Help Center <small>You can check here for help</small></h2>
-    </div>
+          <div class="card z-depth-1 scrollReveal sr-bottom sr-delay-1">
+            <div class="card-header ch-alt bgm-blue">
+                <h2>Help Center <small>You can check here for help</small></h2>
+            </div>
 
-    <div class="card-body">
-      <ul class="p-t-10 p-b-10">
-        <li class="waves-effect"><a href="/tco/help/"><i class="zmdi zmdi-help zmdi-hc-fw"></i> Architecture Selection</a></li>
-        <li class="waves-effect"><i class="zmdi zmdi-help zmdi-hc-fw"></i> Payment Procedure</li>
-        <li class="waves-effect"><i class="zmdi zmdi-help zmdi-hc-fw"></i> Account Management</li>
-      </ul>
-    </div>
-</div>
+            <div class="card-body">
+              <ul class="p-t-10 p-b-10">
+                <li class="waves-effect"><a href="/tco/chat/"><i class="zmdi zmdi-help zmdi-hc-fw"></i> Connect to Cloud Support</a></li>
 
-  <!-- <div class="card z-depth-1">
-    <div class="card-header">
-      <h2>Help Box :
-        <small>Click on the buttons below to start the animation</small>
-      </h2>
-    </div>
+                <li class="waves-effect"><a href="/tco/help/"><i class="zmdi zmdi-help zmdi-hc-fw"></i> Architecture Selection</a></li>
 
-    <div class="card-body card-padding"> 
-      <ul>
-        <li class="active waves-effect">3. Abouse ff fd fdgdfgfg f sds sddt sgtg srt srtsr tsgs sd sg t</li>
-        <li class="active waves-effect">4. Abousef fdg dg ghdfhd dfsds sddt sgtg srt srtsr tsgs sd sg t</li>
-        <li class="active waves-effect">Abousef dfg d gf fgfdg sds sddt sgtg srt srtsr tsgs sd sg t</li>
-      </ul>
+                <li class="waves-effect"><i class="zmdi zmdi-help zmdi-hc-fw"></i> Payment Procedure</li>
+                <li class="waves-effect"><i class="zmdi zmdi-help zmdi-hc-fw"></i> Account Management</li>
+
+              </ul>
+            </div>
+        </div>
+      </div>
+
     </div>
   </div>
- -->
-
+  </div>
 </div>
-
-
-</div>
-
-
-            </div>
-          </div>
-        </div>
                         
       <!--end cloud Architectures  -->
 
@@ -505,74 +472,121 @@ $(document).ready(function() {
 </div>
 
 
+ <div class="modal fade" id="modalDefault" tabindex="-1" role="dialog" aria-hidden="true">
+                  <div class="modal-dialog modal-lg">
+                                    <div class="modal-content">
+                                        <div class="modal-header bgm-blue">
+                                            <h4 class="modal-title c-white f-200"> New Architecture Name</h4>
+                                        </div>
+                                        <div class="modal-body">
+                                          <div class="col-md-12">
+                                        
+                                           <div class="col-md-6 p-l-0">
+                                             <img  src="{% static 'media/architectures/Arch3.png' %}" width="300px;" height="300px;"   class="nextBtn btn-lg " data-type="inverse"  data-from="top" data-align="right" data-icon="fa fa-comments"/>
+                                           </div>
+
+                                            <div class="col-md-6">
+                                              <p></p>
+                                                        <ul>
+
+            <li style="list-style:none;"><strong><img src="{% static 'img/featured-arch/Instance_color.png' %}" style="height:20px;width:20px;">&nbsp;&nbsp;(Instance) &nbsp;:</strong> &nbsp;
+              <ul class="list-inst">
+                {%for instance in plan_info.instance_name %}
+                  <li>
+                    {{instance.0}}.
+                   </li>
+                  {%endfor%}
+                </ul>
+            </li>
+            
+
+            <li style="list-style:none;"><strong><img src="{% static 'img/featured-arch/Database_color.png' %}" style="height:20px;width:20px;">&nbsp;&nbsp;(Database) &nbsp;:</strong> &nbsp;
+                  <ul class="list-inst">
+                {%for instance in plan_info.rds_name %}
+                  <li>
+                    {{instance.0}}.
+                 </li>
+                  {%endfor%}
+                </ul>
+            </li>
 
 
-<!-- Model -->
+          
 
 
-<div class="md-container md-effect-15" id="modal-15">
-      <div class="md-content">
-        <h3>SAMPLE MODEL</h3>
-        <div>
-        <img src="{% static 'media/architectures/1_Web-Application.png' %}" style="height:300px;width:485px; display:block; margin:auto; background-color:#000;">
+            <li style="list-style:none;"><img src="{% static 'img/featured-arch/Storage_color.png' %}" style="height:20px;width:20px;"><strong>&nbsp;&nbsp;(Storage) &nbsp;:</strong>&nbsp; 
+              <ul class="list-inst">
+                {%for instance in plan_info.s3_name %}
+                  <li>
+                    {{instance.0}}.
+                 </li>
+                  {%endfor%}
+                </ul>
 
+              </li>
 
-          <!-- <ul>
-            <li style="list-style:none;"><strong><img src="{% static 'img/featured-arch/Instance_color.png' %}" style="height:20px;width:20px;">&nbsp;&nbsp;(Instance) &nbsp;:</strong> &nbsp;modal windows will probabl.</li>
-
-
-            <li style="list-style:none;"><strong><img src="{% static 'img/featured-arch/Database_color.png' %}" style="height:20px;width:20px;">&nbsp;&nbsp;(Database) &nbsp;:</strong> &nbsp;a modal window enjoys a certain kind.</li>
-
-
-            <li style="list-style:none;"><img src="{% static 'img/featured-arch/Storage_color.png' %}" style="height:20px;width:20px;"><strong>&nbsp;&nbsp;(Storage) &nbsp;:</strong>&nbsp; click on the button below.</li>
-
-            <li style="list-style:none;"><img src="{% static 'img/featured-arch/Load_Balancer_color.png' %}" style="height:20px;width:20px;"><strong>&nbsp;&nbsp;(Load_Balancer)&nbsp; :</strong> click on the button below modal.</li>
+            <li style="list-style:none;"><img src="{% static 'img/featured-arch/LoadBalancer_color.png' %}" style="height:20px;width:20px;"><strong>&nbsp;&nbsp;(Load_Balancer)&nbsp; :</strong>
+              <ul class="list-inst">
+                {%for instance in plan_info.balancer_name %}
+                  <li>
+                    {{instance.0}}.
+                 </li>
+                 {%endfor%}
+                </ul> 
+               
+              </li>
 
 
             <li style="list-style:none;"><img src="{% static 'img/featured-arch/Description_color.png' %}" style="height:20px;width:20px;"><strong>&nbsp;(Description)&nbsp; :</strong> click on the button below modal.</li>
 
+          </ul>
+                                            </div>
+                                          </div>
+                                        </div>
 
-          </ul> -->
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-link" data-dismiss="modal">Close</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
 
-        <!--   <div class="button-ck"> -->
-            <!-- <button id="{{ i.id }}" class="pv-follow-btn">&nbsp;&nbsp;Ok&nbsp;&nbsp;</button> -->
-          <!--   <button class="md-close" id="close-btn">Close</button> -->
-       <!--    </div> -->
+<!-- Model -->
 
-        </div>
-      </div>
-    </div>
+
+
 
 <!-- End model -->
 
 
 
-
-
-
-
-
-
-
-
-
- <div tabindex="-1" class="modal fade" id="myModal" role="dialog">
-  <div class="modal-dialog">
-  <div class="modal-content">
-    <div class="modal-header">
-    <button class="close" type="button" data-dismiss="modal">×</button>
-    <h3 class="modal-title">Architecture</h3>
-  </div>
-  <div class="modal-body">
-    
-  </div>
-  <div class="modal-footer">
-    <button class="btn btn-default" data-dismiss="modal">Close</button>
-  </div>
-   </div>
-  </div>
-</div>
        
+<!-- animation and preloader js -->
+
+  <script src="{% static 'js/js/vendor/jquery-2.1.4.min.js' %}"></script>
+  <script src="{% static 'js/js/vendor/preloader.min.js' %}"></script>
+ 
+  <script src="{% static 'js/js/vendor/scrollreveal.min.js' %}"></script>
+  <script src="{% static 'js/js/scripts.js' %}"></script>
+
+
+<script src="{% static 'js/jquery.browser.js' %}"> 
+</script>
+
+<script>
+$(document).ready(function () {
+
+if ($.browser.msie) {
+  if ($.browser.version < 9.0){
+    window.location = '/tco/warning/';   
+  }
+  
+}
+
+});
+
+
+</script>
 
 
      <script type="text/javascript">
@@ -690,11 +704,14 @@ $(document).ready(function() {
             });
 
             //Custom Image
-            $('#sa-image').click(function(){
+            $('.sa-image').click(function(){
+               var img_name = $(this).attr('id');
+                
+                var img=$("#sa-image img.popupimg").attr("")
                 swal({   
-                    title: "Sweet!",   
+                    title: img_name,   
                     text: "Here's a custom image.",   
-                    imageUrl: "img/thumbs-up.png" 
+                    imageUrl: "{% static 'media/architectures/Arch2.png' %}" 
                 });
             });
 
@@ -707,6 +724,8 @@ $(document).ready(function() {
                     showConfirmButton: false 
                 });
             });
+
+
 
         </script>
 

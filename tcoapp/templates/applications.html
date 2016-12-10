@@ -129,63 +129,57 @@ $(document).ready(function() {
 </head>
 
 
-           <div class="pmb-block">
-              <div class="pmbb-body clearfix">
-                            
+ <div class="pmb-block">
+  <div class="pmbb-body clearfix">             
+    <div role="tabpanel">
+       
+      <ul class="tab-nav tab-nav-left" role="tablist">       
+      </ul>
+       <h4 class="text-center text-uppercase f-20 ital">APPLICATIONS</h4>
 
-                <div role="tabpanel">
-                 
-
-                  <ul class="tab-nav tab-nav-left" role="tablist">
-
-              
-                    
-                  </ul>
-                     
- <h4 class="text-center text-uppercase">APPLICATIONS</h4>
-
-              <div class="tab-content">
-                  
-            <!--start verticals  -->
-
-           
-                  
-
-
-            <!--end verticals  -->
-
-          <!-- application Architectures  -->
-
-          <div role="tabpanel" class="active arch_img tab-pane" id="messages1">
-            <div class="card">                        
-              <div class="card-body card-padding">                           
-                <div class="contacts clearfix row">
-                  {% for i in app %}
-                    <div class="col-md-2 col-sm-4 col-xs-6 notifications">
-                        <div class="c-item ci-avatar">
-                                        
-                          <a class="ci-avatar">
-
-                            <img id="{{ i.id }}" class="md-trigger" data-modal="modal-15" src="/../static/media/{{ i.architecture_img }}" width="176px;" height="164px;"   class="nextBtn btn-lg" data-type="inverse"  data-from="top" data-align="right" data-icon="fa fa-comments"/>
-
-                          </a>
+    <div class="tab-content">
                 
-                          <div class="c-info">
-                              <strong>{{i.architecture_name}}</strong><br>
-                  <a class="md-trigger" data-modal="modal-15" id="{{i.architecture_name}}" style="color:#000;float:left;">
-                    <b>SELECT</b>
-                    </a>
+    <!-- application Architectures  -->
+    <div role="tabpanel" class="active arch_img tab-pane" id="messages1">
 
-                    <a class="pv-follow-btn" id="{{ i.id }}" style="color:#000;float:right;"><b>NEXT</b></a>
-                          </div>
-               
-                      </div>
-                    </div>
-                 {% endfor %}  
-                </div>
+     <div class="col-md-12">
+      {% for i in app %}
+      
+      <div class="col-md-3" style="padding:20px; height:250px;width:230px;">
+    
+        <div class="card blog-post profile-view z-depth-1">
+                  
+          <div class="bp-header">
+            
+            <img id="{{ i.id }}" src="/../static/media/{{ i.architecture_img }}"  alt="" id="info-popup">
+
+              <div class="pv-header">
+             <!--  <img src="{% static 'img/applications/wordpress.jpg' %}" class="pv-main" alt=""> -->
               </div>
+
+            <div class="bp-title bgm-blue bghov" id="idtest">
+                
+              <h2 class="c-white f-16">{{i.architecture_name}}</h2><br/>
+               <br/>
+
+             <a id="{{i.architecture_name}}" data-toggle="modal" href="#modalDefault" class="brd-2" style="color:#fff;" ><b>&nbsp;INFO&nbsp;</b></a>
+
+              <a href="/tco/ftrd-for-arch/{{ i.id }}/" class="pv-follow-btn" id="{{ i.id }}" style="color:#fff;float:right;">
+              <b>&nbsp;SELECT&nbsp;</b>
+            </a>
+
             </div>
+               
           </div>
+          
+      </div>
+      
+    </div>
+     {% endfor %}  
+  </div>
+
+    
+      </div>
 
               <!--end  Application Architectures  -->
 
@@ -200,6 +194,93 @@ $(document).ready(function() {
 
     </div>
 </div>
+
+
+
+<div class="modal fade" id="modalDefault" tabindex="-1" role="dialog" aria-hidden="true">
+                                <div class="modal-dialog modal-lg">
+                                    <div class="modal-content">
+                                        <div class="modal-header bgm-blue">
+                                            <h4 class="modal-title c-white f-200"> New Architecture Name</h4>
+                                        </div>
+                                        <div class="modal-body">
+                                          <div class="col-md-12">
+                                        
+                                           <div class="col-md-6 p-l-0">
+                                             <img  src="{% static 'media/architectures/Arch3.png' %}" width="300px;" height="300px;"   class="nextBtn btn-lg " data-type="inverse"  data-from="top" data-align="right" data-icon="fa fa-comments"/>
+                                           </div>
+
+                                            <div class="col-md-6">
+                                              <p></p>
+                                                        <ul>
+
+            <li style="list-style:none;"><strong><img src="{% static 'img/featured-arch/Instance_color.png' %}" style="height:20px;width:20px;">&nbsp;&nbsp;(Instance) &nbsp;:</strong> &nbsp;
+              <ul class="list-inst">
+                {%for instance in plan_info.instance_name %}
+                  <li>
+                    {{instance.0}}.
+                   </li>
+                  {%endfor%}
+                </ul>
+            </li>
+            
+
+            <li style="list-style:none;"><strong><img src="{% static 'img/featured-arch/Database_color.png' %}" style="height:20px;width:20px;">&nbsp;&nbsp;(Database) &nbsp;:</strong> &nbsp;
+                  <ul class="list-inst">
+                {%for instance in plan_info.rds_name %}
+                  <li>
+                    {{instance.0}}.
+                 </li>
+                  {%endfor%}
+                </ul>
+            </li>
+
+
+          
+
+
+            <li style="list-style:none;"><img src="{% static 'img/featured-arch/Storage_color.png' %}" style="height:20px;width:20px;"><strong>&nbsp;&nbsp;(Storage) &nbsp;:</strong>&nbsp; 
+              <ul class="list-inst">
+                {%for instance in plan_info.s3_name %}
+                  <li>
+                    {{instance.0}}.
+                 </li>
+                  {%endfor%}
+                </ul>
+
+              </li>
+
+            <li style="list-style:none;"><img src="{% static 'img/featured-arch/LoadBalancer_color.png' %}" style="height:20px;width:20px;"><strong>&nbsp;&nbsp;(Load_Balancer)&nbsp; :</strong>
+              <ul class="list-inst">
+                {%for instance in plan_info.balancer_name %}
+                  <li>
+                    {{instance.0}}.
+                 </li>
+                 {%endfor%}
+                </ul> 
+               
+              </li>
+
+
+            <li style="list-style:none;"><img src="{% static 'img/featured-arch/Description_color.png' %}" style="height:20px;width:20px;"><strong>&nbsp;(Description)&nbsp; :</strong> click on the button below modal.</li>
+
+          </ul>
+                                            </div>
+                                          </div>
+                                        </div>
+
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-link" data-dismiss="modal">Close</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+
+
+
 
  <div tabindex="-1" class="modal fade" id="myModal" role="dialog">
   <div class="modal-dialog">

@@ -1,0 +1,229 @@
+{%extends "base.html"%}
+{%load static%}
+{% block content%}
+
+<div class="" id="main-container">  
+
+  <div class="stepwizard col-md-offset-3">
+     
+      <!-- <div class=""> 
+        <a class="p-10 bgm-blue" href="javascript:history.back()" style="color:#fff;border-radius:2px;"><b> &nbsp;<span >BACK
+        </span>&nbsp;</b>
+        </a>
+      </div> -->
+
+    <div class="stepwizard-row setup-panel">
+     <!--  <a href="/tco/architecture/"> <<&nbsp;Prev </a>-->        
+      <div class="stepwizard-step">
+        <a href="#step-1" type="button" class="btn btn-primary btn-circle actbtn" id="stp1">1</a>
+        <p>Featured<br/>Architetctures</p>
+      </div>
+
+      <div class="stepwizard-step">
+        <a href="#step-2" type="button" class="btn btn-default btn-circle actbtn" disabled="disabled" id="stp2">2</a>
+        <p>Payment Plans</p>
+      </div>
+
+      <div class="stepwizard-step">
+        <a href="#step-3" type="button" class="btn btn-default btn-circle actbtn" disabled="disabled" id="stp3">3</a>
+        <p>Invoice Page</p>
+      </div>
+    </div>
+  </div>
+
+
+<div class="container">
+  <div class="pmbb-body">
+
+    <div role="tabpanel" class="card">
+      <ul class="tab-nav tn-justified">
+      </ul><br/>
+      
+      <h4 class="text-center text-uppercase f-20 ital">PAYMENT PLANS</h4>
+              
+      <!-- Payment Plans  -->
+
+      <div class="col-md-12" style="padding:20px;">
+        <div class="card blog-post">
+         
+          <div class="col-md-6" style="padding:20px;">
+            <div class="bp-header text-center" id="jhsagah">
+              {%if arch_info.architecture_img%}
+                
+                  <img src="/../static/media/{{arch_info.architecture_img}}" alt="" style="width:450px;" class="p-b-5">
+                 {%else%}
+                  <img src="/../static/media/{{arch_info.feature_img}}" class="p-b-5" alt="" style="width:450px;">
+
+                  {%endif%}
+
+              <a class="bp-title" style="background-color:#2196f3;padding:1px;">
+                 
+                  <h4 class="archiname" style="color:#fff;">{{arch_info.architecture_name}}</h4>
+                  <h5 class="text-center"  style="color:#fff;">{{plan_info.total_plan_price}}</h5>
+
+              </a>
+            </div>
+          </div>
+              
+          <div class="col-md-6" style="padding:20px;">
+            <div class="p-20">
+               <h4>Description</h4>
+               <p>Description about the Architecture will be diaplayed here</p>
+
+
+  <p><b><img src="{% static 'img/featured-arch/Instance_color.png'%}" 
+                style="width:20px"  alt=""></b> &nbsp;&nbsp;Sample Instance</p>
+
+  <p><b><img src="{% static 'img/featured-arch/Database_color.png'%}" 
+                style="width:20px"  alt=""></b>&nbsp;&nbsp;Sample Database</p>
+   
+
+        <p><b><img src="{% static 'img/featured-arch/Storage_color.png'%}" 
+        style="width:20px"  alt=""></b>&nbsp;&nbsp;sample storage
+        </p>
+   
+            </div>
+          </div>     
+
+      </div> 
+    </div>   
+                                           
+                                     
+    <div class="container">
+      <div class="pmbb-body">
+        <div id="pay-plans-btn">
+<div class="col-md-8" style="width:97%;">
+          <form method="post" action="/tco/payment/">
+                {% csrf_token %}
+
+            <!--Day Payment Plans  -->
+
+            <div class="col-sm-4">
+                <div class="bs-item z-depth-2">
+                  <div class="card pt-inner">
+                                
+                  <div class="pti-header bgm-amber">
+                      <h2 class="plan-btn daily-prices f-26">${{daily_plan_price}} <small>| daily</small></h2>
+                      <div class="ptih-title packtype">Daily Pack</div>
+                  </div>
+  
+                  <div class="pti-body">
+                      <div class="ptib-item">
+                          Financial grid.
+                      </div>
+                      <div class="ptib-item">
+                         Elastic Map Reduce System
+                      </div>
+                     
+                  </div>
+                
+                  <div class="pti-footer">
+          
+          <!-- <a class="btn bgm-amber btn-circle nextBtn bgm-cyan plan-btn" href="/tco/invoice/{{arch_info.architecture_name}}/" id="{{arch_info.architecture_name}}" name="daily"><i class="zmdi zmdi-check">
+                    </i></a> -->
+
+<a href="/tco/invoice/{{arch_info.architecture_name}}/daily" class="bgm-amber" id="{{arch_info.architecture_name}}"><i class="zmdi zmdi-check"></i></a>
+
+            <!-- <a  class="btn bgm-amber btn-circle btn-lg nextBtn bgm-cyan plan-btn" type="button"   style="width:50px;height:50px;border-radius: 50px;font-size:16px;" name="daily">
+                    <i class="zmdi zmdi-check">
+                    </i>
+
+                    </a> -->
+
+                  </div>
+                </div>
+              </div>
+            </div>  
+
+            <!--end Day Payment Plans  -->
+
+
+          </form>
+
+          <!--monthyly Payment Plans  -->
+
+          <div class="col-sm-4">
+            <div class="bs-item z-depth-2">
+              <div class="card pt-inner">
+                 
+                <div class="pti-header bgm-green">
+                  
+                  <h2 class="plan-btn monthly-price f-26">${{monthly_price}}<small>| Monthly</small></h2>
+                  <div class="ptih-title packtype"> Monthly Pack</div>
+                
+                </div>
+  
+                <div class="pti-body">
+                    <div class="ptib-item">
+                       Web Front-End service 
+                    </div>
+                    <div class="ptib-item">
+                        Checkout Service
+                    </div>    
+                </div>
+  
+                <div class="pti-footer">
+
+
+               <a href="/tco/invoice/{{arch_info.architecture_name}}/Mothly" class="bgm-green" id="{{arch_info.architecture_name}}"><i class="zmdi zmdi-check"></i></a>
+                      
+                </div>
+
+
+              </div>
+            </div>
+          </div>
+                      <!-- end monthly Payment Plans -->
+
+              <!-- yearly Payment Plans -->
+
+          <div class="col-sm-4">
+            <div class="bs-item z-depth-2">
+              <div class="card pt-inner">
+                  
+                  <div class="pti-header bgm-cyan">
+                      
+                    <h2 class="plan-btn yearly-price f-26">${{Yearly_price}} <small>| Yearly</small></h2>
+                    <div class="ptih-title packtype">Yearly Pack</div>
+
+                  </div>
+  
+                  <div class="pti-body">
+                    <div class="ptib-item">
+                         HRMS system
+                    </div>
+
+                    <div class="ptib-item">
+                         HIS System
+                    </div>
+                      
+                  </div>
+  
+                  <div class="pti-footer">
+                     
+                       <a href="/tco/invoice/{{arch_info.architecture_name}}/Yearly" class="bgm-cyan" id="{{arch_info.architecture_name}}"><i class="zmdi zmdi-check"></i></a>  
+ 
+                  </div>
+
+              </div>
+            </div>
+          </div>
+
+              <!--end yearly Payment Plans  -->
+
+        </div>            
+      </div>   
+      </div>                  
+      </div>
+
+ <!--end Payment Plans  -->
+
+    </div>
+  </div>
+  </div>
+  <script src="{% static 'js/js/vendor/jquery-2.1.4.min.js' %}"></script>
+  
+ 
+  <script src="{% static 'js/js/vendor/scrollreveal.min.js' %}"></script>
+  <script src="{% static 'js/js/scripts.js' %}"></script>
+{% endblock %}

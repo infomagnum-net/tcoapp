@@ -1,0 +1,635 @@
+{%extends "base.html"%}
+{%load static%}
+{% block content%}
+<style>
+/* carousel */
+#quote-carousel 
+{
+  padding: 0 2px 5px 2px;
+  margin-top: 30px 0px 0px;
+}
+
+/* Control buttons  */
+#quote-carousel .carousel-control
+{
+  background: none;
+  color: rgba(113, 94, 94, 0.41);
+  font-size: 2.3em;
+  text-shadow: none;
+  margin-top: 76px;
+}
+/* Previous button  */
+#quote-carousel .carousel-control.left 
+{
+ 
+}
+/* Next button  */
+#quote-carousel .carousel-control.right 
+{
+}
+/* Changes the position of the indicators */
+#quote-carousel .carousel-indicators 
+{
+ /* right: 50%;
+  top: auto;
+  bottom: 0px;
+  margin-right: -19px;*/
+}
+/* Changes the color of the indicators */
+#quote-carousel .carousel-indicators li 
+{
+  background: #c0c0c0;
+}
+#quote-carousel .carousel-indicators .active 
+{
+  background: #333333;
+}
+#quote-carousel img
+{
+ 
+}
+/* End carousel */
+
+.item blockquote {
+    border-left: none; 
+    margin: 0;
+}
+
+.item blockquote img {
+    margin-bottom: 10px;
+}
+
+.item blockquote p:before {
+    content: "\f10d";
+    font-family: 'Fontawesome';
+    float: left;
+    margin-right: 10px;
+}
+.carousel-inner{
+    
+  }
+
+
+/**
+  MEDIA QUERIES
+*/
+
+/* Small devices (tablets, 768px and up) */
+@media (min-width: 768px) { 
+    #quote-carousel 
+    {
+      margin-bottom: 0;
+      padding: 0 5px 3px 5px;
+      margin-top: 5px;
+    }
+    
+}
+
+/* Small devices (tablets, up to 768px) */
+@media (max-width: 768px) { 
+    
+    /* Make the indicators larger for easier clicking with fingers/thumb on mobile */
+    
+    #quote-carousel .carousel-indicators {
+        bottom: -20px !important;  
+    }
+    #quote-carousel .carousel-indicators li {
+        display: inline-block;
+        margin: 0px 5px;
+        width: 15px;
+        height: 15px;
+    }
+    #quote-carousel .carousel-indicators li.active {
+        margin: 0px 5px;
+        width: 20px;
+        height: 20px;
+    }
+}
+</style>
+<script>
+$(document).ready(function() {
+  //Set the carousel options
+  $('#quote-carousel').carousel({
+    pauseOnHover: true,
+    interval: 1000,
+  });
+    });
+</script>
+
+<head>
+
+
+  <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+</head>
+
+
+
+
+
+
+<div class="" id="main-container">  
+  <div class="" id="profile-main" style="background-color:#f8f8f8;">
+    
+    <div class="pmb-block">
+      <div class="pmbb-body clearfix">
+
+        <div role="tabpanel">
+          <ul class="tab-nav tab-nav-left" role="tablist">
+
+          </ul>
+           <h4 class="text-center text-uppercase f-20 ital">ARCHITECTURES</h4>
+                     
+        <div class="tab-content">
+                  
+        <!-- cloud Architectures  -->
+
+      <div role="tabpanel" class="arch_img tab-pane  active" id="profile1">
+
+        <div role="tabpanel" class="tab-pane">
+
+          <div class="row" id="main-arch">  
+            <div class="col-md-12">
+
+              <div class="card p-l-10">
+
+                       
+                <div class="card-body card-padding">
+                  
+                  <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+                   
+                            
+                    <!-- Wrapper for slides -->
+                    <div class="carousel-inner" role="listbox" >
+                        <div class="item active">
+                            <img src="{% static 'img/slide1.jpg'%}" alt="" style="width:100%;">
+                        </div>
+                        <div class="item">
+                            <img src="{% static 'img/slide1.jpg'%}" alt="" style="width:100%;">
+                        </div>
+                    </div>
+                              
+                    <!-- Controls -->
+                    <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+                        <span class="zmdi zmdi-chevron-left" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+                        <span class="zmdi zmdi-chevron-right" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+
+            <div class="col-md-9">
+             
+              {% for i in arch_json %}
+                  
+              <div class="col-md-3" style="">
+                      
+
+                <div class="card blog-post profile-view z-depth-1 bgm-blue scrollReveal sr-bottom sr-delay-1" id="sa-image">
+
+                  <div class="bp-header" style="height:198px;">
+                    
+                    <img src="/../static/media/{{ i.architecture_img }}"  alt="" style="background-color: #fff;" data-toggle="modal" href="#modalDefault" id="data11-123">
+
+                      <div class="pv-header ">
+                        <img src="{% static 'img/applications/wordpress-logo.jpg' %}"  class="pv-main" alt="" >
+                      </div>
+
+                       
+
+                      <div class="bp-title bgm-blue" style="height:70px;">
+                          <h2 style="font-color:white;font-size:16px;">{{i.architecture_name}}</h2><br/>
+                         <br/>
+                      </div>
+
+                  </div>
+
+
+                  <div class="p-20 bgm-blue bghov idtest" id="idtest">
+                  
+                  <a id="{{i.architecture_name}}" data-toggle="modal" href="#modalDefault" class="brd-2 arinfo" style="color:#fff;" ><b>&nbsp;INFO&nbsp;</b></a>
+                   <!--  <a class="sa-image" id="{{i.architecture_name}}" style="color:#fff;">
+                    <b>INFO</b>
+                    </a> | 
+                    <a class="md-trigger" data-modal="modal-15" id="{{i.architecture_name}}" style="color:#fff;">
+                    <b>SELECT</b>
+                    </a> -->
+
+                    <a class="pv-follow-btn brd-2" id="{{ i.id }}" style="color:#fff;float:right;"><b>&nbsp;SELECT&nbsp;</b></a>
+
+                    
+                  </div>
+                </div>
+
+              </div> 
+
+              {% endfor %}
+
+            </div>
+
+
+
+
+
+                      <div class="col-md-3">
+                       
+                        <div class="card z-depth-1">
+                                <div class="card-header bgm-blue">
+                                    <h2>Recently Launched<small>Previous launched Architectures</small></h2>
+                                </div>
+                                
+                         <div class="card-body">
+
+ <div class='col-md-offset-1'> 
+      <div class="carousel slide" data-ride="carousel" id="quote-carousel">
+        <!-- Bottom Carousel Indicators -->
+        <!-- <ol class="carousel-indicators">
+          <li data-target="#quote-carousel" data-slide-to="0" class="active"></li>
+          <li data-target="#quote-carousel" data-slide-to="1"></li>
+          <li data-target="#quote-carousel" data-slide-to="2"></li>
+        </ol>
+         -->
+        <!-- Carousel Slides / Quotes -->
+        <div class="carousel-inner">
+        
+          <!-- Quote 1 -->
+          <div class="item active">
+            <blockquote style="padding: 1px 1px;">
+               <!-- <div class="row"> -->
+               <!--  <div class="col-sm-3 text-center"> -->
+                  <img class="img-responsive" src="{% static 'media/architectures/features/ar1.png' %}" style="height:200px; width:200px;">
+               <!--  </div> -->
+               <!--  <div class="col-sm-9">
+                  <p>Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit!</p>
+                  <small>Someone famous</small>
+                </div> -->
+            <!--    </div> -->
+            </blockquote>
+          </div>
+
+          <!-- Quote 2 -->
+          <div class="item">
+            <blockquote style="padding: 1px 1px;">
+              <!-- <div class="row"> -->
+                <!-- <div class="col-sm-3 text-center"> -->
+                  <img class="img-responsive" src="{% static 'media/architectures/features/ar2.png' %}" style="height:200px; width:200px;">
+                <!-- </div> -->
+                <!-- <div class="col-sm-9">
+                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam auctor nec lacus ut tempor. Mauris.</p>
+                  <small>Someone famous</small>
+                </div> -->
+              <!-- </div> -->
+            </blockquote>
+          </div>
+          <!-- Quote 3 -->
+          <div class="item">
+            <blockquote style="padding: 1px 1px;">
+             <!--  <div class="row"> -->
+                <!-- <div class="col-sm-3 text-center"> -->
+                  <img class="img-responsive" src="{% static 'media/architectures/features/ar3.png' %}" style="height:200px; width:200px;">
+               <!--  </div> -->
+                <!-- <div class="col-sm-9">
+                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut rutrum elit in arcu blandit, eget pretium nisl accumsan. Sed ultricies commodo tortor, eu pretium mauris.</p>
+                  <small>Someone famous</small>
+                </div> -->
+              <!-- </div> -->
+            </blockquote>
+          </div>
+        </div>
+        
+        <!-- Carousel Buttons Next/Prev -->
+
+        <!-- <a data-slide="prev" href="#quote-carousel" class="left carousel-control"><i class="fa fa-chevron-left"></i></a>
+        <a data-slide="next" href="#quote-carousel" class="right carousel-control"><i class="fa fa-chevron-right"></i></a> -->
+      </div> 
+ </div> 
+  <!-- </div> -->
+<!-- </div> -->
+                              
+
+
+                                </div>
+                        </div>
+
+                          <div class="card z-depth-1">
+    <div class="card-header ch-alt bgm-blue">
+        <h2>Latest News <small>You can check for Latest News</small></h2>
+    </div>
+
+    <div class="card-body">
+      <ol class="p-t-10 p-b-10">
+        <li> Architecture Selection</li>
+        <li> Payment Procedure</li>
+        <li> Account Management</li>
+        <li> Payment Procedure </li>
+      </ol>
+      <br/>
+    </div>
+</div>
+
+
+                      </div>
+
+
+
+
+
+
+
+
+             </div>
+
+<div class="col-md-12">
+
+  <div class="col-md-9">
+
+
+  
+
+
+          <div role="tabpanel" class="active arch_img tab-pane" id="messages1">
+            <div class="card">                        
+              <div class="card-body card-padding">
+               <div class="card-header">
+                                <h2>Popular Architectures <!-- <small>Cras congue nec lorem eget posuere</small> --></h2>
+                               
+                            </div>                           
+                <div class="contacts clearfix row">
+
+                  <div class="col-md-3 col-sm-4 col-xs-6 notifications">
+                    <div class="c-item ci-avatar scrollReveal sr-left">
+
+                      <a class="ci-avatar">
+                      <img  src="{% static 'media/architectures/Arch1.png' %}" width="176px;" height="164px;"   class=" nextBtn btn-lg" data-type="inverse"  data-from="top" data-align="right" data-icon="fa fa-comments"/>
+                      </a>
+
+                      <!-- <div class="c-info">
+                        <strong>sample</strong>
+                      </div> -->
+
+                       <p style="text-align:center;">Sample</p>
+                    </div>
+                  </div>
+
+                <div class="col-md-3 col-sm-4 col-xs-6 notifications">
+                    <div class="c-item ci-avatar scrollReveal sr-left">
+                      <a class="ci-avatar">
+                      <img  src="{% static 'media/architectures/Arch2.png' %}" width="176px;" height="164px;"   class="nextBtn btn-lg " data-type="inverse"  data-from="top" data-align="right" data-icon="fa fa-comments"/>
+                      </a>
+                        <!-- <div class="c-info">
+                        <strong>sample</strong>
+                        </div> -->
+                         <p style="text-align:center;">Sample</p>
+                    </div>                      
+                </div>
+
+
+                <div class="col-md-3 col-sm-4 col-xs-6 notifications">
+                    <div class="c-item ci-avatar scrollReveal sr-right">
+                      <a class="ci-avatar">
+                      <img  src="{% static 'media/architectures/Arch3.png' %}" width="176px;" height="164px;"   class="nextBtn btn-lg " data-type="inverse"  data-from="top" data-align="right" data-icon="fa fa-comments"/>
+                      </a>
+                       <!--  <div class="c-info">
+                        <strong>sample</strong>
+                        </div> -->
+                         <p style="text-align:center;">Sample</p>
+                    </div>                      
+                </div>
+
+
+                <div class="col-md-3 col-sm-4 col-xs-6 notifications">
+                    <div class="c-item ci-avatar scrollReveal sr-right">
+                      <a class="ci-avatar">
+                      <img  src="{% static 'media/architectures/Arch3.png' %}" width="176px;" height="164px;"   class="nextBtn btn-lg " data-type="inverse"  data-from="top" data-align="right" data-icon="fa fa-comments"/>
+                      </a>
+                       <!--  <div class="c-info">
+                        <strong>sample</strong>
+                        </div> -->
+                         <p style="text-align:center;">Sample</p>
+                    </div>                      
+                </div>
+
+
+
+
+
+                </div>
+              </div>
+            </div>
+          </div>
+
+  </div>
+
+<div class="col-md-3">
+
+  <div class="card z-depth-1">
+    <div class="card-header ch-alt bgm-blue">
+        <h2>Help Center <small>You can check here for help</small></h2>
+    </div>
+
+    <div class="card-body">
+      <ul class="p-t-10 p-b-10">
+        <li class="waves-effect"><a href="/tco/help/"><i class="zmdi zmdi-help zmdi-hc-fw"></i> Architecture Selection</a></li>
+        <li class="waves-effect"><i class="zmdi zmdi-help zmdi-hc-fw"></i> Payment Procedure</li>
+        <li class="waves-effect"><i class="zmdi zmdi-help zmdi-hc-fw"></i> Account Management</li>
+      </ul>
+    </div>
+</div>
+
+  <!-- <div class="card z-depth-1">
+    <div class="card-header">
+      <h2>Help Box :
+        <small>Click on the buttons below to start the animation</small>
+      </h2>
+    </div>
+
+    <div class="card-body card-padding"> 
+      <ul>
+        <li class="active waves-effect">3. Abouse ff fd fdgdfgfg f sds sddt sgtg srt srtsr tsgs sd sg t</li>
+        <li class="active waves-effect">4. Abousef fdg dg ghdfhd dfsds sddt sgtg srt srtsr tsgs sd sg t</li>
+        <li class="active waves-effect">Abousef dfg d gf fgfdg sds sddt sgtg srt srtsr tsgs sd sg t</li>
+      </ul>
+    </div>
+  </div>
+ -->
+
+</div>
+
+
+</div>
+
+
+            </div>
+          </div>
+        </div>
+                        
+      <!--end cloud Architectures  -->
+
+
+          <!-- application Architectures  -->
+
+        
+
+              <!--end  Application Architectures  -->
+
+
+                                    
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+
+    </div>
+</div>
+
+
+ <div class="modal fade" id="modalDefault" tabindex="-1" role="dialog" aria-hidden="true">
+                  <div class="modal-dialog modal-lg">
+                                    <div class="modal-content">
+                                        <div class="modal-header bgm-blue">
+                                            <h4 class="modal-title c-white f-200"> New Architecture Name</h4>
+                                        </div>
+                                        <div class="modal-body">
+                                          <div class="col-md-12">
+                                        
+                                           <div class="col-md-6 p-l-0">
+                                             <img  src="{% static 'media/architectures/Arch3.png' %}" width="300px;" height="300px;"   class="nextBtn btn-lg " data-type="inverse"  data-from="top" data-align="right" data-icon="fa fa-comments"/>
+                                           </div>
+
+                                            <div class="col-md-6">
+                                              <p></p>
+                                                        <ul>
+
+            <li style="list-style:none;"><strong><img src="{% static 'img/featured-arch/Instance_color.png' %}" style="height:20px;width:20px;">&nbsp;&nbsp;(Instance) &nbsp;:</strong> &nbsp;
+              <ul class="list-inst">
+                {%for instance in plan_info.instance_name %}
+                  <li>
+                    {{instance.0}}.
+                   </li>
+                  {%endfor%}
+                </ul>
+            </li>
+            
+
+            <li style="list-style:none;"><strong><img src="{% static 'img/featured-arch/Database_color.png' %}" style="height:20px;width:20px;">&nbsp;&nbsp;(Database) &nbsp;:</strong> &nbsp;
+                  <ul class="list-inst">
+                {%for instance in plan_info.rds_name %}
+                  <li>
+                    {{instance.0}}.
+                 </li>
+                  {%endfor%}
+                </ul>
+            </li>
+
+
+          
+
+
+            <li style="list-style:none;"><img src="{% static 'img/featured-arch/Storage_color.png' %}" style="height:20px;width:20px;"><strong>&nbsp;&nbsp;(Storage) &nbsp;:</strong>&nbsp; 
+              <ul class="list-inst">
+                {%for instance in plan_info.s3_name %}
+                  <li>
+                    {{instance.0}}.
+                 </li>
+                  {%endfor%}
+                </ul>
+
+              </li>
+
+            <li style="list-style:none;"><img src="{% static 'img/featured-arch/LoadBalancer_color.png' %}" style="height:20px;width:20px;"><strong>&nbsp;&nbsp;(Load_Balancer)&nbsp; :</strong>
+              <ul class="list-inst">
+                {%for instance in plan_info.balancer_name %}
+                  <li>
+                    {{instance.0}}.
+                 </li>
+                 {%endfor%}
+                </ul> 
+               
+              </li>
+
+
+            <li style="list-style:none;"><img src="{% static 'img/featured-arch/Description_color.png' %}" style="height:20px;width:20px;"><strong>&nbsp;(Description)&nbsp; :</strong> click on the button below modal.</li>
+
+          </ul>
+                                            </div>
+                                          </div>
+                                        </div>
+
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-link" data-dismiss="modal">Close</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ <div tabindex="-1" class="modal fade" id="myModal" role="dialog">
+  <div class="modal-dialog">
+  <div class="modal-content">
+    <div class="modal-header">
+    <button class="close" type="button" data-dismiss="modal">×</button>
+    <h3 class="modal-title">Architecture</h3>
+  </div>
+  <div class="modal-body">
+    
+  </div>
+  <div class="modal-footer">
+    <button class="btn btn-default" data-dismiss="modal">Close</button>
+  </div>
+   </div>
+  </div>
+</div>
+       
+<!-- animation and preloader js -->
+
+  <script src="{% static 'js/js/vendor/jquery-2.1.4.min.js' %}"></script>
+  <script src="{% static 'js/js/vendor/preloader.min.js' %}"></script>
+ 
+  <script src="{% static 'js/js/vendor/scrollreveal.min.js' %}"></script>
+  <script src="{% static 'js/js/scripts.js' %}"></script>
+
+
+<script src="{% static 'js/jquery.browser.js' %}"> 
+</script>
+
+<script>
+$(document).ready(function () {
+
+if ($.browser.msie) {
+  if ($.browser.version < 9.0){
+    window.location = '/tco/warning/';   
+  }
+  
+}
+
+});
+
+</script>
+
+
+    
+
+
+       {%endblock%}
+
+

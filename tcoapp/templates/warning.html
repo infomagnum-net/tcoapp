@@ -1,0 +1,132 @@
+<html>
+{% load static %}
+<head>
+<title>Cloud-TCO</title>
+ 			
+ 			<link rel="shortcut icon" href="{% static 'img/favlogo.png' %}" type="image/x-icon">
+  
+<link href='http://fonts.googleapis.com/css?family=Courgette' rel='stylesheet' type='text/css'>
+<style type="text/css">
+body{
+	font-family: 'inherit', cursive;
+}
+body{
+	/*background:#f3f3e1;*/
+	background:#303030;;
+}	
+.wrap{
+	margin:0 auto;
+	max-width:100%;
+}
+.logo{
+	margin-top:50px;
+}	
+.logo h1{
+	font-size:50px;
+	color:#2196f3;
+	text-align:center;
+	margin-bottom:1px;
+/*	text-shadow:1px 1px 6px #fff;
+*/}	
+.logo p{
+	color:#fff;
+	font-size:20px;
+	margin-top:1px;
+	text-align:center;
+}	
+.logo p span{
+	color:lightgreen;
+}	
+.sub a{
+	color:white;
+	background:#8F8E8C;
+	text-decoration:none;
+	padding:7px 120px;
+	font-size:13px;
+	font-family: arial, serif;
+	font-weight:bold;
+	-webkit-border-radius:3em;
+	-moz-border-radius:.1em;
+	-border-radius:.1em;
+}	
+.footer{
+	color:#8F8E8C;
+	position:absolute;
+	right:10px;
+	bottom:10px;
+}	
+.footer a{
+	color:rgb(228, 146, 162);
+}	
+.iew-container li a{
+	display: inline !important;
+	margin:0 auto;
+	color: #fff;
+}
+.iew-download {dispaly:block; margin:auto;padding-left:330px;}
+.iew-download li{display:inline;float:left;padding:50px;}
+</style>
+</head>
+
+
+<body>
+	<div class="wrap">
+	   <div class="logo">
+	   <h1>Warning!!</h1>
+	    <p>Error occured! -Using an outdated version Explorer </p>
+		<p>You are using an outdated version of Internet Explorer, please upgrade <br/>to any of the following web browsers to access this website.</p>
+                
+		
+		<div class="iew-container">
+                    <ul class="iew-download">
+                        <li>
+                            <a href="http://www.google.com/chrome/">
+                                <img src="{% static 'img/browsers/chrome.png' %}" alt="" style="width:60px;height:50px">
+                                <div>Chrome</div>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="https://www.mozilla.org/en-US/firefox/new/">
+                                <img src="{% static 'img/browsers/firefox.png' %}" alt="" style="width:60px;height:50px">
+                                <div>Firefox</div>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="http://www.opera.com">
+                                <img src="{% static 'img/browsers/opera.png' %}" alt="" style="width:60px;height:50px">
+                                <div>Opera</div>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="http://windows.microsoft.com/en-us/internet-explorer/download-ie">
+                                <img src="{% static 'img/browsers/ie.png' %}" alt="" style="width:60px;height:50px">
+                                <div>Explorer9,10</div>
+                            </a>
+                        </li>
+
+                       <!-- <li>
+                            <a href="http://windows.microsoft.com/en-us/internet-explorer/download-ie">
+                                <img src="img/browsers/ie.png" alt="">
+                                <div>IE (New)</div>
+                            </a>
+                        </li>-->
+	                    </ul>
+                </div>
+               
+		
+		
+		
+  	      <!--<div class="sub">
+	        <p><a href="#">Back</a></p>
+	      </div>-->
+        </div>
+	</div>
+	
+	<!-- <div class="footer">
+	 Design by-<a href="http://cloud-tco.com">Cloud-TCO</a>
+	</div>
+	 -->
+</body>

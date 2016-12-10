@@ -1,0 +1,738 @@
+{%extends "base.html"%}
+{%load static%}
+{% block content%}
+
+
+<script>
+$(document).ready(function() {
+  //Set the carousel options
+  $('#quote-carousel').carousel({
+    pauseOnHover: true,
+    interval: 1000,
+  });
+    });
+</script>
+
+<head>
+
+
+  <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+</head>
+
+
+
+
+
+
+<div class="" id="main-container">  
+  <div class="" id="profile-main" style="background-color:#f8f8f8;">
+    <div class="stepwizard col-md-offset-3">
+   
+
+      <!-- <div class=""> 
+        <a class="p-10 bgm-blue" href="javascript:history.back()" style="color:#fff;border-radius:2px;"><b> &nbsp;<span >BACK
+        </span>&nbsp;</b>
+        </a>
+      </div> -->
+
+ <div class="stepwizard-row setup-panel">
+
+     
+        <a href="/tco/architecture/"> <<&nbsp;Prev </a>
+        
+      
+      
+      <div class="stepwizard-step">
+        <a href="#step-1" type="button" class="btn btn-primary btn-circle actbtn" id="stp1">1</a>
+        <p>Featured<br/>Architetctures</p>
+      </div>
+
+      <div class="stepwizard-step">
+        <a href="#step-2" type="button" class="btn btn-default btn-circle actbtn" disabled="disabled" id="stp2">2</a>
+        <p>Payment Plans</p>
+      </div>
+
+      <div class="stepwizard-step">
+        <a href="#step-3" type="button" class="btn btn-default btn-circle actbtn" disabled="disabled" id="stp3">3</a>
+        <p>Invoice Page</p>
+      </div>
+
+    </div>
+
+  </div>
+
+
+<!--end wizard  -->
+
+<div class="container">
+
+  <form role="form" action="" method="post">
+    <div id="wizard_step1" class="">
+
+      <div class="row setup-content" id="step-2">
+
+        <div class="card" id="pymtns-page1">
+          
+          <div class="pmbb-body">
+    <div role="tabpanel" class="card">
+        
+        <ul class="tab-nav tn-justified">
+        </ul><br/>
+        <h4 class="text-center">PAYMENT PLANS</h4>
+              
+      <!-- Payment Plans  -->
+
+      <div class="col-md-12" style="padding:20px;">
+        <div class="card blog-post">
+          
+          <div class="col-md-6" style="padding:20px;">
+            <div class="bp-header text-center" id="jhsagah">
+              {%if arch_info.architecture_img%}
+                
+                  <img src="/../static/media/{{arch_info.architecture_img}}" alt="" style="">
+                 {%else%}
+                  <img src="/../static/media/{{arch_info.feature_img}}" alt="" style="">
+
+                  {%endif%}
+
+              <a class="bp-title" style="background-color:#2196f3;padding:1px;">
+                 
+                  <h4 class="archiname" style="color:#fff;">{{arch_info.architecture_name}}</h4>
+                  <h5 class="text-center"  style="color:#fff;">{{plan_info.total_plan_price}}</h5>
+
+              </a>
+            </div>
+          </div>
+              
+          <div class="col-md-6" style="padding:20px;">
+            <div class="p-20">
+               <h4>Description</h4>
+               <p> Pellentesque lacinia sagittis libero. Praesent vitae justo purus. In hendrerit lorem nisl, ac lacinia urna aliquet non. Quisque nisi tellus, rhoncus quis est sit amete in nisl molestie fringilla. Nunc vitae ante id magna feugiat condimentum. Maecenas sit amet urna massa.</p>
+
+
+<p><b><img src="{% static 'img/featured-arch/Instance_color.png'%}" 
+                style="width:20px"  alt=""></b> &nbsp;&nbsp;Sample Instance</p>
+
+<p><b><img src="{% static 'img/featured-arch/Database_color.png'%}" 
+                                        style="width:20px"  alt=""></b>&nbsp;&nbsp;Sample Database</p>
+   
+
+   
+
+   <p><b><img src="{% static 'img/featured-arch/Storage_color.png'%}" 
+                                        style="width:20px"  alt=""></b>&nbsp;&nbsp;sample storage</p>
+   
+            </div>
+          </div>     
+
+      </div> 
+    </div>   
+                                           
+                                     
+    <div class="container">
+      <div class="pmbb-body">
+        <div id="pay-plans-btn">
+
+          <form method="post" action="/tco/payment/">
+                {% csrf_token %}
+
+            <!--Day Payment Plans  -->
+
+            <div class="col-sm-4">
+                <div class="bs-item z-depth-2">
+                  <div class="card pt-inner">
+                                
+                  <div class="pti-header bgm-amber">
+                      <h2 class="plan-btn daily-prices">${{daily_plan_price}} <small>| daily</small></h2>
+                      <div class="ptih-title packtype">Daily Pack</div>
+                  </div>
+  
+                  <div class="pti-body">
+                      <div class="ptib-item">
+                          Financial grid.
+                      </div>
+                      <div class="ptib-item">
+                         Elastic Map Reduce System
+                      </div>
+                     
+                  </div>
+                
+                  <div class="pti-footer">
+
+                    <button class="btn bgm-amber btn-circle btn-lg nextBtn bgm-cyan plan-btn" type="button" id="{{arch_info.architecture_name}}"  style="width:50px;height:50px;border-radius: 50px;font-size:16px;" name="daily"><i class="zmdi zmdi-check"></i></button>
+
+                  </div>
+                </div>
+              </div>
+            </div>  
+
+            <!--end Day Payment Plans  -->
+
+
+          </form>
+
+          <!--monthyly Payment Plans  -->
+
+          <div class="col-sm-4">
+            <div class="bs-item z-depth-2">
+              <div class="card pt-inner">
+                 
+                <div class="pti-header bgm-green">
+                  
+                  <h2 class="plan-btn monthly-price">${{monthly_price}}<small>| Monthly</small></h2>
+                  <div class="ptih-title packtype"> Monthly Pack</div>
+                
+                </div>
+  
+                <div class="pti-body">
+                    <div class="ptib-item">
+                       Web Front-End service 
+                    </div>
+                    <div class="ptib-item">
+                        Checkout Service
+                    </div>    
+                </div>
+  
+                <div class="pti-footer">
+
+                <button class="btn bgm-green btn-circle btn-lg nextBtn bgm-cyan plan-btn" type="button" id="{{arch_info.architecture_name}}" style="width:50px;height:50px;border-radius: 50px;font-size:22px;" name="Mothly"><i class="zmdi zmdi-check"></i></button>
+                      
+                </div>
+
+
+              </div>
+            </div>
+          </div>
+                      <!--end monthly Payment Plans  -->
+
+              <!--yearly Payment Plans  -->
+
+          <div class="col-sm-4">
+            <div class="bs-item z-depth-2">
+              <div class="card pt-inner">
+                  
+                  <div class="pti-header bgm-cyan">
+                      
+                    <h2 class="plan-btn yearly-price">${{Yearly_price}} <small>| Yearly</small></h2>
+                    <div class="ptih-title packtype">Yearly Pack</div>
+
+                  </div>
+  
+                  <div class="pti-body">
+                    <div class="ptib-item">
+                         HRMS system
+                    </div>
+
+                    <div class="ptib-item">
+                         HIS System
+                    </div>
+                      
+                  </div>
+  
+                  <div class="pti-footer">
+                     
+                       <button class="btn bgm-cyan btn-circle btn-lg nextBtn bgm-cyan plan-btn" type="button" id="{{arch_info.architecture_name}}"  style="width:50px;height:50px;border-radius: 50px;font-size:16px;" name="Yearly"><i class="zmdi zmdi-check" ></i></button>  
+ 
+                  </div>
+
+              </div>
+            </div>
+          </div>
+
+              <!--end yearly Payment Plans  -->
+
+        </div>            
+      </div>                     
+      </div>
+
+ <!--end Payment Plans  -->
+
+    </div>
+  </div>
+
+
+
+
+        </div>
+   </div>
+ </div>
+
+
+       {%endblock%}
+
+        <!--Pay plans  -->
+
+      <div class="row setup-content" id="step-2">
+          <h1></h1>
+
+          <div class="" id="pymtns-page1">
+     
+          </div>
+      </div>
+
+      <!-- end Pay plans  -->
+
+
+      <!--invoice plans  -->
+
+        <div class="row setup-content" id="step-3">
+          
+            <div class="col-md-12" id="invoice-page">
+            </div>
+           
+        </div>
+
+      <!-- end invoice plans  -->
+
+  
+</form>
+
+
+</div>
+
+
+
+
+
+<!-- End model -->
+
+
+
+
+ 
+
+
+
+
+</div>
+</div>
+
+
+
+
+  
+
+
+       
+<!-- animation and preloader js -->
+
+  <script src="{% static 'js/js/vendor/jquery-2.1.4.min.js' %}"></script>
+  <script src="{% static 'js/js/vendor/preloader.min.js' %}"></script>
+ 
+  <script src="{% static 'js/js/vendor/scrollreveal.min.js' %}"></script>
+  <script src="{% static 'js/js/scripts.js' %}"></script>
+
+
+<script src="{% static 'js/jquery.browser.js' %}"> 
+</script>
+
+<script>
+$(document).ready(function () {
+
+if ($.browser.msie) {
+  if ($.browser.version < 9.0){
+    window.location = '/tco/warning/';   
+  }
+  
+}
+
+});
+
+
+</script>
+
+
+
+
+
+
+<script type="text/javascript">
+  $('.md-trigger').on('click',function(){
+
+arch_name = $(this).attr('id');
+ //alert(arch_id)
+ dataurl="/tco/ftrd_popup/"+arch_name+"/"
+var modal = $(this).data('modal');
+
+  $.ajax({
+             type: "GET",
+             url: dataurl,
+             success: function(msg){
+              sasa=$("#" + modal).html(msg)
+             }
+        });
+
+ 
+  var modal = $(this).data('modal');
+  $("#" + modal).niftyModal();
+});
+</script>
+
+
+
+<script type="text/javascript">
+  $(document).ready(function () {
+  var navListItems = $('div.setup-panel div a'),
+          allWells = $('.setup-content'),
+          allNextBtn = $('.nextBtn');
+
+  allWells.hide();
+
+  if ($(".btn").attr("disabled")=="disabled"){
+   $(".btn").css("pointer-events","none");} 
+  
+  //$(".btn").removeAttr("href");
+  
+  navListItems.click(function (e) {
+      e.preventDefault();
+      var $target = $($(this).attr('href')),
+              $item = $(this);
+
+      if (!$item.hasClass('disabled')) {
+
+          navListItems.removeClass('btn-primary wz-btn').addClass('btn-default actbtn');
+
+         
+          //$item.removeClass('remveclcik')
+          $item.addClass('btn-primary wz-btn');
+          allWells.hide();
+          $target.show();
+          $target.find('input:eq(0)').focus();
+      }
+ 
+      
+
+  });
+
+  allNextBtn.click(function(){
+      var curStep = $(this).closest(".setup-content"),
+          curStepBtn = curStep.attr("id"),
+          nextStepWizard = $('div.setup-panel div a[href="#' + curStepBtn + '"]').parent().next().children("a"),
+          curInputs = curStep.find("input[type='text'],input[type='url']"),
+          isValid = true;
+
+      $(".form-group").removeClass("has-error");
+      for(var i=0; i<curInputs.length; i++){
+          if (!curInputs[i].validity.valid){
+              isValid = false;
+              $(curInputs[i]).closest(".form-group").addClass("has-error");
+          }
+      }
+
+      if (isValid)
+          nextStepWizard.removeAttr('disabled').trigger('click');
+  });
+
+  $('div.setup-panel div a.btn-primary').trigger('click');
+});
+
+
+
+$(document).ready(function() {
+$('.thumbnail').click(function(){
+      $('.modal-body').empty();
+    var title = $(this).parent('a').attr("title");
+    $('.modal-title').html(title);
+    $($(this).parents('div').html()).appendTo('.modal-body');
+    $('#myModal').modal({show:true});
+});
+});
+
+
+
+
+
+</script>
+
+
+
+
+     <script type="text/javascript">
+            /*
+             * Notifications
+             */
+            function notify(from, align, icon, type, animIn, animOut){
+                $.growl({
+                    icon: icon,
+                    title: ' Bootstrap Growl ',
+                    message: 'Turning standard Bootstrap alerts into awesome notifications',
+                    url: ''
+                },{
+                        element: 'body',
+                        type: type,
+                        allow_dismiss: true,
+                        placement: {
+                                from: from,
+                                align: align
+                        },
+                        offset: {
+                            x: 20,
+                            y: 85
+                        },
+                        spacing: 10,
+                        z_index: 1031,
+                        delay: 2500,
+                        timer: 1000,
+                        url_target: '_blank',
+                        mouse_over: false,
+                        animate: {
+                                enter: animIn,
+                                exit: animOut
+                        },
+                        icon_type: 'class',
+                        template: '<div data-growl="container" class="alert" role="alert">' +
+                                        '<button type="button" class="close" data-growl="dismiss">' +
+                                            '<span aria-hidden="true">&times;</span>' +
+                                            '<span class="sr-only">Close</span>' +
+                                        '</button>' +
+                                        '<span data-growl="icon"></span>' +
+                                        '<span data-growl="title"></span>' +
+                                        '<span data-growl="message"></span>' +
+                                        '<a href="#" data-growl="url"></a>' +
+                                    '</div>'
+                });
+            };
+            
+            $('.notifications > div > .btn').click(function(e){
+                e.preventDefault();
+                var nFrom = $(this).attr('data-from');
+                var nAlign = $(this).attr('data-align');
+                var nIcons = $(this).attr('data-icon');
+                var nType = $(this).attr('data-type');
+                var nAnimIn = $(this).attr('data-animation-in');
+                var nAnimOut = $(this).attr('data-animation-out');
+                
+                notify(nFrom, nAlign, nIcons, nType, nAnimIn, nAnimOut);
+            });
+
+
+            /*
+             * Dialogs
+             */
+
+            //Basic
+            $('#sa-basic').click(function(){
+                swal("Here's a message!");
+            });
+
+            //A title with a text under
+            $('#sa-title').click(function(){
+                swal("Here's a message!", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed lorem erat, tincidunt vitae ipsum et, pellentesque maximus enim. Mauris eleifend ex semper, lobortis purus sed, pharetra felis")
+            });
+
+            //Success Message
+            $('#sa-success').click(function(){
+                swal("Good job!", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed lorem erat, tincidunt vitae ipsum et, pellentesque maximus enim. Mauris eleifend ex semper, lobortis purus sed, pharetra felis", "success")
+            });
+
+            //Warning Message
+            $('#sa-warning').click(function(){
+                swal({   
+                    title: "Are you sure?",   
+                    text: "You will not be able to recover this imaginary file!",   
+                    type: "warning",   
+                    showCancelButton: true,   
+                    confirmButtonColor: "#DD6B55",   
+                    confirmButtonText: "Yes, delete it!",   
+                    closeOnConfirm: false 
+                }, function(){   
+                    swal("Deleted!", "Your imaginary file has been deleted.", "success"); 
+                });
+            });
+            
+            //Parameter
+            $('#sa-params').click(function(){
+                swal({   
+                    title: "Are you sure?",   
+                    text: "You will not be able to recover this imaginary file!", 
+                    text: "You will not be  to recover this imaginary file!", 
+                    text: "You will this imaginary file!",   
+                    type: "warning",   
+                    showCancelButton: true,   
+                    confirmButtonColor: "#DD6B55",   
+                    confirmButtonText: "Yes, delete it!",   
+                    cancelButtonText: "No, cancel plx!",   
+                    closeOnConfirm: false,   
+                    closeOnCancel: false 
+                }, function(isConfirm){   
+                    if (isConfirm) {     
+                        swal("Deleted!", "Your imaginary file has been deleted.", "success");   
+                    } else {     
+                        swal("Cancelled", "Your imaginary file is safe :)", "error");   
+                    } 
+                });
+            });
+
+            //Custom Image
+            $('#sa-image').click(function(){
+                var img_name = $(this).attr('id');
+                alert(img_name);
+                swal({   
+                    title: "Sweet!",   
+                    text: "Here's a custom image.",   
+                    imageUrl: "{% static 'media/architectures/Arch2.png' %}" 
+                });
+            });
+
+            //Auto Close Timer
+            $('#sa-close').click(function(){
+                 swal({   
+                    title: "Auto close alert!",   
+                    text: "I will close in 2 seconds.",   
+                    timer: 2000,   
+                    showConfirmButton: false 
+                });
+            });
+
+        </script>
+
+
+
+
+
+
+
+
+     <script type="text/javascript">
+            /*
+             * Notifications
+             */
+            function notify(from, align, icon, type, animIn, animOut){
+                $.growl({
+                    icon: icon,
+                    title: ' Bootstrap Growl ',
+                    message: 'Turning standard Bootstrap alerts into awesome notifications',
+                    url: ''
+                },{
+                        element: 'body',
+                        type: type,
+                        allow_dismiss: true,
+                        placement: {
+                                from: from,
+                                align: align
+                        },
+                        offset: {
+                            x: 20,
+                            y: 85
+                        },
+                        spacing: 10,
+                        z_index: 1031,
+                        delay: 2500,
+                        timer: 1000,
+                        url_target: '_blank',
+                        mouse_over: false,
+                        animate: {
+                                enter: animIn,
+                                exit: animOut
+                        },
+                        icon_type: 'class',
+                        template: '<div data-growl="container" class="alert" role="alert">' +
+                                        '<button type="button" class="close" data-growl="dismiss">' +
+                                            '<span aria-hidden="true">&times;</span>' +
+                                            '<span class="sr-only">Close</span>' +
+                                        '</button>' +
+                                        '<span data-growl="icon"></span>' +
+                                        '<span data-growl="title"></span>' +
+                                        '<span data-growl="message"></span>' +
+                                        '<a href="#" data-growl="url"></a>' +
+                                    '</div>'
+                });
+            };
+            
+            $('.notifications > div > .btn').click(function(e){
+                e.preventDefault();
+                var nFrom = $(this).attr('data-from');
+                var nAlign = $(this).attr('data-align');
+                var nIcons = $(this).attr('data-icon');
+                var nType = $(this).attr('data-type');
+                var nAnimIn = $(this).attr('data-animation-in');
+                var nAnimOut = $(this).attr('data-animation-out');
+                
+                notify(nFrom, nAlign, nIcons, nType, nAnimIn, nAnimOut);
+            });
+
+
+            /*
+             * Dialogs
+             */
+
+            //Basic
+            $('#sa-basic').click(function(){
+                swal("Here's a message!");
+            });
+
+            //A title with a text under
+            $('#sa-title').click(function(){
+                swal("Here's a message!", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed lorem erat, tincidunt vitae ipsum et, pellentesque maximus enim. Mauris eleifend ex semper, lobortis purus sed, pharetra felis")
+            });
+
+            //Success Message
+            $('#sa-success').click(function(){
+                swal("Good job!", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed lorem erat, tincidunt vitae ipsum et, pellentesque maximus enim. Mauris eleifend ex semper, lobortis purus sed, pharetra felis", "success")
+            });
+
+            //Warning Message
+            $('#sa-warning').click(function(){
+                swal({   
+                    title: "Architecture",   
+                    text: "Description!",   
+                    type: "info",   
+                    showCancelButton: true,   
+                    confirmButtonColor: "#DD6B55",   
+                    confirmButtonText: "Yes, delete it!",   
+                    closeOnConfirm: false 
+                }, function(){   
+                    swal("Deleted!", "Your imaginary file has been deleted.", "success"); 
+                });
+            });
+            
+            //Parameter
+            $('#sa-params').click(function(){
+                swal({   
+                    title: "Arch Title",   
+                    text: "Description",   
+                    type: "info",   
+                    showCancelButton: true,   
+                    confirmButtonColor: "#DD6B55",   
+                    confirmButtonText: "Yes, delete it!",   
+                    cancelButtonText: "No, cancel plx!",   
+                    closeOnConfirm: false,   
+                    closeOnCancel: false 
+                }, function(isConfirm){   
+                    if (isConfirm) {     
+                        swal("Deleted!", "Your imaginary file has been deleted.", "success");   
+                    } else {     
+                        swal("Cancelled", "Your imaginary file is safe :)", "error");   
+                    } 
+                });
+            });
+
+            //Custom Image
+            $('.sa-image').click(function(){
+               var img_name = $(this).attr('id');
+                
+                var img=$("#sa-image img.popupimg").attr("")
+                swal({   
+                    title: img_name,   
+                    text: "Here's a custom image.",   
+                    imageUrl: "{% static 'media/architectures/Arch2.png' %}" 
+                });
+            });
+
+            //Auto Close Timer
+            $('#sa-close').click(function(){
+                 swal({   
+                    title: "Auto close alert!",   
+                    text: "I will close in 2 seconds.",   
+                    timer: 2000,   
+                    showConfirmButton: false 
+                });
+            });
+
+
+
+        </script>
+
+
+     
+

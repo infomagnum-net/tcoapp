@@ -30,7 +30,29 @@
         <link href="{% static 'css/app.min.2.css'%}" rel="stylesheet">
        <!--  <link href="{% static 'css/smart_wizard.css'%}" rel="stylesheet" type="text/css"> -->
 
-      <style>
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+<script type="text/javascript">
+
+$(window).load(function() {
+  $(".loader").fadeOut("slow");
+})
+
+</script>
+
+
+<style>
+
+.loader {
+  position: fixed;
+  left: 0px;
+  top: 0px;
+  width: 100%;
+  height: 100%;
+  z-index: 9999;
+  background: url("{% static 'img/cloud_load.gif' %}") 50% 50% no-repeat rgb(249,249,249);
+}
 
 .stepwizard-step p {
     margin-top: 10px;
@@ -40,13 +62,14 @@
 }
 
 .stepwizard {
+  padding-top:30px;
     display: table;
     width: 50%;
     position: relative;
 }
 
 .stepwizard:before {
-     top: 14px;
+     top: 45px;
     bottom: 0;
     position: absolute;
     content: " ";
@@ -66,7 +89,7 @@
 }
 
 .stepwizard-row:before {
-    top: 14px;
+    top: 45px;
     bottom: 0;
     position: absolute;
     content: " ";
@@ -141,16 +164,36 @@
   transform: scale(1.05);
 }
 
+.list-inst{padding-top: 20px !important;}
+
+.loader {
+  position: fixed;
+  left: 0px;
+  top: 0px;
+  width: 100%;
+  height: 100%;
+  z-index: 9999;
+  background: url("{% static 'img/Loading_Cloud-Tco_For-Sir.gif' %}") 50% 50% no-repeat rgb(249,249,249);
+}
 
 </style>
 
-    </head>
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+    <script type="text/javascript">
+    $(window).load(function() {
+      $(".loader").fadeOut("slow");
+    })
+    </script>
+
+  </head>
+
+ <div class="loader"></div>
+   
     <body>
 
-  <div id="preloader" data-spinner="spinner2" data-screenbg="#fff">
-    
-  </div>
-
+  
 
 
         <header id="header" class="clearfix" data-current-skin="blue">
@@ -173,7 +216,7 @@
                 <li class="pull-right">
                     <ul class="top-menu">
 
-                    <li class="dropdown hidden-xs">
+                   <!--  <li class="dropdown hidden-xs">
                         <a href="/tco/architecture">
                             <span class="tm-label">Architectures</span>
                         </a>
@@ -187,32 +230,83 @@
                         <a href="/tco/verticals">
                             <span class="tm-label">Vertical</span>
                         </a>
-                    </li>
-                       
-
+                    </li> -->
+                      
                         <!-- <li id="top-search" class="hidden-xs">
                             <a href=""><i class="tm-icon zmdi zmdi-search"></i></a>
                         </li> -->
                         <li>
-                           <a href="/tco/architecture"> <i class="tm-icon zmdi zmdi-home"></i></a>
+                           <a href="/tco/architecture/"> <i class="tm-icon zmdi zmdi-home"></i></a>
                        </li>
+                        
                         <li class="dropdown">
                             <a data-toggle="dropdown" href=""><i class="tm-icon zmdi zmdi-account-circle"></i> </a>
                             <ul class="dropdown-menu dm-icon pull-right">
+                                
                                 <li class="">
                                    <a href="/tco/profile/"><i class="zmdi zmdi-account"></i> View Profile</a>
                                 </li>
-                                
-                                
-                                
+
                                 <li>
                                     <a href="/accounts/password/change/"><i class="zmdi zmdi-face"></i> Privacy Settings</a>
                                 </li>
+
                                 <li>
                                     <a href="/tco/logout"><i class="zmdi zmdi-time-restore"></i> Logout</a>
                                 </li>
+
                             </ul>
                         </li>
+
+                          <li class="dropdown">
+                            <a data-toggle="dropdown">
+                                <!-- <i class="tmn-counts"></i> -->
+                                <i class="tm-icon zmdi zmdi-comment-alt-text"></i>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-lg pull-right">
+                                <div class="listview lv-message" >
+                                    <div class="lv-header">
+                                        CHAT
+                        
+                                        <ul class="actions">
+                                            <li class="dropdown">
+                                                <a href="" data-clear="notification">
+                                                    <i class="zmdi zmdi-check-all"></i>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="lv-body">
+                                       
+                                        
+                                       
+                                       <div class="lv-item media">
+                                        
+                                        <div class="media-body">
+                                            <div class="ms-item">
+                                                Hi hello
+                                            </div>
+                                            <small class="ms-date"><i class="zmdi zmdi-time"></i> 20/02/2015 at 09:00</small>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="lv-item media right">
+                                       
+                                        <div class="media-body">
+                                            <div class="ms-item">
+                                                Hello Welcome.
+                                            </div>
+                                            <small class="ms-date"><i class="zmdi zmdi-time"></i> 20/02/2015 at 09:30</small>
+                                        </div>
+                                    </div>
+                                    </div>
+                        
+                                    <a class="lv-footer" href="">View Previous</a>
+                                </div>
+                        
+                            </div>
+                        </li>
+
 
                     </ul>
                 </li>
@@ -222,7 +316,7 @@
                     
                 </div>
             </div>
-       <!--  <nav class="ha-menu">
+        <nav class="ha-menu">
                 <ul>
                     <li class="waves-effect"><a href="/tco/architecture">Architectures</a></li>
 
@@ -230,7 +324,7 @@
 
                     <li class="waves-effect"><a href="/tco/verticals">Verticals</a></li>
 
-                    <li class="active dropdown">
+                   <!--  <li class="dropdown">
                         <div class="waves-effect" data-toggle="dropdown">Headers</div>
 
                         <ul class="dropdown-menu">
@@ -238,12 +332,12 @@
                             <li><a href="image-logo.html">Image logo</a></li>
                             <li><a class="active" href="top-mainmenu.html">Mainmenu on top</a></li>
                         </ul>
-                    </li>
+                    </li> -->
                 
                     
                 </ul>
             </nav>
-        -->     <!-- Top Search Content -->
+             <!-- Top Search Content -->
             <div id="top-search-wrap">
                 <div class="tsw-inner">
                     <i id="top-search-close" class="zmdi zmdi-arrow-left"></i>
@@ -253,11 +347,16 @@
 
         </header>
         
-       <section id="main" data-layout="layout-1" style="padding-top:100px">
+       <section id="main" data-layout="layout-1" style="padding-top:120px">
          
             <section id="content">
          
                 {%block content%}
+
+
+
+
+                
                 {%endblock%}
 
             </section>
@@ -352,7 +451,48 @@
            
             
       </footer>
-
+ <!-- Older IE warning message -->
+        <!--[if lt IE 9]>
+            <div class="ie-warning">
+                <h1 class="c-white">Warning!!</h1>
+                <p>You are using an outdated version of Internet Explorer, please upgrade <br/>to any of the following web browsers to access this website.</p>
+                <div class="iew-container">
+                    <ul class="iew-download">
+                        <li>
+                            <a href="http://www.google.com/chrome/">
+                                <img src="img/browsers/chrome.png" alt="">
+                                <div>Chrome</div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.mozilla.org/en-US/firefox/new/">
+                                <img src="img/browsers/firefox.png" alt="">
+                                <div>Firefox</div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="http://www.opera.com">
+                                <img src="img/browsers/opera.png" alt="">
+                                <div>Opera</div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.apple.com/safari/">
+                                <img src="img/browsers/safari.png" alt="">
+                                <div>Safari</div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="http://windows.microsoft.com/en-us/internet-explorer/download-ie">
+                                <img src="img/browsers/ie.png" alt="">
+                                <div>IE (New)</div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <p>Sorry for the inconvenience!</p>
+            </div>   
+        <![endif]-->
 
       
       <script src="{% static 'vendors/bower_components/jquery/dist/jquery.min.js' %}"></script>
@@ -371,24 +511,14 @@
         
         <!-- Placeholder for IE9 -->
         <!--[if IE 9 ]>
-            <script src="vendors/bower_components/jquery-placeholder/jquery.placeholder.min.js"></script>
+            <script src="{% static 'vendors/bower_components/jquery-placeholder/jquery.placeholder.min.js' %}"></script>
         <![endif]-->
          
-         <script src="{% static 'js/functions.js' %}"></script>
-         <script src="{% static 'js/jquery.niftymodals.js' %}"></script>
-         <script src="{% static 'js/jquery-ui.min.js' %}"></script>
-       <!--<script src="js/demo.js"></script> 
-     -->
-
- 
-
-        <!-- Placeholder for IE9 -->
-        <!--[if IE 9 ]>
-            <script src="vendors/bower_components/jquery-placeholder/jquery.placeholder.min.js"></script>
-        <![endif]-->
         
+
+      <!--<script src="{% static 'js/demo.js' %}"></script> -->
       
-        <!-- <script src="{% static 'js/demo.js'%}"></script> -->
+  <!-- <script src="{% static 'js/demo.js' %}"></script> -->
 
 
  
@@ -405,8 +535,81 @@
 
 $(document).ready(function () {
 
+$("#chat-send button").click(function(){
+  input=$("#chat-send textarea").val()
+  if(input){
+      user_msg=input
+      $.ajax({
+             type: "GET",
+             url:"/tco/chat-store/",
+              data:{"input":input,},
+             success: function(msg){
+              $(".lv-body").html(msg)
+             }
+      });
+    }
+  else{alert("please enter input text")}
+ 
+
+});
+
+
+
+$("#ftrd_img_clk_chng .selectbtn").click(function(){
+  img_id = $(this).attr('id');
+  sideurl="/tco/launch-img/"+img_id+"/"
+
+              $.ajax({
+                 type: "GET",
+                 url: sideurl,
+                 data:{"img_id":img_id,},
+                 success: function(msg){
+                $("#main-arch-image").html(msg)
+                 
+}
+});
+});
+
+
+
+$(".idtest a.arinfo").click(function(){
+
+
+arch_name = $(this).attr('id');
+//alert(arch_name);
+dataurl="/tco/ftrd_popup/"+arch_name+"/"
+var modal = $(this).data('modal');
+
+  $.ajax({
+             type: "GET",
+             url: dataurl,
+             success: function(msg){
+              $("#modalDefault").html(msg)
+             }
+        });
+ 
+});
+
+$(".idtest1 a#abc").click(function(){
+
+//alert("hiiiiiiiiii");
+arch_name = $(this).attr('id');
+dataurl="/tco/ftrd_popup/"+arch_name+"/"
+var modal = $(this).data('modal');
+
+  $.ajax({
+             type: "GET",
+             url: dataurl,
+             success: function(msg){
+              $("#modalDefault").html(msg)
+             }
+        });
+ 
+});
+
 var message=""
-$('.pv-follow-btn').click(function(e){
+
+$('.pv-follow-btn1111111').click(function(e){
                 e.preventDefault();
                 var nFrom = $(this).attr('data-from');
                 var nAlign = $(this).attr('data-align');
@@ -480,6 +683,21 @@ $.ajax({
 
 
          $('#ftrd_img_clk_chng a').click(function(e){
+          alert("nmsams")
+          arch_name = $(this).attr('id');
+          //alert(arch_name);
+          dataurl="/tco/ftrd_popup/"+arch_name+"/"
+          var modal = $(this).data('modal');
+
+            $.ajax({
+                       type: "GET",
+                       url: dataurl,
+                       success: function(msg){
+                        $("#modalDefault").html(msg)
+                       }
+                  });
+ 
+
                 
                 e.preventDefault();
                 var nFrom = $(this).attr('data-from');
@@ -501,6 +719,9 @@ $.ajax({
                  //alert("asdhaj")
                  //alert($("#main-arch-image").html())
                  $("#main-arch-image").html(msg)
+                 $("#idtest1 a.arinfo").click(function(){
+                  //alert("thisistest")
+                 });
 
 
                 launch_img=$("#main-arch-image img").attr('src')     
@@ -541,7 +762,7 @@ $.ajax({
             });
 
           });
-         $("#id111").click(function(e){
+         $("#id11111111").click(function(e){
 
 
                     //crcle_id=$(".stepwizard-step .btn-primary").attr("href")
@@ -568,7 +789,7 @@ $.ajax({
 
 
                      name_arch=$("#main-arch-image h4.archname").text()
-                    paymnt_url="/tco/payment/"+name_arch+"/"
+                    //paymnt_url="/tco/payment/"+name_arch+"/"
 
                   $.ajax({
 
@@ -856,7 +1077,7 @@ $(function() {
   });
 
   $('#backbutton button').click(function() {
-    alert("hiii")
+    //alert("hiii")
     //activate = true; // Activate tab functionality
     //tabLinks.eq(1).trigger('click'); // Trigger a click on the second tab link
   });
@@ -870,7 +1091,7 @@ $(function() {
 
 $(document).ready(function() {
 $('.thumbnail').click(function(){
-  alert("sdsjkhd")
+  //alert("sdsjkhd")
       $('.modal-body').empty();
     var title = $(this).parent('a').attr("title");
     $('.modal-title').html(title);

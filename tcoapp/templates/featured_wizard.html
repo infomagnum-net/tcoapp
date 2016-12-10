@@ -1,38 +1,32 @@
 {%load static%}
 {% block content%}  
 
-<script type="text/javascript">
-  $('.md-trigger').on('click',function(){
-
-arch_name = $(this).attr('id');
- //alert(arch_id)
- dataurl="/tco/ftrd_popup/"+arch_name+"/"
-var modal = $(this).data('modal');
-
-  $.ajax({
-             type: "GET",
-             url: dataurl,
-             success: function(msg){
-              sasa=$("#" + modal).html(msg)
-             }
-        });
-
- 
-  var modal = $(this).data('modal');
-  $("#" + modal).niftyModal();
-});
-</script>
-
-
-
 <style type="text/css">
 .actbtn{background-color: #2196f3;}
 </style>
  
  <!-- wizard  -->
+
+ <!-- <a class="p-10 bgm-blue" href="javascript:history.back()" style="float:left;color:#fff;border-radius:2px;"><b>&nbsp;&nbsp;&nbsp;<span class="tm-label">BACK</span>&nbsp;&nbsp;&nbsp;</b>
+  </a> -->
+
+
   <div class="stepwizard col-md-offset-3">
-    <div class="stepwizard-row setup-panel">
-    
+   
+
+      <!-- <div class=""> 
+        <a class="p-10 bgm-blue" href="javascript:history.back()" style="color:#fff;border-radius:2px;"><b> &nbsp;<span >BACK
+        </span>&nbsp;</b>
+        </a>
+      </div> -->
+
+ <div class="stepwizard-row setup-panel">
+
+     
+<!--         <a href="/tco/architecture/"> <<&nbsp;Prev </a>
+ -->        
+      
+      
       <div class="stepwizard-step">
         <a href="#step-1" type="button" class="btn btn-primary btn-circle actbtn" id="stp1">1</a>
         <p>Featured<br/>Architetctures</p>
@@ -49,6 +43,7 @@ var modal = $(this).data('modal');
       </div>
 
     </div>
+
   </div>
 
 
@@ -69,17 +64,17 @@ var modal = $(this).data('modal');
           <div id="get-img-src">
 
             <div class="pm-overview c-overflow" > 
-              <div class="pmo-block"  >
+              <div class="pmo-block">
                          
-                <h2 class="text-center">SELECTED ARCHITECTURE</h2>
-                 <br/><br/>
+                <h2 class="text-center p-t-15 f-18 ital">SELECTED ARCHITECTURE</h2>
+                 <br/>
 
-                <div class="card blog-post profile-view z-depth-1" id="main-arch-image">
+                <div class="card blog-post profile-view z-depth-1 " id="main-arch-image">
                   
                     <div class="bp-header featured-img" >
                        
 
-                        <img src="/../static/media/{{main_arch_json.architecture_img}}" alt="" style="background-color: #303030;">
+                        <img src="/../static/media/{{main_arch_json.architecture_img}}" alt="" style="">
 
                             <div class="pv-header">
                               
@@ -89,27 +84,27 @@ var modal = $(this).data('modal');
 
                         <div class="bp-title bgm-blue" style="height:200px;">
                             <h4 class="archname" style="color:#fff;">{{main_arch_json.architecture_name}}</h4>
-                            <br/>
+                           
                                    
-                            <p class="" style="font-size:20px;"><b>$</b> {{main_arch_json.total_plan_price}}</p>
+                            <p class="" style="font-size:18px;"><b>$</b> {{main_arch_json.total_plan_price}}</p>
                          
                                 
-                              <p class="pull-left" style="width:60px;" data-toggle="popover" data-placement="top" data-content="instance" title="instance" data-original-title="Instance">
+                              <p class="pull-left" style="width:90px;" data-toggle="popover" data-placement="top" data-content="instance" title="instance" data-original-title="Instance">
                                 <img src="{% static 'img/featured-arch/Instance.png'%}"
                                 style="width:20px"  alt="" > : <b> &nbsp;{{main_arch_json.rds_count}}</b>
                                 </p>
 
 
 
-                            <p class="pull-left" style="width:60px;" data-toggle="popover" data-placement="top" data-content="Database" title="Database" data-original-title="Database"><img src="{% static 'img/featured-arch/Database.png'%}"  alt="" style="width:20px"/><b>&nbsp;&nbsp;&nbsp;{{main_arch_json.rds_count}}</b>
+                            <p class="pull-left" style="width:90px;" data-toggle="popover" data-placement="top" data-content="Database" title="Database" data-original-title="Database"><img src="{% static 'img/featured-arch/Database.png'%}"  alt="" style="width:20px"/><b>&nbsp;&nbsp;&nbsp;{{main_arch_json.rds_count}}</b>
                             </p>
 
-                             <p class="pull-left" style="width:60px;" data-toggle="popover" data-placement="top" data-content="Storage" title="Storage" data-original-title="Storage">
+                             <p class="pull-left" style="width:90px;" data-toggle="popover" data-placement="top" data-content="Storage" title="Storage" data-original-title="Storage">
                                 <img src="{% static 'img/featured-arch/Storage.png'%}"  alt="" style="width:20px"> :
                                  <b>&nbsp;{{main_arch_json.rds_count}}</b>
                               </p>
 
-                              <p class="pull-left" style="width:60px;"
+                              <p class="pull-left" style="width:90px;"
                                   data-toggle="popover" data-placement="top" data-content="Load Balancer" title="Load Balancer" data-original-title="Load Balancer"
                                 >
 
@@ -128,12 +123,12 @@ var modal = $(this).data('modal');
      
 
                 </div>
-          <div class="p-10 p-b-30 bghov" >
+          <div class="p-t-0 p-l-5 p-r-5 bghov" >
 
-            <strong><a class="p-10 bgm-blue" href="/tco/architecture/" style="float:left;color:#fff;border-radius:5px;"><b>&nbsp;&nbsp;&nbsp;<span class="tm-label">BACK</span>&nbsp;&nbsp;&nbsp;</b>
+            <strong><a class="p-10 bgm-blue" href="/tco/architecture/" style="float:left;color:#fff;border-radius:2px;"><b>&nbsp;&nbsp;&nbsp;<span class="tm-label">BACK</span>&nbsp;&nbsp;&nbsp;</b>
             </a></strong>
-                               
-            <a class="nextBtn p-10 bgm-blue tm-label" id="id111" style="float:right;color:#fff;border-radius:5px;" data-type="inverse"  data-from="top" data-align="right" data-icon="fa fa-comments"><b>LAUNCH</b>
+                            
+            <a class="nextBtn p-10 tm-label btn btn-success" id="id111" style="float:right;color:#fff;border-radius:2px;" data-type="inverse"  data-from="top" data-align="right" data-icon="fa fa-comments"><b>&nbsp;LAUNCH&nbsp;</b>
             </a>
                 
           </div>
@@ -152,7 +147,7 @@ var modal = $(this).data('modal');
           <ul class="">
           </ul><br>
 
-          <h4 class="text-center">FEATURED ARCHITECTURES</h4>
+          <h4 class="text-center f-20 ital">FEATURED ARCHITECTURES</h4>
 
             <div class="pmb-block">
               <div class="pmbb-body" id="ftrd_img_clk_chng">
@@ -161,10 +156,10 @@ var modal = $(this).data('modal');
 
                 <div class="col-sm-4" >
                   
-                  <div class="card blog-post profile-view z-depth-1">
+                  <div class="card blog-post profile-view z-depth-1 scrollReveal sr-bottom sr-delay-1">
                     
                     <div class="bp-header">
-                        <img src="/../static/media/{{x.feature_img}}" alt="" style="background-color: #303030;" id="{{x.architecture_name}}" class ="ftrd-img" alt="">
+                        <img src="/../static/media/{{x.feature_img}}" alt="" id="{{x.architecture_name}}" class ="ftrd-img" alt="" data-toggle="modal" href="#modalDefault">
 
                           <div class="pv-header">
                               
@@ -172,163 +167,30 @@ var modal = $(this).data('modal');
 
                           </div> 
                               <a class="bp-title bgm-blue" style="height:60px;"> 
-                              <h2 style="font-color:white;font-size:16px;">{{x.architecture_name}}</h2><br/>
+                               <h2 style="font-color:white;font-size:16px;">{{x.architecture_name}}</h2><br/>
   
- <!--                        
-                            
-                             {% for ec2 in v.3.0 %}
-
-                                <p class="pull-left" style="width:60px;" data-toggle="popover" data-placement="top" data-content="instance" title="instance" data-original-title="Instance">
-                                <img src="{% static 'img/featured-arch/Instance.png'%}"
-                                style="width:20px"  alt="" > : <b> &nbsp;{{v.3.1}}</b>
-                                </p>
-
-                                {%endfor%}
-                                
-                                {%for rds in v.4.0 %}
-
-                                <p class="pull-left" style="width:60px;" data-toggle="popover" data-placement="top" data-content="Database" title="Database" data-original-title="Database"><img src="{% static 'img/featured-arch/Database.png'%}"  alt="" style="width:20px"> : <b> &nbsp;{{v.4.1}} </b></p>
-
-                                {%endfor%}
-
-                                {%for s3 in v.5.0 %}
-
-                                <p class="pull-left" style="width:60px;" data-toggle="popover" data-placement="top" data-content="Storage" title="Storage" data-original-title="Storage">
-                                <img src="{% static 'img/featured-arch/Storage.png'%}"  alt="" style="width:20px"> :
-                                 <b>&nbsp;{{v.5.1}}</b>
-                                </p>
-
-                                {%endfor%}
-
-
-                                {%for load in v.6.0 %}
-
-                                <p class="pull-left" style="width:60px;"
-                                  data-toggle="popover" data-placement="top" data-content="Load Balancer" title="Load Balancer" data-original-title="Load Balancer"
-                                >
-
-                                <img src="{% static 'img/featured-arch/Load_Balancer.png'%}"  alt="" style="width:20px">
-
-                                : <b>&nbsp;{{v.6.1}} </b>
-                                </p>
-
-                                {%endfor%}
-                               --> 
-                          </a>
+                              </a>
 
                    </div>
                             
-                    <div class="p-20 bgm-blue bghov">
+                    <div class="p-20 bgm-blue bghov idtest1">
                         
-                    <!-- <a class="" id="sa-params" style="color:#fff;">
+                   <a id="{{x.architecture_name}}" class="brd-2 arinfo" style="color:#fff;" ><b>&nbsp;INFO&nbsp;</b></a>
+
+                     <!-- <a class="md-trigger" data-modal="modal-15" id="{{x.architecture_name}}" style="color:#fff;">
                     <b>INFO</b>
-                    </a> |  -->
+                    </a> -->
 
-                     <a class="md-trigger" data-modal="modal-15" id="{{x.architecture_name}}" style="color:#fff;">
-                    <b>INFO</b>
-                    </a>
+                    <a class="pv-follow-btn" id="{{x.architecture_name}}" style="color:#fff;float:right;" data-type="inverse"  data-from="top" data-align="right" data-icon="fa fa-comments"><b>&nbsp;SELECT&nbsp;</b></a>
 
-                    <a class="pv-follow-btn" id="{{x.architecture_name}}" style="color:#fff;float:right;" data-type="inverse"  data-from="top" data-align="right" data-icon="fa fa-comments"><b>SELECT</b></a>
-
-                  <!--   <a class="md-trigger p-b-10" data-modal="modal-15" id="{{x.architecture_name}}" style="color:#fff;float:left;"><b>INFO </b></a>
-
-
-                       <a class="p-b-10" id="{{x.architecture_name}}" data-type="inverse"  data-from="top" data-align="right" data-icon="fa fa-comments" style="color:#fff;float:right;">
-                       <b>SELECT</b> -->
+                
                     
 
                     </div>
 
                 </div>
 
-                     <!--  <div class="card z-depth-1 card-border dash-widget-item" style="height:480px;" id="how">
-                     
-
-                      <div class="card-header ">
-
-                                <div class="dash-widget-title"><h4>{{v.0}}</h4></div>
-                               
-<img src="/../static/media/{{ v.2 }}" alt="" class="img-responsive thumbnail im" style="background-color:#303030;">
-                           
-
-
-                             
-                            </div>
-                            
-                            <div class="card-body">
-
-                                <ul class="tab-nav tn-justified tn-icon" role="tablist">
-                                    <li role="presentation" class="active">
-                                        <a class="col-sx-4" href="#tab-1{{k}}" aria-controls="tab-1" role="tab" data-toggle="tab" style="width:100%;">
-                                            <i class="zmdi zmdi-cloud-outline-alt zmdi-hc-fw"></i>
-                                        </a>
-                                    </li>
-                                    <li role="presentation">
-                                        <a class="col-xs-4" href="#tab-2{{k}}" aria-controls="tab-2" role="tab" data-toggle="tab">
-                                            <i class="zmdi zmdi-star icon-tab"></i>
-                                        </a>
-                                    </li>
-                                    <li role="presentation">
-                                        <a class="col-xs-4" href="#tab-3{{k}}" aria-controls="tab-3" role="tab" data-toggle="tab">
-                                            <i class="zmdi zmdi-money zmdi-hc-fw"></i>
-                                        </a>
-                                    </li>
-
-                                </ul>
-                                
-                                <div class="tab-content p-20">
-                                    
-                                    <div role="tabpanel" class="tab-pane animated fadeIn in active" id="tab-1{{k}}">
-                               <div>         
-                                 
-                </div>
-                                        <a>Please Click on Image to View Architecture</a><br/><br/>
-
-                                       <button class="btn bgm-lightblue" id="{{k}}" type="button" data-type="inverse"  data-from="top" data-align="right" data-icon="fa fa-comments" style="display: block;margin: auto;">select</button>
-                                    </div>
-                                    
-                                    <div role="tabpanel" class="tab-pane animated fadeIn" id="tab-2{{k}}" style="overflow-y:scroll;    height: 200px;>
-">
-                                      
-                                        {% for ec2 in v.3.0 %}
-
-                                        <p><b><img src="{% static 'img/featured-arch/Instance.png'%}" 
-                                        style="width:20px"  alt=""></b>&nbsp;&nbsp;{{ec2}} &nbsp;&nbsp; {{v.3.1}}</p>
-
-                                        {%endfor%}
-                                        
-                                        {%for rds in v.4.0 %}
-                                        <p><b><img src="{% static 'img/featured-arch/Database.png'%}"  alt="" style="width:20px"></b>&nbsp;&nbsp;{{rds}}&nbsp;&nbsp; {{v.4.1}} </p>
-                                        {%endfor%}
-
-
-
-                                        {%for s3 in v.5.0 %}
-
-                                        
-                                        
-                                        <p><b><img src="{% static 'img/featured-arch/Storage.png'%}"  alt="" style="width:20px"></b>&nbsp;&nbsp;{{s3}} &nbsp;&nbsp;{{v.5.1}}</p>
-                                        {%endfor%}
-
-                                        {%for load in v.6.0 %}
-
-                                        <p><b><img src="{% static 'img/featured-arch/Load_Balancer.png'%}"  alt="" style="width:20px"></b>&nbsp;&nbsp;{{load}}&nbsp;&nbsp;{{v.6.1}} </p>
-                                           {%endfor%}
-
-                                    </div>
-
-                                      <div role="tabpanel" class="tab-pane animated fadeIn" id="tab-3{{k}}">
-                                        <h4 style="color:#2196f3;">Price: </h4>
-
-                                        <h5>{{v.1}}&nbsp;USD/Month</h5>
-                                          
-                                        <img src="{% static 'img/featured-arch/coins.png'%}" style="width:85px;display:block;margin:auto;" alt="">
-
-                                  </div>
-                                </div>
-                            </div>
-
-                        </div>  -->
+                   
  
 
 </div>
@@ -347,7 +209,7 @@ var modal = $(this).data('modal');
                   <div class="card blog-post profile-view z-depth-1">
                     
                     <div class="bp-header">
-                        <img src="/../static/media/{{ main_arch_json.architecture_img }}" alt="" style="background-color: #303030;" alt="" class ="ftrd-img" id="{{main_arch_json.architecture_name}}">
+                        <img src="/../static/media/{{ main_arch_json.architecture_img }}" alt=""  alt="" class ="ftrd-img" id="{{main_arch_json.architecture_name}}">
 
                           <div class="pv-header">
                               
@@ -403,10 +265,12 @@ var modal = $(this).data('modal');
                     </div>
                             
                     <div class="p-20 bgm-blue bghov">
-                        
-                    <a class="md-trigger" data-modal="modal-15" id="{{main_arch_json.architecture_name}}" style="color:#fff;">
+                    
+                    <a id="{{i.architecture_name}}" data-toggle="modal" href="#modalDefault" class="brd-2 arinfo" style="color:#fff;" ><b>&nbsp;INFO&nbsp;</b></a>
+
+                    <!-- <a class="md-trigger" data-modal="modal-15" id="{{main_arch_json.architecture_name}}" style="color:#fff;">
                     <b>INFO</b>
-                    </a>
+                    </a> -->
 
                     <a class="pv-follow-btn" 
                     id="{{main_arch_json.architecture_name}}" style="color:#fff;float:right;" data-type="inverse"  data-from="top" data-align="right" data-icon="fa fa-comments"><b>SELECT</b></a>
@@ -471,6 +335,96 @@ var modal = $(this).data('modal');
 
 <!-- Model -->
 
+ <div class="modal fade" id="modalDefault" tabindex="-1" role="dialog" aria-hidden="true">
+ <div class="modal-dialog modal-lg">
+                                    <div class="modal-content">
+                                        <div class="modal-header bgm-blue">
+                                            <h4 class="modal-title c-white f-200"> New Architecture Name</h4>
+                                        </div>
+                                        <div class="modal-body">
+                                          <div class="col-md-12">
+                                        
+                                           <div class="col-md-6 p-l-0">
+                                             <img  src="{% static 'media/architectures/Arch3.png' %}" width="300px;" height="300px;"   class="nextBtn btn-lg " data-type="inverse"  data-from="top" data-align="right" data-icon="fa fa-comments"/>
+                                           </div>
+
+                                            <div class="col-md-6">
+                                              <p></p>
+                                                        <ul>
+
+            <li style="list-style:none;"><strong><img src="{% static 'img/featured-arch/Instance_color.png' %}" style="height:20px;width:20px;">&nbsp;&nbsp;(Instance) &nbsp;:</strong> &nbsp;
+              <ul class="list-inst">
+                {%for instance in plan_info.instance_name %}
+                  <li>
+                    {{instance.0}}.
+                   </li>
+                  {%endfor%}
+                </ul>
+            </li>
+            
+
+            <li style="list-style:none;"><strong><img src="{% static 'img/featured-arch/Database_color.png' %}" style="height:20px;width:20px;">&nbsp;&nbsp;(Database) &nbsp;:</strong> &nbsp;
+                  <ul class="list-inst">
+                {%for instance in plan_info.rds_name %}
+                  <li>
+                    {{instance.0}}.
+                 </li>
+                  {%endfor%}
+                </ul>
+            </li>
+
+
+          
+
+
+            <li style="list-style:none;"><img src="{% static 'img/featured-arch/Storage_color.png' %}" style="height:20px;width:20px;"><strong>&nbsp;&nbsp;(Storage) &nbsp;:</strong>&nbsp; 
+              <ul class="list-inst">
+                {%for instance in plan_info.s3_name %}
+                  <li>
+                    {{instance.0}}.
+                 </li>
+                  {%endfor%}
+                </ul>
+
+              </li>
+
+            <li style="list-style:none;"><img src="{% static 'img/featured-arch/LoadBalancer_color.png' %}" style="height:20px;width:20px;"><strong>&nbsp;&nbsp;(Load_Balancer)&nbsp; :</strong>
+              <ul class="list-inst">
+                {%for instance in plan_info.balancer_name %}
+                  <li>
+                    {{instance.0}}.
+                 </li>
+                 {%endfor%}
+                </ul> 
+               
+              </li>
+
+
+            <li style="list-style:none;"><img src="{% static 'img/featured-arch/Description_color.png' %}" style="height:20px;width:20px;"><strong>&nbsp;(Description)&nbsp; :</strong> click on the button below modal.</li>
+
+          </ul>
+                                            </div>
+                                          </div>
+                                        </div>
+
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-link" data-dismiss="modal">Close</button>
+                                        </div>
+                                    </div>
+                                </div>
+         </div>
+
+
+
+
+
+
+
+
+
+
+
+
 
 <div class="md-container md-effect-15" id="modal-15">
       <div class="md-content">
@@ -507,7 +461,34 @@ var modal = $(this).data('modal');
 
 <!-- End model -->
 
+
+
+
  
+
+
+<script type="text/javascript">
+  $('.md-trigger').on('click',function(){
+
+arch_name = $(this).attr('id');
+ //alert(arch_id)
+ dataurl="/tco/ftrd_popup/"+arch_name+"/"
+var modal = $(this).data('modal');
+
+  $.ajax({
+             type: "GET",
+             url: dataurl,
+             success: function(msg){
+              sasa=$("#" + modal).html(msg)
+             }
+        });
+
+ 
+  var modal = $(this).data('modal');
+  $("#" + modal).niftyModal();
+});
+</script>
+
 
 
 <script type="text/javascript">
@@ -705,10 +686,12 @@ $('.thumbnail').click(function(){
 
             //Custom Image
             $('#sa-image').click(function(){
+                var img_name = $(this).attr('id');
+                alert(img_name);
                 swal({   
                     title: "Sweet!",   
                     text: "Here's a custom image.",   
-                    imageUrl: "img/thumbs-up.png" 
+                    imageUrl: "{% static 'media/architectures/Arch2.png' %}" 
                 });
             });
 
