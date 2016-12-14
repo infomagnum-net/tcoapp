@@ -1,0 +1,104 @@
+{%extends "stepbase.html"%}
+{%load static%}
+{% block content%}
+
+    <div class="chapter" id="getting-started-create-bucket"><div class="titlepage"><div><div><h1 class="topictitle">Step 1: Create the Buckets for Your
+    Website</h1></div></div></div><p>You can use Amazon Simple Storage Service (Amazon S3) to store all the content that makes up your static website,
+    including HTML pages, images, CSS files, videos, and JavaScript files. Each file is stored
+    in Amazon S3 as an <span class="emphasis"><em>object</em></span> in a location called a
+    <span class="emphasis"><em>bucket</em></span>.</p><p>In this tutorial, you do the following:</p><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem"><p>Create the buckets for your website</p></li><li class="listitem"><p>Configure your buckets</p></li><li class="listitem"><p>Deploy your website</p></li><li class="listitem"><p>Clean up</p></li></ul></div><p>If you plan to associate a domain name with your website, you perform the following
+    additional tasks, which are optional for this tutorial:</p><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem"><p>Register your domain name</p></li><li class="listitem"><p>Associate a domain name with your website</p></li><li class="listitem"><p>Speed up your website</p></li></ul></div><div class="aws-note"><p class="aws-note" style="font-weight: bold !important;">Important</p><p>If you plan to use a domain name for your website, make sure the domain name you want is
+      available before you create your buckets in Amazon S3, because Amazon S3 requires that your bucket
+      name be the same as your domain name. For example, if you want to use the
+        <em class="replaceable"><code>example.com</code></em> domain name then your Amazon S3 bucket must be
+      named <em class="replaceable"><code>example.com</code></em>.</p></div><div class="highlights"><p><strong>Contents</strong></p>
+
+
+      <ul>
+      <li><a href="#bucket-requirements">Bucket Requirements</a></li>
+
+      <li><a href="#website-urls">Buckets and Website URLs</a></li>
+
+      <li><a href="#create-bucket">Creating the Buckets</a></li>
+      </ul>
+
+      </div><div class="section"><div class="titlepage"><div><div><h2 class="title" style="clear: both" id="bucket-requirements">Bucket Requirements</h2></div></div></div><p>Amazon S3 requires that you give your bucket the same name as your domain. This requirement is
+      so that Amazon S3 can properly resolve the host headers sent by web browsers when a user
+      requests content from your website. Therefore, we recommend that you create your buckets
+      for your website in Amazon S3 before you pay to register your domain name. (If the domain
+      name that you want to use is not available to register, you'll have to delete your
+      bucket and create a new one, because you can't change the name of your bucket after you
+      create it.) In this tutorial, we use the root domain bucket.</p><p>In addition to creating the <code class="filename">example.com</code>
+      <span class="italic">root domain</span> bucket, you will create the
+        <code class="filename">logs.example.com</code> bucket and
+        <code class="filename">www.example.com</code> subdomain bucket. Be sure to create these
+      buckets in the same AWS region where you created the <code class="filename">example.com</code>
+      bucket. Amazon S3 stores log information about traffic to your website in the
+        <code class="filename">logs.example.com</code> bucket. You'll set up the
+        <code class="filename">www.example.com</code> bucket so that you can redirect traffic to the
+      root domain bucket if a user specifies the <code class="code">www</code> subdomain.</p><p>
+
+        <img src="{% static 'img/host_steps/StaticWebsiteHost.png' %}" class="img-responsive">
+
+      </p></div><div class="section"><div class="titlepage"><div><div><h2 class="title" style="clear: both" id="website-urls">Buckets and Website URLs</h2></div></div></div><p>When you host a website on Amazon S3, AWS assigns it a URL based on the name of the bucket
+      that you create to store the website files and the region where you created the bucket.
+      For example, if you create the bucket <em class="replaceable"><code>example.com</code></em> in the
+      US East (N. Virginia) region, the default URL for your website is as follows:
+
+
+
+
+      </p><pre class="programlisting"><code class="nohighlight">http://<em class="replaceable"><code class=""><span class="">example</span><span class="">.com</span></code></em>.s3-website-us-east-1.amazonaws.com/</code></pre><p>
+
+
+
+
+
+      If this URL is acceptable for your purposes, such as creating a prototype website for a client to
+        review, you can simply use the default URL and skip the steps in this tutorial that are
+        related to registering a custom domain name and associating it with your website.</p></div><div class="section"><div class="titlepage"><div><div><h2 class="title" style="clear: both" id="create-bucket">Creating the Buckets</h2></div></div></div><p>To create the buckets for your website, use Amazon S3 to complete the following procedure. Note
+      that you must replace <em class="replaceable"><code>example.com</code></em> with the name of your
+      domain.</p><div class="procedure"><a name="d0e613"></a><p class="title"><b>To create the buckets for your website</b></p>
+      <ol class="procedure" type="1">
+      <li class="step"><p>Open the Amazon S3 console 
+        .</p></li><li class="step"><p>Choose <span class="guilabel">Create Bucket</span> to open the <span class="guilabel">Create
+            Bucket</span> dialog box.</p></li><li class="step"><p>In the <span class="guilabel">Create a Bucket</span> dialog box, do the
+          following:</p><ol type="a" class="substeps"><li class="step"><p>For <span class="guilabel">Bucket Name</span>, type a name for the bucket.
+              Later in this tutorial, you'll upload the files for your website into
+              this bucket (that is, the bucket for the root domain).</p><div class="aws-note"><p class="aws-note">Important</p><p>You must use the same name that you intend to use for your domain.
+                This name must also be unique across all existing bucket names in
+                Amazon S3. In some AWS regions, there might be additional restrictions on
+                bucket names. For more information, see <!-- <a class="ulink" href="http://docs.aws.amazon.com/AmazonS3/latest/dev/index.html?BucketRestrictions.html" target="_blank"> -->Bucket
+                  Restrictions and Limitations</a> in the
+                  <span class="emphasis"><em>Amazon Simple Storage Service Developer Guide</em></span>.</p></div></li><li class="step"><p>For <span class="guilabel">Region</span>, choose a region. By default, Amazon S3
+              creates buckets in the US Standard region. To reduce latency, minimize
+              costs, or address regulatory requirements, you can choose a region that
+              is closer to the users for your website. Objects that you store in a
+              region never leave that region unless you explicitly transfer them to
+              another region.</p></li><li class="step"><p>Choose <span class="guilabel">Create</span>.</p></li></ol><p>
+
+
+
+          <img src="{% static 'img/host_steps/StaticWebsiteHosting_Create.png' %}" class="img-responsive">
+
+
+
+        </p></li><li class="step"><p>After Amazon S3 creates your bucket, the console displays it in the
+            <span class="guilabel">Buckets</span> pane, similar to the following.</p><p>
+
+          <img src="{% static 'img/host_steps/StaticWebsiteHosting_Create1.png' %}" class="img-responsive">
+
+
+        </p></li><li class="step"><p>Repeat step 3 to create two additional subdomain buckets,
+              <code class="code">logs.<em class="replaceable"><code>example.com</code></em></code> (for the log
+          files) and <code class="code">www.<em class="replaceable"><code>example.com</code></em></code> (for the
+            <code class="code">www</code> subdomain). When you are finished, the console displays all
+          three buckets, which should look similar to the following.</p><p>
+         
+
+          <img src="{% static 'img/host_steps/StaticWebsiteHosting_Create3.png' %}" class="img-responsive" >
+        </p></li></ol></div></div></div>
+
+
+
+       {%endblock%}

@@ -12,9 +12,6 @@ urlpatterns = [
     url(r'^profile/$', views.Profile, name="Profile"),
     url(r'^editprofile/$', views.edit, name="edit"),
     url(r'^help/$', views.help, name="help"),
-    url(r'^plan/$', views.plan, name="plan"),
-    url(r'^testpy/$', views.testpy, name="testpy"),
-    url(r'^chat/$', views.bot, name="bot"),
     url(r'^warning/$', views.warning, name="warning"),
     url(r'^simple/$', views.simple_upload, name='simple_upload'),
     url(r'^dashboard/$', views.dashboard, name='dashboard'),
@@ -30,5 +27,21 @@ urlpatterns = [
     url(r'^payment/(?P<name>[A-Za-z0-9\w@%._ -]+)/$', views.PayementPlans, name='PayementPlans'),
     url(r'^ftrd_popup/(?P<name>[A-Za-z0-9\w@%._ -]+)/$', views.Featured_model_popup, name='Featured_model_popup'),
     url(r'^chat-store/$', views.chat_conversation, name='chat_conversation'),
+    url(r'^app_popup/$', views.app_popup, name="app_popup"),
+    url(r'^ftrd_popup/(?P<name>[A-Za-z0-9\w@%._ -]+)/$', views.Featured_model_popup, name='Featured_model_popup'),
+    url(r'^check/$', views.check, name="check"),
+
+
+
+    url(r'^host_step1/$', views.host_step1, name='host_step1'),
+    url(r'^host_step2/$', views.host_step2, name='host_step2'),
+    url(r'^host_step3/$', views.host_step3, name='host_step3'),
+    url(r'^host_step4/$', views.host_step4, name='host_step4'),
+    url(r'^host_step5/$', views.host_step5, name='host_step5'),
+    url(r'^host_step6/$', views.host_step6, name='host_step6'),
+    url(r'^host_step7/$', views.host_step7, name='host_step7'),   
+    url(r'^step7_53host/$', views.step7_53host, name='step7_53host'),   
+    url(r'^step7_cleanup_cloudfront/$', views.step7_cleanup_cloudfront, name='step7_cleanup_cloudfront'),
+    url(r'^step7_cleanup_s3/$', views.step7_cleanup_s3, name='step7_cleanup_s3'),
 
 ]

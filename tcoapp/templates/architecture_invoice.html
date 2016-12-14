@@ -3,7 +3,36 @@
 {% block content%}
 
 <style>
+.stepwizard:before {
+     top: 45px;
+    bottom: 0;
+    position: absolute;
+    content: " ";
+    width: 19%;
+    height: 2px;
+    background-color: #2196f3;
+    z-order: 0;
+}
 
+.stepwizard-step button[disabled] {
+    opacity: 1 !important;
+    filter: alpha(opacity=100) !important;
+}
+
+.stepwizard-row:before.clicked {
+    width: 50%;
+}
+
+.stepwizard-row:before {
+    top: 45px;
+    bottom: 0;
+    position: absolute;
+    content: " ";
+    width: 100%;
+    height: 2px;
+    background-color: #2196f3;
+    z-order: 0;
+}
 .bgm-blue1{background-color: #64B5F6;}
 .bgm-blue2{background-color: #42A5F5;}
 .bgm-blue3{background-color: #2196F3;}
@@ -30,17 +59,17 @@
       
       
       <div class="stepwizard-step">
-        <a href="#step-1" type="button" class="btn btn-primary btn-circle actbtn" id="stp1">1</a>
+        <a href="#step-1" type="button" class="btn btn-primary btn-circle actbtn" >1</a>
         <p>Featured<br/>Architetctures</p>
       </div>
 
       <div class="stepwizard-step">
-        <a href="#step-2" type="button" class="btn btn-default btn-circle actbtn" disabled="disabled" id="stp2">2</a>
+        <a href="#step-2" type="button" class="btn btn-primary btn-circle actbtn" >2</a>
         <p>Payment Plans</p>
       </div>
 
       <div class="stepwizard-step">
-        <a href="#step-3" type="button" class="btn btn-default btn-circle actbtn" disabled="disabled" id="stp3">3</a>
+        <a href="#step-3" type="button" class="btn btn-primary btn-circle actbtn" >3</a>
         <p>Invoice Page</p>
       </div>
 
@@ -65,11 +94,11 @@
             
                 <div class="col-xs-6">
                     <div class="text-right">
-                        <p class="c-gray">Invoice from</p>
+                        <p class="c-gray f-14">Invoice from</p>
                         
                         <h4>Cloud-TCO</h4>
                         
-                        <span class="text-muted">
+                        <span class="text-muted f-14">
                             <address>
                                 Madhapur 
                                 Hightech City, Hyderabade<br>
@@ -82,9 +111,9 @@
                     </div>
                 </div>
                                 
-                <div class="col-xs-6">
+                <div class="col-xs-6 f-14">
                     <div class="i-to">
-                        <p class="c-gray">Invoice to</p>
+                        <p class="c-gray f-14">Invoice to</p>
                         
                         <h4>{{request.user.username}}</h4>
                         
@@ -144,19 +173,19 @@
 
         <table class="table i-table m-t-25" style="max-width:65%;margin:auto;">
 
-            <thead class="text-uppercase">
+            <thead class="text-uppercase f-14">
                 <th class="c-blue">ARCHITECTURE DESCRIPTION</th>
                 
                 <th class="c-blue ">Price Per Unit</th>
                 <th class="c-blue ">Qty</th>
-                <th class="c-blue text-center">PRICE</th>
+                <th class="c-blue text-center p-l-30">PRICE</th>
             </thead>
                                 
             <tbody>
                 <thead>
                     <tr>
                         <td width="">
-                            <h5 class="text-uppercase f-400">Amazon EC2 Service</h5>   
+                            <h5 class="text-uppercase f-400 f-14">Amazon EC2 Service</h5>   
                         </td>
                         <td></td>
                         <td></td>
@@ -166,7 +195,7 @@
                     <tr>
                         <td>                                             
                             <ul>
-                            <h5 class="text-muted"><img src="{% static 'img/featured-arch/Instance_color.png' %}" />
+                            <h5 class="text-muted f-14"><img src="{% static 'img/featured-arch/Instance_color.png' %}" />
                                 
                                     {%for name in plan_info.instance_name%}
                                     <li style="list-style:none; display:inline;">
@@ -184,7 +213,7 @@
                     {%endif%}
                     <tr>
                         <td>
-                            <h5 class="text-uppercase f-400">Amazon RDS Service</h5>  
+                            <h5 class="text-uppercase f-400 f-14">Amazon RDS Service</h5>  
                         </td>
                         <td></td>
                         <td></td>
@@ -195,7 +224,7 @@
                     <tr>
                         <td>
                         <ul>
-                            <h5 class="text-muted"><img src="{% static 'img/featured-arch/Database_color.png' %}" />
+                            <h5 class="text-muted f-14"><img src="{% static 'img/featured-arch/Database_color.png' %}" />
                                 
                                     {%for name in plan_info.rds_name%}
                                     <li style="list-style:none; display:inline;">
@@ -214,7 +243,7 @@
 
                     <tr>
                         <td>
-                            <h5 class="text-uppercase f-400">AWS S3 Storage Service</h5>
+                            <h5 class="text-uppercase f-400 f-14">AWS S3 Storage Service</h5>
                         </td>
                         <td></td>
                         <td></td>
@@ -223,22 +252,22 @@
                     {%if plan_info.s3_name%}
                     <tr>
                         <td>
-                         <ul>
-                            <!-- <h5 class="text-muted"><img src="{% static 'img/featured-arch/Storage_color.png' %}" /> -->
-                               
+                        
+                            
+                                <h5 class="text-muted f-14">
                                    
-                                    <ol>
+                                    <ul>
                                      {%for name in plan_info.s3_name%}
-                                    <li>
-                                        &nbsp;{{name.0}}
+
+                                    <li class="p-b-10" style="list-style:none;">
+                                        <img src="{% static 'img/featured-arch/Storage_color.png' %}" />&nbsp;{{name.0}}
                                     </li>
                                     {%endfor%}
-                                    </ol>
-                                    
+                                    </ul>
+                                  </h5>  
                                
 
-                               </h5> 
-                                </ul>
+                               
                         </td>
                         <td>${{s3_unit_price}}</td>
                         <td>{{plan_info.s3_count}}</td>
@@ -248,7 +277,7 @@
 
                     <tr>
                         <td>
-                            <h5 class="text-uppercase f-400">AWS Load Balancer Service</h5>                            
+                            <h5 class="text-uppercase f-400 f-14">AWS Load Balancer Service</h5>                            
                         </td>
                         <td></td>
                         <td></td>
@@ -260,7 +289,7 @@
 
                         <td>
                          <ul>
-                            <h5 class="text-muted"><img src="{% static 'img/featured-arch/LoadBalancer_color.png' %}" />
+                            <h5 class="text-muted f-14"><img src="{% static 'img/featured-arch/LoadBalancer_color.png' %}" />
                                 
                                
                                     {%for name in plan_info.balancer_name%}
@@ -284,7 +313,7 @@
                     <tr>
                         {%endif%}
                         <td>
-                            <h5 class="text-muted" style="font-weight:bold">Total {{payment_type}} Payment:</h5> 
+                            <h5 class="text-muted f-14" style="font-weight:bold">Total {{payment_type}} Payment:</h5> 
                         </td>
                         <td></td>
                         <td></td>
@@ -414,33 +443,16 @@
                 swal("Here's a message!");
             });
 
-            //A title with a text under
-            // $('#sa-title').click(function(){
-            //     swal("Here's a message!", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed lorem erat, tincidunt vitae ipsum et, pellentesque maximus enim. Mauris eleifend ex semper, lobortis purus sed, pharetra felis")
-            // });
-
-            //Success Message
-            // $('#sa-success').click(function(){
-            //     swal("Good job!", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed lorem erat, tincidunt vitae ipsum et, pellentesque maximus enim. Mauris eleifend ex semper, lobortis purus sed, pharetra felis", "success")
-            // });
-
-            //Warning Message
-            // $('#sa-warning').click(function(){
-            //     swal({   
-            //         title: "Are you sure?",   
-            //         text: "You will not be able to recover this imaginary file!",   
-            //         type: "warning",   
-            //         showCancelButton: true,   
-            //         confirmButtonColor: "#DD6B55",   
-            //         confirmButtonText: "Yes, delete it!",   
-            //         closeOnConfirm: false 
-            //     }, function(){   
-            //         swal("Deleted!", "Your imaginary file has been deleted.", "success"); 
-            //     });
-            // });
+      
             
             //Parameter
-            $('#sa-params').click(function(){
+            $("#sa-params").click(function(){
+
+                          if($('#paymnts-term').not(':checked').length){
+                                 $("#paymnts-term-error-msg p").html("You must agree with the terms and conditions")
+                              }else{
+
+                                 
                 swal({   
                     title: "Are you sure?",   
                     text: "You will able to make a payment !",   
@@ -453,31 +465,19 @@
                     closeOnCancel: false 
                 }, function(isConfirm){   
                     if (isConfirm) {     
-                        swal("Payment Successfull!", "Your imaginary file has been deleted.", "success");   
+                        swal("Payment Successfull!", "Your payment success:)", "success");
+                        window.location.href = '/tco/dashboard/';   
                     } else {     
-                        swal("Cancelled", "Your imaginary file is safe :)", "error");   
+                        swal("Cancelled", "Payment Not Completed ", "error");   
                     } 
                 });
-            });
+            
+                              } 
 
-            //Custom Image
-            // $('#sa-image').click(function(){
-            //     swal({   
-            //         title: "Sweet!",   
-            //         text: "Here's a custom image.",   
-            //         imageUrl: "img/thumbs-up.png" 
-            //     });
-            // });
+                          });
 
-            //Auto Close Timer
-            // $('#sa-close').click(function(){
-            //      swal({   
-            //         title: "Auto close alert!",   
-            //         text: "I will close in 2 seconds.",   
-            //         timer: 2000,   
-            //         showConfirmButton: false 
-            //     });
-            // });
+
+          
 
         </script>
 

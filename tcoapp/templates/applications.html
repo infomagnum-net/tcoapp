@@ -1,120 +1,6 @@
 {% extends "base.html" %}
 {%load static%}
 {% block content%}
-<style>
-/* carousel */
-#quote-carousel 
-{
-  padding: 0 10px 30px 10px;
-  margin-top: 30px 0px 0px;
-}
-
-/* Control buttons  */
-#quote-carousel .carousel-control
-{
-  background: none;
-  color: rgba(113, 94, 94, 0.41);
-  font-size: 2.3em;
-  text-shadow: none;
-  margin-top: 76px;
-}
-/* Previous button  */
-#quote-carousel .carousel-control.left 
-{
- 
-}
-/* Next button  */
-#quote-carousel .carousel-control.right 
-{
-}
-/* Changes the position of the indicators */
-#quote-carousel .carousel-indicators 
-{
- /* right: 50%;
-  top: auto;
-  bottom: 0px;
-  margin-right: -19px;*/
-}
-/* Changes the color of the indicators */
-#quote-carousel .carousel-indicators li 
-{
-  background: #c0c0c0;
-}
-#quote-carousel .carousel-indicators .active 
-{
-  background: #333333;
-}
-#quote-carousel img
-{
- 
-}
-/* End carousel */
-
-.item blockquote {
-    border-left: none; 
-    margin: 0;
-}
-
-.item blockquote img {
-    margin-bottom: 10px;
-}
-
-.item blockquote p:before {
-    content: "\f10d";
-    font-family: 'Fontawesome';
-    float: left;
-    margin-right: 10px;
-}
-.carousel-inner{
-    
-  }
-
-
-/**
-  MEDIA QUERIES
-*/
-
-/* Small devices (tablets, 768px and up) */
-@media (min-width: 768px) { 
-    #quote-carousel 
-    {
-      margin-bottom: 0;
-      padding: 0 40px 30px 40px;
-      margin-top: 30px;
-    }
-    
-}
-
-/* Small devices (tablets, up to 768px) */
-@media (max-width: 768px) { 
-    
-    /* Make the indicators larger for easier clicking with fingers/thumb on mobile */
-    
-    #quote-carousel .carousel-indicators {
-        bottom: -20px !important;  
-    }
-    #quote-carousel .carousel-indicators li {
-        display: inline-block;
-        margin: 0px 5px;
-        width: 15px;
-        height: 15px;
-    }
-    #quote-carousel .carousel-indicators li.active {
-        margin: 0px 5px;
-        width: 20px;
-        height: 20px;
-    }
-}
-</style>
-<script>
-$(document).ready(function() {
-  //Set the carousel options
-  $('#quote-carousel').carousel({
-    pauseOnHover: true,
-    interval: 1000,
-  });
-    });
-</script>
 
       <div class="" id="main-container">  
         <div class="" id="profile-main" style="background-color:#f8f8f8;">
@@ -145,13 +31,13 @@ $(document).ready(function() {
      <div class="col-md-12">
       {% for i in app %}
       
-      <div class="col-md-3" style="padding:20px; height:250px;width:230px;">
+      <div class="col-md-3 scrollReveal sr-bottom sr-delay-1" style="padding:20px; height:250px;width:230px;">
     
-        <div class="card blog-post profile-view z-depth-1">
+        <div class="card blog-post profile-view z-depth-1 appmodel">
                   
           <div class="bp-header">
             
-            <img id="{{ i.id }}" src="/../static/media/{{ i.architecture_img }}"  alt="" id="info-popup">
+            <img id="{{ i.id }}" src="/../static/media/{{ i.architecture_img }}" data-toggle="modal" href="#modalDefault" id="{{i.architecture_name}}"  alt="" class="info-popup">
 
               <div class="pv-header">
              <!--  <img src="{% static 'img/applications/wordpress.jpg' %}" class="pv-main" alt=""> -->
@@ -162,9 +48,9 @@ $(document).ready(function() {
               <h2 class="c-white f-16">{{i.architecture_name}}</h2><br/>
                <br/>
 
-             <a id="{{i.architecture_name}}" data-toggle="modal" href="#modalDefault" class="brd-2" style="color:#fff;" ><b>&nbsp;INFO&nbsp;</b></a>
+             <a id="{{i.architecture_name}}" data-toggle="modal" href="#modalDefault" class="brd-2 f-14" style="color:#fff;" ><b>&nbsp;INFO&nbsp;</b></a>
 
-              <a href="/tco/ftrd-for-arch/{{ i.id }}/" class="pv-follow-btn" id="{{ i.id }}" style="color:#fff;float:right;">
+              <a href="/tco/ftrd-for-arch/{{ i.id }}/" class="pv-follow-btn f-14" id="{{ i.id }}" style="color:#fff;float:right;">
               <b>&nbsp;SELECT&nbsp;</b>
             </a>
 
@@ -197,64 +83,86 @@ $(document).ready(function() {
 
 
 
-<div class="modal fade" id="modalDefault" tabindex="-1" role="dialog" aria-hidden="true">
-                                <div class="modal-dialog modal-lg">
-                                    <div class="modal-content">
-                                        <div class="modal-header bgm-blue">
-                                            <h4 class="modal-title c-white f-200"> New Architecture Name</h4>
-                                        </div>
-                                        <div class="modal-body">
-                                          <div class="col-md-12">
-                                        
-                                           <div class="col-md-6 p-l-0">
-                                             <img  src="{% static 'media/architectures/Arch3.png' %}" width="300px;" height="300px;"   class="nextBtn btn-lg " data-type="inverse"  data-from="top" data-align="right" data-icon="fa fa-comments"/>
-                                           </div>
+ <div class="modal fade" id="modalDefault" tabindex="-1" role="dialog" aria-hidden="true">
 
-                                            <div class="col-md-6">
-                                              <p></p>
-                                                        <ul>
+                 <div class="modal-dialog modal-lg">
+          <div class="modal-content">
+              <div class="modal-header bgm-yell">
+                  <h4 class="modal-title c-white f-20 text-center"> Architecture Name
+                  <a class="btn btn-link f-400 c-white p-t-0" data-dismiss="modal" style="float:right;font-size:22px">X</a></h4> 
+                  
+                   
+              </div>
+                                     
 
-            <li style="list-style:none;"><strong><img src="{% static 'img/featured-arch/Instance_color.png' %}" style="height:20px;width:20px;">&nbsp;&nbsp;(Instance) &nbsp;:</strong> &nbsp;
-              <ul class="list-inst">
+            <div class="modal-body p-0">
+             
+              
+                <div class="p-0">
+                  <img  src="{% static 'media/architectures/2016-12-06_3.png' %}" style="display:block;margin:auto;" width="520px;" height="350px;"   class="nextBtn btn-lg " data-type="inverse"  data-from="top" data-align="right" data-icon="fa fa-comments"/>
+                </div>
+
+                 <div class="bgm-blue c-white">
+                 <p class="p-l-15 p-5">Description about this Architecture will be displayed here</p></div>
+
+            <div class="col-md-12">
+                         <div class="col-md-6 p-l-0 p-r-5">
+                            <ul class="p-l-5">
+
+            <li class="list-inst" style="list-style:none;"><strong><img src="{% static 'img/featured-arch/Instance_color.png' %}" style="height:20px;width:20px;">&nbsp;&nbsp;(Instance) &nbsp;:</strong> &nbsp;
+              <ul class="">
+                  <li>
+                    ---
+                   </li>
                 {%for instance in plan_info.instance_name %}
                   <li>
-                    {{instance.0}}.
+                    {{instance.0}}
                    </li>
                   {%endfor%}
                 </ul>
             </li>
             
-
-            <li style="list-style:none;"><strong><img src="{% static 'img/featured-arch/Database_color.png' %}" style="height:20px;width:20px;">&nbsp;&nbsp;(Database) &nbsp;:</strong> &nbsp;
-                  <ul class="list-inst">
-                {%for instance in plan_info.rds_name %}
-                  <li>
-                    {{instance.0}}.
-                 </li>
-                  {%endfor%}
-                </ul>
-            </li>
-
-
-          
-
-
-            <li style="list-style:none;"><img src="{% static 'img/featured-arch/Storage_color.png' %}" style="height:20px;width:20px;"><strong>&nbsp;&nbsp;(Storage) &nbsp;:</strong>&nbsp; 
-              <ul class="list-inst">
+ <li class="list-inst" style="list-style:none;"><img src="{% static 'img/featured-arch/Storage_color.png' %}" style="height:20px;width:20px;"><strong>&nbsp;&nbsp;(Storage) &nbsp;:</strong>&nbsp; 
+              <ul class="">
+              <li>
+                    ---
+                   </li>
                 {%for instance in plan_info.s3_name %}
                   <li>
-                    {{instance.0}}.
+                    {{instance.0}}
                  </li>
                   {%endfor%}
                 </ul>
 
               </li>
+           
 
-            <li style="list-style:none;"><img src="{% static 'img/featured-arch/LoadBalancer_color.png' %}" style="height:20px;width:20px;"><strong>&nbsp;&nbsp;(Load_Balancer)&nbsp; :</strong>
-              <ul class="list-inst">
+</ul></div>
+      <div class="col-md-6 p-l-0 p-r-5">    
+
+<ul class="p-r-0">
+ <li class="list-inst" style="list-style:none;"><strong><img src="{% static 'img/featured-arch/Database_color.png' %}" style="height:20px;width:20px;">&nbsp;&nbsp;(Database) &nbsp;:</strong> &nbsp;
+                  <ul class="">
+                  <li>
+                    ---
+                   </li>
+                {%for instance in plan_info.rds_name %}
+                  <li>
+                    {{instance.0}}
+                 </li>
+                  {%endfor%}
+                </ul>
+            </li>
+           
+
+            <li class="list-inst" style="list-style:none;"><img src="{% static 'img/featured-arch/LoadBalancer_color.png' %}" style="height:20px;width:20px;"><strong>&nbsp;&nbsp;(Load_Balancer)&nbsp; :</strong>
+              <ul class="">
+              <li>
+                    ---
+                   </li>
                 {%for instance in plan_info.balancer_name %}
                   <li>
-                    {{instance.0}}.
+                    {{instance.0}}
                  </li>
                  {%endfor%}
                 </ul> 
@@ -262,12 +170,13 @@ $(document).ready(function() {
               </li>
 
 
-            <li style="list-style:none;"><img src="{% static 'img/featured-arch/Description_color.png' %}" style="height:20px;width:20px;"><strong>&nbsp;(Description)&nbsp; :</strong> click on the button below modal.</li>
 
-          </ul>
-                                            </div>
+          </ul></div>
+          </div>
+                                           
                                           </div>
-                                        </div>
+
+
 
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-link" data-dismiss="modal">Close</button>
@@ -276,62 +185,14 @@ $(document).ready(function() {
                                 </div>
                             </div>
 
+<!-- Model -->
+<!-- animation and preloader js -->
+
+  
 
 
 
 
-
-
- <div tabindex="-1" class="modal fade" id="myModal" role="dialog">
-  <div class="modal-dialog">
-  <div class="modal-content">
-    <div class="modal-header">
-    <button class="close" type="button" data-dismiss="modal">×</button>
-    <h3 class="modal-title">Architecture</h3>
-  </div>
-  <div class="modal-body">
-    
-  </div>
-  <div class="modal-footer">
-    <button class="btn btn-default" data-dismiss="modal">Close</button>
-  </div>
-   </div>
-  </div>
-</div>
-
-
-<div class="md-container md-effect-15" id="modal-15">
-      <div class="md-content">
-        <h3 style="color:#fff;font-weight:initial;">SAMPLE MODEL</h3>
-        <div>
-        <img src="{% static 'media/architectures/1_Web-Application.png' %}" style="height:300px;width:485px; display:block; margin:auto;">
-
-
-          <ul>
-            <li style="list-style:none;"><strong><img src="{% static 'img/featured-arch/Instance.png' %}" style="height:20px;width:20px;">&nbsp;&nbsp;(Instance) &nbsp;:</strong> &nbsp;modal windows will probabl.</li>
-
-
-            <li style="list-style:none;"><strong><img src="{% static 'img/featured-arch/Database.png' %}" style="height:20px;width:20px;">&nbsp;&nbsp;(Database) &nbsp;:</strong> &nbsp;a modal window enjoys a certain kind.</li>
-
-
-            <li style="list-style:none;"><img src="{% static 'img/featured-arch/Storage.png' %}" style="height:20px;width:20px;"><strong>&nbsp;&nbsp;(Storage) &nbsp;:</strong>&nbsp; click on the button below.</li>
-
-            <li style="list-style:none;"><img src="{% static 'img/featured-arch/Load_Balancer.png' %}" style="height:20px;width:20px;"><strong>&nbsp;&nbsp;(Load_Balancer)&nbsp; :</strong> click on the button below modal.</li>
-
-
-            <li style="list-style:none;"><img src="{% static 'img/featured-arch/Description.png' %}" style="height:20px;width:20px;"><strong>&nbsp;(Description)&nbsp; :</strong> click on the button below modal.</li>
-
-
-          </ul><br/><br/>
-
-          <div class="button-ck">
-            <button id="{{ i.id }}" class="pv-follow-btn">&nbsp;&nbsp;Ok&nbsp;&nbsp;</button>
-            <button class="md-close">Close</button>
-          </div>
-
-        </div>
-      </div>
-    </div>
        {%endblock%}
 
 

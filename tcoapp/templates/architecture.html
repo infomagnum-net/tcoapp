@@ -70,6 +70,42 @@
   }
 
 
+  .profile-view1 {
+  text-align: left;
+}
+
+.profile-view1 .pv-header1 {
+  position: relative;
+  /*height: 120px;
+  width: 100%;*/
+/*  background-image: url('../img/cloud_bg.jpg');
+*/  background-repeat: no-repeat;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  background-position: center;
+}
+
+
+.profile-view1 .pv-header1 > .pv-main1 {
+ /* border-radius: 50%;*/
+  width: 30px;
+  position: absolute;
+  height: 30px;
+  bottom: -30px;
+  left: 10%;
+ /* margin-left: -65px;*/
+  -webkit-transition: all;
+  -o-transition: all;
+  transition: all;
+  -webkit-transition-duration: 300ms;
+  transition-duration: 300ms;
+}
+
+
+
+
 /**
   MEDIA QUERIES
 */
@@ -193,12 +229,12 @@ $(document).ready(function() {
 
                 <div class="card blog-post profile-view z-depth-1 bgm-blue scrollReveal sr-bottom sr-delay-1" id="sa-image">
 
-                  <div class="bp-header" style="height:198px;">
+                  <div class="bp-header resol">
                     
-                    <img src="/../static/media/{{ i.architecture_img }}"  alt="" style="background-color: #fff;" data-toggle="modal" href="#modalDefault" id="data11-123">
+                    <img src="/../static/media/{{ i.architecture_img }}"  alt="" style="background-color: #fff;" data-toggle="modal" href="#modalDefault{{i.id}}" id="{{i.architecture_name}}" class="ftrd-pup">
 
                       <div class="pv-header ">
-                        <img src="{% static 'img/applications/wordpress-logo.jpg' %}"  class="pv-main" alt="" >
+                        <img src="{% static 'img/applications/wp-logo50.jpg' %}"  class="pv-main" alt="" >
                       </div>
 
                       <div class="bp-title bgm-blue" style="height:70px;">
@@ -208,16 +244,10 @@ $(document).ready(function() {
 
                   </div>
 
-
                   <div class="p-20 bgm-blue bghov idtest" id="idtest">
                   
-                  <a id="{{i.architecture_name}}" data-toggle="modal" href="#modalDefault" class="f-14 brd-2 arinfo" style="color:#fff;" ><b>&nbsp;INFO&nbsp;</b></a>
-                   <!--  <a class="sa-image" id="{{i.architecture_name}}" style="color:#fff;">
-                    <b>INFO</b>
-                    </a> | 
-                    <a class="md-trigger" data-modal="modal-15" id="{{i.architecture_name}}" style="color:#fff;">
-                    <b>SELECT</b>
-                    </a> -->
+                  <a id="{{i.architecture_name}}" data-toggle="modal" href="#modalDefault{{i.id}}" class="f-14 brd-2 arinfo" style="color:#fff;" ><b>&nbsp;INFO&nbsp;</b></a>
+                 
 
                     <a class="pv-follow-btn f-14 brd-2" id="{{ i.id }}" style="color:#fff;float:right;" href="/tco/ftrd-for-arch/{{ i.id }}/"><b>&nbsp;SELECT&nbsp;</b></a>
 
@@ -286,6 +316,7 @@ $(document).ready(function() {
               <!-- </div> -->
             </blockquote>
           </div>
+          
           <!-- Quote 3 -->
           <div class="item">
             <blockquote>
@@ -345,44 +376,175 @@ $(document).ready(function() {
 
 <div class="col-md-12">
 
-  <div class="col-md-9">
-
-
   
-
+  <div class="col-md-9">
 
           <div role="tabpanel" class="active arch_img tab-pane" id="messages1">
             <div class="card">                        
               <div class="card-body card-padding">
-               <div class="card-header">
-                                <h2>Popular Architectures <!-- <small>Cras congue nec lorem eget posuere</small> --></h2>
+               <div class="card-header" sytle="height:25px;">
+                                <h2>Launch Your Self<!-- <small>Cras congue nec lorem eget posuere</small> --></h2>
                                
-                            </div>                           
+                </div>                           
                 <div class="contacts clearfix row">
 
-                  <div class="col-md-3 col-sm-4 col-xs-6 notifications">
-                    <div class="c-item ci-avatar scrollReveal sr-left">
 
-                      <a class="ci-avatar">
-                      <img  src="{% static 'media/architectures/Arch1.png' %}" width="176px;" height="164px;"   class=" nextBtn btn-lg" data-type="inverse"  data-from="top" data-align="right" data-icon="fa fa-comments"/>
-                      </a>
+              <div class="col-md-3" style="">                      
+                <div class="card blog-post profile-view1 z-depth-1 bgm-blue scrollReveal sr-bottom sr-delay-1" id="sa-image">
+                     <div class="card-header ch-alt bgm-blue">
+                       <h2 style="font-size:14px !important;">Build a Static Website</h2>
+                     </div>
+                      <div class="pv-header1 ">
+                        <img src="{% static 'img/applications/lap1.png' %}"  class="pv-main1" alt="" >
+                      </div>                       
+                      <div class="bp-title bgm-white" style="">
+                          <h2 style="font-color:white;font-size:16px;"</h2>
+                        
+                      </div>
 
-                      <!-- <div class="c-info">
-                        <strong>sample</strong>
-                      </div> -->
+                      <div class="p-20 bgm-white bghov idtest" style="padding:12px ! important;">
+                         <h2> <small>Host your personal or simple marketing website on our cloud.
 
-                       <p style="text-align:center;">Sample</p>
-                    </div>
+                         </small></h2>
+                         <hr>
+                     
+                       </div>
+
+                  <div class="p-20 bgm-white bghov idtest" id="idtest">
+
+                  <a id="" data-toggle="modal" href="/tco/host_step1/" class="brd-2 arinfo" style="color:#2196f3;" ><b>&nbsp;STEPS&nbsp;</b></a>
+
+                    <a class="pv-follow-btn brd-2" id="" style="color:#2196f3;float:right;" href=""><b>&nbsp;SELECT&nbsp;</b></a>
+
+                    
                   </div>
+                </div>
 
-                <div class="col-md-3 col-sm-4 col-xs-6 notifications">
+              </div> 
+
+
+
+
+
+              <div class="col-md-3" style="">                      
+                <div class="card blog-post profile-view1 z-depth-1 bgm-blue scrollReveal sr-bottom sr-delay-1" id="sa-image">
+                     <div class="card-header ch-alt bgm-blue">
+                       <h2 style="font-size:14px !important;">Build a wordpress App</h2>
+                     </div>
+                      <div class="pv-header1 ">
+                        <img src="{% static 'img/applications/wordpress1.png' %}"  class="pv-main1" alt="" >
+                      </div>                       
+                      <div class="bp-title bgm-white" style="">
+                          <h2 style="font-color:white;font-size:16px;"</h2>
+                        
+                      </div>
+
+                      <div class="p-20 bgm-white bghov idtest" style="padding:12px ! important;">
+                         <h2> <small>Host your personal or simple marketing application on our cloud.
+
+                         </small></h2>
+                         <hr>
+                     
+                       </div>
+
+                  <div class="p-20 bgm-white bghov idtest" id="idtest">
+
+                  <a id="" data-toggle="modal" href="/tco/wordp_host_step1/" class="brd-2 arinfo" style="color:#2196f3;" ><b>&nbsp;STEPS&nbsp;</b></a>
+
+                    <a class="pv-follow-btn brd-2" id="" style="color:#2196f3;float:right;" href=""><b>&nbsp;SELECT&nbsp;</b></a>
+
+                    
+                  </div>
+                </div>
+
+              </div> 
+
+
+
+
+              <div class="col-md-3" style="">                      
+                <div class="card blog-post profile-view1 z-depth-1 bgm-blue scrollReveal sr-bottom sr-delay-1" id="sa-image">
+                     <div class="card-header ch-alt bgm-blue">
+                       <h2 style="font-size:14px !important;">Build a python App</h2>
+                     </div>
+                      <div class="pv-header1 ">
+                        <img src="{% static 'img/applications/python1.png' %}"  class="pv-main1" alt="" >
+                      </div>                       
+                      <div class="bp-title bgm-white" style="">
+                          <h2 style="font-color:white;font-size:16px;"</h2>
+                        
+                      </div>
+
+                      <div class="p-20 bgm-white bghov idtest" style="padding:12px ! important;">
+                         <h2> <small>Host your personal or simple marketing application on our cloud.
+
+                         </small></h2>
+                         <hr>
+                     
+                       </div>
+
+                  <div class="p-20 bgm-white bghov idtest" id="idtest">
+
+                  <a id="" data-toggle="modal" href="#modalDefault" class="brd-2 arinfo" style="color:#2196f3;" ><b>&nbsp;STEPS&nbsp;</b></a>
+
+                    <a class="pv-follow-btn brd-2" id="" style="color:#2196f3;float:right;" href=""><b>&nbsp;SELECT&nbsp;</b></a>
+
+                    
+                  </div>
+                </div>
+
+              </div> 
+
+
+
+
+
+
+
+
+          <div class="col-md-3" style="">                      
+                <div class="card blog-post profile-view1 z-depth-1 bgm-blue scrollReveal sr-bottom sr-delay-1" id="sa-image">
+                     <div class="card-header ch-alt bgm-blue">
+                       <h2 style="font-size:14px !important;">Build a Magento App</h2>
+                     </div>
+                      <div class="pv-header1 ">
+                        <img src="{% static 'img/applications/magento1.png' %}"  class="pv-main1" alt="" >
+                      </div>                       
+                      <div class="bp-title bgm-white" style="">
+                          <h2 style="font-color:white;font-size:16px;"</h2>
+                        
+                      </div>
+
+                      <div class="p-20 bgm-white bghov idtest" style="padding:12px ! important;">
+                         <h2> <small>Host your personal or simple marketing application on our cloud.
+
+                         </small></h2>
+                         <hr>
+                     
+                       </div>
+
+                  <div class="p-20 bgm-white bghov idtest" id="idtest">
+
+                  <a id="" data-toggle="modal" href="#modalDefault" class="brd-2 arinfo" style="color:#2196f3;" ><b>&nbsp;STEPS&nbsp;</b></a>
+
+                    <a class="pv-follow-btn brd-2" id="" style="color:#2196f3;float:right;" href=""><b>&nbsp;SELECT&nbsp;</b></a>
+
+                    
+                  </div>
+                </div>
+
+              </div> 
+
+
+
+
+
+                <!-- <div class="col-md-3 col-sm-4 col-xs-6 notifications">
                     <div class="c-item ci-avatar scrollReveal sr-left">
                       <a class="ci-avatar">
                       <img  src="{% static 'media/architectures/Arch2.png' %}" width="176px;" height="164px;"   class="nextBtn btn-lg " data-type="inverse"  data-from="top" data-align="right" data-icon="fa fa-comments"/>
                       </a>
-                        <!-- <div class="c-info">
-                        <strong>sample</strong>
-                        </div> -->
+                       
                          <p style="text-align:center;">Sample</p>
                     </div>                      
                 </div>
@@ -393,9 +555,7 @@ $(document).ready(function() {
                       <a class="ci-avatar">
                       <img  src="{% static 'media/architectures/Arch3.png' %}" width="176px;" height="164px;"   class="nextBtn btn-lg " data-type="inverse"  data-from="top" data-align="right" data-icon="fa fa-comments"/>
                       </a>
-                       <!--  <div class="c-info">
-                        <strong>sample</strong>
-                        </div> -->
+                       
                          <p style="text-align:center;">Sample</p>
                     </div>                      
                 </div>
@@ -406,16 +566,14 @@ $(document).ready(function() {
                       <a class="ci-avatar">
                       <img  src="{% static 'media/architectures/Arch3.png' %}" width="176px;" height="164px;"   class="nextBtn btn-lg " data-type="inverse"  data-from="top" data-align="right" data-icon="fa fa-comments"/>
                       </a>
-                       <!--  <div class="c-info">
-                        <strong>sample</strong>
-                        </div> -->
+                       
                          <p style="text-align:center;">Sample</p>
                     </div>                      
                 </div>
 
 
 
-
+ -->
 
                 </div>
               </div>
@@ -472,64 +630,80 @@ $(document).ready(function() {
 </div>
 
 
- <div class="modal fade" id="modalDefault" tabindex="-1" role="dialog" aria-hidden="true">
-                  <div class="modal-dialog modal-lg">
-                                    <div class="modal-content">
-                                        <div class="modal-header bgm-blue">
-                                            <h4 class="modal-title c-white f-200"> New Architecture Name</h4>
-                                        </div>
-                                        <div class="modal-body">
-                                          <div class="col-md-12">
-                                        
-                                           <div class="col-md-6 p-l-0">
-                                             <img  src="{% static 'media/architectures/Arch3.png' %}" width="300px;" height="300px;"   class="nextBtn btn-lg " data-type="inverse"  data-from="top" data-align="right" data-icon="fa fa-comments"/>
-                                           </div>
+ {% for i in arch_json %}
 
-                                            <div class="col-md-6">
-                                              <p></p>
-                                                        <ul>
+ <div class="modal fade" id="modalDefault{{i.id}}" tabindex="-1" role="dialog" aria-hidden="true">
 
-            <li style="list-style:none;"><strong><img src="{% static 'img/featured-arch/Instance_color.png' %}" style="height:20px;width:20px;">&nbsp;&nbsp;(Instance) &nbsp;:</strong> &nbsp;
-              <ul class="list-inst">
-                {%for instance in plan_info.instance_name %}
+                 <div class="modal-dialog modal-lg">
+          <div class="modal-content">
+              <div class="modal-header bgm-yell">
+                  <h4 class="modal-title c-white f-20 text-center">{{ i.architecture_name}}
+                  <a class="btn btn-link f-400 c-white p-t-0" data-dismiss="modal" style="float:right;font-size:22px">X</a></h4> 
+                  
+                   
+              </div>
+                                     
+
+            <div class="modal-body p-0">
+             
+              
+                <div class="p-0">
+                  <img  src="/../static/media/{{ i.architecture_img }}" style="display:block;margin:auto;" width="520px;" height="350px;"   class="nextBtn btn-lg " data-type="inverse"  data-from="top" data-align="right" data-icon="fa fa-comments"/>
+                </div>
+
+                 <div class="bgm-blue c-white">
+                 <p class="p-l-15 p-5">Description about this Architecture will be displayed here</p></div>
+
+            <div class="col-md-12">
+                         <div class="col-md-6 p-l-0 p-r-5">
+                            <ul class="p-l-5">
+
+            <li class="list-inst" style="list-style:none;"><strong><img src="{% static 'img/featured-arch/Instance_color.png' %}" style="height:20px;width:20px;">&nbsp;&nbsp;(Instance) &nbsp;:</strong> &nbsp;
+              <ul class="">
+                  
+                {%for instance in i.instance_name %}
                   <li>
-                    {{instance.0}}.
+                    {{instance.0}}
                    </li>
                   {%endfor%}
                 </ul>
             </li>
             
-
-            <li style="list-style:none;"><strong><img src="{% static 'img/featured-arch/Database_color.png' %}" style="height:20px;width:20px;">&nbsp;&nbsp;(Database) &nbsp;:</strong> &nbsp;
-                  <ul class="list-inst">
-                {%for instance in plan_info.rds_name %}
+ <li class="list-inst" style="list-style:none;"><img src="{% static 'img/featured-arch/Storage_color.png' %}" style="height:20px;width:20px;"><strong>&nbsp;&nbsp;(Storage) &nbsp;:</strong>&nbsp; 
+              <ul class="">
+              
+                {%for instance in i.s3_name %}
                   <li>
-                    {{instance.0}}.
-                 </li>
-                  {%endfor%}
-                </ul>
-            </li>
-
-
-          
-
-
-            <li style="list-style:none;"><img src="{% static 'img/featured-arch/Storage_color.png' %}" style="height:20px;width:20px;"><strong>&nbsp;&nbsp;(Storage) &nbsp;:</strong>&nbsp; 
-              <ul class="list-inst">
-                {%for instance in plan_info.s3_name %}
-                  <li>
-                    {{instance.0}}.
+                    {{instance.0}}
                  </li>
                   {%endfor%}
                 </ul>
 
               </li>
+           
 
-            <li style="list-style:none;"><img src="{% static 'img/featured-arch/LoadBalancer_color.png' %}" style="height:20px;width:20px;"><strong>&nbsp;&nbsp;(Load_Balancer)&nbsp; :</strong>
-              <ul class="list-inst">
-                {%for instance in plan_info.balancer_name %}
+</ul></div>
+      <div class="col-md-6 p-l-0 p-r-5">    
+
+<ul class="p-r-0">
+ <li class="list-inst" style="list-style:none;"><strong><img src="{% static 'img/featured-arch/Database_color.png' %}" style="height:20px;width:20px;">&nbsp;&nbsp;(Database) &nbsp;:</strong> &nbsp;
+                  <ul class="">
+                  
+                {%for instance in i.rds_name %}
                   <li>
-                    {{instance.0}}.
+                    {{instance.0}}
+                 </li>
+                  {%endfor%}
+                </ul>
+            </li>
+           
+
+            <li class="list-inst" style="list-style:none;"><img src="{% static 'img/featured-arch/LoadBalancer_color.png' %}" style="height:20px;width:20px;"><strong>&nbsp;&nbsp;(Load_Balancer)&nbsp; :</strong>
+              <ul class="">
+             
+                {%for instance in i.balancer_name %}
+                  <li>
+                    {{instance.0}}
                  </li>
                  {%endfor%}
                 </ul> 
@@ -537,12 +711,14 @@ $(document).ready(function() {
               </li>
 
 
-            <li style="list-style:none;"><img src="{% static 'img/featured-arch/Description_color.png' %}" style="height:20px;width:20px;"><strong>&nbsp;(Description)&nbsp; :</strong> click on the button below modal.</li>
+           <!--  <li class="list-inst" style="list-style:none;"><img src="{% static 'img/featured-arch/Description_color.png' %}" style="height:20px;width:20px;"><strong>&nbsp;(Description)&nbsp; :</strong> click on the button below modal.</li> -->
 
-          </ul>
-                                            </div>
+          </ul></div>
+          </div>
+                                           
                                           </div>
-                                        </div>
+
+
 
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-link" data-dismiss="modal">Close</button>
@@ -551,6 +727,7 @@ $(document).ready(function() {
                                 </div>
                             </div>
 
+{%endfor%}
 <!-- Model -->
 
 

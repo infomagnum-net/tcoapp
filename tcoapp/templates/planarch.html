@@ -2,6 +2,42 @@
 {%load static%}
 {% block content%}
 
+<style type="text/css">
+
+.actbtn{background-color: #2196f3;}
+
+.stepwizard:before {
+     top: 45px;
+    bottom: 0;
+    position: absolute;
+    content: " ";
+    width: 19%;
+    height: 2px;
+    background-color: #2196f3;
+    z-order: 0;
+}
+
+.stepwizard-step button[disabled] {
+    opacity: 1 !important;
+    filter: alpha(opacity=100) !important;
+}
+
+.stepwizard-row:before.clicked {
+    width: 50%;
+}
+
+.stepwizard-row:before {
+    top: 45px;
+    bottom: 0;
+    position: absolute;
+    content: " ";
+    width: 50%;
+    height: 2px;
+    background-color: #2196f3;
+    z-order: 0;
+}
+</style>
+
 <div class="" id="main-container">  
 
   <div class="stepwizard col-md-offset-3">
@@ -20,7 +56,7 @@
       </div>
 
       <div class="stepwizard-step">
-        <a href="#step-2" type="button" class="btn btn-default btn-circle actbtn" disabled="disabled" id="stp2">2</a>
+        <a href="#step-2" type="button" class="btn btn-circle actbtn btn-primary" id="stp2">2</a>
         <p>Payment Plans</p>
       </div>
 
@@ -46,7 +82,7 @@
       <div class="col-md-12" style="padding:20px;">
         <div class="card blog-post">
          
-          <div class="col-md-6" style="padding:20px;">
+          <div class="col-md-6 scrollReveal sr-left" style="padding:20px;">
             <div class="bp-header text-center" id="jhsagah">
               {%if arch_info.architecture_img%}
                 
@@ -65,7 +101,7 @@
             </div>
           </div>
               
-          <div class="col-md-6" style="padding:20px;">
+          <div class="col-md-6 scrollReveal sr-right" style="padding:20px;">
             <div class="p-20">
                <h4>Description</h4>
                <p>Description about the Architecture will be diaplayed here</p>
@@ -99,7 +135,7 @@
             <!--Day Payment Plans  -->
 
             <div class="col-sm-4">
-                <div class="bs-item z-depth-2">
+                <div class="bs-item z-depth-2 scrollReveal sr-left">
                   <div class="card pt-inner">
                                 
                   <div class="pti-header bgm-amber">
@@ -117,7 +153,7 @@
                      
                   </div>
                 
-                  <div class="pti-footer">
+                  <div class="pti-footer planselect">
           
           <!-- <a class="btn bgm-amber btn-circle nextBtn bgm-cyan plan-btn" href="/tco/invoice/{{arch_info.architecture_name}}/" id="{{arch_info.architecture_name}}" name="daily"><i class="zmdi zmdi-check">
                     </i></a> -->
@@ -143,7 +179,7 @@
           <!--monthyly Payment Plans  -->
 
           <div class="col-sm-4">
-            <div class="bs-item z-depth-2">
+            <div class="bs-item z-depth-2 scrollReveal sr-bottom sr-delay-1">
               <div class="card pt-inner">
                  
                 <div class="pti-header bgm-green">
@@ -162,7 +198,7 @@
                     </div>    
                 </div>
   
-                <div class="pti-footer">
+                <div class="pti-footer planselect">
 
 
                <a href="/tco/invoice/{{arch_info.architecture_name}}/Mothly" class="bgm-green" id="{{arch_info.architecture_name}}"><i class="zmdi zmdi-check"></i></a>
@@ -178,7 +214,7 @@
               <!-- yearly Payment Plans -->
 
           <div class="col-sm-4">
-            <div class="bs-item z-depth-2">
+            <div class="bs-item z-depth-2 scrollReveal sr-right">
               <div class="card pt-inner">
                   
                   <div class="pti-header bgm-cyan">
@@ -199,7 +235,7 @@
                       
                   </div>
   
-                  <div class="pti-footer">
+                  <div class="pti-footer planselect">
                      
                        <a href="/tco/invoice/{{arch_info.architecture_name}}/Yearly" class="bgm-cyan" id="{{arch_info.architecture_name}}"><i class="zmdi zmdi-check"></i></a>  
  

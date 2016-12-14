@@ -1,0 +1,82 @@
+{%extends "stepbase.html"%}
+{%load static%}
+{% block content%}
+
+
+
+                           <div class="chapter" id="getting-started-configure-route53"><div class="titlepage"><div><div><h1 class="topictitle">Step 5 (Optional): Associate a Domain Name with Your Website</h1></div></div></div><p>The easiest way for your customers to access your website is through a memorable domain name.
+        In the procedures on this page, replace <em class="replaceable"><code>example.com</code></em> with your
+        domain name. If you haven't done so already, <a class="link" href="/tco/host_step4/" title="Step 4 (Optional): Register Your Domain Name">register your domain name</a>.</p><p>A Domain Name System (DNS) web service routes visitors to websites by translating
+        domain names (such as <code class="filename">www.example.com</code>) into the numeric IP
+        addresses (such as <code class="code">192.0.2.1</code>) that computers use to connect to each other.</p><p>You can use your DNS service, such as your domain registrar, to create a CNAME record to route
+        queries to your static website. For more information, see the documentation for your DNS service.</p><p>Alternatively, you can use Amazon Route&nbsp;53 as your DNS service. It is designed to be highly available,
+        scalable, and cost effective. To associate a domain name with your website using Amazon Route&nbsp;53, 
+        complete the following tasks.</p><div class="highlights"><p><strong>Tasks</strong></p>
+
+        <ul>
+        <li><a href="#allocate-name-servers">Create a Hosted Zone for Your Domain</a></li>
+
+        <li><a href="#configure-records">Create Record Sets for Your Domain and Subdomain</a></li>
+
+        <li><a href="#set-up-dns-provider">(Optional) Set Up a DNS Provider</a></li>
+        </ul>
+
+        </div><div class="section"><div class="titlepage"><div><div><h2 class="title" style="clear: both" id="allocate-name-servers">Create a Hosted Zone for Your Domain</h2></div></div></div><p>A <span class="emphasis"><em>hosted zone</em></span> is a container for the information about
+            how you want to route traffic on the Internet for a domain (such as <code class="filename">example.com</code>)
+            and its subdomains (such as <code class="filename">www.example.com</code>).</p><div class="procedure"><a name="d0e1361"></a><p class="title"><b>To create a hosted zone</b></p><ol class="procedure" type="1"><li class="step"><p>Open the Amazon Route&nbsp;53 console
+         <!-- <a class="ulink" href="https://console.aws.amazon.com/route53/" target="_blank">https://console.aws.amazon.com/route53/</a> -->.</p></li><li class="step"><p>If you are new to Amazon Route&nbsp;53, you see a welcome page; choose <span class="guilabel">Get Started
+                        Now</span> for <span class="guilabel">DNS Management</span>. Otherwise, choose
+                        <span class="guilabel">Hosted Zones</span> in the navigation pane.</p></li><li class="step"><p>Choose <span class="guilabel">Create Hosted Zone</span>.</p></li><li class="step"><p>For <span class="guilabel">Domain Name</span>, type your domain name.</p></li><li class="step"><p>Choose <span class="guilabel">Create</span>.</p></li></ol></div></div><div class="section"><div class="titlepage"><div><div><h2 class="title" style="clear: both" id="configure-records">Create Record Sets for Your Domain and Subdomain</h2></div></div></div><p>Create an alias resource record set that routes queries for your domain name to the
+            Amazon S3 domain name for your bucket.</p><div class="procedure"><a name="d0e1405"></a><p class="title"><b>To configure the alias record set for your root domain</b></p><ol class="procedure" type="1"><li class="step"><p>On the <span class="guilabel">Hosted Zones</span> page, choose the hosted zone that you created for
+                    your domain.</p></li><li class="step"><p>Choose <span class="guilabel">Go to Record Sets</span>.</p></li><li class="step"><p>Choose <span class="guilabel">Create Record Set</span>.</p></li><li class="step"><p>For <span class="guilabel">Create Record Set</span>, do the following:</p><ol type="a" class="substeps"><li class="step"><p>Leave the default name, which is the root domain.</p></li><li class="step"><p>For <span class="guilabel">Type</span>, choose <span class="guilabel">A — IPv4
+                            address</span>.</p></li><li class="step"><p>For <span class="guilabel">Alias</span>, choose <span class="guilabel">Yes</span>. An alias enables Amazon Route&nbsp;53
+                            to associate your domain name with the Amazon S3 bucket that you configured
+                            as a website endpoint.</p></li><li class="step"><p>Choose <span class="guilabel">Alias Target</span>. Choose your root domain website endpoint from
+                            the list (for example, <code class="filename">example.com</code>). Do not select
+                            the <code class="code">www</code> subdomain endpoint (for example,
+                                <code class="filename">www.example.com</code>). </p></li><li class="step"><p>For <span class="guilabel">Routing Policy</span>, choose <span class="guilabel">Simple</span>.</p></li><li class="step"><p>Leave <span class="guilabel">Evaluate Target Health</span> set to
+                            <span class="guilabel">No</span>.</p></li><li class="step"><p>Choose <span class="guilabel">Create</span>.</p></li></ol></li></ol></div><p>Next, you create an <span class="emphasis"><em>alias resource record set</em></span>, which routes queries for
+            your <code class="code">www</code> subdomain name to the Amazon S3 domain name for your bucket.</p><div class="procedure"><a name="d0e1501"></a><p class="title"><b>To configure the alias resource record set for your www subdomain</b></p><ol class="procedure" type="1"><li class="step"><p>On the <span class="guilabel">Hosted Zones</span> page, select the hosted zone that you
+                    created for your domain.</p></li><li class="step"><p>Choose <span class="guilabel">Go to Record Sets</span>.</p></li><li class="step"><p>Choose <span class="guilabel">Create Record Set</span>.</p></li><li class="step"><p>For <span class="guilabel">Create Record Set</span>, do the following:</p><ol type="a" class="substeps"><li class="step"><p>For <span class="guilabel">Name</span>, type <code class="code">www</code>. The root domain is already
+                            specified for you, and the connecting period (.) appears when you start
+                            typing.</p></li><li class="step"><p>For <span class="guilabel">Type</span>, choose <span class="guilabel">A — IPv4
+                            address</span>.</p></li><li class="step"><p>For <span class="guilabel">Alias</span>, choose <span class="guilabel">Yes</span>.</p></li><li class="step"><p>Choose <span class="guilabel">Alias Target</span>. Select your <code class="code">www</code> subdomain website
+                            endpoint from the list (for example,
+                                <code class="filename">www.example.com</code>). Do not select the root domain
+                            endpoint (for example, <code class="filename">example.com</code>).</p></li><li class="step"><p>For <span class="guilabel">Routing Policy</span>, choose <span class="guilabel">Simple</span>. </p></li><li class="step"><p>Leave <span class="guilabel">Evaluate Target Health</span> set to
+                            <span class="guilabel">No</span>.</p></li><li class="step"><p>Choose <span class="guilabel">Create</span>.</p></li></ol></li></ol></div></div><div class="section"><div class="titlepage"><div><div><h2 class="title" style="clear: both" id="set-up-dns-provider">(Optional) Set Up a DNS Provider</h2></div></div></div><p>If you registered a new domain name and have used that name while doing this tutorial,
+            you're ready to set up Amazon Route&nbsp;53 as your DNS provider.</p><p>Alternatively, if you're reusing a domain name that was previously associated with
+            another website, you might need to transfer other DNS records from your current DNS
+            provider to Amazon Route&nbsp;53 in order to ensure the continued availability of the services hosted
+            under the domain name. To determine which DNS records you must replicate in Amazon Route&nbsp;53, check
+            the DNS record settings configured for the domain in your current DNS provider. Two
+            records that you should not transfer to Amazon Route&nbsp;53 are the Start of Authority (SOA) and Name
+            Server (NS) records. These records were set by Amazon Route&nbsp;53 when the name servers were
+            allocated, and they should not be changed.</p><p>First, log into the domain name registrar that you used to register your domain name.
+            Use the web interface provided by the registrar to set the name servers for your domain
+            to the name server values displayed under <span class="guilabel">Name Servers</span> in the details 
+            for the hosted zone. How you do this depends on the registrar that you used.</p><p>Then, wait 2 to 48 hours for the Internet DNS resolver network to propagate name server
+            changes. To see if the name server change has gone through, use a command line utility
+            such as dig (for Mac OS X, Unix, or Linux) or nslookup (for Windows). The following
+            example shows how use dig to see which name servers are associated with your
+            domain.</p><pre class="programlisting"><code class="nohighlight">dig <em class="replaceable"><code class=""><span class="">example</span><span class="">.com</span></code></em></code></pre><p>When the output shows <code class="code">AUTHORITY SECTION</code> values that are the AWS name servers
+            that you allocated using Amazon Route&nbsp;53, as in the following example, the DNS changes have
+            propagated through the DNS resolver network.</p><pre class="programlisting"><code class="nohighlight">;; AUTHORITY SECTION:
+<em class="replaceable"><code class=""><span class="">example</span><span class="">.com</span></code></em>. 118928  IN  NS  ns-806.awsdns-36.net.
+<em class="replaceable"><code class=""><span class="">example</span><span class="">.com</span></code></em>. 118928  IN  NS  ns-1456.awsdns-54.org.
+<em class="replaceable"><code class=""><span class="">example</span><span class="">.com</span></code></em>. 118928  IN  NS  ns-1713.awsdns-22.co.uk.
+<em class="replaceable"><code class=""><span class="">example</span><span class="">.com</span></code></em>. 118928  IN  NS  ns-105.awsdns-13.com.</code></pre><p>After your DNS changes have propagated, you can view your website using your custom domain
+            name.</p><p>
+
+            <img src="{% static 'img/host_steps/StaticWebsiteHosting_Route53_Success.png' %}" class="img-responsive">
+
+
+
+        </p><p>If you open your <code class="code">www</code> subdomain (such as <code class="filename">www.example.com</code>)
+            in your web browser, the browser is redirected to your domain (such as
+                <code class="filename">example.com</code>).</p></div></div>
+
+
+
+ {%endblock%}
+                     

@@ -28,6 +28,7 @@
         <link href="{% static 'css/app.min.1.css'%}" rel="stylesheet">
        
         <link href="{% static 'css/app.min.2.css'%}" rel="stylesheet">
+
        <!--  <link href="{% static 'css/smart_wizard.css'%}" rel="stylesheet" type="text/css"> -->
 
 
@@ -51,7 +52,7 @@ $(window).load(function() {
   width: 100%;
   height: 100%;
   z-index: 9999;
-  background: url("{% static 'img/cloud_load.gif' %}") 50% 50% no-repeat rgb(249,249,249);
+  background: url("{% static 'img/80X.gif' %}") 50% 50% no-repeat rgb(249,249,249);
 }
 
 .stepwizard-step p {
@@ -173,7 +174,7 @@ $(window).load(function() {
   width: 100%;
   height: 100%;
   z-index: 9999;
-  background: url("{% static 'img/Loading_Cloud-Tco_For-Sir.gif' %}") 50% 50% no-repeat rgb(249,249,249);
+  background: url("{% static 'img/Loading_Cloud.gif' %}") 50% 50% no-repeat rgb(249,249,249);
 }
 
 </style>
@@ -209,7 +210,7 @@ $(window).load(function() {
 
                 <li class="logo">
                     <a href="/tco/architecture" style="text-decoration:none;">
-                <img src="{% static 'img/cloud_logo.svg' %}" alt="client" style="width:147px;">
+                <img src="{% static 'img/cloud_logo.svg' %}" alt="client" style="width:147px;height:41px;">
                 <!-- <span style="padding-left:5px;color:#fff;"><strong>CLOUD-TCO</strong></span> --></a>
                 </li>
 
@@ -258,54 +259,46 @@ $(window).load(function() {
                             </ul>
                         </li>
 
-                          <li class="dropdown">
+
+                            <li class="dropdown">
                             <a data-toggle="dropdown">
                                 <!-- <i class="tmn-counts"></i> -->
-                                <i class="tm-icon zmdi zmdi-comment-alt-text"></i>
+                                <i class="tm-icon zmdi zmdi-headset-mic zmdi-hc-fw"></i>
                             </a>
                             <div class="dropdown-menu dropdown-menu-lg pull-right">
                                 <div class="listview lv-message" >
-                                    <div class="lv-header">
+                                    <div class="lv-header c-blue">
                                         CHAT
                         
-                                        <ul class="actions">
-                                            <li class="dropdown">
-                                                <a href="" data-clear="notification">
-                                                    <i class="zmdi zmdi-check-all"></i>
-                                                </a>
-                                            </li>
-                                        </ul>
+                                      
                                     </div>
-                                    <div class="lv-body">
-                                       
-                                        
-                                       
-                                       <div class="lv-item media">
-                                        
-                                        <div class="media-body">
-                                            <div class="ms-item">
-                                                Hi hello
+
+                                    <div class="lv-body" style="height:300px">
+                                   
+                             
+                                    <div class="media-body">
+                                            <div class="p-l-10 f-300  text-center">
+                                                <b>Welcome to Cloud-TCO suppport.<br/>
+                                    How may I assist you..</b>
                                             </div>
-                                            <small class="ms-date"><i class="zmdi zmdi-time"></i> 20/02/2015 at 09:00</small>
+                                            
                                         </div>
-                                    </div>
                                     
-                                    <div class="lv-item media right">
-                                       
-                                        <div class="media-body">
-                                            <div class="ms-item">
-                                                Hello Welcome.
-                                            </div>
-                                            <small class="ms-date"><i class="zmdi zmdi-time"></i> 20/02/2015 at 09:30</small>
-                                        </div>
-                                    </div>
                                     </div>
                         
-                                    <a class="lv-footer" href="">View Previous</a>
+                                    <div class="lv-footer ms-reply " id="chat-send"><textarea placeholder="What's on your mind..."></textarea>
+                                    
+                                    <button ><i class="zmdi zmdi-mail-send"></i></button></div>
                                 </div>
                         
                             </div>
                         </li>
+
+                         <!-- <li class="hidden-xs" id="chat-trigger" data-trigger="#chat">
+                            <a href=""><i class="tm-icon zmdi zmdi-comment-alt-text"></i></a>
+                        </li> -->
+
+                        
 
 
                     </ul>
@@ -348,7 +341,88 @@ $(window).load(function() {
         </header>
         
        <section id="main" data-layout="layout-1" style="padding-top:120px">
-         
+
+      <!--  <aside id="chat" class="sidebar c-overflow" style="padding-top:50px;">
+            
+        <div class="chat-search">
+            <div class="fg-line">
+                <input type="text" class="form-control" placeholder="Search People">
+            </div>
+        </div>
+
+         <div class="listview lv-message" >
+             <div class="lv-body">
+                               
+              <div class="lv-item media">
+                
+                <div class="media-body">
+                    <div class="ms-item p-5">
+                        Hi hello
+                    </div>
+                    <small class="ms-date"><i class="zmdi zmdi-time"></i> 20/02/2015 at 09:00</small>
+                </div>
+              </div>
+                            
+              <div class="lv-item media right">
+                 
+                  <div class="media-body">
+                      <div class="ms-item p-5">
+                          Hello Welcome.
+                      </div>
+                      <small class="ms-date"><i class="zmdi zmdi-time"></i> 20/02/2015 at 09:30</small>
+                  </div>
+              </div>
+
+               <div class="lv-item media">
+                
+                <div class="media-body">
+                    <div class="ms-item p-5">
+                        Hi hello
+                    </div>
+                    <small class="ms-date"><i class="zmdi zmdi-time"></i> 20/02/2015 at 09:00</small>
+                </div>
+              </div>
+
+               <div class="lv-item media right">
+                 
+                  <div class="media-body">
+                      <div class="ms-item p-5">
+                          Hello Welcome.
+                      </div>
+                      <small class="ms-date"><i class="zmdi zmdi-time"></i> 20/02/2015 at 09:30</small>
+                  </div>
+              </div>
+
+              <div class="lv-item media">
+                
+                <div class="media-body">
+                    <div class="ms-item p-5">
+                        Hi hello
+                    </div>
+                    <small class="ms-date"><i class="zmdi zmdi-time"></i> 20/02/2015 at 09:00</small>
+                </div>
+              </div>
+
+               <div class="lv-item media right">
+                 
+                  <div class="media-body">
+                      <div class="ms-item p-5">
+                          Hello Welcome.
+                      </div>
+                      <small class="ms-date"><i class="zmdi zmdi-time"></i> 20/02/2015 at 09:30</small>
+                  </div>
+              </div>
+
+            </div>
+             <div class="lv-footer ms-reply" id="chat-send">
+            <textarea placeholder="What's on your mind..."></textarea>
+            
+            <button ><i class="zmdi zmdi-mail-send"></i></button>
+           
+        </div>
+        </div>
+    </aside> -->
+ 
             <section id="content">
          
                 {%block content%}
@@ -499,22 +573,27 @@ $(window).load(function() {
 
         <script src="{% static 'vendors/bower_components/bootstrap/dist/js/bootstrap.min.js' %}"></script>
         
-        <script src="{% static 'vendors/bower_components/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js' %}"></script>
+        <script src="{% static 'vendors/bower_components/flot/jquery.flot.js' %}"></script>
 
+        <script src="{% static 'vendors/sparklines/jquery.sparkline.min.js' %}"></script>
+
+       
+      
+        
+        <script src="{% static 'vendors/bower_components/moment/min/moment.min.js' %}"></script>
+        
         <script src="{% static 'vendors/bower_components/Waves/dist/waves.min.js' %}"></script>
-
-        <script src="{% static 'vendors/bower_components/Waves/dist/waves.min.js' %}"></script>
-
         <script src="{% static 'vendors/bootstrap-growl/bootstrap-growl.min.js' %}"></script>
         <script src="{% static 'vendors/bower_components/bootstrap-sweetalert/lib/sweet-alert.min.js' %}"></script>
-        <script src="{% static 'vendors/bower_components/lightgallery/light-gallery/js/lightGallery.min.js' %}"></script>
-        
+        <script src="{% static 'vendors/bower_components/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js' %}"></script>
         <!-- Placeholder for IE9 -->
         <!--[if IE 9 ]>
             <script src="{% static 'vendors/bower_components/jquery-placeholder/jquery.placeholder.min.js' %}"></script>
         <![endif]-->
          
-        
+      
+        <script src="{% static 'js/functions.js' %}"></script>
+       
 
       <!--<script src="{% static 'js/demo.js' %}"></script> -->
       
@@ -526,6 +605,7 @@ $(window).load(function() {
  
   <script src="{% static 'js/js/vendor/scrollreveal.min.js' %}"></script>
   
+  
 
 
 
@@ -535,7 +615,7 @@ $(window).load(function() {
 
 $(document).ready(function () {
 
-$("#chat-send button").click(function(){
+/*$("#chat-send button").click(function(){
   input=$("#chat-send textarea").val()
   if(input){
       user_msg=input
@@ -551,7 +631,48 @@ $("#chat-send button").click(function(){
   else{alert("please enter input text")}
  
 
+});*/
+
+
+$('#chat-send').keypress(function (e) {
+
+ var key = e.which;
+ if(key == 13)
+  {
+ $("#chat-send button").click();
+}
+  });
+ 
+
+$("#chat-send button").click(function(){
+  input=$("#chat-send textarea").val()
+
+  if(input){
+    
+    var dt = new Date();
+    var chttime = dt.getDate()+"/"+(dt.getMonth()+1) + "/" +dt.getFullYear()+" at "+dt.getHours() + ":" + dt.getMinutes() + ":" + dt.getSeconds();
+    var e = $('<div class="lv-item media"><div class="media-body"><div class="ms-item">'+$("#chat-send textarea").val()+'</div><small class="ms-date"><i class="zmdi zmdi-time"></i>'+chttime+'</small></div> </div>');
+        $('.lv-body').append(e);    
+        e.attr('id', 'myid');
+      user_msg=input
+      $.ajax({
+             type: "GET",
+             url:"/tco/chat-store/",
+              data:{"input":input,},
+             success: function(msg){
+              var e = $('<div class="lv-item media right"><div class="media-body"><div class="ms-item">'+msg+'</div><small class="ms-date"><i class="zmdi zmdi-time"></i>'+chttime+'</small></div></div>');
+        $('.lv-body').append(e);    
+        e.attr('id', 'myid');
+        $(".lv-body").scrollTop($(".lv-body")[0].scrollHeight);
+        $('#chat-send textarea').val("");
+             }
+      });
+    }
+  else{alert("please enter input text")}
+ 
 });
+
+
 
 
 
@@ -572,11 +693,8 @@ $("#ftrd_img_clk_chng .selectbtn").click(function(){
 
 
 
-$(".idtest a.arinfo").click(function(){
-
-
+$(".idtest a.arinfo1111").click(function(){
 arch_name = $(this).attr('id');
-//alert(arch_name);
 dataurl="/tco/ftrd_popup/"+arch_name+"/"
 var modal = $(this).data('modal');
 
@@ -590,7 +708,58 @@ var modal = $(this).data('modal');
  
 });
 
-$(".idtest1 a#abc").click(function(){
+
+
+$("#sa-image img1111").click(function(){
+  
+arch_name = $(this).attr('id');
+dataurl="/tco/ftrd_popup/"+arch_name+"/"
+var modal = $(this).data('modal');
+
+  $.ajax({
+             type: "GET",
+             url: dataurl,
+             success: function(msg){
+              $("#modalDefault").html(msg)
+             }
+        });
+
+});
+
+/*featured popups*/
+$("#ftrd_img_clk_chng img.ftrd-img222").click(function(){
+arch_name = $(this).attr('id');
+dataurl="/tco/Featured_popup/"+arch_name+"/"
+var modal = $(this).data('modal');
+
+  $.ajax({
+             type: "GET",
+             url: dataurl,
+             success: function(msg){
+              $("#modalDefault").html(msg)
+             }
+        });
+
+});
+
+
+$(".idtest1 a.arinfo1111").click(function(){
+
+arch_name = $(this).attr('id');
+dataurl="/tco/Featured_popup/"+arch_name+"/"
+  $.ajax({
+             type: "GET",
+             url: dataurl,
+             success: function(msg){
+              $("#modalDefault").html(msg)
+             }
+        });
+
+});
+
+/* end featured popups*/
+
+$(".idtest1 a#abc232").click(function(){
 
 //alert("hiiiiiiiiii");
 arch_name = $(this).attr('id');
@@ -606,6 +775,78 @@ var modal = $(this).data('modal');
         });
  
 });
+
+
+/*featured main arch*/
+
+$(".mymain img.ftrd-img2323").click(function(){
+arch_name = $(this).attr('id');
+dataurl="/tco/ftrd_popup/"+arch_name+"/"
+var modal = $(this).data('modal');
+
+  $.ajax({
+             type: "GET",
+             url: dataurl,
+             success: function(msg){
+              $("#modalDefault").html(msg)
+             }
+        });
+
+});
+
+
+$(".idtest1 a.arinfo323").click(function(){
+arch_name = $(this).attr('id');
+dataurl="/tco/ftrd_popup/"+arch_name+"/"
+  $.ajax({
+             type: "GET",
+             url: dataurl,
+             success: function(msg){
+              $("#modalDefault").html(msg)
+             }
+        });
+
+});
+
+/* end featured main arch popup*/
+
+
+/*Application model*/
+
+$(".appmodel img.info-popup3232").click(function(){
+arch_name = $(this).attr('id');
+dataurl="/tco/app_popup/"+arch_name+"/"
+var modal = $(this).data('modal');
+
+  $.ajax({
+             type: "GET",
+             url: dataurl,
+             success: function(msg){
+              $("#modalDefault").html(msg)
+             }
+        });
+
+});
+
+
+$(".idtest1 a.arinfo32323").click(function(){
+arch_name = $(this).attr('id');
+dataurl="/tco/app_popup/"+arch_name+"/"
+  $.ajax({
+             type: "GET",
+             url: dataurl,
+             success: function(msg){
+              $("#modalDefault").html(msg)
+             }
+        });
+
+});
+
+/* end application model*/
+
+
+
+
 
 var message=""
 
@@ -674,13 +915,7 @@ $.ajax({
 
             }
 
-
-
-
         });
-
-
-
 
          $('#ftrd_img_clk_chng a').click(function(e){
           alert("nmsams")
@@ -1003,78 +1238,8 @@ $("#pay-plans-btn button.plan-btn").click(function(){
 
 
 <script type="text/javascript">
-  $(document).ready(function () {
-  var navListItems = $('div.setup-panel div a'),
-          allWells = $('.setup-content'),
-          allNextBtn = $('.nextBtn');
-
-  allWells.hide();
-
-  navListItems.click(function (e) {
-      e.preventDefault();
-      var $target = $($(this).attr('href')),
-              $item = $(this);
-
-      if (!$item.hasClass('disabled')) {
-          navListItems.removeClass('btn-primary').addClass('btn-default');
-          $item.addClass('btn-primary');
-          allWells.hide();
-          $target.show();
-          $target.find('input:eq(0)').focus();
-      }
-  });
-
-  allNextBtn.click(function(){
-      var curStep = $(this).closest(".setup-content"),
-          curStepBtn = curStep.attr("id"),
-          nextStepWizard = $('div.setup-panel div a[href="#' + curStepBtn + '"]').parent().next().children("a"),
-          curInputs = curStep.find("input[type='text'],input[type='url']"),
-          isValid = true;
-
-      $(".form-group").removeClass("has-error");
-      for(var i=0; i<curInputs.length; i++){
-          if (!curInputs[i].validity.valid){
-              isValid = false;
-              $(curInputs[i]).closest(".form-group").addClass("has-error");
-          }
-      }
-
-      if (isValid)
-          nextStepWizard.removeAttr('disabled').trigger('click');
-  });
-
-  $('div.setup-panel div a.btn-primary').trigger('click');
-
-
-
-
-
-
-///Start Script for Back button///
-
-
-$(function() {
-//$(".tab-nav li a").click(function(){alert("hello")});
-    var activate = false,    
-      tabLinks = $('.tab-nav li a');
-      tabContent = $('.tab-content').children();
-
-  tabLinks.eq(0).addClass('active'); // Add active class, could possibly go in markup
-  //$('#profile1').hide(); // Hide second tab
   
-  tabLinks.bind('click', function(e) {
-    e.preventDefault();
-    if(activate === true) { // Only do something if button has been clicked
-      var target = this.hash,
-          el = $(this);
-
-      tabLinks.filter('.active').removeClass('active');
-      el.addClass('active');
-
-      tabContent.hide(); // Hide all
-      $(target).show(); // Show selected
-    }
-  });
+ 
 
   $('#backbutton button').click(function() {
     //alert("hiii")
@@ -1082,14 +1247,28 @@ $(function() {
     //tabLinks.eq(1).trigger('click'); // Trigger a click on the second tab link
   });
 
-});
-
-
-
-
-});
 
 $(document).ready(function() {
+
+
+//Wizard starts
+
+
+$(function ()
+{
+  $("#wizard").steps({
+    headerTag: "h2",
+    bodyTag: "section",
+    transitionEffect: "slideLeft"
+});
+});
+
+//Wizard Ends
+
+
+
+
+
 $('.thumbnail').click(function(){
   //alert("sdsjkhd")
       $('.modal-body').empty();

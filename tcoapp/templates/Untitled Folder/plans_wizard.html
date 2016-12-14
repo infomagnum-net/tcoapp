@@ -15,13 +15,18 @@
           
           <div class="col-md-6" style="padding:20px;">
             <div class="bp-header text-center" id="jhsagah">
+              {%if arch_info.architecture_img%}
+                
+                  <img src="/../static/media/{{arch_info.architecture_img}}" alt="" style="">
+                 {%else%}
+                  <img src="/../static/media/{{arch_info.feature_img}}" alt="" style="">
 
-              <img id="" src="{% static 'img/headers/7.png' %}"   style="background-color:#000;width:525px;height:300px;" class="img-responsive"/>
-                  
+                  {%endif%}
+
               <a class="bp-title" style="background-color:#2196f3;padding:1px;">
                  
-                  <h4 class="archiname" style="color:#fff;">{{name}}</h4>
-                  <h5 class="text-center"  style="color:#fff;">{{price}}</h5>
+                  <h4 class="archiname" style="color:#fff;">{{arch_info.architecture_name}}</h4>
+                  <h5 class="text-center"  style="color:#fff;">{{plan_info.total_plan_price}}</h5>
 
               </a>
             </div>
@@ -45,16 +50,6 @@
    <p><b><img src="{% static 'img/featured-arch/Storage_color.png'%}" 
                                         style="width:20px"  alt=""></b>&nbsp;&nbsp;sample storage</p>
    
-   
-
-
-                <!-- <p class="pull-left" title="Database" data-original-title="Database"><img src="{% static 'img/featured-arch/Database_color.png'%}"  alt="" style="width:20px"> : <b> Sample Database </b></p>
-
-                <p class="pull-left" title="Database" data-original-title="Database"><img src="{% static 'img/featured-arch/Instance_color.png'%}"  alt="" style="width:20px"> : <b> Sample Instance </b></p>
-
-                <p class="pull-left" title="Database" data-original-title="Database"><img src="{% static 'img/featured-arch/storage_color.png'%}"  alt="" style="width:20px"> : <b> sample storage </b></p> -->
-
-
             </div>
           </div>     
 
@@ -76,7 +71,7 @@
                   <div class="card pt-inner">
                                 
                   <div class="pti-header bgm-amber">
-                      <h2 class="plan-btn daily-prices">${{day_price}} <small>| daily</small></h2>
+                      <h2 class="plan-btn daily-prices">${{daily_plan_price}} <small>| daily</small></h2>
                       <div class="ptih-title packtype">Daily Pack</div>
                   </div>
   
@@ -92,7 +87,7 @@
                 
                   <div class="pti-footer">
 
-                    <button class="btn bgm-amber btn-circle btn-lg nextBtn bgm-cyan plan-btn" type="button" id="{{name}}" style="width:50px;height:50px;border-radius: 50px;font-size:16px;" name="daily"><i class="zmdi zmdi-check"></i></button>
+                    <button class="btn bgm-amber btn-circle btn-lg nextBtn bgm-cyan plan-btn" type="button" id="{{arch_info.architecture_name}}"  style="width:50px;height:50px;border-radius: 50px;font-size:16px;" name="daily"><i class="zmdi zmdi-check"></i></button>
 
                   </div>
                 </div>
@@ -112,7 +107,7 @@
                  
                 <div class="pti-header bgm-green">
                   
-                  <h2 class="plan-btn monthly-price">${{month_price}} <small>| Monthly</small></h2>
+                  <h2 class="plan-btn monthly-price">${{monthly_price}}<small>| Monthly</small></h2>
                   <div class="ptih-title packtype"> Monthly Pack</div>
                 
                 </div>
@@ -128,7 +123,7 @@
   
                 <div class="pti-footer">
 
-                <button class="btn bgm-green btn-circle btn-lg nextBtn bgm-cyan plan-btn" type="button" id="{{name}}" style="width:50px;height:50px;border-radius: 50px;font-size:22px;" name="Mothly"><i class="zmdi zmdi-check"></i></button>
+                <button class="btn bgm-green btn-circle btn-lg nextBtn bgm-cyan plan-btn" type="button" id="{{arch_info.architecture_name}}" style="width:50px;height:50px;border-radius: 50px;font-size:22px;" name="Mothly"><i class="zmdi zmdi-check"></i></button>
                       
                 </div>
 
@@ -146,7 +141,7 @@
                   
                   <div class="pti-header bgm-cyan">
                       
-                    <h2 class="plan-btn yearly-price">${{year_price}} <small>| Yearly</small></h2>
+                    <h2 class="plan-btn yearly-price">${{Yearly_price}} <small>| Yearly</small></h2>
                     <div class="ptih-title packtype">Yearly Pack</div>
 
                   </div>
@@ -164,7 +159,7 @@
   
                   <div class="pti-footer">
                      
-                       <button class="btn bgm-cyan btn-circle btn-lg nextBtn bgm-cyan plan-btn" type="button" id="{{name}}" style="width:50px;height:50px;border-radius: 50px;font-size:16px;" name="Yearly"><i class="zmdi zmdi-check" ></i></button>  
+                       <button class="btn bgm-cyan btn-circle btn-lg nextBtn bgm-cyan plan-btn" type="button" id="{{arch_info.architecture_name}}"  style="width:50px;height:50px;border-radius: 50px;font-size:16px;" name="Yearly"><i class="zmdi zmdi-check" ></i></button>  
  
                   </div>
 

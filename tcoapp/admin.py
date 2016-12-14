@@ -1,5 +1,6 @@
 from django.contrib import admin
-from .models import userinfo, Architecture, FeatureArchitecture,ArchitectureType
+
+from .models import userinfo, Architecture, FeatureArchitecture,ArchitectureType,Chat
 
 class userinfoAdmin(admin.ModelAdmin):
   	list_display = ('user_id', 'phone', 'created_at','updated_at')
@@ -17,7 +18,12 @@ class FeatureArchitectureAdmin(admin.ModelAdmin):
 class ArchitectureTypeAdmin(admin.ModelAdmin):
 	list_display = ('id', 'archtype',)
 
+class ChatAdmin(admin.ModelAdmin):
+	list_display = ('id', 'user_id','usermsg','botmsg','created_at')
+
+
 admin.site.register(userinfo,userinfoAdmin)
 admin.site.register(Architecture, ArchitectureAdmin)
 admin.site.register(FeatureArchitecture, FeatureArchitectureAdmin)
 admin.site.register(ArchitectureType, ArchitectureTypeAdmin	)
+admin.site.register(Chat,ChatAdmin	)

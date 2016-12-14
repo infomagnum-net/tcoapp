@@ -1,0 +1,158 @@
+{%extends "stepbase.html"%}
+{%load static%}
+{% block content%}
+
+
+
+<div class="chapter" id="getting-started-hosting-your-website"><div class="titlepage"><div><div><h1 class="topictitle">Step 3: Deploy Your Website</h1></div></div></div><p>Now that you've created and configured your Amazon S3 buckets, you are ready to deploy your website.
+        If you don't already have files for a website, you can just use the simple HTML files we create
+        in this step.</p><p>To deploy your static website, use Amazon S3 to complete the following tasks.</p><div class="highlights"><p><strong>Tasks</strong></p>
+        <ul>
+
+        <li><a href="#create-html">Create an Index Document and a Custom Error Document</a></li>
+
+        <li><a href="#upload-files">Upload Files to Your Bucket</a></li>
+
+        <li><a href="#configure-bucket">Configure Your Bucket as a Website</a></li>
+
+        <li><a href="#set-up-redirect">Set Up a Redirect</a></li>
+
+        <li><a href="#testing-website">Test Your Website</a></li>
+        </ul>
+
+        </div>
+
+        <div class="section"><div class="titlepage"><div><div><h2 class="title" style="clear: both" id="create-html">Create an Index Document and a Custom Error Document</h2></div></div></div><p>An <span class="emphasis"><em>index document</em></span> is the default page of a website. A
+            <span class="emphasis"><em>custom error document</em></span> is a document in which Amazon S3
+            returns HTTP 4.x error codes, if you configure your website to use this type of
+            document. Create an index document with the name <code class="filename">index.html</code>, and
+            create a custom error document with the name <code class="filename">error.html</code>. Save these
+            documents on your computer where you can easily find them.</p><p>Add the following HTML to <code class="filename">index.html</code>:</p><pre class="programlisting"><code class="nohighlight">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+  &lt;body&gt;
+    &lt;p&gt;Hello, World!&lt;/p&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</code></pre><p>Add the following HTML to <code class="filename">error.html</code>:</p><pre class="programlisting"><code class="nohighlight">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+  &lt;body&gt;
+    &lt;p&gt;This is an error page.&lt;/p&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+<!-- 
+<p>For more information on index documents and custom error documents, go to <a class="ulink" href="http://docs.aws.amazon.com/AmazonS3/latest/dev/IndexDocumentSupport.html" target="_blank">Index Document Support</a> and
+                <a class="ulink" href="http://docs.aws.amazon.com/AmazonS3/latest/dev/CustomErrorDocSupport.html" target="_blank">Custom Error Document
+                Support</a> in the <span class="emphasis"><em>Amazon Simple Storage Service Developer Guide</em></span>.</p> -->
+
+
+
+                </div><div class="section"><div class="titlepage"><div><div><h2 class="title" style="clear: both" id="upload-files">Upload Files to Your Bucket</h2></div></div></div><div class="procedure"><a name="d0e940"></a><p class="title"><b>To upload your website files to your root domain Amazon S3 bucket</b></p><p>If you already have the Amazon S3 console open, skip step 1.</p><ol class="procedure" type="1"><li class="step"><p>Open the Amazon S3 console
+         <!-- <a class="ulink" href="https://console.aws.amazon.com/s3/" target="_blank">https://console.aws.amazon.com/s3/</a> -->.</p></li><li class="step"><p>Select your root domain bucket.</p></li><li class="step"><p>Choose <span class="guilabel">Actions</span>, and then choose
+                    <span class="guilabel">Upload</span>.</p></li><li class="step"><p>In the <span class="guilabel">Upload — Select Files</span> dialog box, do the following:</p><ol type="a" class="substeps"><li class="step"><p>Choose <span class="guilabel">Add Files</span>.</p></li><li class="step"><p>In the <span class="guilabel">File Upload</span> dialog box, select the
+                                <code class="filename">index.html</code> and <code class="filename">error.html</code>
+                            files that you created, and then choose
+                            <span class="guilabel">Open</span>.</p></li><li class="step"><p>Choose <span class="guilabel">Start Upload</span>.</p></li></ol><p>
+
+
+                    <img src="{% static 'img/host_steps/StaticWebsiteHosting_HostingStaticWebsite_1.png' %}" class="img-responsive">
+
+
+
+                </p></li><li class="step"><p>When your files have finished uploading, they appear as follows.</p><p>
+
+                    <img src="{% static 'img/host_steps/StaticWebsiteHosting_HostingStaticWebsite_2.png' %}" class="img-responsive">
+
+                </p></li><li class="step"><p>(Optional) Upload any other files for your website.</p><p>If your website files have a folder hierarchy on your local computer, such as
+                    storing image files in an <code class="filename">images</code> subfolder, you need to
+                    recreate that hierarchy in your buckets. To do so, simply create folders inside
+                    the root domain bucket that match your folder hierarchy. For example, consider
+                    the case where you have a file <code class="filename">/images/check.gif</code> referenced
+                    in <code class="filename">index.html</code> as follows.</p><pre class="programlisting"><code class="nohighlight">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+  &lt;body&gt;
+    &lt;p&gt;Hello, World!&lt;/p&gt;
+    &lt;img src="/images/check.gif"&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</code></pre><p>To create this folder, open your root domain bucket, choose <span class="guilabel">Create
+                        Folder</span>, create the <code class="filename">images</code> folder, and then
+                    upload <code class="filename">check.gif</code> to the new <code class="filename">images</code>
+                    folder.</p><p>
+
+                    <img src="{% static 'img/host_steps/StaticWebsiteHosting_HostingStaticWebsite_3.png' %}" class="img-responsive">
+
+
+
+                </p></li></ol></div></div><div class="section"><div class="titlepage"><div><div><h2 class="title" style="clear: both" id="configure-bucket">Configure Your Bucket as a Website</h2></div></div></div><p>After you configure your bucket as a website, Amazon S3 can serve the files  
+            in the bucket as if they were hosted on a web server.</p><div class="procedure"><a name="getting-started-configure-bucket-as-website-procedure"></a><p class="title"><b>To configure your root domain bucket as a website</b></p><p>If you already have the Amazon S3 console open, skip step 1.</p><ol class="procedure" type="1"><li class="step"><p>Open the Amazon S3 console
+         <!-- <a class="ulink" href="https://console.aws.amazon.com/s3/" target="_blank">https://console.aws.amazon.com/s3/</a> -->.</p></li><li class="step"><p>In the <span class="guilabel">Buckets</span> pane, choose your root domain bucket, choose
+                    <span class="guilabel">Properties</span>, and then choose <span class="guilabel">Static Website
+                    Hosting</span>.</p></li><li class="step"><p>Make a note of the value of <span class="guilabel">Endpoint</span>, for example
+                    <code class="filename"><em class="replaceable"><code>example.com</code></em>.s3-website-us-east-1.amazonaws.com</code>.
+                    You'll need this value if you decide to set up a CDN.</p></li><li class="step"><p>Complete the <span class="guilabel">Static Website Hosting</span> pane as follows:</p><ol type="a" class="substeps"><li class="step"><p>Choose <span class="guilabel">Enable website hosting</span>.</p></li><li class="step"><p>For <span class="guilabel">Index Document</span>, type <code class="filename">index.html</code>.</p></li><li class="step"><p>For <span class="guilabel">Error Document</span>, type <code class="filename">error.html</code>.</p></li><li class="step"><p>Choose <span class="guilabel">Save</span>.</p></li></ol><p>
+
+                    <img src="{% static 'img/host_steps/StaticWebsiteHosting_ConfigureAmazonS3Website_1.png' %}" class="img-responsive">
+
+                    </p></li></ol></div></div><div class="section"><div class="titlepage"><div><div><h2 class="title" style="clear: both" id="set-up-redirect">Set Up a Redirect</h2></div></div></div><p>Before you can associate your domain name with your website, you must redirect traffic from
+            the <code class="code">www</code> subdomain bucket to the root domain bucket. Then, Amazon S3 forwards any
+            requests that are sent to the <code class="code">www</code> subdomain bucket to the root domain
+            bucket instead. By redirecting traffic in this way, you can maintain a single version of
+            your website files in Amazon S3 while still supporting both the root and <code class="code">www</code>
+            subdomain versions of your website's address.</p><div class="procedure"><a name="d0e1134"></a><p class="title"><b>
+                To redirect traffic from your www subdomain bucket to your root domain bucket
+            </b></p><p>If you already have the Amazon S3 console open, skip step 1.</p><ol class="procedure" type="1"><li class="step"><p>Open the Amazon S3 console
+         <!-- <a class="ulink" href="https://console.aws.amazon.com/s3/" target="_blank">https://console.aws.amazon.com/s3/</a> -->.</p></li><li class="step"><p>Choose the subdomain bucket you created,
+                    <code class="filename">www.<em class="replaceable"><code>example.com</code></em></code>, choose
+                    <span class="guilabel">Properties</span>, and then choose <span class="guilabel">Static Website
+                    Hosting</span>.</p></li><li class="step"><p>Complete the <span class="guilabel">Static Website Hosting</span> pane as follows:</p><ol type="a" class="substeps"><li class="step"><p>Choose <span class="guilabel">Redirect all requests to another host name</span>.</p></li><li class="step"><p>For <span class="guilabel">Redirect all requests to</span>, copy and paste the endpoint value of
+                            your root domain that was assigned by AWS, for example:
+                            <code class="filename"><em class="replaceable"><code>example.com</code></em>.s3-website-us-east-1.amazonaws.com</code></p></li><li class="step"><p>Choose <span class="guilabel">Save</span>.</p></li></ol></li></ol></div></div><div class="section"><div class="titlepage"><div><div><h2 class="title" style="clear: both" id="testing-website">Test Your Website</h2></div></div></div><p>You can verify that your static website is live on the Internet by using a web browser to
+            navigate to the default URL assigned by Amazon Web Services. </p><div class="procedure"><a name="d0e1194"></a><p class="title"><b>To test your website</b></p><ol class="procedure" type="1"><li class="step"><p>Choose your root domain bucket, choose <span class="guilabel">Properties</span>, and then choose
+                    <span class="guilabel">Static Website Hosting</span>. </p><p>The default URL assigned by AWS is the <span class="guilabel">Endpoint</span>. In the following
+                    image, this default URL is
+                    <code class="code">example.com.s3-website-us-east-1.amazonaws.com</code>.</p><p>
+
+
+                    <img src="{% static 'img/host_steps/StaticWebsiteHosting_FindEndPoint.png' %}" class="img-responsive">
+
+
+
+                </p></li><li class="step"><p>Choose the endpoint. If your website is correctly deployed, you'll see its home
+                    page.</p><p>
+
+
+
+                    <img src="{% static 'img/host_steps/StaticWebsiteHosting_Success.png' %}" class="img-responsive">
+
+
+
+                </p></li><li class="step"><p>(Optional) To verify that the subdomain bucket is properly redirecting
+                    visitors, try to access
+                    <code class="filename">http://www.<em class="replaceable"><code>example.com</code></em>.s3-website-us-east-1.amazonaws.com</code>.
+                    If your website is correctly deployed, you are redirected to
+                    <code class="filename">http://<em class="replaceable"><code>example.com</code></em>.s3-website-us-east-1.amazonaws.com</code>.</p></li><li class="step"><p>(Optional) To verify that the error page is working, try to access a page on
+                    your new website that doesn't exist, such as
+                    <code class="filename">http://<em class="replaceable"><code>example.com</code></em>.s3-website-us-east-1.amazonaws.com/bogus.html</code>.
+                    If your website is correctly deployed, you are redirected to your custom error
+                    page.</p><p>
+                    
+
+
+                    <img src="{% static 'img/host_steps/StaticWebsiteHosting_Error.png' %}" class="img-responsive">
+
+
+
+                </p></li></ol></div><p>Anyone who has the endpoint URLs for your Amazon S3 buckets can view the contents of your static
+            website in a web browser. If you don't have a registered domain name or you don’t plan
+            to associate your website with a domain, we recommend cleaning up the resources so you
+            no longer accrue charges. For more information on how to do so, see <a class="link" href="/tco/host_step7/" title="Step 7: Clean Up Your Resources">Clean Up</a>. </p><p>Otherwise. perform the following additional tasks to associate your website with your domain
+            name, and then clean up resources:</p><div class="procedure">
+
+            <ol class="procedure" type="1">
+            <li class="step"><p><a class="link" href="/tco/host_step4/" title="Step 4 (Optional): Register Your Domain Name">Register Your Domain Name</a></p></li>
+
+            <li class="step"><p><a class="link" href="/tco/host_step5/" title="Step 5 (Optional): Associate a Domain Name with Your Website">Associate a Domain Name with Your Website</a></p></li>
+
+            <li class="step"><p><a class="link" href="/tco/host_step6/" title="Step 6 (Optional): Speed Up Your Website by Using CloudFront">Speed Up Your Website</a></p></li>
+
+            <li class="step"><p><a class="link" href="/tco/host_step7/" title="Step 7: Clean Up Your Resources">Clean Up</a></p></li></ol></div></div></div>
+
+ {%endblock%}

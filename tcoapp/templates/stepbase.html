@@ -1,0 +1,405 @@
+{%load static%}
+<!DOCTYPE html>
+    <!--[if IE 9 ]><html class="ie9"><![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="shortcut icon" href="{% static 'img/favlogo.png' %}" type="image/x-icon">
+        <title>Cloud-TCO</title>
+    
+        <!-- Vendor CSS -->
+        <link href="{% static 'vendors/bower_components/animate.css/animate.min.css' %}" rel="stylesheet">
+        <link href="{% static 'vendors/bower_components/bootstrap-sweetalert/lib/sweet-alert.css' %}" rel="stylesheet">
+        <link href="{% static 'vendors/bower_components/material-design-iconic-font/dist/css/material-design-iconic-font.min.css' %}" rel="stylesheet">
+        <link href="{% static 'vendors/bower_components/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.min.css' %}" rel="stylesheet">        
+            
+        <!-- CSS -->
+        <link href="{% static 'css/app.min.1.css' %}" rel="stylesheet">
+        <link href="{% static 'css/app.min.2.css' %}" rel="stylesheet">
+        
+        <!-- Following CSS codes are used only fore demo purposes thus you can remove anytime -->
+        <style type="text/css">
+            .dropdown-basic-demo {
+                display: inline-block;
+                margin: 0 15px 20px 0;
+            }
+            
+            .dropdown-basic-demo .dropdown-menu {
+                display: block;
+                position: relative;
+                transform: scale(1);
+                opacity: 1;
+                filter: alpha(opacity=1);
+                z-index: 0;
+            }
+            
+            .dropdown-btn-demo .dropdown, .dropdown-btn-demo .btn-group, .btn-demo .btn {
+                display: inline-block;
+                margin: 0 5px 7px 0;
+            }
+
+            .modal-preview-demo .modal {
+                position: relative; 
+                display: block; 
+                z-index: 0; 
+                background: rgba(0,0,0,0.1);
+            }
+            
+            .margin-bottom > *{
+                margin-bottom: 20px;
+            }
+            
+            .popover-demo .popover {
+                position: relative;
+                display: inline-block;
+                opacity: 1;
+                margin: 0 10px 30px;
+                z-index: 0;
+            }
+
+            .preloader {
+                margin-right: 30px;
+            }
+
+             .topictitle{
+                font-size: 24px;
+                font-weight: bold;
+                color: #e47911;
+                padding: 0 0 14px 0;
+
+               }
+               h2{
+                font-size: 18px;
+                font-weight: bold;
+                padding-top: 1.5em;
+                margin: 1em 0;
+                color: #cc6600;
+               }
+
+               p {
+                margin-bottom: 20px;
+                font-size: 14px;
+                }
+
+               .guilabel {
+                  font-weight: bold;
+                }
+                div.aws-note p.aws-note {
+                  font-weight: bold;
+                }
+
+                a:visited {
+                  color: #963;
+                }
+
+                :target {
+                  padding-top: 134px;
+                }
+
+        </style>
+    </head>
+    
+    <body class="toggled sw-toggled">
+        <header id="header" class="clearfix" data-current-skin="blue">
+            <ul class="header-inner">
+                <li id="menu-trigger" data-trigger="#sidebar">
+                    <div class="line-wrap">
+                        <div class="line top"></div>
+                        <div class="line center"></div>
+                        <div class="line bottom"></div>
+                    </div>
+                </li>
+
+                
+                <li class="logo">
+                    <a href="/tco/architecture" style="text-decoration:none;">
+                <img src="{% static 'img/cloud_logo.svg' %}" alt="client" style="width:147px;height:41px;">
+                </a>
+                </li>
+
+
+                <li class="pull-right">
+                    <ul class="top-menu">
+
+                        <li>
+                           <a href="/tco/architecture/"> <i class="tm-icon zmdi zmdi-home"></i></a>
+                       </li>
+                        
+                        <li class="dropdown">
+                            <a data-toggle="dropdown" href=""><i class="tm-icon zmdi zmdi-account-circle"></i> </a>
+                            <ul class="dropdown-menu dm-icon pull-right">
+                                
+                                <li class="">
+                                   <a href="/tco/profile/"><i class="zmdi zmdi-account"></i> View Profile</a>
+                                </li>
+
+                                <li>
+                                    <a href="/accounts/password/change/"><i class="zmdi zmdi-face"></i> Privacy Settings</a>
+                                </li>
+
+                                <li>
+                                    <a href="/tco/logout"><i class="zmdi zmdi-time-restore"></i> Logout</a>
+                                </li>
+
+                            </ul>
+                        </li>
+
+
+                         <li class="dropdown">
+                            <a data-toggle="dropdown">
+                                <!-- <i class="tmn-counts"></i> -->
+                                <i class="tm-icon zmdi zmdi-headset-mic zmdi-hc-fw"></i>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-lg pull-right">
+                                <div class="listview lv-message" >
+                                    <div class="lv-header c-blue">
+                                        CHAT
+                      
+                                    </div>
+
+                                    <div class="lv-body" style="height:300px">                                                    
+                                    <div class="media-body">
+                                            <div class="p-l-10 f-300  text-center">
+                                                <b>Welcome to Cloud-TCO suppport.<br/>
+                                    How may I assist you..</b>
+                                            </div>
+                                            
+                                        </div>
+                                    
+                                    </div>
+                        
+                                    <div class="lv-footer ms-reply " id="chat-send"><textarea placeholder="What's on your mind..."></textarea>
+                                    
+                                    <button ><i class="zmdi zmdi-mail-send"></i></button></div>
+                                </div>
+                        
+                            </div>
+                        </li>
+
+                       <!--   <li class="hidden-xs" id="chat-trigger" data-trigger="#chat">
+                            <a href=""><i class="tm-icon zmdi zmdi-comment-alt-text"></i></a>
+                        </li> -->
+
+                    </ul>
+                </li>
+            
+            </ul>
+
+            <div>
+                    <div class="fg-line">
+                        
+                    </div>
+            </div>
+
+
+
+            <nav class="ha-menu">
+                <ul>
+                    <li class="waves-effect"><a href="/tco/architecture">Architectures</a></li>
+
+                    <li class="waves-effect"><a href="/tco/application">Applications</a></li>
+
+                    <li class="waves-effect"><a href="/tco/verticals">Verticals</a></li>
+
+                    
+                </ul>
+            </nav>
+
+
+
+            <!-- Top Search Content -->
+            <div id="top-search-wrap">
+                <div class="tsw-inner">
+                    <i id="top-search-close" class="zmdi zmdi-arrow-left"></i>
+                    <input type="text">
+                </div>
+            </div>
+        </header>
+        
+        <section id="main">
+            <aside id="sidebar" class="sidebar c-overflow">
+            <div class="">
+            <h2 style = "font-size:16px; color:#2196f3; text-align:center; padding-top :75px;"> Getting start with easy steps </h2>
+            </div>
+
+
+                <ul class="main-menu">
+                    <li><a href="/tco/host_step1/"><i class="zmdi zmdi-circle-o zmdi-hc-fw"></i> Step 1: Create the Buckets for Your Website</a></li>
+
+                    <li><a href="/tco/host_step2/"><i class="zmdi zmdi-circle-o zmdi-hc-fw"></i> Step 2: Configure Your Buckets</a></li>
+
+                    <li><a href="/tco/host_step3/"><i class="zmdi zmdi-circle-o zmdi-hc-fw"></i> Step 3: Deploy Your Website</a></li>
+
+                    <li><a href="/tco/host_step4/"><i class="zmdi zmdi-circle-o zmdi-hc-fw"></i> Step 4 (Optional): Register Your Domain Name</a></li>
+
+                    <li><a href="/tco/host_step5/"><i class="zmdi zmdi-circle-o zmdi-hc-fw"></i> Step 5 (Optional): Associate a Domain Name with Your Website</a></li>
+
+                    <li><a href="/tco/host_step6/"><i class="zmdi zmdi-circle-o zmdi-hc-fw"></i>Step 6 (Optional): Speed Up Your Website by Using CloudFront</a></li>
+                    
+                    <li class="sub-menu">
+                        <a href="/tco/host_step7/"><i class="zmdi zmdi-circle-o zmdi-hc-fw"></i></i>Step 7 : Clean Up</a>
+                        <ul>
+                            <li><a href="/tco/host_step7/"><i class="zmdi zmdi-dot-circle zmdi-hc-fw"></i>Clean Up</a></li>
+
+                            <li><a href="/tco/step7_53host/"><i class="zmdi zmdi-dot-circle zmdi-hc-fw"></i>Delete the Amazon Route 53 Hosted Zone</a></li>
+                            <li><a href="/tco/step7_cleanup_cloudfront/">
+                            <i class="zmdi zmdi-dot-circle zmdi-hc-fw"></i>Delete the CloudFront Distribution</a></li>
+                            <li><a href="/tco/step7_cleanup_s3/"><i class="zmdi zmdi-dot-circle zmdi-hc-fw"></i>Delete the Amazon S3 Bucket</a></li>
+                            
+                        </ul>
+                    </li>
+
+
+
+
+                    <!-- <li class="sub-menu">
+                        <a href=""><i class="zmdi zmdi-view-compact"></i> Headers</a>
+
+                        <ul>
+                            <li><a href="textual-menu.html">Step 2: Configure Your Buckets</a></li>
+                            <li><a href="image-logo.html">Image logo</a></li>
+                            <li><a href="top-mainmenu.html">Mainmenu on top</a></li>
+                        </ul>
+                    </li> -->
+                   <!--  <li><a href="typography.html"><i class="zmdi zmdi-format-underlined"></i> Typography</a></li> -->
+                   
+                    
+                   
+                   
+                </ul>
+            </aside>
+
+            <!-- <aside id="chat" class="sidebar c-overflow">
+
+                
+            </aside>
+ -->
+
+
+
+        
+        
+            <section id="content">
+                <div class="container">
+                    <div class="block-header">
+                       <!--  <h2>Components</h2> -->
+                    
+                    
+                    </div>
+                
+                    <div class="card">
+                        <div class="card-header1">
+                            <!-- <h2>Dropdown <small>Toggleable, contextual menu for displaying lists of links</small></h2> -->
+
+                {%block content%}
+                
+                {%endblock%}
+
+
+
+                        </div>
+                    
+                        <!-- <div class="card-body card-padding">
+                            <p class="f-500 c-black m-b-5">Basic Previews (After triggering)</p>
+                            <small>Please refer the Colors page for all the available color options</small>
+                            
+                            <br/>
+                            <br/>                           
+                        </div> -->
+                    </div>
+                    
+                    
+                </div>
+            </section>
+        </section>
+        
+       <!--  <footer id="footer">
+            Copyright &copy; 2015 Material Admin
+            
+            <ul class="f-menu">
+                <li><a href="">Home</a></li>
+                <li><a href="">Dashboard</a></li>
+                <li><a href="">Reports</a></li>
+                <li><a href="">Support</a></li>
+                <li><a href="">Contact</a></li>
+            </ul>
+        </footer>
+ -->
+        <!-- Page Loader -->
+       
+
+        <!-- Older IE warning message -->
+        <!--[if lt IE 9]>
+            <div class="ie-warning">
+                <h1 class="c-white">Warning!!</h1>
+                <p>You are using an outdated version of Internet Explorer, please upgrade <br/>to any of the following web browsers to access this website.</p>
+                <div class="iew-container">
+                    <ul class="iew-download">
+                        <li>
+                            <a href="http://www.google.com/chrome/">
+                                <img src="img/browsers/chrome.png" alt="">
+                                <div>Chrome</div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.mozilla.org/en-US/firefox/new/">
+                                <img src="img/browsers/firefox.png" alt="">
+                                <div>Firefox</div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="http://www.opera.com">
+                                <img src="img/browsers/opera.png" alt="">
+                                <div>Opera</div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.apple.com/safari/">
+                                <img src="img/browsers/safari.png" alt="">
+                                <div>Safari</div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="http://windows.microsoft.com/en-us/internet-explorer/download-ie">
+                                <img src="img/browsers/ie.png" alt="">
+                                <div>IE (New)</div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <p>Sorry for the inconvenience!</p>
+            </div>   
+        <![endif]-->
+
+        <!-- Javascript Libraries -->
+        <script src="{% static 'vendors/bower_components/jquery/dist/jquery.min.js' %}"></script>
+      <script src="{% static 'vendors/bower_components/bootstrap/dist/js/bootstrap.min.js' %}"></script> 
+        
+        <script src="{% static 'vendors/bower_components/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js' %}"></script>
+
+        <script src="{% static 'vendors/bower_components/Waves/dist/waves.min.js' %}"></script>
+        <script src="{% static 'vendors/bootstrap-growl/bootstrap-growl.min.js' %}"></script>
+        <script src="{% static 'vendors/bower_components/bootstrap-sweetalert/lib/sweet-alert.min.js' %}"></script>
+        <script src="{% static 'vendors/bootstrap-wizard/jquery.bootstrap.wizard.min.js' %}"></script>
+        
+        <!-- Placeholder for IE9 -->
+        <!--[if IE 9 ]>
+            <script src="vendors/bower_components/jquery-placeholder/jquery.placeholder.min.js"></script>
+        <![endif]-->
+        
+        <script src="{% static 'js/functions.js' %}"></script>
+       <!--  <script src="{% static 'js/demo.js' %}"></script>  -->
+    
+        <!-- Following is only for demo purpose to trigger colored modals. You may ignore this when you implement -->
+        <script type="text/javascript">
+            $(document).ready(function(){
+                $('body').on('click', '#btn-color-targets > .btn', function(){
+                    var color = $(this).data('target-color');
+                    $('#modalColor').attr('data-modal-color', color);
+                });
+            });
+        </script>
+    
+    </body>
+</html>

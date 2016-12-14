@@ -69,6 +69,7 @@ logger = logging.getLogger(__name__)
 
 
 class PlanList(generics.ListCreateAPIView):
+    authentication_classes = (TokenAuthentication,)
     permission_classes = (permissions.IsAuthenticated,)
     serializer_class = PlanSerializer
     queryset = Plan.objects.all()
@@ -984,7 +985,7 @@ class ProductCodeByID(generics.ListCreateAPIView):
 
 
 class PlanByArchName(generics.ListCreateAPIView):
-    authentication_classes = (TokenAuthentication,)
+    #authentication_classes = (TokenAuthentication,)
     permission_classes = (IsAuthenticated,)
     serializer_class =ArchPlanSerializer
     model = Plan
@@ -1120,3 +1121,11 @@ class Architectures_by_name(APIView):
         return Response(architecture_info)
 
 
+class AllplansInfo(generics.ListCreateAPIView):
+    authentication_classes = (TokenAuthentication,)
+    permission_classes = (IsAuthenticated,)
+    serializer_class =ArchPlanSerializer
+    model = Plan
+    def get_queryset(self):
+        dsds=Plan.objects.all()
+        return dsds

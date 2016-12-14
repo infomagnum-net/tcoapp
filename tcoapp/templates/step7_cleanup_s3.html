@@ -1,0 +1,16 @@
+{%extends "stepbase.html"%}
+{%load static%}
+{% block content%}
+
+
+
+                            <div id="main-col-body"><div></div><div class="section"><div class="titlepage"><div><div><h1 class="topictitle">Delete the Amazon S3 Bucket</h1></div></div></div><p>Before you delete your Amazon S3 bucket, you should ensure that logging is disabled for the
+        bucket, Otherwise, AWS continues to write logs to your bucket as you delete it.</p><div class="procedure"><a name="d0e2114"></a><p class="title"><b>To disable logging for a bucket</b></p><ol class="procedure" type="1"><li class="step"><p>Open the Amazon S3 console <!-- 
+         <a class="ulink" href="https://console.aws.amazon.com/s3/" target="_blank">https://console.aws.amazon.com/s3/</a> -->.</p></li><li class="step"><p>Select your bucket, and then choose <span class="guilabel">Properties</span>.</p></li><li class="step"><p>In the <span class="guilabel">Properties</span> pane, choose <span class="guilabel">Logging</span>.</p></li><li class="step"><p>Clear the <span class="guilabel">Enabled</span> check box.</p></li><li class="step"><p>Choose <span class="guilabel">Save</span>.</p></li></ol></div><div class="procedure"><a name="d0e2150"></a><p class="title"><b>To delete a bucket</b></p><ol class="procedure" type="1"><li class="step"><p>Open the Amazon S3 console<!-- 
+         <a class="ulink" href="https://console.aws.amazon.com/s3/" target="_blank">https://console.aws.amazon.com/s3/</a> -->.</p></li><li class="step"><p>Open the context (right-click) menu for the bucket, and choose <span class="guilabel">Delete
+                    Bucket</span>.</p></li><li class="step"><p>When prompted for confirmation, type the name of the bucket in the box, and then choose
+                    <span class="guilabel">Delete</span>.</p></li></ol></div></div></div>
+
+
+{%endblock%}
+

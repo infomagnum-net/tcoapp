@@ -139,6 +139,10 @@ urlpatterns = [
     
     url(r'^arch/(?P<name>[A-Za-z0-9\w@%._ -]+)/$',
         views.Architectures_by_name.as_view(), name='Architectures_by_name'),
+
+    url(r'^allplans/$',
+        views.AllplansInfo.as_view(), name='AllplansInfo'),
+
     
 
     # url(r'^invoice/(?P<name>[A-Za-z0-9\w@%._ -]+)/$',

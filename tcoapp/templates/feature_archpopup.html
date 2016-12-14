@@ -1,0 +1,96 @@
+{%load static%}
+{% block content%} 
+
+ <!-- <div class="modal-header bgm-brown">
+                  <h4 class="modal-title c-white f-200 p-b-5" style="float:left;"> {{arch_info.architecture_name}}
+                  </h4> 
+                  <a class="btn btn-link f-600 c-white p-0" data-dismiss="modal" style="float:right;">X</a>
+                   
+              </div> -->
+
+
+      <div class="modal-dialog modal-lg">
+          <div class="modal-content">
+              <div class="modal-header bgm-yell">
+                  <h4 class="modal-title c-white f-20 text-center"> {{arch_info.architecture_name}}
+                  <a class="btn btn-link f-400 c-white p-t-0" data-dismiss="modal" style="float:right;font-size:22px">X</a></h4> 
+                  
+                   
+              </div>
+            <div class="modal-body p-0">
+             
+              
+                <div class="p-0">
+                  <img  src="/../static/media/{{ arch_info.feature_img }}" style="display:block;margin:auto;" width="520px;" height="350px;"   class="nextBtn btn-lg " data-type="inverse"  data-from="top" data-align="right" data-icon="fa fa-comments"/>
+                </div>
+
+                 <div class="bgm-blue c-white">
+                 <p class="p-l-15 p-5">Description about this Architecture will be displayed here</p></div>
+
+            <div class="col-md-12">
+                         <div class="col-md-6 p-l-0 p-r-5">
+                            <ul class="p-l-5">
+
+            <li class="list-inst" style="list-style:none;"><strong><img src="{% static 'img/featured-arch/Instance_color.png' %}" style="height:20px;width:20px;">&nbsp;&nbsp;(Instance) &nbsp;:</strong> &nbsp;
+              <ul class="">
+                {%for instance in plan_info.instance_name %}
+                  <li>
+                    {{instance.0}}.
+                   </li>
+                  {%endfor%}
+                </ul>
+            </li>
+            
+ <li class="list-inst" style="list-style:none;"><img src="{% static 'img/featured-arch/Storage_color.png' %}" style="height:20px;width:20px;"><strong>&nbsp;&nbsp;(Storage) &nbsp;:</strong>&nbsp; 
+              <ul class="">
+                {%for instance in plan_info.s3_name %}
+                  <li>
+                    {{instance.0}}.
+                 </li>
+                  {%endfor%}
+                </ul>
+
+              </li>
+           
+
+</ul></div>
+      <div class="col-md-6 p-l-0 p-r-5">    
+
+<ul class="p-r-0">
+ <li class="list-inst" style="list-style:none;"><strong><img src="{% static 'img/featured-arch/Database_color.png' %}" style="height:20px;width:20px;">&nbsp;&nbsp;(Database) &nbsp;:</strong> &nbsp;
+                  <ul class="">
+                {%for instance in plan_info.rds_name %}
+                  <li>
+                    {{instance.0}}.
+                 </li>
+                  {%endfor%}
+                </ul>
+            </li>
+           
+
+            <li class="list-inst" style="list-style:none;"><img src="{% static 'img/featured-arch/LoadBalancer_color.png' %}" style="height:20px;width:20px;"><strong>&nbsp;&nbsp;(Load_Balancer)&nbsp; :</strong>
+              <ul class="">
+                {%for instance in plan_info.balancer_name %}
+                  <li>
+                    {{instance.0}}.
+                 </li>
+                 {%endfor%}
+                </ul> 
+               
+              </li>
+
+
+           <!--  <li class="list-inst" style="list-style:none;"><img src="{% static 'img/featured-arch/Description_color.png' %}" style="height:20px;width:20px;"><strong>&nbsp;(Description)&nbsp; :</strong> click on the button below modal.</li> -->
+
+          </ul></div>
+          </div>
+                                           
+                                          </div>
+                                        
+
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-link" data-dismiss="modal">Close</button>
+                                        </div>
+                                    </div>
+                                </div>
+{%endblock%}

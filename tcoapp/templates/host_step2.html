@@ -1,0 +1,68 @@
+{%extends "stepbase.html"%}
+{%load static%}
+{% block content%}
+
+    
+     <div class="chapter" id="getting-started-configure-bucket"><div class="titlepage"><div><div><h1 class="topictitle">Step 2: Configure Your Buckets</h1></div></div></div><p>When you configure your root domain bucket in Amazon S3 as a website, Amazon S3 delivers the files in
+        that bucket to web browsers as if they were hosted on a web server. To make sure everyone
+        can view the files for your website, you must add permissions to your root domain bucket. We
+        also recommend that you enable logging to record information about traffic to your
+        website.</p><p>To configure the buckets for your website, use Amazon S3 to complete the following tasks.</p><div class="highlights"><p><strong>Tasks</strong></p>
+
+        <ul>
+        <li><a href="#add-permissions">Add Permissions</a></li>
+        <li><a href="#enable-logging">Enable Logging</a></li>
+        </ul>
+
+        </div>
+        <div class="section"><div class="titlepage"><div><div><h2 class="title" style="clear: both" id="add-permissions">Add Permissions</h2></div></div></div><p>When you first create an Amazon S3 bucket, only you can access the bucket and its contents. This
+            default behavior ensures that you don't accidentally expose your data to other users.
+            The point of a website, however, is to be visited, so you will apply a policy to the
+            root domain bucket so that anyone can view its contents in web browser. For more
+            information, go to<!--  <a class="ulink" href="http://docs.aws.amazon.com/AmazonS3/latest/dev/UsingBucketPolicies.html" target="_blank"> -->Using Bucket
+                Policies and User Policies</a> in the
+            <span class="emphasis"><em>Amazon Simple Storage Service Developer Guide</em></span>.</p><div class="procedure"><a name="d0e726"></a><p class="title"><b>To add permissions for the contents of your root domain bucket</b></p><p>If you already have the Amazon S3 console open, skip step 1.</p><ol class="procedure" type="1"><li class="step"><p>Open the Amazon S3 console 
+         <!-- <a class="ulink" href="https://console.aws.amazon.com/s3/" target="_blank">https://console.aws.amazon.com/s3/</a> -->.</p></li><li class="step"><p>In the <span class="guilabel">Buckets</span> pane, choose your root domain bucket, choose
+                        <span class="guilabel">Properties</span>, choose <span class="guilabel">Permissions</span>,
+                    and then choose <span class="guilabel">Add bucket policy</span> to open the
+                        <span class="guilabel">Bucket Policy Editor.</span></p><div class="informalfigure"><div class="mediaobject">
+
+                        <img src="{% static 'img/host_steps/WebsiteHosting_SetBucketPolicy_1.png' %}" class="img-responsive">
+
+
+                        </div></div></li><li class="step"><p>Copy the following policy and paste it into the <span class="guilabel">Bucket Policy Editor</span>.
+                    In the Amazon Resource Name (ARN) for the resource in the
+                        <code class="code">"Resource"</code> entry, replace
+                        <em class="replaceable"><code>example.com</code></em> with the name of your bucket, and
+                    then choose <span class="guilabel">Save</span>. This policy gives everyone permission to
+                    view any file in the <em class="replaceable"><code>example.com</code></em> bucket.</p><pre class="programlisting"><code class="nohighlight">{
+  "Version":"2012-10-17",
+  "Statement": [{
+    "Sid": "Allow Public Access to All Objects",
+    "Effect": "Allow",
+    "Principal": "*",
+    "Action": "s3:GetObject",
+    "Resource": "arn:aws:s3:::<em class="replaceable"><code class=""><span class="">example</span><span class="">.com</span></code></em>/*"
+  }
+ ]
+}</code></pre><p>For more information on bucket policies, go to<!--  <a class="ulink" href="http://docs.aws.amazon.com/AmazonS3/latest/dev/using-iam-policies.html" target="_blank"> -->Using Bucket Polices and User
+                        Policies</a> in the <span class="emphasis"><em>Amazon Simple Storage Service Developer Guide</em></span>.</p></li><li class="step"><p>For <span class="guilabel">Permissions</span>, choose <span class="guilabel">Save</span>.</p></li></ol></div></div><div class="section"><div class="titlepage"><div><div><h2 class="title" style="clear: both" id="enable-logging">Enable Logging</h2></div></div></div><p>To track the number of visitors accessing your website, you must enable logging for the root
+            domain bucket. Enabling logging is optional. If you don't want to track traffic to your
+            website, you can skip the following procedure.</p><p>With logging enabled, you can track information such as data in and out of your bucket and
+            the IP addresses of whoever is accessing your bucket. There is no extra charge for
+            enabling logging on a bucket; however, you will accrue charges to store the resulting log files 
+            in the bucket that you specify. (You can delete the log files from this bucket at any time.)
+            Amazon S3 does not assess data transfer charges for log file delivery, but does charge the
+            normal data transfer rate for accessing the log files. For more information, see <!-- <a class="ulink" href="http://docs.aws.amazon.com/AmazonS3/latest/dev/ServerLogs.html" target="_blank">Server Access Logging</a> --> in the
+                <span class="emphasis"><em>Amazon Simple Storage Service Developer Guide</em></span>. </p><div class="procedure"><a name="d0e811"></a><p class="title"><b>To enable logging for your root domain bucket</b></p><p>If you have the Amazon S3 console is open, skip step 1.</p><ol class="procedure" type="1"><li class="step"><p>Open the Amazon S3 console
+        <!--  <a class="ulink" href="https://console.aws.amazon.com/s3/" target="_blank">https://console.aws.amazon.com/s3/</a> -->.</p></li><li class="step"><p>In the <span class="guilabel">Buckets</span> pane, choose your root domain bucket, choose
+                        <span class="guilabel">Properties</span>, and then choose
+                        <span class="guilabel">Logging</span>.</p></li><li class="step"><p>Complete the <span class="guilabel">Logging</span> pane as follows:</p><ol type="a" class="substeps"><li class="step"><p>Select the <span class="guilabel">Enabled</span> check box.</p></li><li class="step"><p>For <span class="guilabel">Target Bucket</span>, choose the bucket that you created for the log
+                            files, <code class="code">logs.</code><em class="replaceable"><code>example.com</code></em>.</p></li><li class="step"><p>For <span class="guilabel">Target Prefix</span>, type <code class="filename">root/</code>. This setting
+                            groups the log data files in a folder named <code class="filename">root</code> in
+                            the bucket so that they will be easy for you to locate later.</p></li><li class="step"><p>Choose <span class="guilabel">Save</span>.</p></li></ol><div class="informalfigure"><div class="mediaobject">
+                            <img src="{% static 'img/host_steps/StaticWebsiteHosting_ConfigureLogging.png' %}" class="img-responsive"></div></div></li></ol></div></div></div>
+
+
+   {%endblock%}
+                    

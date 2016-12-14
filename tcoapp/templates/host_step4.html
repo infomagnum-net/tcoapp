@@ -1,0 +1,25 @@
+{%extends "stepbase.html"%}
+{%load static%}
+{% block content%}
+
+
+                            <div class="chapter" id="getting-started-register-domain"><div class="titlepage"><div><div><h1 class="topictitle">Step 4 (Optional): Register Your Domain
+        Name</h1></div></div></div><p>If you plan to associate a domain name with your website and you haven't already registered
+        that domain name, now is a good time to do so. </p><p>The Internet Corporation for Assigned Names and Numbers (ICANN) manages domain names on
+        the Internet. You register a domain name using a <span class="emphasis"><em>domain name registrar</em></span>,
+        an ICANN-accredited organization that manages the registry of domain names. The website for
+        your registrar will provide detailed instructions and pricing information for registering
+        your domain name. </p><p>Before you pay to register a domain name, check that the domain name that you used when you
+        created your buckets in Amazon S3 (as described in <a class="xref" href="/tco/host_step1/" title="Step 1: Create the Buckets for Your Website">Step 1: Create the Buckets for Your
+        Website</a>) is available with a domain name
+        registrar. If the domain name is not available, you should delete the buckets in Amazon S3, find
+        a domain name that is available, and create new buckets in Amazon S3 with the same name as your
+        domain. We recommend this approach because Amazon S3 requires buckets with the same name as your
+        domain for a static website, and you can't change the name of a bucket after you create
+        it.</p><p>You can get further help with registering a domain name from the following:</p><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem"><p>To use Amazon Route&nbsp;53 to register a domain name, go to <a class="ulink" href="" target="_blank">Registering Domain Names Using Amazon Route&nbsp;53</a> in the
+            <span class="emphasis"><em>Amazon Route&nbsp;53 Developer Guide</em></span>.</p></li><li class="listitem"><p>For a list of accredited registrars, go to the <a class="ulink" href="" target="_blank">Accredited Registrar
+            Directory</a>.</p></li></ul></div></div>
+
+
+{%endblock%}
+                      
