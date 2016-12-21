@@ -901,7 +901,7 @@ def arch_info_with_name_byname(name):
     product=ProductCode.objects.filter(value="WP-Model 1")
     arch=Billing_Architecture.objects.filter(architecture_name=product).values('architecture_name','architecture_img','id')
     ftrd_arch=Billing_FeatureArchitecture.objects.filter(architecture_name=product).values("id","architecture_id",
-            "feature_img","architecture_name")
+            "feature_img","architecture_name","apptype_img")
     if arch:
         dataset=arch
     else:
@@ -1014,7 +1014,7 @@ class FtrdArchByArchID(APIView):
     permission_classes = (IsAuthenticated,)
     def get(self, request,pk):
         ftrd_arch=Billing_FeatureArchitecture.objects.filter(architecture_id=pk).values("id","architecture_id",
-            "feature_img","architecture_name")
+            "feature_img","architecture_name","apptype_img",)
         product=ProductCode.objects.all().values("id","value")
         
         for prdct in product:
@@ -1051,7 +1051,7 @@ class MyOwnView(APIView):
         token=Token.objects.get(user_id=request.user.id)
         mytoken=token.key
         cldtype=Billing_ArchitectureType.objects.filter(archtype="cloud")
-        queryset = Billing_Architecture.objects.filter(archtype=cldtype).values('architecture_name','architecture_img','id')
+        queryset = Billing_Architecture.objects.filter(archtype=cldtype).values('architecture_name','architecture_img','id','apptype_img')
         prdct=ProductCode.objects.all().values('id','value')
         for product in prdct:
             for name in queryset:
@@ -1068,7 +1068,7 @@ class ArchCompleInfo(APIView):
     def get(self, request,pk):
         token=Token.objects.get(user_id=request.user.id)
         mytoken=token.key
-        arch_info=Billing_Architecture.objects.filter(id=pk).values('architecture_name','architecture_img','id')
+        arch_info=Billing_Architecture.objects.filter(id=pk).values('architecture_name','architecture_img','id','apptype_img')
         product=ProductCode.objects.filter(id=arch_info[0]["architecture_name"]).values("id",'value')
         arch_info[0]["architecture_name"]=product[0]['value']
         arch=arch_info[0]
@@ -1089,7 +1089,7 @@ class FtrdArchCompleInfo(APIView):
         token=Token.objects.get(user_id=request.user.id)
         mytoken=token.key
         arch_info=ftrd_arch=Billing_FeatureArchitecture.objects.filter(id=pk).values("id","architecture_id",
-            "feature_img","architecture_name")
+            "feature_img","architecture_name","apptype_img")
         product=ProductCode.objects.filter(id=arch_info[0]["architecture_name"]).values("id",'value')
         arch_info[0]["architecture_name"]=product[0]['value']
         arch=arch_info[0]
@@ -1109,12 +1109,12 @@ class Architectures_by_name(APIView):
     def get(self, request,name):
         product=ProductCode.objects.filter(value=name)
         architecture_info={}
-        architecture=Billing_Architecture.objects.filter(architecture_name=product).values('architecture_name','architecture_img','id')
+        architecture=Billing_Architecture.objects.filter(architecture_name=product).values('architecture_name','architecture_img','id','apptype_img')
         if architecture:
             architecture_info=architecture
         else:
             architecture_info=Billing_FeatureArchitecture.objects.filter(architecture_name=product).values("id","architecture_id",
-            "feature_img","architecture_name")
+            "feature_img","architecture_name",'apptype_img')
         prdct=ProductCode.objects.filter(value=name).values("id",'value')
         for arch in architecture_info:
             arch['architecture_name']=prdct[0]['value']

@@ -75,7 +75,7 @@
 
                             <div class="pv-header">
                               
-                              <img src="{% static 'img/applications/wordpress-logo.jpg' %}" class="pv-main" alt="">
+                              <img src="/../static/media/{{ main_arch_json.apptype_img }}" class="pv-main" alt="">
                             
                             </div>
 
@@ -118,7 +118,7 @@
                          <div class="p-20 bgm-blue bghov idtest1" id="">
                         
                    <a href="/tco/architecture/" class="brd-2 f-16" style="color:#fff;" ><b>&nbsp;BACK&nbsp;</b></a>
-                    <a href="/tco/payment/{{main_arch_json.architecture_name}}" class="nextBtn launch-btn f-16" id="{{main_arch_json.architecture_name}}" style="color:#fff;float:right;" data-type="inverse"  data-from="top" data-align="right" data-icon="fa fa-comments"><b>&nbsp;LAUNCH&nbsp;</b></a>
+                    <a href="/tco/payment/{{main_arch_json.architecture_name}}" class="nextBtn launch-btn f-16 brd-2" id="{{main_arch_json.architecture_name}}" style="color:#fff;float:right;" data-type="inverse"  data-from="top" data-align="right" data-icon="fa fa-comments"><b>&nbsp;LAUNCH&nbsp;</b></a>
                     </div>
                 </div>
 
@@ -165,7 +165,7 @@
 
                           <div class="pv-header">
                               
-                              <img src="{% static 'img/applications/wordpress-logo.jpg' %}" class="pv-main" alt="" />
+                              <img src="/../static/media/{{ x.apptype_img }}" class="pv-main" alt="" />
 
                           </div> 
                               <a class="bp-title bgm-blue" style="height:60px;"> 
@@ -183,7 +183,7 @@
                     <b>INFO</b>
                     </a> -->
 
-                    <a class="pv-follow-btn selectbtn f-14" id="{{x.architecture_name}}" style="color:#fff;float:right;" data-type="inverse"  data-from="top" data-align="right" data-icon="fa fa-comments"><b>&nbsp;SELECT&nbsp;</b></a>
+                    <a class=" selectbtn f-14 brd-2" id="{{x.architecture_name}}" style="color:#fff;float:right;"><b>&nbsp;SELECT&nbsp;</b></a>
 
                 
                     
@@ -206,7 +206,7 @@
 
               <!--deafault selected main arch  -->
 
-                  <div class="col-sm-4 scrollReveal sr-bottom sr-delay-1"  id="{{i.id}}" style="">
+                  <div class="col-sm-4 scrollReveal sr-bottom sr-delay-1 p-t-5"  id="{{i.id}}" style="">
 
                   <div class="card blog-post profile-view z-depth-1 mymain ftrdv">
                     
@@ -227,14 +227,14 @@
                             
                     <div class="p-20 bgm-blue bghov">
                     
-                    <a id="{{i.architecture_name}}" data-toggle="modal" href="#modalDefault{{i.id}}" class="brd-2 arinfo f-16" style="color:#fff;" ><b>&nbsp;INFO&nbsp;</b></a>
+                    <a id="{{i.architecture_name}}" data-toggle="modal" href="#modalDefault{{i.id}}" class="brd-2 arinfo f-14" style="color:#fff;" ><b>&nbsp;INFO&nbsp;</b></a>
 
                     <!-- <a class="md-trigger" data-modal="modal-15" id="{{main_arch_json.architecture_name}}" style="color:#fff;">
                     <b>INFO</b>
                     </a> -->
 
-                    <a class="pv-follow-btn selectbtn f-16" 
-                    id="{{main_arch_json.architecture_name}}" style="color:#fff;float:right;" data-type="inverse"  data-from="top" data-align="right" data-icon="fa fa-comments"><b>SELECT</b></a>
+                    <a class="pv-follow-btn selectbtn f-14 brd-2" 
+                    id="{{main_arch_json.architecture_name}}" style="color:#fff;float:right;" data-type="inverse"  data-from="top" data-align="right" data-icon="fa fa-comments"><b>&nbsp;SELECT&nbsp;</b></a>
 
                    
 
@@ -277,7 +277,7 @@
              
               
                 <div class="p-0">
-                  <img  src="/../static/media/{{x.feature_img}}" style="display:block;margin:auto;" width="520px;" height="350px;"   class="nextBtn btn-lg " data-type="inverse"  data-from="top" data-align="right" data-icon="fa fa-comments"/>
+                  <img  src="/../static/media/{{x.feature_img}}" style="display:block;margin:auto;" width="520px;" height="350px;"   class="nextBtn btn-lg img-responsive" data-type="inverse"  data-from="top" data-align="right" data-icon="fa fa-comments"/>
                 </div>
 
                  <div class="bgm-blue c-white">
@@ -378,7 +378,7 @@
              
               
                 <div class="p-0">
-                  <img  src="/../static/media/{{ main_arch_json.architecture_img }}" style="display:block;margin:auto;" width="520px;" height="350px;"   class="nextBtn btn-lg " data-type="inverse"  data-from="top" data-align="right" data-icon="fa fa-comments"/>
+                  <img  src="/../static/media/{{ main_arch_json.architecture_img }}" style="display:block;margin:auto;" width="520px;" height="350px;"   class="nextBtn btn-lg img-responsive" data-type="inverse"  data-from="top" data-align="right" data-icon="fa fa-comments"/>
                 </div>
 
                  <div class="bgm-blue c-white">

@@ -234,7 +234,7 @@ $(document).ready(function() {
                     <img src="/../static/media/{{ i.architecture_img }}"  alt="" style="background-color: #fff;" data-toggle="modal" href="#modalDefault{{i.id}}" id="{{i.architecture_name}}" class="ftrd-pup">
 
                       <div class="pv-header ">
-                        <img src="{% static 'img/applications/wp-logo50.jpg' %}"  class="pv-main" alt="" >
+                        <img src="/../static/media/{{ i.apptype_img }}"  class="pv-main" alt="" >
                       </div>
 
                       <div class="bp-title bgm-blue" style="height:70px;">
@@ -247,10 +247,15 @@ $(document).ready(function() {
                   <div class="p-20 bgm-blue bghov idtest" id="idtest">
                   
                   <a id="{{i.architecture_name}}" data-toggle="modal" href="#modalDefault{{i.id}}" class="f-14 brd-2 arinfo" style="color:#fff;" ><b>&nbsp;INFO&nbsp;</b></a>
-                 
-
+                    
+                      {%if i.instance_name%}                 
+          
                     <a class="pv-follow-btn f-14 brd-2" id="{{ i.id }}" style="color:#fff;float:right;" href="/tco/ftrd-for-arch/{{ i.id }}/"><b>&nbsp;SELECT&nbsp;</b></a>
+                    {%else%}
+                    <a class="pv-follow-btn f-14 brd-2 sa-basic123" id="sa-basic123" style="color:#fff;float:right;" href="#"><b>&nbsp;SELECT&nbsp;</b></a>
+                    {%endif%}
 
+                    
                     
                   </div>
                 </div>
@@ -397,8 +402,8 @@ $(document).ready(function() {
                       <div class="pv-header1 ">
                         <img src="{% static 'img/applications/lap1.png' %}"  class="pv-main1" alt="" >
                       </div>                       
-                      <div class="bp-title bgm-white" style="">
-                          <h2 style="font-color:white;font-size:16px;"</h2>
+                      <div class="bp-title bgm-blue" style="">
+                          <h2 style="font-color:white;font-size:16px;"></h2>
                         
                       </div>
 
@@ -410,11 +415,11 @@ $(document).ready(function() {
                      
                        </div>
 
-                  <div class="p-20 bgm-white bghov idtest" id="idtest">
+                  <div class="p-20 bgm-white bghov1 idtest" id="idtest">
 
-                  <a id="" data-toggle="modal" href="/tco/host_step1/" class="brd-2 arinfo" style="color:#2196f3;" ><b>&nbsp;STEPS&nbsp;</b></a>
+                  <a id="" data-toggle="modal" href="/tco/host_step1/" class="brd-2 arinfo" ><b>&nbsp;STEPS&nbsp;</b></a>
 
-                    <a class="pv-follow-btn brd-2" id="" style="color:#2196f3;float:right;" href=""><b>&nbsp;SELECT&nbsp;</b></a>
+                    <a class="pv-follow-btn brd-2" id="" style="color:#2196f3;float:right;" href="#"><b>&nbsp;SELECT&nbsp;</b></a>
 
                     
                   </div>
@@ -434,8 +439,8 @@ $(document).ready(function() {
                       <div class="pv-header1 ">
                         <img src="{% static 'img/applications/wordpress1.png' %}"  class="pv-main1" alt="" >
                       </div>                       
-                      <div class="bp-title bgm-white" style="">
-                          <h2 style="font-color:white;font-size:16px;"</h2>
+                      <div class="bp-title bgm-blue" style="">
+                          <h2 style="font-color:white;font-size:16px;"></h2>
                         
                       </div>
 
@@ -447,11 +452,11 @@ $(document).ready(function() {
                      
                        </div>
 
-                  <div class="p-20 bgm-white bghov idtest" id="idtest">
+                  <div class="p-20 bgm-white bghov1 idtest" id="idtest">
 
-                  <a id="" data-toggle="modal" href="/tco/wordp_host_step1/" class="brd-2 arinfo" style="color:#2196f3;" ><b>&nbsp;STEPS&nbsp;</b></a>
+                  <a id="" data-toggle="modal" href="#" class="brd-2 arinfo" ><b>&nbsp;STEPS&nbsp;</b></a>
 
-                    <a class="pv-follow-btn brd-2" id="" style="color:#2196f3;float:right;" href=""><b>&nbsp;SELECT&nbsp;</b></a>
+                    <a class="pv-follow-btn brd-2" id="" style="float:right;" href="#"><b>&nbsp;SELECT&nbsp;</b></a>
 
                     
                   </div>
@@ -470,8 +475,8 @@ $(document).ready(function() {
                       <div class="pv-header1 ">
                         <img src="{% static 'img/applications/python1.png' %}"  class="pv-main1" alt="" >
                       </div>                       
-                      <div class="bp-title bgm-white" style="">
-                          <h2 style="font-color:white;font-size:16px;"</h2>
+                      <div class="bp-title bgm-blue" style="">
+                          <h2 style="font-color:white;font-size:16px;"></h2>
                         
                       </div>
 
@@ -483,11 +488,11 @@ $(document).ready(function() {
                      
                        </div>
 
-                  <div class="p-20 bgm-white bghov idtest" id="idtest">
+                  <div class="p-20 bgm-white bghov1 idtest" id="idtest">
 
-                  <a id="" data-toggle="modal" href="#modalDefault" class="brd-2 arinfo" style="color:#2196f3;" ><b>&nbsp;STEPS&nbsp;</b></a>
+                  <a id="" data-toggle="modal" href="#modalDefault" class="brd-2 arinfo" ><b>&nbsp;STEPS&nbsp;</b></a>
 
-                    <a class="pv-follow-btn brd-2" id="" style="color:#2196f3;float:right;" href=""><b>&nbsp;SELECT&nbsp;</b></a>
+                    <a class="pv-follow-btn brd-2" id="" style="float:right;" href="#"><b>&nbsp;SELECT&nbsp;</b></a>
 
                     
                   </div>
@@ -510,8 +515,8 @@ $(document).ready(function() {
                       <div class="pv-header1 ">
                         <img src="{% static 'img/applications/magento1.png' %}"  class="pv-main1" alt="" >
                       </div>                       
-                      <div class="bp-title bgm-white" style="">
-                          <h2 style="font-color:white;font-size:16px;"</h2>
+                      <div class="bp-title bgm-blue" style="">
+                          <h2 style="font-color:white;font-size:16px;"></h2>
                         
                       </div>
 
@@ -523,11 +528,11 @@ $(document).ready(function() {
                      
                        </div>
 
-                  <div class="p-20 bgm-white bghov idtest" id="idtest">
+                  <div class="p-20 bgm-white bghov1 idtest" id="idtest">
 
-                  <a id="" data-toggle="modal" href="#modalDefault" class="brd-2 arinfo" style="color:#2196f3;" ><b>&nbsp;STEPS&nbsp;</b></a>
+                  <a id="" data-toggle="modal" href="#modalDefault" class="brd-2 arinfo"  ><b>&nbsp;STEPS&nbsp;</b></a>
 
-                    <a class="pv-follow-btn brd-2" id="" style="color:#2196f3;float:right;" href=""><b>&nbsp;SELECT&nbsp;</b></a>
+                    <a class="pv-follow-btn brd-2" id="" style="float:right;" href="#"><b>&nbsp;SELECT&nbsp;</b></a>
 
                     
                   </div>
@@ -591,9 +596,9 @@ $(document).ready(function() {
 
             <div class="card-body">
               <ul class="p-t-10 p-b-10">
-                <li class="waves-effect"><a href="/tco/chat/"><i class="zmdi zmdi-help zmdi-hc-fw"></i> Connect to Cloud Support</a></li>
+              
 
-                <li class="waves-effect"><a href="/tco/help/"><i class="zmdi zmdi-help zmdi-hc-fw"></i> Architecture Selection</a></li>
+               <!--  <li class="waves-effect"><a href="/tco/help/"><i class="zmdi zmdi-help zmdi-hc-fw"></i> Architecture Selection</a></li> -->
 
                 <li class="waves-effect"><i class="zmdi zmdi-help zmdi-hc-fw"></i> Payment Procedure</li>
                 <li class="waves-effect"><i class="zmdi zmdi-help zmdi-hc-fw"></i> Account Management</li>
@@ -648,7 +653,7 @@ $(document).ready(function() {
              
               
                 <div class="p-0">
-                  <img  src="/../static/media/{{ i.architecture_img }}" style="display:block;margin:auto;" width="520px;" height="350px;"   class="nextBtn btn-lg " data-type="inverse"  data-from="top" data-align="right" data-icon="fa fa-comments"/>
+                  <img  src="/../static/media/{{ i.architecture_img }}" style="display:block;margin:auto;" width="520px;" height="350px;"   class="nextBtn btn-lg img-responsive" data-type="inverse"  data-from="top" data-align="right" data-icon="fa fa-comments"/>
                 </div>
 
                  <div class="bgm-blue c-white">
@@ -830,8 +835,8 @@ if ($.browser.msie) {
              */
 
             //Basic
-            $('#sa-basic').click(function(){
-                swal("Here's a message!");
+            $('.sa-basic123').click(function(){
+                swal("Sorry! No Featured Architectures are available for this Architecture");
             });
 
             //A title with a text under

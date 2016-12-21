@@ -34,6 +34,7 @@ class Billing_Architecture(models.Model):
     architecture_img = models.ImageField(upload_to = 'architectures',null=True, blank=True)
     archtype = models.ForeignKey(Billing_ArchitectureType,blank=True,null=True)
     description = models.TextField(blank=True)
+    apptype_img = models.ImageField(upload_to = 'apptype',null=True, blank=True)
     def __unicode__(self):
         #return '%d: %s,%s' % (self.id,self.architecture_name, self.architecture_img)
         return unicode(self.id)
@@ -44,4 +45,4 @@ class Billing_FeatureArchitecture(models.Model):
     feature_img = models.ImageField(upload_to = 'architectures/features/',null=True, blank=True)
     architecture_name = models.ForeignKey(ProductCode)
     description = models.TextField(blank=True)
-
+    apptype_img = models.ImageField(upload_to = 'apptype',null=True, blank=True)

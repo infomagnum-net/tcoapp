@@ -15405,8 +15405,12 @@ a.thumbnail.active {
     border: 1px solid #03a9f4;
   }
 
+@media (max-width: 767px) {
+  .modal-dialog {width:auto;}
+}
 
-.modal-dialog {width:600px;}
+@media (min-width: 767px) {.modal-dialog {width:600px;} }
+
 .thumbnail {margin-bottom:6px;}
 
 .gallery{
@@ -15454,8 +15458,30 @@ div.hidden {
 }
 
 
+/*loader css*/
+
+
+.loader {
+  position: fixed;
+  left: 0px;
+  top: 0px;
+  width: 100%;
+  height: 100%;
+  z-index: 9999;
+  background: url("../img/Loading_Cloud.gif") 50% 50% no-repeat rgb(249,249,249);
+}
+
+
 
 .bghov a:hover{background-color: #0a6ebd;}
+.bghov1 a{color:#2196f3 !important;}
+.bghov1 a:hover{background-color: #2196f3;color:#fff !important;}
+
+
+.card .bghov a:hover{background-color: #0a6ebd;}
+.card .bghov1 a{color:#2196f3 !important;}
+.card .bghov1 a:hover{background-color: #2196f3;color:#fff !important;}
+
 
 .ital{font-style: italic !important;}
 
@@ -15514,4 +15540,17 @@ div.hidden {
     transition: all !important;
     -webkit-transition-duration: 300ms !important;
     transition-duration: 300ms !important;
+}
+
+
+
+
+
+
+
+/*safari browser css*/
+
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+ /* Safari only override */ ::i-block-chrome, 
+#l-register{height:300px !important;}
 }

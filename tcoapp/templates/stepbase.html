@@ -97,8 +97,29 @@
                   padding-top: 134px;
                 }
 
+                .loader {
+                  position: fixed;
+                  left: 0px;
+                  top: 0px;
+                  width: 100%;
+                  height: 100%;
+                  z-index: 9999;
+                  background: url("{% static 'img/Loading_Cloud.gif' %}") 50% 50% no-repeat rgb(249,249,249);
+                }
         </style>
+
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+    <script type="text/javascript">
+    $(window).load(function() {
+      $(".loader").fadeOut("slow");
+    })
+    </script>
+
     </head>
+    
+ <div class="loader"></div>
+
     
     <body class="toggled sw-toggled">
         <header id="header" class="clearfix" data-current-skin="blue">
@@ -126,24 +147,7 @@
                            <a href="/tco/architecture/"> <i class="tm-icon zmdi zmdi-home"></i></a>
                        </li>
                         
-                        <li class="dropdown">
-                            <a data-toggle="dropdown" href=""><i class="tm-icon zmdi zmdi-account-circle"></i> </a>
-                            <ul class="dropdown-menu dm-icon pull-right">
-                                
-                                <li class="">
-                                   <a href="/tco/profile/"><i class="zmdi zmdi-account"></i> View Profile</a>
-                                </li>
-
-                                <li>
-                                    <a href="/accounts/password/change/"><i class="zmdi zmdi-face"></i> Privacy Settings</a>
-                                </li>
-
-                                <li>
-                                    <a href="/tco/logout"><i class="zmdi zmdi-time-restore"></i> Logout</a>
-                                </li>
-
-                            </ul>
-                        </li>
+                        
 
 
                          <li class="dropdown">
@@ -175,6 +179,25 @@
                                 </div>
                         
                             </div>
+                        </li>
+
+                        <li class="dropdown">
+                            <a data-toggle="dropdown" href=""><i class="tm-icon zmdi zmdi-account-circle"></i> </a>
+                            <ul class="dropdown-menu dm-icon pull-right">
+                                
+                                <li class="">
+                                   <a href="/tco/profile/"><i class="zmdi zmdi-account"></i> View Profile</a>
+                                </li>
+
+                                <li>
+                                    <a href="/accounts/password/change/"><i class="zmdi zmdi-face"></i> Privacy Settings</a>
+                                </li>
+
+                                <li>
+                                    <a href="/tco/logout"><i class="zmdi zmdi-time-restore"></i> Logout</a>
+                                </li>
+
+                            </ul>
                         </li>
 
                        <!--   <li class="hidden-xs" id="chat-trigger" data-trigger="#chat">
@@ -374,7 +397,7 @@
 
         <!-- Javascript Libraries -->
         <script src="{% static 'vendors/bower_components/jquery/dist/jquery.min.js' %}"></script>
-      <script src="{% static 'vendors/bower_components/bootstrap/dist/js/bootstrap.min.js' %}"></script> 
+        <script src="{% static 'vendors/bower_components/bootstrap/dist/js/bootstrap.min.js' %}"></script> 
         
         <script src="{% static 'vendors/bower_components/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js' %}"></script>
 
@@ -394,6 +417,46 @@
         <!-- Following is only for demo purpose to trigger colored modals. You may ignore this when you implement -->
         <script type="text/javascript">
             $(document).ready(function(){
+
+                $('#chat-send').keypress(function (e) {
+
+                     var key = e.which;
+                     if(key == 13)
+                      {
+                     $("#chat-send button").click();
+                    }
+                      });
+ 
+
+$("#chat-send button").click(function(){
+  input=$("#chat-send textarea").val()
+
+  if(input){
+    
+    var dt = new Date();
+    var chttime = dt.getDate()+"/"+(dt.getMonth()+1) + "/" +dt.getFullYear()+" at "+dt.getHours() + ":" + dt.getMinutes() + ":" + dt.getSeconds();
+    var e = $('<div class="lv-item media right"><div class="media-body"><div class="ms-item">'+$("#chat-send textarea").val()+'</div><small class="ms-date"><i class="zmdi zmdi-time"></i>'+chttime+'</small></div> </div>');
+        $('.lv-body').append(e);    
+        e.attr('id', 'myid');
+      user_msg=input
+      $.ajax({
+             type: "GET",
+             url:"/tco/chat-store/",
+              data:{"input":input,},
+             success: function(msg){
+              var e = $('<div class="lv-item media"><div class="media-body"><div class="ms-item">'+msg+'</div><small class="ms-date"><i class="zmdi zmdi-time"></i>'+chttime+'</small></div></div>');
+        $('.lv-body').append(e);    
+        e.attr('id', 'myid');
+        $(".lv-body").scrollTop($(".lv-body")[0].scrollHeight);
+        $('#chat-send textarea').val("");
+             }
+      });
+    }
+  else{alert("please enter input text")}
+ 
+});
+
+
                 $('body').on('click', '#btn-color-targets > .btn', function(){
                     var color = $(this).data('target-color');
                     $('#modalColor').attr('data-modal-color', color);

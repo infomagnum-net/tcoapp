@@ -45,15 +45,7 @@ $(window).load(function() {
 
 <style>
 
-.loader {
-  position: fixed;
-  left: 0px;
-  top: 0px;
-  width: 100%;
-  height: 100%;
-  z-index: 9999;
-  background: url("{% static 'img/80X.gif' %}") 50% 50% no-repeat rgb(249,249,249);
-}
+
 
 .stepwizard-step p {
     margin-top: 10px;
@@ -167,15 +159,7 @@ $(window).load(function() {
 
 .list-inst{padding-top: 20px !important;}
 
-.loader {
-  position: fixed;
-  left: 0px;
-  top: 0px;
-  width: 100%;
-  height: 100%;
-  z-index: 9999;
-  background: url("{% static 'img/Loading_Cloud.gif' %}") 50% 50% no-repeat rgb(249,249,249);
-}
+
 
 </style>
 
@@ -240,24 +224,7 @@ $(window).load(function() {
                            <a href="/tco/architecture/"> <i class="tm-icon zmdi zmdi-home"></i></a>
                        </li>
                         
-                        <li class="dropdown">
-                            <a data-toggle="dropdown" href=""><i class="tm-icon zmdi zmdi-account-circle"></i> </a>
-                            <ul class="dropdown-menu dm-icon pull-right">
-                                
-                                <li class="">
-                                   <a href="/tco/profile/"><i class="zmdi zmdi-account"></i> View Profile</a>
-                                </li>
 
-                                <li>
-                                    <a href="/accounts/password/change/"><i class="zmdi zmdi-face"></i> Privacy Settings</a>
-                                </li>
-
-                                <li>
-                                    <a href="/tco/logout"><i class="zmdi zmdi-time-restore"></i> Logout</a>
-                                </li>
-
-                            </ul>
-                        </li>
 
 
                             <li class="dropdown">
@@ -294,6 +261,25 @@ $(window).load(function() {
                             </div>
                         </li>
 
+
+                                                <li class="dropdown">
+                            <a data-toggle="dropdown" href=""><i class="tm-icon zmdi zmdi-account-circle"></i> </a>
+                            <ul class="dropdown-menu dm-icon pull-right">
+                                
+                                <li class="">
+                                   <a href="/tco/profile/"><i class="zmdi zmdi-account"></i> View Profile</a>
+                                </li>
+
+                                <li>
+                                    <a href="/accounts/password/change/"><i class="zmdi zmdi-face"></i> Privacy Settings</a>
+                                </li>
+
+                                <li>
+                                    <a href="/tco/logout"><i class="zmdi zmdi-time-restore"></i> Logout</a>
+                                </li>
+
+                            </ul>
+                        </li>
                          <!-- <li class="hidden-xs" id="chat-trigger" data-trigger="#chat">
                             <a href=""><i class="tm-icon zmdi zmdi-comment-alt-text"></i></a>
                         </li> -->
@@ -651,7 +637,7 @@ $("#chat-send button").click(function(){
     
     var dt = new Date();
     var chttime = dt.getDate()+"/"+(dt.getMonth()+1) + "/" +dt.getFullYear()+" at "+dt.getHours() + ":" + dt.getMinutes() + ":" + dt.getSeconds();
-    var e = $('<div class="lv-item media"><div class="media-body"><div class="ms-item">'+$("#chat-send textarea").val()+'</div><small class="ms-date"><i class="zmdi zmdi-time"></i>'+chttime+'</small></div> </div>');
+    var e = $('<div class="lv-item media right"><div class="media-body"><div class="ms-item">'+$("#chat-send textarea").val()+'</div><small class="ms-date"><i class="zmdi zmdi-time"></i>'+chttime+'</small></div> </div>');
         $('.lv-body').append(e);    
         e.attr('id', 'myid');
       user_msg=input
@@ -660,7 +646,7 @@ $("#chat-send button").click(function(){
              url:"/tco/chat-store/",
               data:{"input":input,},
              success: function(msg){
-              var e = $('<div class="lv-item media right"><div class="media-body"><div class="ms-item">'+msg+'</div><small class="ms-date"><i class="zmdi zmdi-time"></i>'+chttime+'</small></div></div>');
+              var e = $('<div class="lv-item media"><div class="media-body"><div class="ms-item">'+msg+'</div><small class="ms-date"><i class="zmdi zmdi-time"></i>'+chttime+'</small></div></div>');
         $('.lv-body').append(e);    
         e.attr('id', 'myid');
         $(".lv-body").scrollTop($(".lv-body")[0].scrollHeight);

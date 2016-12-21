@@ -5,6 +5,7 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="shortcut icon" href="{% static 'img/favlogo.png' %}" type="image/x-icon">
         <title>Cloud-TCO</title>
     
         <!-- Vendor CSS -->
@@ -18,17 +19,27 @@
         <!-- CSS -->
         <link href="{% static 'css/app.min.1.css" rel="stylesheet' %}">
         <link href="{% static 'css/app.min.2.css" rel="stylesheet' %}">
+         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+                <script type="text/javascript">
+                $(window).load(function() {
+                  $(".loader").fadeOut("slow");
+                })
+                </script>
+
     </head>
+
+    <div class="loader"></div>
     
-<body>
+    <body>
         
-    <header id="header" class="clearfix" data-current-skin="lightblue">
+    <header id="header" class="clearfix" data-current-skin="blue">
             
         <ul class="header-inner">
                
             <li class="logo">
-                <a href="/" style="text-decoration:none;">
-                    <img src="{% static 'img/cloud_logo.svg' %}" alt="client" style="width:147px;">
+                <a href="/tco/architecture" style="text-decoration:none;">
+                    <img src="{% static 'img/cloud_logo.svg' %}" alt="client" style="width:147px;height:41px;">
                 </a>
             </li>
 
@@ -54,6 +65,41 @@
                     <li>
                         <a href="/tco/architecture"> <i class="tm-icon zmdi zmdi-home"></i></a>
                     </li>
+
+                     <li class="dropdown">
+                            <a data-toggle="dropdown">
+                                <!-- <i class="tmn-counts"></i> -->
+                                <i class="tm-icon zmdi zmdi-headset-mic zmdi-hc-fw"></i>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-lg pull-right">
+                                <div class="listview lv-message" >
+                                    <div class="lv-header c-blue">
+                                        CHAT
+                        
+                                      
+                                    </div>
+
+                                    <div class="lv-body" style="height:300px">
+                                   
+                             
+                                    <div class="media-body">
+                                            <div class="p-l-10 f-300  text-center">
+                                                <b>Welcome to Cloud-TCO suppport.<br/>
+                                    How may I assist you..</b>
+                                            </div>
+                                            
+                                        </div>
+                                    
+                                    </div>
+                        
+                                    <div class="lv-footer ms-reply " id="chat-send"><textarea placeholder="What's on your mind..."></textarea>
+                                    
+                                    <button ><i class="zmdi zmdi-mail-send"></i></button></div>
+                                </div>
+                        
+                            </div>
+                        </li>
+
 
                     <li class="dropdown">
                         <a data-toggle="dropdown" href=""><i class="tm-icon zmdi zmdi-account-circle"></i> </a>
@@ -1318,42 +1364,82 @@ $(document).ready(function(){
     
     
         <!-- Javascript Libraries -->
-           <!--  <script  type="text/javascript" src="../jquery.jqplot.min.js"></script> -->
+          
         <script src="{% static 'js/canvasjs.min.js' %}"></script>
-        <script src="{% static 'js/jquery.jqplot.min.js' %}"></script>
+       
 
- <script src="{% static 'vendors/bower_components/jquery/dist/jquery.min.js' %}"></script>
+        <script src="{% static 'vendors/bower_components/jquery/dist/jquery.min.js' %}"></script>
         <script src="{% static 'vendors/bower_components/bootstrap/dist/js/bootstrap.min.js' %}"></script>
-        
-                <script src="{% static 'vendors/bower_components/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js' %}"></script>
-        <script src="{% static 'vendors/bower_components/Waves/dist/waves.min.js' %}"></script>
-        <script src="{% static 'vendors/bootstrap-growl/bootstrap-growl.min.js' %}"></script>
-        <script src="{% static 'vendors/bower_components/bootstrap-sweetalert/lib/sweet-alert.min.js' %}"></script>
-        
-        <script src="{% static 'vendors/bower_components/flot/jquery.flot.js' %}"></script>
-        <script src="{% static 'vendors/bower_components/flot/jquery.flot.resize.js' %}"></script>
-        <script src="{% static 'vendors/bower_components/flot/jquery.flot.pie.js' %}"></script>
-        <script src="{% static 'vendors/bower_components/flot.tooltip/js/jquery.flot.tooltip.min.js' %}"></script>
-        <script src="{% static 'vendors/bower_components/flot-orderBars/js/jquery.flot.orderBars.js' %}"></script>
-        <script src="{% static 'vendors/bower_components/flot.curvedlines/curvedLines.js' %}"></script>                         
-        <script src="{% static 'vendors/bower_components/flot-orderBars/js/jquery.flot.orderBars.js' %}"></script>
-        
-        <!-- Placeholder for IE9 -->
-        <!--[if IE 9 ]>
-            <script src="vendors/bower_components/jquery-placeholder/jquery.placeholder.min.js"></script>
-        <![endif]-->
 
+
+        <script src="{% static 'vendors/sparklines/jquery.sparkline.min.js' %}"></script>
+
+
+      
         
-        <!-- Charts - Please read the read-me.txt inside the js folder-->
-        <script src="{% static 'js/flot-charts/curved-line-chart.js' %}"></script>
-        <script src="{% static 'js/flot-charts/line-chart.js' %}"></script>
-        <script src="{% static 'js/flot-charts/bar-chart.js' %}"></script>
-        <script src="{% static 'js/flot-charts/dynamic-chart.js' %}"></script>
-        <script src="{% static 'js/flot-charts/pie-chart.js' %}"></script>
-        
+              
+        <script src="{% static 'js/charts.js' %}"></script>
+   
         <script src="{% static 'js/functions.js' %}"></script> 
        <!--  <script src="js/demo.js"></script> -->
+
+        <script src="{% static 'vendors/bower_components/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js'%}"></script>
+        <script src="{% static 'vendors/bower_components/Waves/dist/waves.min.js'%}"></script>
+        <script src="{% static 'vendors/bootstrap-growl/bootstrap-growl.min.js'%}"></script>
+      
+
+
+
+
+
+
+
+
+
+    <script type="text/javascript">
     
+$(document).ready(function () {
+
+
+$('#chat-send').keypress(function (e) {
+
+ var key = e.which;
+ if(key == 13)
+  {
+ $("#chat-send button").click();
+}
+  });
+ 
+
+$("#chat-send button").click(function(){
+  input=$("#chat-send textarea").val()
+
+  if(input){
+    
+    var dt = new Date();
+    var chttime = dt.getDate()+"/"+(dt.getMonth()+1) + "/" +dt.getFullYear()+" at "+dt.getHours() + ":" + dt.getMinutes() + ":" + dt.getSeconds();
+    var e = $('<div class="lv-item media right"><div class="media-body"><div class="ms-item">'+$("#chat-send textarea").val()+'</div><small class="ms-date"><i class="zmdi zmdi-time"></i>'+chttime+'</small></div> </div>');
+        $('.lv-body').append(e);    
+        e.attr('id', 'myid');
+      user_msg=input
+      $.ajax({
+             type: "GET",
+             url:"/tco/chat-store/",
+              data:{"input":input,},
+             success: function(msg){
+              var e = $('<div class="lv-item media"><div class="media-body"><div class="ms-item">'+msg+'</div><small class="ms-date"><i class="zmdi zmdi-time"></i>'+chttime+'</small></div></div>');
+        $('.lv-body').append(e);    
+        e.attr('id', 'myid');
+        $(".lv-body").scrollTop($(".lv-body")[0].scrollHeight);
+        $('#chat-send textarea').val("");
+             }
+      });
+    }
+  else{alert("please enter input text")}
+ 
+});
+ });   
+</script>
   
 <script class="code" type="text/javascript">
 $(document).ready(function(){
@@ -1397,6 +1483,51 @@ $(document).ready(function(){
 </script>
 
 
+
+<script class="code" type="text/javascript">
+$(document).ready(function(){
+
+
+$('#chat-send').keypress(function (e) {
+
+ var key = e.which;
+ if(key == 13)
+  {
+ $("#chat-send button").click();
+}
+  });
+ 
+
+$("#chat-send button").click(function(){
+  input=$("#chat-send textarea").val()
+
+  if(input){
+    
+    var dt = new Date();
+    var chttime = dt.getDate()+"/"+(dt.getMonth()+1) + "/" +dt.getFullYear()+" at "+dt.getHours() + ":" + dt.getMinutes() + ":" + dt.getSeconds();
+    var e = $('<div class="lv-item media"><div class="media-body"><div class="ms-item">'+$("#chat-send textarea").val()+'</div><small class="ms-date"><i class="zmdi zmdi-time"></i>'+chttime+'</small></div> </div>');
+        $('.lv-body').append(e);    
+        e.attr('id', 'myid');
+      user_msg=input
+      $.ajax({
+             type: "GET",
+             url:"/tco/chat-store/",
+              data:{"input":input,},
+             success: function(msg){
+              var e = $('<div class="lv-item media right"><div class="media-body"><div class="ms-item">'+msg+'</div><small class="ms-date"><i class="zmdi zmdi-time"></i>'+chttime+'</small></div></div>');
+        $('.lv-body').append(e);    
+        e.attr('id', 'myid');
+        $(".lv-body").scrollTop($(".lv-body")[0].scrollHeight);
+        $('#chat-send textarea').val("");
+             }
+      });
+    }
+  else{alert("please enter input text")}
+ 
+});
+
+});
+</script>
 
     
     </body>

@@ -86,38 +86,68 @@
             <div class="bp-header text-center" id="jhsagah">
               {%if arch_info.architecture_img%}
                 
-                  <img src="/../static/media/{{arch_info.architecture_img}}" alt="" style="width:450px;" class="p-b-5">
+                  <img src="/../static/media/{{arch_info.architecture_img}}" alt="" style="width:450px;display:block;margin:auto;" class="img-responsive p-b-5">
                  {%else%}
-                  <img src="/../static/media/{{arch_info.feature_img}}" class="p-b-5" alt="" style="width:450px;">
+                  <img src="/../static/media/{{arch_info.feature_img}}" class="p-b-5" alt="" style="width:450px;display:block;margin:auto;">
 
                   {%endif%}
 
               <a class="bp-title" style="background-color:#2196f3;padding:1px;">
                  
                   <h4 class="archiname" style="color:#fff;">{{arch_info.architecture_name}}</h4>
-                  <h5 class="text-center"  style="color:#fff;">{{plan_info.total_plan_price}}</h5>
+                  <h5 class="text-center"  style="color:#fff;">$ {{plan_info.total_plan_price}}</h5>
 
               </a>
             </div>
           </div>
               
           <div class="col-md-6 scrollReveal sr-right" style="padding:20px;">
-            <div class="p-20">
+            <div class="p-10">
                <h4>Description</h4>
                <p>Description about the Architecture will be diaplayed here</p>
 
 
-  <p><b><img src="{% static 'img/featured-arch/Instance_color.png'%}" 
-                style="width:20px"  alt=""></b> &nbsp;&nbsp;Sample Instance</p>
+  <p class="m-b-5"><img src="{% static 'img/featured-arch/Instance_color.png'%}" 
+                style="width:20px"  alt=""> &nbsp;&nbsp; Instance : </p>
+                <ul>
+                  {%for name in plan_info.instance_name %}
+                  <li>{{name.0}}&nbsp; - {{plan_info.instance_count}}</li>
+                  {%endfor%}
+                </ul>
 
-  <p><b><img src="{% static 'img/featured-arch/Database_color.png'%}" 
-                style="width:20px"  alt=""></b>&nbsp;&nbsp;Sample Database</p>
+  <p class="m-b-5"><img src="{% static 'img/featured-arch/Database_color.png'%}" 
+                style="width:20px"  alt="">&nbsp;&nbsp; Database : </p>
+                <ul class="p-t-0">
+                  {%for name in plan_info.rds_name %}
+                  <li>{{name.0}}&nbsp; - {{plan_info.rds_count}}</li>
+                  {%endfor%}
+                </ul>
+
+
    
 
-        <p><b><img src="{% static 'img/featured-arch/Storage_color.png'%}" 
-        style="width:20px"  alt=""></b>&nbsp;&nbsp;sample storage
+        <p class="m-b-5"><b><img src="{% static 'img/featured-arch/Storage_color.png'%}" 
+        style="width:20px"  alt=""></b>&nbsp;&nbsp;storage :
         </p>
-   
+        <ul>
+                  {%for name in plan_info.s3_name %}
+                  <li>{{name.0}}&nbsp; - {{plan_info.s3_count}}</li>
+                  {%endfor%}
+                </ul>
+
+
+        
+
+        <p class="m-b-5"><b><img src="{% static 'img/featured-arch/LoadBalancer_color.png'%}" 
+        style="width:20px"  alt=""></b>&nbsp;&nbsp;Load Balancer :
+        </p>
+
+        <ul>
+                  {%for name in plan_info.balancer_name %}
+                  <li>{{name.0}}&nbsp; - {{plan_info.balancer_count}}</li>
+                  {%endfor%}
+                </ul>
+
             </div>
           </div>     
 
