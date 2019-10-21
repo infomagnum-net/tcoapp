@@ -19,7 +19,7 @@ debtagshw==0.1
 decorator==3.4.0
 defer==1.0.6
 dirspec==13.10
-Django==1.8
+Django==1.11.23
 django-annoying==0.10.3
 django-filter==0.15.3
 django-fsm==2.4.0
