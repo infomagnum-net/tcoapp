@@ -28,7 +28,7 @@ django-livefield==2.6.0
 django-model-utils==2.6
 django-multi-email-field==0.4
 django-xhtml2pdf==0.0.3
-djangorestframework==3.5.1
+djangorestframework==3.11.2
 djangorestframework-bulk==0.2.1
 docutils==0.11
 duplicity==0.6.23
